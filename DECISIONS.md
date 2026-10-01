@@ -30,7 +30,14 @@ This file records decisions that should not drift silently during development.
 - **Contacts** is a separate top-level section using a period-appropriate executive card-index concept. A person is added only after the player legitimately meets them or obtains their contact information.
 - Contacts can later support calls, letters, secretaries, requested meetings, invitations, and unanswered attempts.
 - The former Washington tab is renamed **After Hours** for nightlife, gambling, bookmaking, the Star Club, and other off-the-clock social activity.
-- Main navigation is centered and ordered: Executive Desk, Factory, Federal Exchange, Metropolitan Ledger, Journal, Contacts, After Hours.
+- Main navigation is centered and ordered: Executive Desk, Factory, Contracts, Federal Exchange, Metropolitan Ledger, Journal, Contacts, After Hours.
+- **Contracts** is a first-class department. Customers, not the player, specify required product, quality standard, quantity, price, and deadline.
+- Federal Electric begins with one existing customer contract and grows its contract book through successful performance.
+- Factory production advances continuously against the shared one-hour business-day clock and displays a large live progress bar.
+- The player can leave the factory while production continues, but unattended operation carries semi-uncommon breakdown risk.
+- A works manager/foreman may resolve unattended problems independently or may need executive authorization, leaving production stopped until the player returns.
+- A Star Club visit consumes 30 minutes of the business day; production continues during that absence if the line remains operational.
+- Customer history remembers correct, late, short, rejected, and eventually wrong-specification deliveries.
 - NPCs should remember meaningful interactions and may develop loyalty, resentment, jealousy, rivalry, fear, affection, or indebtedness without exposing videogame meters.
 - **The Star Club**, operated by fictional Madam Star, is the first Washington nightlife/underworld location.
 - Bookmakers, private gambling, and backroom poker can exist as optional activities.
