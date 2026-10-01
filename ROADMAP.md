@@ -1,161 +1,123 @@
 # Federal Electric Roadmap
 
-Federal Electric is a browser-based historical industrial, financial, social, and political life simulation. The player runs a fictional American electrical manufacturer beginning in 1938. The company remains the center of play while wealth, Wall Street, Washington, war, society, corruption, and a possible political career grow around it.
+Federal Electric is a long-save historical industrial, financial, social, and political life simulation beginning in Washington, D.C. in 1938.
 
-## Locked design rules
+## Locked rules
 
-1. Work directly on `main` unless Derek explicitly authorizes another branch.
-2. Federal Electric is always the core company; other systems orbit it rather than replacing it.
-3. UI is a living 1930s/1940s corporate spreadsheet and paperwork desk.
-4. Company money and owner personal money remain separate.
-5. Federal Electric begins privately held. Going public is optional and may never happen.
-6. No universal morality meter. Decisions create financial, social, legal, political, and reputational consequences.
-7. Real historical events and economic conditions anchor the timeline; fictional corporations and private characters allow emergent outcomes.
-8. Historical specifics are researched rather than guessed.
-9. The game should be deep without turning into tax-law or accounting homework.
-10. Core gameplay additions are planned as updates to the same game rather than paid gameplay DLC.
+1. Main branch only unless Derek authorizes otherwise.
+2. Federal Electric is always the core company.
+3. Corporate spreadsheet/paperwork presentation in deep navy, ivory, and restrained red.
+4. Company money and personal money stay separate.
+5. Federal Electric starts private; IPO is optional.
+6. One real hour is one active business day.
+7. No offline progression.
+8. No universal morality meter.
+9. Historical specifics are researched.
+10. Information can be incomplete or wrong depending on its source.
 
-## v0.2 — Federal Exchange — IN DEVELOPMENT
+## v0.3-dev — The Working Day — CURRENT BUILD
 
-Build the stock market into a real game system before expanding the factory.
+Implemented foundation:
+- 60-minute active business-day clock
+- automatic day close and End Day Early
+- freeze on hidden/closed app and exact resume from autosave
+- 50-security live Federal Exchange with frequent intraday quotation movement
+- closing quotations become next-day opening basis
+- shared market tone + sector + company movement components
+- red/white/blue Washington corporate UI
+- daily Federal Electric payroll/ledger
+- living Metropolitan Ledger framework
+- newspaper edition archive
+- personal notebook
+- persistent contact data foundation
+- The Star Club and Madam Star
+- bookmaker introduction
+- backroom poker foundation
+- independently scheduled Star Club raids
+- newspaper consequences for attended or missed raids
+- v0.1/v0.2 save migration
 
-Current target:
-- 50 fictional period-style securities at launch, expandable toward a much larger exchange
-- sectors including electrical, automotive, steel, petroleum, chemicals, communications, utilities, railroads, aviation, banking, retail, food, machinery, mining, shipping, and consumer goods
-- quotation sheet with search and sector filters
-- personal-cash investing only
-- 1/10/100 share orders
-- commissions
-- portfolio cost basis
-- realized/unrealized performance
-- transaction history
-- dividends
-- market index
-- sector and company movement
-- company/market news
-- save migration from v0.1
-- Federal Electric private-company status panel
-- optional IPO architecture documented now, implemented later
+Next v0.3 passes:
+- make factory production consume meaningful portions of the business day
+- production queues rather than instant completion
+- richer daily factory demand and sales
+- historically researched 1938 market regimes and dated historical news
+- richer company fundamentals and market-moving news
+- broker tips, rumors, limit orders, and delayed execution where appropriate
+- deeper newspaper sections and multi-day story chains
+- automatic notebook entries for selected conversations
+- NPC truth/mistake/betrayal logic
+- Commissioner Hayes and police-information system
+- bookmaker wagers and horse-racing integration
+- deeper poker using the proven Georgia Sun concepts
+- legal exposure/arrest/court consequence chain
+- society invitations and recurring Washington locations
 
-Next market passes:
-- limit orders and delayed execution where appropriate
-- richer broker relationships and tips/rumors
-- bear/bull market regimes tied to researched historical conditions
-- company fundamentals and earnings
-- bankruptcies, mergers, splits, suspensions, scandals, and rallies
-- bonds and preferred shares where useful
-- historically appropriate margin/leverage
-- newspaper quotation pages
-- deeper charts and market history
+## v0.4 — Company Operations
 
-## v0.3 — Company Operations
+- inventory and sales over time
+- durability, defects, failures, returns, warranty expense
+- workforce, wages, morale, skill and labor trouble
+- machinery breakdowns, maintenance and upgrades
+- suppliers/materials
+- debt, loans, interest, assets, liabilities and net worth
+- additional electrical product lines
+- plants and warehouses
+- delegation/management so a larger company can buy back some of the owner's time
 
-Deepen Federal Electric itself:
-- production batches held as inventory rather than instant sales
-- sales over time
-- product durability, defects, failures, returns, and warranty expense
-- hiring/firing, wages, morale, skill, productivity, and labor trouble
-- machinery breakdowns, maintenance, upgrades, and capacity
-- richer materials and suppliers
-- company debt, bank loans, interest, assets, liabilities, profit, and net worth
-- additional civilian electrical product lines
-- expansion into additional plants and warehouses
+## v0.5 — Living America
 
-## v0.4 — America 1938
-
-Build the historical-world engine:
 - researched historical timeline
-- real historical newspaper archive when reproduction rights are verified
-- clearly separated fictional in-game reporting
-- economic conditions feeding markets, materials, demand, and credit
-- Washington, D.C. as the principal headquarters/political setting
-- national and international events
-- historical source/provenance records
-- delayed, incomplete, and biased period information where appropriate
+- original period-style reporting of researched real events
+- fictional local/economic stories driven by simulation
+- continuing stories across newspaper editions
+- source/provenance records for historical facts
+- economy affecting markets, materials, demand and credit
 
-## v0.5 — Washington
+## v0.6 — Washington Network
 
-Add the world around the company:
-- bankers, lawyers, journalists, officials, industrialists, and social contacts
-- government procurement
-- lobbying and influence
-- civic involvement
-- clubs, hotels, dinners, favors, rivalries, and reputation by audience
-- persistent personal history
-- foundations for later elected or appointed public service
+- bankers, lawyers, journalists, politicians, police, lobbyists and industrialists
+- persistent NPC memory and hidden motives
+- clubs, hotels, dinners, affairs, favors, grudges and rivalries
+- bribery/corruption choices represented as game decisions and consequences
+- unreliable tips and deliberately false information
+- raids, investigations and scandals
+- government procurement and influence
 
-## v0.6 — The Gathering Storm
+## v0.7 — The Gathering Storm / Arsenal
 
-Let the approach of war materially affect play:
-- European war developments
-- changing export demand
-- shipping risk
-- commodity pressure and shortages
-- defense inquiries and early contracts
-- aviation and communications demand
-- researched historical market effects
+- European war and rearmament
+- exports, shipping and commodity pressure
+- government contracts and factory conversion
+- researched aircraft/electrical/communications components
+- inspections, deadlines, shortages and rejected lots
+- legitimate profit and optional corner-cutting with long-memory consequences
 
-## v0.7 — Arsenal
+## v0.8 — Public Federal Electric
 
-Federal Electric enters wartime industrial production:
-- government contracts
-- factory conversion
-- historically plausible aircraft electrical systems and components
-- motors, generators, wiring, switches, relays, communications/electrical equipment, and related lines as research supports them
-- inspections, deadlines, rejected lots, priorities, shortages, and contract penalties
-- enormous legitimate profit opportunities
-- optional corner-cutting, kickbacks, overbilling, quality scandals, whistleblowers, investigations, and criminal exposure
+- optional IPO
+- valuation and percentage offered
+- founder ownership and public float
+- major shareholders
+- board composition and voting control
+- dividends, dilution, additional offerings and buybacks
+- FE stock responding to actual company results and scandals
+- shareholder and board confidence
+- founder removal when control has genuinely been lost
+- permanent ouster as a possible loss/legacy ending
 
-## v0.8 — The Man Behind the Company
+## v0.9 — The Man Behind the Company
 
-Expand personal life without abandoning Federal Electric:
-- residence and property
-- spouse, family, children, affairs, friendships, and rivals
-- luxury spending
-- clubs, parties, travel, gambling, and social reputation
-- improved poker from Georgia Sun
-- improved horse racing from Georgia Sun
-- personal debt and spectacular ways to squander wealth
-
-## v0.9 — Power & Consequences
-
-Long-memory consequence systems:
-- accounting integrity and financial exposure
-- abstract tax decisions without tax-form micromanagement
-- possible postwar audits
-- government investigations
-- lawsuits
-- reporters and whistleblowers
-- corporate scandals
-- fines, blacklisting, bankruptcy, loss of control, and prison
-- investigations are possibilities, not automatic scripted punishment
+- property, family, affairs, friends and rivals
+- luxury spending and personal debt
+- clubs, travel, poker, horse racing and bookmakers
+- personal scandals interacting with Federal Electric
+- investigations, lawsuits, reporters, whistleblowers and prison exposure
 
 ## v1.0 — Federal Electric
 
-Unify the industrial, financial, historical, personal, legal, and Washington systems into one continuous long-save simulation.
+Unify industrial operations, the living business day, markets, history, Washington, personal life, law, public-company control, newspapers and long-term legacy into one continuous simulation.
 
-## Post-1.0 expansion
+## Post-1.0
 
-- postwar reconversion
-- consumer boom
-- Cold War industry and electronics
-- deeper aviation and technology
-- optional Federal Electric IPO and public-company governance if not implemented earlier
-- boards, shareholders, dilution, dividends, buybacks, and control battles
-- acquisitions and mergers
-- unions and deeper labor negotiations
-- R&D and patents
-- advertising and brand wars
-- family succession and dynasty play
-- optional political career path, potentially progressing through historically appropriate offices toward a presidential campaign
-- long-run company history, character biography, statistics, and newspaper archive
-
-## Optional IPO principle
-
-Federal Electric starts private. The player may remain private forever.
-
-If the player chooses to go public, the IPO should be a major event chain: valuation, percentage offered, capital raised, retained ownership, dilution, public reporting, shareholders, dividends, market expectations, and the risk of eventually losing control. Corporate cash, personal cash, and the player's personal Federal Electric shareholding remain distinct.
-
-## Shared DNA with Georgia Sun
-
-Georgia Sun remains a conceptual donor for turn/time architecture, ledgers, newspapers, event choices, audience reputation, persistent NPC memory, poker, horse racing, investments, debt, legal disputes, family/legacy, save architecture, and long-form emergent history. Federal Electric remains its own game.
+Postwar reconversion, consumer boom, Cold War industry/electronics, acquisitions, unions, R&D, patents, advertising, family succession, deeper politics, and a save-specific biography/newspaper archive.
