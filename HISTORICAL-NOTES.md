@@ -1,18 +1,16 @@
 # Historical Notes
 
-## Geographic inspiration
+## Geographic direction
 
-General Electric is useful historical inspiration for the scale and breadth of Continental Electric, but Continental Electric is a fictional company and should not be represented as General Electric under another name.
+**Federal Electric** is a fictional American electrical and industrial corporation. It may evoke the breadth of major historical manufacturers, but it should not be represented as a real company under another name.
 
-GE's historical roots were strongly associated with New York. Its formation in 1892 combined Edison General Electric with Thomson-Houston, and Schenectady, New York became one of its most important manufacturing and engineering centers. New York therefore fits the desired industrial setting very well.
-
-A strong fictional setup is to place Continental Electric's headquarters in New York City while locating its original major works in a fictional upstate New York industrial city or in a fictionalized Schenectady-like setting. This provides Wall Street, clubs, newspapers, banks, lawyers, brokers, and society in New York City while retaining a large factory-town environment upstate.
+Washington, D.C. is now the leading headquarters and political setting. This gives the game direct access to federal procurement, regulators, military administration, newspapers, diplomats, bankers, lobbyists, and a later political-career path. Major manufacturing plants can exist outside the District as Federal Electric expands.
 
 ## Starting period
 
-Target start: late 1930s, before direct U.S. entry into World War II.
+Target start: **1938**, before direct U.S. entry into World War II.
 
-The game timeline should allow the player to experience:
+The timeline should allow the player to experience:
 - lingering Depression-era business conditions
 - European war and changing international demand
 - U.S. rearmament and industrial mobilization
@@ -20,33 +18,40 @@ The game timeline should allow the player to experience:
 - wartime production
 - material and labor constraints
 - the end of the war
+- postwar audits/investigations where simulation state warrants them
 - eventual postwar reconversion
-
-Exact start date remains a design decision.
 
 ## Historical versus fictional naming
 
-Use real historical events, dates, institutions, laws, broad market conditions, public offices, and other factual background when appropriate.
+Use real historical events, dates, institutions, public offices, broad market conditions, and factual background when appropriate.
 
-Use fictional names for most playable corporations, competitors, brokers, newspapers, clubs, and recurring private characters. They may evoke recognizable categories of period companies without being direct copies.
+Use fictional names for most playable corporations, competitors, brokers, clubs, and recurring private characters. Fictional firms let player actions change company fortunes, scandals, bankruptcies, contracts, and stock prices without inventing false histories for real businesses.
 
-The purpose is not merely legal distance. Fictional firms let player actions change company fortunes, scandals, bankruptcies, contracts, and stock prices without creating false alternate histories about real businesses.
+A fictional name is not a substitute for historical research. When a fictional security is designed around a historical industry archetype, its sector conditions should still be grounded in the actual period.
 
-## Newspapers
+## Newspapers and preservation
 
-Historical headlines should be researched against the actual game date. Avoid inventing real-world events.
+Historical newspapers are part of the preservation mission.
 
-The game's newspaper can combine factual national/international news with fictional local/business stories generated from simulation state.
+The game may reproduce complete historical material only when its rights/status has been checked for the intended use. Preserve source and provenance information with archived material. Historical archive material and fictional/generated game reporting should be clearly distinguishable.
 
-Potential presentation model:
+The in-game newspaper can combine researched factual national/international developments with fictional local and Federal Electric stories generated from simulation state.
+
+Potential sections:
 - national/world wire
 - financial page
 - local industrial page
 - society page
 - sports/racing page
 - advertisements/classifieds
-- Continental Electric stories when warranted
+- Federal Electric coverage when warranted
+
+## Market research
+
+The playable exchange uses fictional securities, but the historical market environment should be researched. Broad market regimes, sector behavior, major shocks, exchange practices, commissions, dividends, margin rules, and other specific mechanics should be verified for the selected year before being presented as historical fact.
+
+The first Federal Exchange build intentionally uses a gameplay-oriented market model as scaffolding. Later passes should replace generic movement assumptions with researched historical regimes.
 
 ## Research rule
 
-Historical accuracy is a game system. When implementing specific dates, prices, securities, wartime events, technologies, laws, government programs, military contracts, or product availability, verify them against reliable historical sources rather than relying on memory.
+Historical accuracy is a game system. When implementing specific dates, prices, securities, wartime events, technologies, laws, government programs, military contracts, tax rules, or product availability, verify them against reliable historical sources rather than relying on memory.

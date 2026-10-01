@@ -1,61 +1,53 @@
-# Continental Electric
+# Federal Electric
 
-**Continental Electric** is a browser-based historical industrial, financial, and life-management simulation set around a fictional American electrical manufacturing empire beginning in the late 1930s and moving through World War II.
+**Federal Electric** is a browser-based historical industrial, financial, political, and life-management simulation set around a fictional American electrical manufacturing empire beginning in 1938 and moving through World War II and beyond.
 
 ## Play & related projects
 
-- **Continental Electric web app:** https://dereksparks1982.github.io/continentalelectric/index.html
+- **Federal Electric web app:** https://dereksparks1982.github.io/federalelectric/index.html
 - **Georgia Sun web app:** https://dereksparks1982.github.io/georgiasun/index.html
 
-The company is an original fictional creation inspired by the scale and breadth of major American manufacturers of the era. It is not intended to depict any one real company.
+Federal Electric is an original fictional corporation. Real historical events and broad economic conditions anchor the world while fictional companies let the simulation react freely to player decisions.
 
-## Current prototype — v0.1-dev
+## Current prototype — v0.2-dev: Federal Exchange
 
-The first playable build establishes the corporate-spreadsheet identity and core tycoon loop:
+The current build begins the full stock-market system:
 
-- late-1930s turn clock
+- 50 fictional period-style listed corporations across major 1930s sectors
+- searchable/filterable quotation sheet
+- personal portfolio with cost basis and unrealized gain/loss
+- buy/sell orders in 1, 10, and 100 share lots
+- transaction history and brokerage commissions
+- dividends paid to personal cash
+- market index and sector-sensitive price movement
+- company news generated from market movement
+- Federal Electric remains privately held at game start
+- future optional IPO path: the player may go public later or remain private forever
 - separate company and personal cash
-- factory production of light bulbs
-- selectable Standard / Long-Life / Economy construction
-- production quantity, material use, unit cost, selling price, inventory and sales
-- machinery condition, maintenance, workers, payroll and capacity
-- copper, glass and tungsten purchasing/inventory
-- corporate ledger with revenue and expenses
-- period-flavored fictional stock exchange with buy/sell portfolio
-- newspaper/front-page reports driven by game state
-- save/load using browser storage
-- responsive desktop/mobile interface
+- factory production, materials, machinery, payroll, ledger, newspaper, and save/load
+- responsive corporate-paperwork interface
 
 ## The premise
 
-You are both the controlling mind of Continental Electric and the person behind the desk.
+You run Federal Electric and live the life of the person behind the desk. The company remains the center of the game: manufacture electrical products, expand factories, pursue government work, manage quality and labor, and eventually build historically plausible wartime electrical and aviation-component production.
 
-Build civilian electrical products. Buy materials. Set quality. Maintain machinery. Hire workers. Borrow money. Invest. Trade stocks. Read the newspaper. Cultivate bankers and officials. Gamble at the races. Sit in private poker games. Spend your personal fortune. Protect your reputation, or don't.
-
-As the world moves toward war, the economy changes around you. Government procurement expands, materials tighten, factories convert, and military production can transform Continental Electric into an industrial giant.
-
-Success is not guaranteed to make the player respectable or happy. A fortune can become a dynasty, or disappear into leverage, bad contracts, gambling, scandal, lawsuits, corruption, divorce, bankruptcy, or prison.
+Personal wealth and power grow around the company. You may invest, gamble, cultivate bankers and officials, live extravagantly, enter public life, or run the company ruthlessly. Clean and dirty strategies are both possible; consequences emerge through finances, people, newspapers, auditors, investigators, courts, and history rather than a universal morality meter.
 
 ## Presentation
 
-The interface is designed as a **living 1930s/1940s corporate spreadsheet** rather than a conventional game HUD: accounting ledgers, production sheets, stock quotations, purchase orders, memoranda, contracts, factory reports, and newspaper clippings.
+The interface is a **living 1930s/1940s corporate spreadsheet**: accounting ledgers, production sheets, stock quotations, purchase orders, memoranda, contracts, telegrams, and newspaper clippings. The paperwork is the game interface.
 
-The paperwork *is* the game interface.
+## Long-term direction
 
-## Planned depth
+Federal Electric is intended as a playable story of American industry and life before, during, and after the Second World War. The historical timeline affects markets, materials, demand, government procurement, newspapers, and eventually politics.
 
-The roadmap expands the prototype into government contracts and wartime conversion, deeper stock-market behavior, historically anchored newspapers, persistent NPC relationships, poker/private clubs, horse racing, property/family/legacy, lawsuits and investigations, bankruptcy, criminal exposure and prison, and postwar reconversion.
+The player may keep Federal Electric private indefinitely or choose an IPO later. A public Federal Electric becomes a live security whose price responds to the company's actual performance, contracts, reputation, scandals, dividends, and broader market conditions.
 
-Georgia Sun is a sister project and design donor. Its mature poker, persistent horse-racing circuit, long-form economy, NPC memory, gambling-risk, newspaper and event concepts are being adapted where they fit Continental Electric's period and industrial premise.
-
-## Historical approach
-
-Real historical events and broad economic conditions anchor the world. Most playable companies, competitors, clubs, newspapers, and recurring private characters are fictional so the simulation can react freely to player decisions without inventing false histories for real corporations.
-
-Specific historical dates, prices, products, technologies, laws, securities, and wartime developments should be researched when implemented.
+Updates expand the same game rather than dividing core systems into paid gameplay DLC.
 
 ## Development documentation
 
-- [ROADMAP.md](ROADMAP.md) — systems and build order
+- [ROADMAP.md](ROADMAP.md) — build sequence and long-term systems
+- [MARKET-DESIGN.md](MARKET-DESIGN.md) — Federal Exchange design and IPO rules
 - [HISTORICAL-NOTES.md](HISTORICAL-NOTES.md) — historical framework and research rules
 - [DECISIONS.md](DECISIONS.md) — locked project decisions

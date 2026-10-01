@@ -1,167 +1,161 @@
-# Continental Electric Roadmap
+# Federal Electric Roadmap
 
-Continental Electric is a browser-based historical industrial, financial, social, and life-management simulation. The player runs a fictional American electrical manufacturer beginning in the late 1930s and lives the parallel life of its owner: industrialist, investor, employer, gambler, social climber, and potentially spectacular failure.
+Federal Electric is a browser-based historical industrial, financial, social, and political life simulation. The player runs a fictional American electrical manufacturer beginning in 1938. The company remains the center of play while wealth, Wall Street, Washington, war, society, corruption, and a possible political career grow around it.
 
-## Design rules
+## Locked design rules
 
-1. Work directly on `main` unless explicitly instructed otherwise.
-2. The factory and company are the core game. Personal life, gambling, society, and vice orbit that core.
-3. The interface should resemble a living 1930s-1940s corporate spreadsheet: ledgers, accounting sheets, production reports, purchase orders, memoranda, stock quotations, contracts, telegrams, and newspaper clippings.
-4. Time moves slowly enough for long saves and meaningful personal history.
-5. Important outcomes emerge from interacting systems rather than a single morality meter.
-6. Company money and the owner's personal money are separate.
-7. Information may be incomplete, delayed, biased, or wrong.
-8. Real historical events and economic conditions anchor the timeline. Fictional companies and characters provide player freedom without pretending the player rewrote a real corporation's history.
-9. Period-appropriate terminology, products, prices, institutions, technology, and social conditions should be researched rather than guessed.
-10. Wealth creates opportunities and increasingly expensive ways to ruin yourself.
+1. Work directly on `main` unless Derek explicitly authorizes another branch.
+2. Federal Electric is always the core company; other systems orbit it rather than replacing it.
+3. UI is a living 1930s/1940s corporate spreadsheet and paperwork desk.
+4. Company money and owner personal money remain separate.
+5. Federal Electric begins privately held. Going public is optional and may never happen.
+6. No universal morality meter. Decisions create financial, social, legal, political, and reputational consequences.
+7. Real historical events and economic conditions anchor the timeline; fictional corporations and private characters allow emergent outcomes.
+8. Historical specifics are researched rather than guessed.
+9. The game should be deep without turning into tax-law or accounting homework.
+10. Core gameplay additions are planned as updates to the same game rather than paid gameplay DLC.
 
-## First playable build
+## v0.2 — Federal Exchange — IN DEVELOPMENT
 
-The first build should establish the game's identity rather than attempt the whole simulation:
+Build the stock market into a real game system before expanding the factory.
 
-- corporate-spreadsheet desktop/mobile UI
-- late-1930s starting date and turn clock
-- company cash and separate personal cash
-- factory overview
-- first civilian products, beginning with electrical goods such as light bulbs
-- production quantity, unit cost, quality/durability, selling price, inventory, demand, and profit
-- product-quality decision: durable premium construction versus cheaper short-life construction, with reputation and failure consequences
-- employees, payroll, basic capacity, machinery condition, and maintenance
-- raw-material purchasing and inventory
-- basic ledger with revenue, expenses, debt, and net worth
-- newspaper front page tied to the game date
-- event/decision framework
-- first functional period stock exchange
-- save/load
-- responsive browser play
+Current target:
+- 50 fictional period-style securities at launch, expandable toward a much larger exchange
+- sectors including electrical, automotive, steel, petroleum, chemicals, communications, utilities, railroads, aviation, banking, retail, food, machinery, mining, shipping, and consumer goods
+- quotation sheet with search and sector filters
+- personal-cash investing only
+- 1/10/100 share orders
+- commissions
+- portfolio cost basis
+- realized/unrealized performance
+- transaction history
+- dividends
+- market index
+- sector and company movement
+- company/market news
+- save migration from v0.1
+- Federal Electric private-company status panel
+- optional IPO architecture documented now, implemented later
 
-## Company simulation
+Next market passes:
+- limit orders and delayed execution where appropriate
+- richer broker relationships and tips/rumors
+- bear/bull market regimes tied to researched historical conditions
+- company fundamentals and earnings
+- bankruptcies, mergers, splits, suspensions, scandals, and rallies
+- bonds and preferred shares where useful
+- historically appropriate margin/leverage
+- newspaper quotation pages
+- deeper charts and market history
 
-Planned civilian lines include lighting, electric motors, radios, household appliances, industrial electrical equipment, components, and other historically appropriate goods.
+## v0.3 — Company Operations
 
-Each product can eventually track material cost, labor, machine time, quality, durability, defect rate, warranty/returns, wholesale price, retail demand, inventory, brand reputation, patents/R&D, competitors, and production-line conversion cost.
+Deepen Federal Electric itself:
+- production batches held as inventory rather than instant sales
+- sales over time
+- product durability, defects, failures, returns, and warranty expense
+- hiring/firing, wages, morale, skill, productivity, and labor trouble
+- machinery breakdowns, maintenance, upgrades, and capacity
+- richer materials and suppliers
+- company debt, bank loans, interest, assets, liabilities, profit, and net worth
+- additional civilian electrical product lines
+- expansion into additional plants and warehouses
 
-Factories should track machinery, maintenance, power, floor space, shifts, worker skill, safety, productivity, defects, bottlenecks, expansion, warehouses, freight access, insurance, fire risk, and shutdowns.
+## v0.4 — America 1938
 
-## Wartime conversion
+Build the historical-world engine:
+- researched historical timeline
+- real historical newspaper archive when reproduction rights are verified
+- clearly separated fictional in-game reporting
+- economic conditions feeding markets, materials, demand, and credit
+- Washington, D.C. as the principal headquarters/political setting
+- national and international events
+- historical source/provenance records
+- delayed, incomplete, and biased period information where appropriate
 
-The world changes independently of the player. European war news begins before direct U.S. entry. As American mobilization expands, Continental Electric can bid for government work and convert civilian capacity toward historically plausible electrical, aviation, communications, vehicle, industrial, and military components.
+## v0.5 — Washington
 
-Government contracts should include specifications, inspections, deadlines, penalties, material priorities, quality requirements, political relationships, audits, and enormous upside.
+Add the world around the company:
+- bankers, lawyers, journalists, officials, industrialists, and social contacts
+- government procurement
+- lobbying and influence
+- civic involvement
+- clubs, hotels, dinners, favors, rivalries, and reputation by audience
+- persistent personal history
+- foundations for later elected or appointed public service
 
-Cutting corners can create short-term profit but also equipment failures, rejected lots, canceled contracts, lawsuits, investigations, blacklisting, fines, and criminal prosecution. Serious crimes can ultimately send the player to prison.
+## v0.6 — The Gathering Storm
 
-## Functional stock market
+Let the approach of war materially affect play:
+- European war developments
+- changing export demand
+- shipping risk
+- commodity pressure and shortages
+- defense inquiries and early contracts
+- aviation and communications demand
+- researched historical market effects
 
-The market should function as a game system rather than a decorative price ticker.
+## v0.7 — Arsenal
 
-- period-appropriate listed industries and securities
-- fictional company names inspired by the industrial landscape rather than direct GTA-style copies of modern companies
-- buy/sell orders, portfolio, cash balance, cost basis, gains/losses, dividends, splits where appropriate, and transaction history
-- price movement driven by company fundamentals, economic cycles, historical events, war news, commodity shortages, contracts, rumors, and market sentiment
-- brokers, fees, delayed information, newspaper quotations, tips, and rumors
-- margin/leverage only when historically appropriate to the selected year and rules
-- bankruptcies, mergers, scandals, panics, rallies, and sector rotations
-- the player's own Continental Electric may eventually be privately held, publicly listed, or otherwise financed depending on design progression
-- no modern companies or products appearing before their time
+Federal Electric enters wartime industrial production:
+- government contracts
+- factory conversion
+- historically plausible aircraft electrical systems and components
+- motors, generators, wiring, switches, relays, communications/electrical equipment, and related lines as research supports them
+- inspections, deadlines, rejected lots, priorities, shortages, and contract penalties
+- enormous legitimate profit opportunities
+- optional corner-cutting, kickbacks, overbilling, quality scandals, whistleblowers, investigations, and criminal exposure
 
-Historical market dates and broad conditions should be researched. Fictional issuers allow gameplay consequences without falsifying the records of real corporations.
+## v0.8 — The Man Behind the Company
 
-## Newspaper and historical timeline
+Expand personal life without abandoning Federal Electric:
+- residence and property
+- spouse, family, children, affairs, friendships, and rivals
+- luxury spending
+- clubs, parties, travel, gambling, and social reputation
+- improved poker from Georgia Sun
+- improved horse racing from Georgia Sun
+- personal debt and spectacular ways to squander wealth
 
-A newspaper is generated for game dates and becomes one of the player's main information systems.
+## v0.9 — Power & Consequences
 
-It should mix:
-- researched historical national/international headlines appropriate to the date
-- war developments
-- economic and market reporting
-- local fictional reporting
-- Continental Electric coverage when newsworthy
-- advertisements
-- stock quotations
-- business failures and openings
-- society pages
-- court/legal notices
-- obituaries, marriages, scandals, and gossip
-- government procurement announcements
-- archived issues
+Long-memory consequence systems:
+- accounting integrity and financial exposure
+- abstract tax decisions without tax-form micromanagement
+- possible postwar audits
+- government investigations
+- lawsuits
+- reporters and whistleblowers
+- corporate scandals
+- fines, blacklisting, bankruptcy, loss of control, and prison
+- investigations are possibilities, not automatic scripted punishment
 
-Major historical events remain fixed anchors. Their economic consequences propagate through materials, demand, markets, contracts, labor, and public mood.
+## v1.0 — Federal Electric
 
-## Personal life and mogul simulation
+Unify the industrial, financial, historical, personal, legal, and Washington systems into one continuous long-save simulation.
 
-The player is not merely a corporation.
+## Post-1.0 expansion
 
-Planned systems include a named character, aging, home/property, spouse/family, children/inheritance, friends, rivals, bankers, brokers, executives, politicians, lawyers, journalists, club acquaintances, romantic relationships/affairs, reputation by audience, favors, grudges, scandals, drinking, parties, luxury purchases, travel, legal trouble, and personal debt.
-
-The game should permit both disciplined and self-destructive lives. A successful industrialist can build a dynasty or squander the fortune through gambling, leverage, bad deals, excess, scandal, divorce, lawsuits, criminal conduct, or simple incompetence.
-
-## Poker and private clubs
-
-Carry forward and improve the Georgia Sun poker architecture:
-- Texas Hold'em
-- player-funded buy-ins
-- named persistent AI opponents
-- opponent personalities and aggression
-- blinds and complete betting rounds
-- proper raise reopening
-- all-ins and side pots
-- hand evaluation and split pots
-- tells, bluff tendencies, memory, and player notes
-- different table stakes and venues
-- private invitations and high-stakes games
-- gambling debts and creditor pressure
-- hand histories and career statistics
-- cheating accusations, drunken play, unpaid debts, grudges, and social consequences
-
-Poker opponents can also be industrialists, bankers, brokers, lawyers, officials, journalists, and other useful or dangerous contacts.
-
-## Horse racing
-
-Carry forward and improve the Georgia Sun live-racing system:
-- animated/progress-based races
-- multiple race lengths
-- Win / Place / Show and historically appropriate additional wagers
-- odds and betting limits
-- horse form/history
-- jockeys
-- condition
-- track surface
-- distance
-- stamina/fatigue
-- late kicks
-- bad starts, bursts, stumbles, and upsets
-- betting history
-- persistent horses and records
-- race meetings, purses, ownership, breeding/training, and jockey contracts later
-
-Race tracks are also social spaces where the player can meet business contacts, hear rumors, create scandals, gamble away personal wealth, or cultivate relationships.
-
-## Reputation, law, corruption, and downfall
-
-There is no single morality bar. Different groups remember different things: workers, executives, consumers, bankers, investors, government officials, inspectors, politicians, journalists, club society, family, and the general public.
-
-Potential consequences include strikes, resignations, whistleblowers, hostile press, lawsuits, investigations, audits, fines, rejected contracts, blacklisting, divorce, creditor action, foreclosure, bankruptcy, criminal charges, prison, loss of control of the company, and family collapse.
-
-## Later systems
-
-- deeper R&D and patents
-- competitors with persistent corporate histories
-- banking and bonds
-- public share offering and corporate control
-- acquisitions and mergers
-- boards of directors and shareholders
-- unions and labor negotiations
-- advertising and brand wars
-- dealerships/distributors
-- rail and trucking logistics
-- wartime rationing and allocation
-- espionage/sabotage events treated as historical-management risks
 - postwar reconversion
-- housing and consumer boom
-- succession, heirs, trusts, and dynasty play
+- consumer boom
+- Cold War industry and electronics
+- deeper aviation and technology
+- optional Federal Electric IPO and public-company governance if not implemented earlier
+- boards, shareholders, dilution, dividends, buybacks, and control battles
+- acquisitions and mergers
+- unions and deeper labor negotiations
+- R&D and patents
+- advertising and brand wars
+- family succession and dynasty play
+- optional political career path, potentially progressing through historically appropriate offices toward a presidential campaign
 - long-run company history, character biography, statistics, and newspaper archive
+
+## Optional IPO principle
+
+Federal Electric starts private. The player may remain private forever.
+
+If the player chooses to go public, the IPO should be a major event chain: valuation, percentage offered, capital raised, retained ownership, dilution, public reporting, shareholders, dividends, market expectations, and the risk of eventually losing control. Corporate cash, personal cash, and the player's personal Federal Electric shareholding remain distinct.
 
 ## Shared DNA with Georgia Sun
 
-Systems should be shared conceptually when useful, but Continental Electric remains its own game. Reusable ideas include turn/time architecture, ledgers, newspaper generation, event decisions, audience-specific reputation, persistent NPC memory, poker, horse racing, investments, debt, legal disputes, family/legacy, save architecture, and long-form emergent history.
+Georgia Sun remains a conceptual donor for turn/time architecture, ledgers, newspapers, event choices, audience reputation, persistent NPC memory, poker, horse racing, investments, debt, legal disputes, family/legacy, save architecture, and long-form emergent history. Federal Electric remains its own game.
