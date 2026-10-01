@@ -28,11 +28,15 @@ Implemented foundation:
 - daily Federal Electric payroll/ledger
 - living Metropolitan Ledger framework
 - newspaper edition archive
-- personal notebook
+- personal journal that automatically records important meetings, conversations and poker sessions
+- separate executive contact-card file for people actually met
 - persistent contact data foundation
 - The Star Club and Madam Star
 - bookmaker introduction
 - three Washington poker circles: neighborhood/working-class, commercial/professional, and elite private-society games
+- poker launches in a separate dedicated game window rather than an in-page modal
+- daily game supply: up to 5 neighborhood, 3 commercial, and 1 elite game available to the player
+- elite game remains hidden/locked behind introductions and connections
 - different stakes, access, patrons, information value, and police risk by poker circle
 - poker raids are rare events rather than an every-visit trap
 - independently scheduled Star Club raids
