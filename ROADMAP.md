@@ -32,14 +32,22 @@ Implemented foundation:
 - persistent contact data foundation
 - The Star Club and Madam Star
 - bookmaker introduction
-- backroom poker foundation
+- three Washington poker circles: neighborhood/working-class, commercial/professional, and elite private-society games
+- different stakes, access, patrons, information value, and police risk by poker circle
+- poker raids are rare events rather than an every-visit trap
 - independently scheduled Star Club raids
+- Star Club/brothel raids are deliberately much rarer, targeted around an average of roughly twice per year
 - newspaper consequences for attended or missed raids
 - v0.1/v0.2 save migration
 
 Next v0.3 passes:
-- make factory production consume meaningful portions of the business day
+- shipment contracts require production time rather than completing instantly
 - production queues rather than instant completion
+- shipments have quantities and deadlines
+- ending a business day early can leave a shipment incomplete
+- allow partial delivery where the contract/customer permits it
+- customers remember short, late, and failed deliveries
+- contract reliability affects future order size, terms, access, and customer relationships
 - richer daily factory demand and sales
 - historically researched 1938 market regimes and dated historical news
 - richer company fundamentals and market-moving news
@@ -49,7 +57,7 @@ Next v0.3 passes:
 - NPC truth/mistake/betrayal logic
 - Commissioner Hayes and police-information system
 - bookmaker wagers and horse-racing integration
-- deeper poker using the proven Georgia Sun concepts
+- deeper poker using the proven Georgia Sun concepts, with distinct opponents and social networks in each poker circle
 - legal exposure/arrest/court consequence chain
 - society invitations and recurring Washington locations
 
