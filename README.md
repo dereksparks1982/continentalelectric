@@ -4,8 +4,7 @@
 
 ## Play
 
-- **Federal Electric:** https://dereksparks1982.github.io/federalelectric/index.html
-- **Repository:** https://github.com/dereksparks1982/federalelectric
+- **Play current build:** https://dereksparks1982.github.io/federalelectric/index.html?v=20261001-1800
 - **Georgia Sun:** https://dereksparks1982.github.io/georgiasun/index.html
 
 ## Current prototype — v0.3-dev: The Working Day
