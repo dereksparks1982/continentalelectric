@@ -26,12 +26,19 @@ This file records decisions that should not drift silently during development.
 - Real historical facts/dates are researched; original in-game reporting combines history with simulation events.
 - Newspaper editions form a permanent save-specific archive.
 - Information has sources. Sources may be truthful, mistaken, incomplete, or deliberately deceptive.
-- The personal notebook records what the player was told, not guaranteed truth.
+- The Personal Notebook is now the **Journal**: it records meaningful meetings, conversations, rumors, poker sessions, and other player-known events in an Ultima-style running history. It records what the player experienced or was told, not guaranteed objective truth.
+- **Contacts** is a separate top-level section using a period-appropriate executive card-index concept. A person is added only after the player legitimately meets them or obtains their contact information.
+- Contacts can later support calls, letters, secretaries, requested meetings, invitations, and unanswered attempts.
+- The former Washington tab is renamed **After Hours** for nightlife, gambling, bookmaking, the Star Club, and other off-the-clock social activity.
+- Main navigation is centered and ordered: Executive Desk, Factory, Federal Exchange, Metropolitan Ledger, Journal, Contacts, After Hours.
 - NPCs should remember meaningful interactions and may develop loyalty, resentment, jealousy, rivalry, fear, affection, or indebtedness without exposing videogame meters.
 - **The Star Club**, operated by fictional Madam Star, is the first Washington nightlife/underworld location.
 - Bookmakers, private gambling, and backroom poker can exist as optional activities.
 - Backroom poker is not one generic venue. Washington has at least three social strata of games: neighborhood/working-class, commercial/professional, and elite private-society games.
 - Each poker circle has different stakes, access requirements, patrons, information opportunities, and police exposure.
+- Poker opens as a separate dedicated game window, not an in-page modal.
+- Daily poker availability is capped at 5 neighborhood games, 3 commercial games, and 1 elite private game.
+- The elite game is not automatically available. It requires the correct introductions, invitations, or information from the player's social network.
 - Poker raids should be uncommon. Playing poker must not routinely result in arrest.
 - The Star Club/brothel is assumed to have protection and connections; direct raids there are rare, approximately twice per in-game year on average, with irregular timing.
 - Rare Star Club raids should imply a meaningful change such as political pressure, failed protection, a new enforcement figure, betrayal, or a deliberately public crackdown.
