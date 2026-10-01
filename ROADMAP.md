@@ -57,7 +57,12 @@ Next v0.3 passes:
 - NPC truth/mistake/betrayal logic
 - Commissioner Hayes and police-information system
 - bookmaker wagers and horse-racing integration
-- deeper poker using the proven Georgia Sun concepts, with distinct opponents and social networks in each poker circle
+- playable browser-native Texas Hold'em table with AI opponents — IMPLEMENTED FOUNDATION
+- distinct visual rooms: shady Boiler Room, respectable Commerce Club, and elite Embassy Room — IMPLEMENTED
+- full hand dealing, blinds, flop/turn/river, fold/check/call/raise, hand evaluation and showdown — IMPLEMENTED
+- improve AI from personality-weighted heuristic play toward Monte Carlo/opponent-model behavior
+- add correct multi-way side pots/all-in reopening rules before calling poker rules-complete
+- persistent named opponents, table history and social networks in each poker circle
 - legal exposure/arrest/court consequence chain
 - society invitations and recurring Washington locations
 
