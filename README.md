@@ -4,10 +4,10 @@
 
 ## Play
 
-- **Play current build:** https://dereksparks1982.github.io/federalelectric/index.html?v=20261001-1800
+- **Play current build:** https://dereksparks1982.github.io/federalelectric/index.html?v=20261001-1835
 - **Georgia Sun:** https://dereksparks1982.github.io/georgiasun/index.html
 
-## Current prototype — v0.3-dev: The Working Day
+## Current prototype — v0.3.1-dev: The Working Factory
 
 The simulation now runs as a living business day:
 
@@ -21,7 +21,16 @@ The simulation now runs as a living business day:
 - common market, sector, and company movement components
 - personal portfolio, commissions, dividends, transaction history, and cost basis
 - Federal Electric remains private at game start; a future IPO is optional
-- factory production, materials, machinery, payroll, and daily ledger
+- dedicated **Contracts** department between Factory and Federal Exchange
+- Federal Electric starts with one real customer contract: Capital Hardware & Supply Co.
+- contracts specify customer, product, required quality, quantity, price and deadline
+- Factory works against accepted contracts instead of arbitrary instant sales
+- large live production bar advances continuously through the one-hour business day
+- production consumes materials and operating cash as units are actually made
+- Star Club visits consume 30 minutes while the factory continues operating
+- unattended factory operation can suffer a semi-uncommon breakdown; Foreman Sullivan may fix it himself or leave the line stopped awaiting the owner's decision
+- completed starter contracts are delivered and paid at close; incomplete work is recorded as late/short in customer history
+- factory materials, machinery, payroll, and daily ledger
 - a living **Metropolitan Ledger** newspaper with an edition archive
 - personal notebook for recording tips and conversations without guaranteeing their truth
 - first Washington social/underworld location: **The Star Club**, operated by Madam Star
