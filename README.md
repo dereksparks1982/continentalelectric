@@ -27,7 +27,8 @@ The simulation now runs as a living business day:
 - personal notebook for recording tips and conversations without guaranteeing their truth
 - first Washington social/underworld location: **The Star Club**, operated by Madam Star
 - first persistent contacts and bookmaker introduction
-- backroom poker foundation and independently scheduled police raids
+- three playable backroom poker rooms with a browser-native Texas Hold'em engine, AI opponents, distinct class-based interiors, blinds, betting streets, hand evaluation and showdown
+- independently scheduled police raids
 - red, ivory, and deep-navy Washington/corporate-paperwork UI
 
 ## Design principle
