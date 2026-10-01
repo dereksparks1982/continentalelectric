@@ -30,6 +30,15 @@ This file records decisions that should not drift silently during development.
 - NPCs should remember meaningful interactions and may develop loyalty, resentment, jealousy, rivalry, fear, affection, or indebtedness without exposing videogame meters.
 - **The Star Club**, operated by fictional Madam Star, is the first Washington nightlife/underworld location.
 - Bookmakers, private gambling, and backroom poker can exist as optional activities.
+- Backroom poker is not one generic venue. Washington has at least three social strata of games: neighborhood/working-class, commercial/professional, and elite private-society games.
+- Each poker circle has different stakes, access requirements, patrons, information opportunities, and police exposure.
+- Poker raids should be uncommon. Playing poker must not routinely result in arrest.
+- The Star Club/brothel is assumed to have protection and connections; direct raids there are rare, approximately twice per in-game year on average, with irregular timing.
+- Rare Star Club raids should imply a meaningful change such as political pressure, failed protection, a new enforcement figure, betrayal, or a deliberately public crackdown.
+- Production and shipment fulfillment consume active business-day time rather than resolving instantly.
+- Ending the day early can cause an incomplete shipment.
+- Where permitted, the player may make a partial shipment, but customers remember shortages and late deliveries.
+- Customer contract history affects later order size, terms, willingness to renew, and access to valuable future contracts.
 - Police raids are independent world events rather than punishment triggered by choosing to gamble.
 - A player may attend a raid, avoid it knowingly, or skip gambling for unrelated reasons and discover the raid in the next newspaper.
 - Police/political contacts may provide advance information, but information can be wrong or intentionally false.
