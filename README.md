@@ -4,8 +4,8 @@
 
 ## Play & related projects
 
-- **Continental Electric web app:** https://dereksparks1982.github.io/continentalelectric/
-- **Georgia Sun web app:** https://dereksparks1982.github.io/georgiasun/
+- **Continental Electric web app:** https://dereksparks1982.github.io/continentalelectric/index.html
+- **Georgia Sun web app:** https://dereksparks1982.github.io/georgiasun/index.html
 
 The company is an original fictional creation inspired by the scale and breadth of major American manufacturers of the era. It is not intended to depict any one real company.
 
