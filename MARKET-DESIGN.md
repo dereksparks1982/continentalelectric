@@ -2,87 +2,67 @@
 
 ## Purpose
 
-The stock market is a major personal-wealth system inside Federal Electric, not a replacement for running the company. The owner may become extremely wealthy or lose a fortune through investing while Federal Electric remains the central industrial enterprise.
+The Federal Exchange is a personal-wealth and information system orbiting Federal Electric. It should feel alive without becoming a modern electronic market wearing 1930s clothing.
 
-## Initial universe
+## Active-day rule
 
-v0.2 begins with **50 fictional common-stock issuers** across period-relevant sectors. The list is deliberately smaller than the historical exchange so each company can eventually develop persistent fundamentals, news, dividends, scandals, contracts, and history.
+- One real hour equals one active in-game business day.
+- Quotations move only while the app is active/visible.
+- Closing or hiding the app freezes the market.
+- No offline catch-up or simulated missed trading.
+- The exact remaining time and current quotations are saved.
+- A day's closing quotation becomes the next business day's opening basis.
+- The player may end a day early.
 
-Current sectors:
-- Automotive
-- Aviation
-- Banking
-- Chemicals
-- Communications
-- Consumer
-- Electrical
-- Food
-- Machinery
-- Mining
-- Petroleum
-- Railroads
-- Retail
-- Shipping
-- Steel
-- Utilities
+## Current universe
 
-Names evoke the language and industrial landscape of the period without asserting that fictional events happened to real corporations.
+v0.3 carries 50 fictional common-stock issuers across Automotive, Aviation, Banking, Chemicals, Communications, Consumer, Electrical, Food, Machinery, Mining, Petroleum, Railroads, Retail, Shipping, Steel and Utilities.
 
-## Trading model
+Federal Electric is **not quoted at game start**.
 
-- Trades use **personal cash**, never Federal Electric's corporate treasury.
-- Player can trade 1, 10, or 100 shares.
-- Each position tracks shares and average cost.
-- Sales create realized gain/loss records.
-- Holdings show market value and unrealized gain/loss.
-- Brokerage commission is currently a simple gameplay abstraction and is not presented as a historically exact commission schedule.
-- A transaction blotter records buys, sells, dividends, and commissions.
-- Some companies pay dividends at month end.
-- Price movement combines broad market tone, sector movement, company volatility, and company-specific noise.
-- A simple market index provides an at-a-glance measure of the fictional exchange.
+## Trading
 
-## Federal Electric
+- personal cash only
+- 1/10/100 share orders
+- average cost basis
+- unrealized gain/loss
+- commissions
+- transaction blotter
+- dividends
 
-Federal Electric begins **PRIVATE — NOT QUOTED**.
+The current commission remains a gameplay abstraction pending historical research.
 
-The player is never required to list the company.
+## Price model
 
-A future IPO event chain should let the player choose:
-- whether to go public
-- percentage of the company offered
-- offering valuation
-- capital raised into the company
-- how much ownership the founder retains
+Current live scaffolding uses:
 
-After an IPO, FE becomes a live security affected by actual company performance, contracts, debt, quality, reputation, scandals, dividends, and the historical market.
+**shared market movement + sector movement + company movement**
 
-Going public introduces shareholders, disclosure, dilution, board pressure, market expectations, and the possibility of eventually losing control.
+Later builds should replace generic movement assumptions with:
 
-## Historical model
+**researched historical market regime + sector conditions + company fundamentals + company events + sentiment**
 
-The first v0.2 implementation is scaffolding, not a claim that its generated prices reproduce the actual 1938 tape. Later passes should layer researched historical market regimes beneath the fictional issuers.
+The newspaper, brokers, contacts, and company reports should become ways to learn about those forces. Information should not always be perfectly reliable.
 
-Target formula:
+## Federal Electric IPO
 
-**historical market regime + sector conditions + company fundamentals + company events + sentiment = fictional security movement**
+Federal Electric begins private. An IPO is optional.
 
-This lets the fictional market react believably to the real historical world without assigning invented corporate histories to real companies.
+A later public-company system will track founder ownership, public float, major shareholders, board composition and voting control. Going public raises capital but exposes the founder to shareholders, disclosure, market expectations, dilution and possible loss of control.
 
-## Planned expansion
+Personal cash, Federal Electric corporate cash, and the founder's personal FE shares remain separate.
 
-- richer quote history and charts
-- daily/period high and low
-- volume
-- earnings and balance-sheet fundamentals
-- preferred stock and bonds where useful
-- limit orders and execution delay
-- broker relationships
-- tips, rumors, and imperfect information
-- historically appropriate margin
-- bankruptcies
-- mergers
-- stock splits
-- trading suspensions
-- tender/control battles
-- IPOs
-- public Federal Electric
+A public FE quotation should eventually respond to actual earnings, contracts, product failures, accidents, labor trouble, investigations, dividends, personal scandal involving leadership, new issuance and broader market conditions.
+
+## Expansion
+
+- historical quote regimes
+- high/low/volume and price history
+- fundamentals and earnings
+- preferred shares and bonds
+- limit orders/execution delay where appropriate
+- brokers, tips and rumors
+- historically appropriate leverage/margin
+- bankruptcies, mergers, splits and suspensions
+- control battles and IPOs
+- newspaper financial pages
