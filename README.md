@@ -1,38 +1,51 @@
 # Continental Electric
 
-**Continental Electric** is a browser-based historical business and life-management game set around a fictional American electrical manufacturing company in the years surrounding World War II.
+**Continental Electric** is a browser-based historical industrial, financial, and life-management simulation set around a fictional American electrical manufacturing empire beginning in the late 1930s and moving through World War II.
 
-The company is an original fictional creation inspired by the scale and industrial breadth of major American manufacturers of the era. It is not intended to depict any one real company.
+The company is an original fictional creation inspired by the scale and breadth of major American manufacturers of the era. It is not intended to depict any one real company.
 
-## Premise
+## The premise
 
-The player begins as the owner and decision-maker of Continental Electric before the United States enters World War II. Early production centers on civilian electrical goods such as light bulbs, motors, radios, appliances, and related equipment.
+You are both the controlling mind of Continental Electric and the person behind the desk.
 
-As world events unfold, the company can pursue government work, expand factories, retool production lines, hire and train workers, compete for military contracts, and enter increasingly important wartime industries.
+Build civilian electrical products. Buy materials. Set quality. Maintain machinery. Hire workers. Borrow money. Invest. Trade stocks. Read the newspaper. Cultivate bankers and officials. Gamble at the races. Sit in private poker games. Spend your personal fortune. Protect your reputation, or don't.
 
-The game is about more than running a factory. The player also manages personal wealth, investments, company reputation, employees, legal exposure, political and business relationships, property, and long-term legacy.
+As the world moves toward war, the economy changes around you. Government procurement expands, materials tighten, factories convert, and military production can transform Continental Electric into an industrial giant.
 
-## Core Ideas
+Success is not guaranteed to make the player respectable or happy. A fortune can become a dynasty, or disappear into leverage, bad contracts, gambling, scandal, lawsuits, corruption, divorce, bankruptcy, or prison.
 
-- Browser-based management simulation
-- Historical progression from civilian industry into wartime production
-- Company and personal finances
-- Stocks and investments
-- Product design, quality, durability, pricing, and production cost
-- Factories, machinery, labor, supply chains, and contracts
-- Reputation and public trust
-- Legal risk, investigations, fines, contract bans, and imprisonment
-- Ethical and unethical business strategies with long-term consequences
-- Postwar survival and transition back to civilian markets
+## Presentation
 
-## Design Philosophy
+The interface should feel like a **living 1930s/1940s corporate spreadsheet** rather than a conventional game HUD: accounting ledgers, production sheets, stock quotations, purchase orders, memoranda, telegrams, contracts, factory reports, and newspaper clippings.
 
-Continental Electric should give the player meaningful freedom rather than forcing a single moral or business path. A highly reputable company, a ruthless profit machine, a politically connected industrial giant, or a collapsing fraud-ridden empire should all emerge naturally from player decisions.
+The paperwork *is* the game interface.
 
-Short-term choices can create long-term consequences. Cutting product quality can raise margins and repeat sales but may increase failures, lawsuits, investigations, reputational damage, or criminal exposure. During wartime, similar choices can affect military contracts and carry much greater consequences.
+## Core systems
 
-## Status
+- company finances and separate personal wealth
+- factories, machinery, workers, materials, inventory, and production
+- civilian products and wartime industrial conversion
+- quality, durability, defects, pricing, demand, and reputation
+- government contracts, specifications, inspections, deadlines, and audits
+- functional period stock market and investment portfolio
+- newspapers tied to the historical timeline
+- named NPCs, relationships, favors, grudges, and scandals
+- poker and private clubs
+- live horse racing and wagering
+- property, family, luxury spending, debt, and legacy
+- lawsuits, investigations, bankruptcy, criminal exposure, and prison
+- postwar reconversion and long-term company history
 
-Early design and documentation phase. No gameplay implementation is locked yet.
+## Historical approach
 
-See [GAME-DESIGN.md](GAME-DESIGN.md), [HISTORICAL-NOTES.md](HISTORICAL-NOTES.md), and [DECISIONS.md](DECISIONS.md) for the current design record.
+Real historical events and broad economic conditions anchor the world. Most playable companies, competitors, clubs, newspapers, and recurring private characters are fictional so the simulation can react freely to player decisions without inventing false histories for real corporations.
+
+Specific historical dates, prices, products, technologies, laws, securities, and wartime developments should be researched when implemented.
+
+## Development
+
+Current phase: design documentation and first-playable planning.
+
+- [ROADMAP.md](ROADMAP.md) — systems and build order
+- [HISTORICAL-NOTES.md](HISTORICAL-NOTES.md) — historical framework and research rules
+- [DECISIONS.md](DECISIONS.md) — locked project decisions
