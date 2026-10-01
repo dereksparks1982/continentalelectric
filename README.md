@@ -1,53 +1,46 @@
 # Federal Electric
 
-**Federal Electric** is a browser-based historical industrial, financial, political, and life-management simulation set around a fictional American electrical manufacturing empire beginning in 1938 and moving through World War II and beyond.
+**Federal Electric** is a browser-based historical industrial, financial, political, and life-management simulation about a fictional American electrical empire beginning in Washington, D.C. in 1938.
 
-## Play & related projects
+## Play
 
-- **Federal Electric web app:** https://dereksparks1982.github.io/federalelectric/index.html
-- **Georgia Sun web app:** https://dereksparks1982.github.io/georgiasun/index.html
+- **Federal Electric:** https://dereksparks1982.github.io/federalelectric/index.html
+- **Repository:** https://github.com/dereksparks1982/federalelectric
+- **Georgia Sun:** https://dereksparks1982.github.io/georgiasun/index.html
 
-Federal Electric is an original fictional corporation. Real historical events and broad economic conditions anchor the world while fictional companies let the simulation react freely to player decisions.
+## Current prototype — v0.3-dev: The Working Day
 
-## Current prototype — v0.2-dev: Federal Exchange
+The simulation now runs as a living business day:
 
-The current build begins the full stock-market system:
+- **1 real hour = 1 active in-game business day**
+- the clock and market run only while Federal Electric is visible and being played
+- closing/hiding the app freezes the simulation; there is **no offline progression**
+- exact remaining day time and quotations are autosaved and resume where they stopped
+- the day closes automatically at 00:00, with an optional End Day Early control
+- the Federal Exchange's 50 fictional securities move continuously during the active day
+- daily opening prices carry forward from the previous close
+- common market, sector, and company movement components
+- personal portfolio, commissions, dividends, transaction history, and cost basis
+- Federal Electric remains private at game start; a future IPO is optional
+- factory production, materials, machinery, payroll, and daily ledger
+- a living **Metropolitan Ledger** newspaper with an edition archive
+- personal notebook for recording tips and conversations without guaranteeing their truth
+- first Washington social/underworld location: **The Star Club**, operated by Madam Star
+- first persistent contacts and bookmaker introduction
+- backroom poker foundation and independently scheduled police raids
+- red, ivory, and deep-navy Washington/corporate-paperwork UI
 
-- 50 fictional period-style listed corporations across major 1930s sectors
-- searchable/filterable quotation sheet
-- personal portfolio with cost basis and unrealized gain/loss
-- buy/sell orders in 1, 10, and 100 share lots
-- transaction history and brokerage commissions
-- dividends paid to personal cash
-- market index and sector-sensitive price movement
-- company news generated from market movement
-- Federal Electric remains privately held at game start
-- future optional IPO path: the player may go public later or remain private forever
-- separate company and personal cash
-- factory production, materials, machinery, payroll, ledger, newspaper, and save/load
-- responsive corporate-paperwork interface
+## Design principle
 
-## The premise
+Federal Electric remains the center of the game. Markets, Washington society, gambling, corruption, war, personal relationships, newspapers, and eventual politics orbit the electrical company rather than replacing it.
 
-You run Federal Electric and live the life of the person behind the desk. The company remains the center of the game: manufacture electrical products, expand factories, pursue government work, manage quality and labor, and eventually build historically plausible wartime electrical and aviation-component production.
+Information is not omniscient. NPCs may be truthful, mistaken, or deceptive. The notebook preserves what the player was told, not objective truth. Events can occur whether the player attends them or not.
 
-Personal wealth and power grow around the company. You may invest, gamble, cultivate bankers and officials, live extravagantly, enter public life, or run the company ruthlessly. Clean and dirty strategies are both possible; consequences emerge through finances, people, newspapers, auditors, investigators, courts, and history rather than a universal morality meter.
-
-## Presentation
-
-The interface is a **living 1930s/1940s corporate spreadsheet**: accounting ledgers, production sheets, stock quotations, purchase orders, memoranda, contracts, telegrams, and newspaper clippings. The paperwork is the game interface.
-
-## Long-term direction
-
-Federal Electric is intended as a playable story of American industry and life before, during, and after the Second World War. The historical timeline affects markets, materials, demand, government procurement, newspapers, and eventually politics.
-
-The player may keep Federal Electric private indefinitely or choose an IPO later. A public Federal Electric becomes a live security whose price responds to the company's actual performance, contracts, reputation, scandals, dividends, and broader market conditions.
-
-Updates expand the same game rather than dividing core systems into paid gameplay DLC.
+A future public Federal Electric will connect the owner's personal reputation to shareholders, the board, stock price, government relationships, and corporate control. Selling ownership can raise capital but may eventually make it possible for the founder to be removed from the company.
 
 ## Development documentation
 
-- [ROADMAP.md](ROADMAP.md) — build sequence and long-term systems
-- [MARKET-DESIGN.md](MARKET-DESIGN.md) — Federal Exchange design and IPO rules
-- [HISTORICAL-NOTES.md](HISTORICAL-NOTES.md) — historical framework and research rules
-- [DECISIONS.md](DECISIONS.md) — locked project decisions
+- [ROADMAP.md](ROADMAP.md)
+- [MARKET-DESIGN.md](MARKET-DESIGN.md)
+- [HISTORICAL-NOTES.md](HISTORICAL-NOTES.md)
+- [DECISIONS.md](DECISIONS.md)
