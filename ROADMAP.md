@@ -15,7 +15,7 @@ Federal Electric is a long-save historical industrial, financial, social, and po
 9. Historical specifics are researched.
 10. Information can be incomplete or wrong depending on its source.
 
-## v0.3-dev — The Working Day — CURRENT BUILD
+## v0.3.1-dev — The Working Factory — CURRENT BUILD
 
 Implemented foundation:
 - 60-minute active business-day clock
@@ -44,13 +44,22 @@ Implemented foundation:
 - newspaper consequences for attended or missed raids
 - v0.1/v0.2 save migration
 
+Implemented Working Factory foundation:
+- top-level Contracts department
+- one starting Capital Hardware & Supply Co. contract
+- contract-defined quality, quantity, price and deadline
+- continuous live production tied to the business-day clock
+- large visible production progress bar and unit counter
+- materials and operating cost consumed as units are produced
+- 30-minute Star Club visits advance the factory while consuming the owner's time
+- semi-uncommon unattended breakdowns; foreman may repair them or require executive authorization
+- customer record tracks correct completions and late/short work
+
 Next v0.3 passes:
-- shipment contracts require production time rather than completing instantly
-- production queues rather than instant completion
-- shipments have quantities and deadlines
-- ending a business day early can leave a shipment incomplete
-- allow partial delivery where the contract/customer permits it
-- customers remember short, late, and failed deliveries
+- multiple simultaneous customer contracts and production queue priority
+- contract offers earned through reputation and customer history
+- wrong-quality shipment rejection, return freight, replacement obligations and customer-specific tolerance
+- partial delivery where the contract/customer permits it
 - contract reliability affects future order size, terms, access, and customer relationships
 - richer daily factory demand and sales
 - historically researched 1938 market regimes and dated historical news
