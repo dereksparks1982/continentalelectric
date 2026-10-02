@@ -36,7 +36,7 @@ This file records decisions that should not drift silently during development.
 - Factory production advances continuously against the shared one-hour business-day clock and displays a large live progress bar.
 - The player can leave the factory while production continues, but unattended operation carries semi-uncommon breakdown risk.
 - A works manager/foreman may resolve unattended problems independently or may need executive authorization, leaving production stopped until the player returns.
-- A Star Club visit consumes 30 minutes of the business day; production continues during that absence if the line remains operational.
+- The Star Club offers a 15-minute Brief Visit ($5) and a 30-minute Afternoon Visit ($12); production continues during either absence if the line remains operational.
 - Customer history remembers correct, late, short, rejected, and eventually wrong-specification deliveries.
 - NPCs should remember meaningful interactions and may develop loyalty, resentment, jealousy, rivalry, fear, affection, or indebtedness without exposing videogame meters.
 - **The Star Club**, operated by fictional Madam Star, is the first Washington nightlife/underworld location.
@@ -62,27 +62,27 @@ This file records decisions that should not drift silently during development.
 
 - Contract hunting is an explicit player action. Seeking new business consumes 2 active business minutes and may return multiple offers or no suitable work.
 - Contract acceptance is not artificially capped. The player may overcommit the factory and suffer deadline/customer consequences.
-- Small, medium, and large lamp orders target roughly 10, 20, and 30 minutes of production time at the starting factory, leaving room for multiple orders during a one-hour business day.
+- Small, medium, and large light-bulb orders target roughly 10, 20, and 30 minutes of production time at the starting factory, leaving room for multiple orders during a one-hour business day.
 - Accepted contracts enter a player-controlled production queue. The player may reprioritize waiting work; completed orders automatically hand the line to the next queued order.
 - The Factory warns when estimated queued production exceeds remaining business-day time but does not block the decision.
 - Federal Exchange orders use arbitrary positive whole-share quantities rather than fixed 1/10/100 lots, with Buy, Sell, and Sell All actions.
 - The Federal Exchange keeps personal cash available visible and reports realized profit/loss on each stock sale and cumulatively by security.
 
-- Poker access progression is explicit: meet Eddie Doyle through Madam Star to unlock the Neighborhood Game; win 10 Neighborhood sessions to unlock the Commerce Club; the Embassy Room requires a separate elite social introduction/invitation path rather than another win counter.
+- Poker access progression is social: the Neighborhood Game is open by default; meeting Eddie Doyle through Madam Star unlocks the Commerce Club; Commerce Club play can introduce Harrison Vale, whose invitation unlocks the Embassy Room.
 - Simulated poker is a first-class alternative to manually playing a session. Each simulation consumes exactly 5 active business minutes, advances unattended factory production, consumes one daily room session, changes personal cash, records the result in the Journal, and can trigger the same progression/events as a played session.
 - A positive poker session counts as a win whether manually played or simulated.
 - Admin/test override: seven clicks on the locked Embassy Room within five seconds unlock and open it immediately on click seven.
 - Poker music and its UI are out of current scope and removed until explicitly revisited.
 
 - Contract customers now have persistent buying personalities that affect specification tolerance and partial-shipment acceptance.
-- Finished lamp inventory is separated by Economy, Standard, and Long-Life grade.
+- Finished light-bulb inventory is separated by Economy, Standard, and Long-Life grade.
 - Production grade is a deliberate factory setting and may differ from the customer's specification; customers can reject a wrong-grade shipment for replacement or accept it only at a discount according to their buying personality.
 - Customer history records correct, discounted, rejected, partial, and late/short outcomes and feeds future commercial terms.
-- Switching lamp grades costs factory setup time.
+- Switching light-bulb grades costs factory setup time.
 - Important customer fulfillment outcomes are recorded as correspondence in the Journal.
 
 - All meaningful activities consume the same one-hour active business day; there are no free-time pockets.
-- Manual poker displays the remaining Federal Electric business-day clock and deducts actual elapsed table time when the player leaves.
+- Manual poker displays the authoritative Federal Electric business-day clock; elapsed table time passes on that shared clock and is not charged a second time on exit.
 - Poker simulation costs are tiered by room: Neighborhood Game 5 business minutes, Commerce Club 10 business minutes, Embassy Room 25 business minutes.
 - A simulation cannot begin unless enough business-day time remains to pay its full time cost.
 - Contract production runs are normalized to the established 10/20/30-minute bands. Legacy or malformed productionSeconds values above 30 minutes are repaired during migration and before starting queued work.
@@ -130,3 +130,28 @@ This file records decisions that should not drift silently during development.
 - While playing Commerce Club sessions, the player has a chance to meet Harrison Vale.
 - Harrison Vale is the social gate to the third/highest tier, the Embassy Room; the player must receive his invitation rather than grind a win counter.
 - Poker progression therefore follows social access: open low tier → meet Eddie for mid tier → play mid tier and meet Vale → receive Vale invitation for elite tier.
+
+## 2026-10-01 — Capital Race Grounds implementation
+
+- Federal Electric now has a scheduled fictional race meeting at Capital Race Grounds.
+- The meeting does not wait for the player: Heat 1 runs at 30:00 remaining, then 26:00, 22:00, 18:00, semifinals at 14:00 and 10:00, and the Main Event at 05:00.
+- Twenty-four entrants begin in four six-horse heats. The top two from each heat advance to two four-horse semifinals; the top two from each semifinal advance to a four-horse Main Event.
+- Horses are persistent rather than regenerated between races. Career record, form, fitness, fatigue, health/injury, preferences, and jockey data carry forward.
+- The player can bet Win, Place, or Show using personal cash. Arriving late is allowed; missed races are already resolved and visible in the progression.
+- Attending the entire meeting costs the time actually spent there. There is no separate fixed admission-time penalty.
+
+## 2026-10-01 — End Day Early consequences
+
+- End Day Early remains available, but a future event pool will make leaving early capable of producing a random good or bad consequence.
+- Examples may include useful quiet-time maintenance or favorable messages on the positive side, and missed customer calls, lost leads, unattended problems, gossip, or missed contacts on the negative side.
+- These events are contextual simulation consequences, not a morality system, and are documented/roadmapped but not yet implemented.
+
+## 2026-10-01 — New Game separation
+
+- New Game is visually separated from End Day Early so a destructive reset is not adjacent to a routine day-management action.
+
+## 2026-10-01 — Core product terminology
+
+- Federal Electric begins as a manufacturer of **light bulbs, not finished lamps**.
+- Starting grades are Economy, Standard, and Long-Life light bulbs. Existing saves displaying the older Electric Lamps wording are migrated to Electric Light Bulbs.
+- Future expansion moves into broader electrical products/components and, as the historical timeline develops, researched wartime electrical/electronic production.
