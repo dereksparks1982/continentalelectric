@@ -14,7 +14,7 @@ The important part is that you cannot do everything.
 
 There is one current game build. Your progress is saved in the browser and resumes from where you left off.
 
-## Time Is the Real Currency
+## The Clock Keeps Moving
 
 Every date has two live phases:
 
@@ -23,9 +23,9 @@ Every date has two live phases:
 
 The world runs while you play. Factory production continues. Markets develop. Races are run. Scheduled events can happen whether you are standing there to watch them or not.
 
-A visit across town might cost you fifteen or thirty minutes. A poker session can eat into the same clock your factory is using. Spending time chasing a tip, a horse, a card game, or a contact means giving up time you could have spent somewhere else.
+A visit across town might take fifteen or thirty minutes. A poker session can eat into the same clock your factory is using. Spending time chasing a tip, a horse, a card game, or a contact means giving up time you could have spent somewhere else.
 
-That tradeoff is the heart of Federal Electric.
+Managing that limited time is one of the central pressures in Federal Electric.
 
 ### Pause Means Pause
 
