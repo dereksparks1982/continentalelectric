@@ -58,9 +58,10 @@ The simulation now runs as a living business day:
 - visible tournament progression shows completed results, advancing qualifiers, upcoming fields, and the Main Event path
 - licensed boxing runs during Washington Night with a persistent fighter roster, four-bout card, fighter records/styles/condition, automatic scheduled resolution, and uncapped winner betting subject to available personal cash
 - Legal Sports switches from Capital Race Grounds during the Business Day to licensed boxing during Washington Night
-- the former After Hours category is now **Illicit Activities**
+- **Illicit Activities** contains the underworld side of Washington: backroom poker, bookmakers, private prizefights, cockfighting, and related contacts
 - Madam Star remains available in both phases with different encounter pools and separate Brief/Afternoon versus Brief Evening/Evening visit controls
 - Eddie Doyle now has a recurring **Ask What's Running** role that can reveal underground opportunities
+- Capital Race Grounds can also introduce Eddie Doyle naturally while the player is present among the bettors
 - private prizefights can occur during either the Business Day or Washington Night; cockfighting is independently discoverable and currently scheduled at night
 - private prizefights and cockfighting have separate unlock states, betting, automatic world-clock resolution, and multiple discovery routes through underworld contacts
 - red, ivory, and deep-navy Washington/corporate-paperwork UI
