@@ -66,7 +66,37 @@ function render(){
  const lots={copper:[1000,180],glass:[1000,95],tungsten:[500,160]};$('#materials').innerHTML=Object.entries(lots).map(([k,[qty,cost]])=>'<tr><td>'+k[0].toUpperCase()+k.slice(1)+'</td><td>'+Math.floor(S.materials[k]).toLocaleString()+'</td><td>'+money(cost)+'</td><td><button onclick="buyMaterial(\''+k+'\','+qty+','+cost+')">Buy '+qty+'</button></td></tr>').join('');
  renderFactory();renderContracts();renderStocks();renderHoldings();renderTransactions();renderNotes();renderArchive();renderWashington();renderDailyReport()
 }
-function renderDailyReport(){const panel=$('#dailyReportOverlay');if(!panel)return;if(S.phase!=='report'||!S.dailyReport){panel.hidden=true;return}const r=S.dailyReport;panel.hidden=false;$('#dailyReportDate').textContent=r.date||displayDate();$('#dailyReportBody').innerHTML='<div class="report-grid"><article><b>Company opening cash</b><span>'+money(r.openingCompanyCash||0)+'</span></article><article><b>Company closing cash</b><span>'+money(r.companyEnd??r.companyClose??S.companyCash)+'</span></article><article><b>Revenue</b><span>'+money(r.revenue||0)+'</span></article><article><b>Expenses</b><span>'+money(r.expenses||0)+'</span></article><article><b>Company net</b><span>'+money((r.revenue||0)-(r.expenses||0))+'</span></article><article><b>Personal opening cash</b><span>'+money(r.openingPersonalCash||0)+'</span></article><article><b>Personal closing cash</b><span>'+money(r.personalEnd??S.personalCash)+'</span></article><article><b>Personal cash change</b><span>'+cash((r.personalEnd??S.personalCash)-(r.openingPersonalCash||0))+'</span></article></div><p class="fine">The Daily Report is your private accounting of the completed date. The Metropolitan Ledger appears after you retire and the next business morning begins.</p>'}
+function wagerSummaryForReport(iso){
+ let net=0,tickets=0;
+ if(S.racing?.meeting?.date===iso){for(const b of Object.values(S.racing.meeting.bets||{})){if(b?.settled){net+=b.net||0;tickets++}}}
+ if(S.boxing?.card?.date===iso){for(const b of Object.values(S.boxing.card.bets||{})){if(b?.settled){net+=b.net||0;tickets++}}}
+ if(S.underworld?.events?.date===iso){
+   for(const e of [S.underworld.events.privateFight,S.underworld.events.cockfight]){if(e?.bet?.settled){net+=e.bet.net||0;tickets++}}
+ }
+ return {net,tickets};
+}
+function renderDailyReport(){
+ const panel=$('#dailyReportOverlay');if(!panel)return;
+ if(S.phase!=='report'||!S.dailyReport){panel.hidden=true;return}
+ const r=S.dailyReport,w=wagerSummaryForReport(r.iso),personalEnd=r.personalEnd??S.personalCash,companyEnd=r.companyEnd??r.companyClose??S.companyCash;
+ const notes=S.notes.filter(n=>n.date===r.date).slice(-10);
+ const events=notes.length?'<div class="report-events"><h4>Notable events</h4>'+notes.map(n=>'<div><b>'+escapeHtml(n.source||'record')+'</b><span>'+escapeHtml(n.text)+'</span></div>').join('')+'</div>':'<div class="report-events"><h4>Notable events</h4><p class="fine">No additional events were entered in the record.</p></div>';
+ panel.hidden=false;$('#dailyReportDate').textContent=r.date||displayDate();
+ $('#dailyReportBody').innerHTML='<div class="report-grid">'+
+ '<article><b>Company opening cash</b><span>'+money(r.openingCompanyCash||0)+'</span></article>'+
+ '<article><b>Company closing cash</b><span>'+money(companyEnd)+'</span></article>'+
+ '<article><b>Revenue</b><span>'+money(r.revenue||0)+'</span></article>'+
+ '<article><b>Expenses</b><span>'+money(r.expenses||0)+'</span></article>'+
+ '<article><b>Company net</b><span>'+cash((r.revenue||0)-(r.expenses||0))+'</span></article>'+
+ '<article><b>Personal opening cash</b><span>'+money(r.openingPersonalCash||0)+'</span></article>'+
+ '<article><b>Personal closing cash</b><span>'+money(personalEnd)+'</span></article>'+
+ '<article><b>Personal cash change</b><span>'+cash(personalEnd-(r.openingPersonalCash||0))+'</span></article>'+
+ '<article><b>Settled wagers</b><span>'+w.tickets+'</span></article>'+
+ '<article><b>Wager net</b><span>'+cash(w.net)+'</span></article>'+
+ '<article><b>Portfolio at close</b><span>'+money(r.portfolioEnd||0)+'</span></article>'+
+ '<article><b>Reputation</b><span>'+Math.round(S.reputation)+'/100</span></article>'+
+ '</div>'+events+'<p class="fine">This is Federal Electric\'s private accounting of the completed date. The Metropolitan Ledger appears only after you retire and the next business morning begins.</p>';
+}
 
 function activeContract(){return S.contracts.find(x=>x.id===S.activeContractId)||null}
 function queuedContracts(){return S.productionQueue.map(id=>S.contracts.find(c=>c.id===id)).filter(c=>c&&(c.status==='accepted'||c.status==='production'))}
