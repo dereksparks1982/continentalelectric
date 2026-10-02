@@ -91,9 +91,13 @@ function renderDailyReport(){
  '<article><b>Personal opening cash</b><span>'+money(r.openingPersonalCash||0)+'</span></article>'+
  '<article><b>Personal closing cash</b><span>'+money(personalEnd)+'</span></article>'+
  '<article><b>Personal cash change</b><span>'+cash(personalEnd-(r.openingPersonalCash||0))+'</span></article>'+
+ '<article><b>Stock trades</b><span>'+(r.stockTrades||0)+'</span></article>'+
+ '<article><b>Realized stock P/L</b><span>'+cash(r.stockRealized||0)+'</span></article>'+
+ '<article><b>Held-stock day move</b><span>'+cash(r.stockPositionMove||0)+'</span></article>'+
+ '<article><b>Federal Exchange close</b><span>'+((r.marketCloseIndex||marketIndex()).toFixed(2))+'</span></article>'+
  '<article><b>Settled wagers</b><span>'+w.tickets+'</span></article>'+
  '<article><b>Wager net</b><span>'+cash(w.net)+'</span></article>'+
- '<article><b>Portfolio at close</b><span>'+money(r.portfolioEnd||0)+'</span></article>'+
+ '<article><b>Portfolio at close</b><span>'+money(r.portfolioEnd||r.portfolioAtMarketClose||0)+'</span></article>'+
  '<article><b>Reputation</b><span>'+Math.round(S.reputation)+'/100</span></article>'+
  '</div>'+events+'<p class="fine">This is Federal Electric\'s private accounting of the completed date. The Metropolitan Ledger appears only after you retire and the next business morning begins.</p>';
 }
@@ -172,8 +176,9 @@ function closeBusinessDay(manual=false){
  finishDayContracts();
  for(const x of Object.values(S.stocks)){x.price=Number.isFinite(+x.hiddenPrice)?+x.hiddenPrice:+x.price;x.prev=x.open}
  const payroll=S.workers*18;S.companyCash-=payroll;S.lastExpenses+=payroll;
- S.ledger.push({date:displayDate(),rev:S.lastRevenue,exp:S.lastExpenses});
- S.dailyReport={iso:S.gameDate,date:displayDate(),openingCompanyCash:S.dayStartCompanyCash,openingPersonalCash:S.dayStartPersonalCash,revenue:S.lastRevenue,expenses:S.lastExpenses,companyClose:S.companyCash,personalAtClose:S.personalCash};
+ const reportDate=displayDate(),dayTrades=S.transactions.filter(t=>t.date===reportDate&&(t.action==='BUY'||t.action==='SELL')),stockRealized=dayTrades.filter(t=>t.action==='SELL').reduce((a,t)=>a+(t.realized||0),0),stockPositionMove=Object.entries(S.portfolio).reduce((a,[k,p])=>a+p.shares*((S.stocks[k]?.price||0)-(S.stocks[k]?.open||0)),0);
+ S.ledger.push({date:reportDate,rev:S.lastRevenue,exp:S.lastExpenses});
+ S.dailyReport={iso:S.gameDate,date:reportDate,openingCompanyCash:S.dayStartCompanyCash,openingPersonalCash:S.dayStartPersonalCash,revenue:S.lastRevenue,expenses:S.lastExpenses,companyClose:S.companyCash,personalAtClose:S.personalCash,stockTrades:dayTrades.length,stockRealized,stockPositionMove,marketCloseIndex:marketIndex(),portfolioAtMarketClose:portfolioValue()};
  S.lastRevenue=0;S.lastExpenses=0;S.machinery=clamp(S.machinery-.7,20,100);
  S.phase='night';S.dayRemaining=DAY_SECONDS;
  S.marketWire='The Federal Exchange has closed. Closing quotations are posted; the exchange remains closed until the next business morning.';
