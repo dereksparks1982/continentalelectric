@@ -4,10 +4,10 @@
 
 ## Play
 
-- **Play current build:** https://dereksparks1982.github.io/federalelectric/index.html?v=20261002-treasury1
+- **Play closed build:** https://dereksparks1982.github.io/federalelectric/index.html?v=20261002-closed1
 - **Georgia Sun:** https://dereksparks1982.github.io/georgiasun/index.html
 
-## Current prototype — v0.3.6-dev: Day/Night & Fight World
+## Closed prototype snapshot — v0.3.6-dev: Day/Night, Fight World & Treasury
 
 The simulation now runs as a living business day:
 
@@ -69,24 +69,25 @@ The simulation now runs as a living business day:
 - private prizefights and cockfighting have separate unlock states, betting, automatic world-clock resolution, multiple discovery routes through underworld contacts, and an Underground Ledger
 - major horse-racing and licensed-boxing results carry into the next morning's **Sports** section of the Metropolitan Ledger
 - red, ivory, and deep-navy Washington/corporate-paperwork UI
-- the persistent header now shows both company cash and personal cash so bankroll and corporate liquidity remain visible while betting or navigating
+- the blue Federal Electric masthead scrolls away normally; the red phase/status/cash bar and navigation remain fixed while scrolling
+- the fixed status bar shows both company cash and personal cash so bankroll and corporate liquidity remain visible while betting or navigating
 - Executive Desk treasury controls keep company and personal money separate: a recorded owner distribution is available during the Business Day, while diverting company funds to personal use creates an accumulating unexplained corporate shortfall and accounting exposure
 - treasury transfers have no arbitrary amount cap beyond available company cash
 
-## Planned day/night structure
+## Current day/night structure
 
-The two-phase time foundation is now implemented.
+The two-phase time foundation is implemented.
 
 - **Hour 1 — Business Day:** factory, contracts, suppliers, Federal Exchange, daytime meetings, Capital Race Grounds, daytime contacts, and occasional underground distractions
 - **Hour 2 — Washington Night:** the exchange and ordinary daytime business close; licensed boxing, evening social activity, and a broader underground scene become available
 - Madam Star remains available in both phases, but her daytime and nighttime encounter pools are different
-- planned night-only Star Club options include **Brief Evening Visit** and **Evening Visit**
+- nighttime Star Club options include **Brief Evening Visit** and **Evening Visit**
 - the private end-of-day report comes after the night phase; the Metropolitan Ledger is delivered at the beginning of the next day
 - daytime and nighttime remain one continuous world: time spent elsewhere can cause scheduled races or other events to occur without the player being present
 
 ## Legal Sports and Illicit Activities
 
-The Washington activity layer is being reorganized into two clear player-facing categories.
+The Washington activity layer uses two clear player-facing categories.
 
 - **Legal Sports:** Capital Race Grounds by day and licensed boxing cards by night, with betting and persistent competitors
 - **Illicit Activities:** backroom poker, private prizefights, cockfighting, bookmakers, and underground contacts
@@ -108,5 +109,19 @@ A future public Federal Electric will connect the owner's personal reputation to
 - [ROADMAP.md](ROADMAP.md)
 - [MARKET-DESIGN.md](MARKET-DESIGN.md)
 - [FIGHT-WORLD-DESIGN.md](FIGHT-WORLD-DESIGN.md)
+- [ONLINE-SYSTEMS-DESIGN.md](ONLINE-SYSTEMS-DESIGN.md)
+- [BUILD-SNAPSHOT-2026-10-02.md](BUILD-SNAPSHOT-2026-10-02.md)
 - [HISTORICAL-NOTES.md](HISTORICAL-NOTES.md)
 - [DECISIONS.md](DECISIONS.md)
+
+
+## Next milestone — Accounts, Global Chat & Global Rankings
+
+The next development phase moves Federal Electric from browser-only saves toward an account-backed persistent world.
+
+Planned order:
+1. **Accounts and cloud saves** — sign in, preserve progress across builds/devices, versioned save migrations, local fallback copy, conflict-safe synchronization.
+2. **Global Chat** — account identity, one shared game chat, timestamps, basic moderation/rate limiting, and no requirement to expose personal information.
+3. **Global Rankings** — server-validated leaderboard data derived from saved game state. Initial categories are expected to include company value and personal wealth, with final ranking categories/formulas to be locked before implementation.
+
+The current GitHub Pages client can remain the game front end while a backend service is added for identity, cloud save storage, chat, and rankings.
