@@ -113,7 +113,6 @@ Next v0.3 passes:
 - **Warehouse separation:** production creates inventory, contracts create obligations, and shipping connects the two — IMPLEMENTED
 - raw materials live under **Factory → Warehouse** — IMPLEMENTED
 - [x] Raw-material stock counters refresh live during production, so copper, glass and tungsten visibly fall as finished bulbs are created without resetting Warehouse trade inputs.
-- [x] Replace browser-dependent cursive masthead initials with the fixed approved Federal Electric wordmark asset so the calligraphic F/E render the same across devices.
 - grade-specific finished-goods inventory and production-lot records — IMPLEMENTED FOUNDATION
 - player-controlled production quantity is independent of contract quantity; overproduction remains in Warehouse stock — IMPLEMENTED
 - manual contract fulfillment from Warehouse; no automatic end-of-turn shipment — IMPLEMENTED

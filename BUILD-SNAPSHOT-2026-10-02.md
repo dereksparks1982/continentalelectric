@@ -249,7 +249,7 @@ See:
 - Daily Report wagering includes horse racing, dog racing, midget cars, licensed boxing and underground betting with wagered amount, gross payout, net and total settled tickets
 - Star Club pricing is now $50/$150 by day and $100/$300 at night
 - Public Offering planning shows proposed ticker **FE**
-- the masthead uses the fixed approved Federal Electric wordmark asset, eliminating PC/iPhone font-fallback differences while preserving the approved calligraphic **F** and **E**
+- the masthead has been restored to the original plain **FEDERAL ELECTRIC** serif wordmark
 
 
 ### Live Warehouse material consumption — v0.4.0

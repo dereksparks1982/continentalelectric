@@ -198,7 +198,7 @@ The Daily Report now separates **horse racing, dog racing, midget car racing, li
 
 The Star Club is now materially more expensive. Daytime visits cost **$50 for 15 minutes** or **$150 for 30 minutes**; Washington Night visits cost **$100** or **$300** respectively. Nighttime is intentionally more expensive.
 
-The Public Offering planning scaffold now displays **FE** as the proposed Federal Electric ticker. The masthead uses a fixed approved **Federal Electric** wordmark asset rather than browser-dependent script fonts, so the calligraphic **F** and **E** render identically on PC and iPhone.
+The Public Offering planning scaffold now displays **FE** as the proposed Federal Electric ticker. The masthead uses the original plain **FEDERAL ELECTRIC** serif wordmark.
 
 
 ### Live raw-material consumption
