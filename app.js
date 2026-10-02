@@ -81,7 +81,17 @@ $('#visitStar').onclick=()=>{if(S.dayRemaining<1800){$('#starNote').textContent=
 $('#meetBookie').onclick=()=>{if(!S.contacts.madamStar.met)return;S.bookieKnown=true;S.contacts.bookie.met=true;S.contacts.bookie.trust++;$('#starNote').textContent='Madam Star introduces you to Eddie Doyle, a bookmaker who handles private wagers.';save();renderWashington()}
 function playPokerCircle(circle,stake){if(S.pokerDay!==S.gameDate){S.pokerDay=S.gameDate;S.pokerPlayed={working:0,middle:0,elite:0}}const limits={working:5,middle:3,elite:1};if(S.pokerPlayed[circle]>=limits[circle]){$('#pokerNote').textContent='No more '+circle+' games are available to you today.';return}if(S.personalCash<stake){$('#pokerNote').textContent='You need '+cash(stake)+' personal cash for this table.';return}if(circle==='elite'&&!S.elitePokerUnlocked){$('#pokerNote').textContent='You have not received an invitation to the private society game.';return}S.pokerPlayed[circle]++;save();renderWashington();window.open('poker.html?room='+encodeURIComponent(circle),'FEPoker_'+circle+'_'+S.gameDate,'popup=yes,width=1180,height=860,resizable=yes,scrollbars=yes')}
 window.FE_POKER_RETURN=(circle,delta,hands)=>{S.personalCash+=delta;S.dayRemaining=Math.max(0,S.dayRemaining-Math.min(600,Math.max(60,hands*45)));if(circle==='middle'&&S.contacts.madamStar.trust>=2&&Math.random()<.25){S.elitePokerUnlocked=true;S.notes.push({date:displayDate(),text:'An acquaintance at a commercial card game mentioned a private society table and offered an introduction.',source:'card-table conversation'})}if(isRaidToday()&&Math.random()<pokerRisk(circle)){S.lastRaidOutcome='caught';S.reputation=clamp(S.reputation-(circle==='elite'?7:3),0,100);S.notes.push({date:displayDate(),text:'Police raided the card game while I was present. I was caught in the sweep.',source:'personal recollection'});$('#pokerNote').textContent='The game was caught in a rare police sweep.'}else{S.notes.push({date:displayDate(),text:'Played '+hands+' hand'+(hands===1?'':'s')+' at a '+(circle==='working'?'neighborhood':circle==='middle'?'commercial':'private society')+' poker game and left '+(delta>=0?'ahead ':'down ')+cash(Math.abs(delta))+'.',source:'personal recollection'});$('#pokerNote').textContent='Poker session recorded in your journal.'}save();render()}
-$('#pokerWorking').onclick=()=>playPokerCircle('working',25);$('#pokerMiddle').onclick=()=>playPokerCircle('middle',100);$('#pokerElite').onclick=()=>playPokerCircle('elite',500);
+$('#pokerWorking').onclick=()=>playPokerCircle('working',25);$('#pokerMiddle').onclick=()=>playPokerCircle('middle',100);
+let eliteTestClicks=0,eliteTestReset=null;
+$('#pokerElite').onclick=()=>{
+ if(S.elitePokerUnlocked)return playPokerCircle('elite',500);
+ eliteTestClicks++;
+ clearTimeout(eliteTestReset);
+ eliteTestReset=setTimeout(()=>eliteTestClicks=0,5000);
+ const left=7-eliteTestClicks;
+ if(left>0){$('#pokerNote').textContent='Private Society test access: '+left+' more click'+(left===1?'':'s')+'.';return}
+ eliteTestClicks=0;S.elitePokerUnlocked=true;save();renderWashington();$('#pokerNote').textContent='Private Society test access unlocked. Click again to enter the Embassy Room.';
+};
 document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));$('#'+b.dataset.tab).classList.add('active')});
 const sectors=[...new Set(stockSeed.map(x=>x[2]))].sort();$('#sectorFilter').innerHTML='<option value="All">All sectors</option>'+sectors.map(s=>'<option>'+s+'</option>').join('');$('#stockSearch').oninput=renderStocks;$('#sectorFilter').onchange=renderStocks;
 loadInitial();render();
