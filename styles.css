@@ -49,3 +49,43 @@
 #pauseToggle:hover{outline:2px solid rgba(255,255,255,.7)}
 #pauseToggle.paused{background:#fff;color:var(--red);border-color:#fff}
 @media(max-width:700px){#pauseToggle{min-width:34px;height:26px;padding:2px 7px;font-size:15px}}
+
+
+/* v0.3.6-dev build 5: hard pause, material trading, contract negotiation, security records */
+body.game-paused nav button:disabled{opacity:.34;filter:grayscale(1);cursor:not-allowed}
+body.game-paused main button:disabled,
+body.game-paused main input:disabled,
+body.game-paused main select:disabled,
+body.game-paused main textarea:disabled{opacity:.45;cursor:not-allowed}
+body.game-paused #reset{opacity:1;cursor:pointer}
+.material-trade{display:flex;gap:7px;align-items:center;flex-wrap:wrap}
+.material-trade input{width:96px;margin:0}
+.contract-proposal{display:grid;grid-template-columns:repeat(3,minmax(150px,1fr));gap:10px;margin:12px 0;padding:10px;border:1px solid var(--rule);background:#f8f3e7}
+.contract-proposal label{font:700 11px 'Courier New',monospace;text-transform:uppercase;color:var(--navy)}
+.contract-proposal input,.contract-proposal select{display:block;width:100%;margin-top:5px}
+.contract-counter{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:12px 0;padding:10px;border:2px dashed var(--red);background:#fffaf0}
+.contract-counter b{color:var(--red);font:700 12px 'Courier New',monospace;letter-spacing:.05em}
+.contract-counter span{flex:1;font-family:'Courier New',monospace}
+.stock-name-link{border:0;background:transparent;color:var(--navy);padding:0;text-align:left;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px;font:inherit;cursor:pointer}
+.stock-name-link:hover{color:var(--red)}
+.stock-detail{border-top:5px solid var(--navy)}
+.stock-detail[hidden]{display:none}
+.stock-detail-head{display:flex;justify-content:space-between;gap:14px;align-items:flex-start}
+.stock-detail-head h3{display:inline-block;margin:0 0 2px 8px;color:var(--navy)}
+.stock-detail-head p{margin:4px 0 0}
+.stock-detail-stats{display:grid;grid-template-columns:repeat(4,minmax(130px,1fr));gap:8px;margin:12px 0}
+.stock-detail-stats span{display:block;border:1px solid var(--rule);background:#f8f3e7;padding:8px;font-family:'Courier New',monospace}
+.stock-detail-stats b{display:block;font-size:10px;text-transform:uppercase;color:var(--navy);margin-bottom:4px}
+.stock-detail-stats i{font-style:normal;font-weight:bold}
+.stock-history-chart{display:block;width:100%;height:auto;border:1px solid var(--navy);background:#fbf7ec;color:var(--navy);margin:10px 0 14px}
+.stock-chart-grid line{stroke:#bbb5a7;stroke-width:1}
+.stock-history-line{fill:none;stroke:currentColor;stroke-width:3}
+.stock-history-chart text{fill:currentColor;font:700 13px 'Courier New',monospace}
+.stock-history-ledger{max-height:330px;overflow:auto}
+@media(max-width:700px){
+ .contract-proposal{grid-template-columns:1fr}
+ .stock-detail-head{display:block}
+ .stock-detail-head button{margin-top:8px}
+ .stock-detail-stats{grid-template-columns:1fr 1fr}
+ .material-trade{display:grid;grid-template-columns:90px 1fr}
+}
