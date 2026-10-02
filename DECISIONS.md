@@ -264,4 +264,17 @@ This file records decisions that should not drift silently during development.
 - Global Chat is account-backed but must remain operationally separate from game saving; chat failure cannot prevent the game from saving or loading.
 - Global Rankings must be derived from server-stored/validated game state rather than accepting arbitrary leaderboard numbers from the client.
 - Final leaderboard categories and formulas will be explicitly designed before implementation.
-- The first playable Federal Exchange should eventually seed a fictional previous close so first-day day-change values are not universally +0.00%; this is documented as market polish, not yet implemented.
+- The first playable Federal Exchange now seeds a fictional previous close so first-day day-change values are not universally +0.00%.
+
+
+## 2026-10-02 — Pause, materials, contract negotiation, and security history
+
+- PAUSE is a true gameplay freeze rather than extra decision time. Entering pause immediately returns the interface to **Executive Desk**.
+- While paused, every navigation tab and gameplay control is disabled and visibly grayed out. The only usable controls are **PLAY** and **New Game**.
+- Raw materials are not restricted to fixed lots. Copper, glass and tungsten can be bought or sold in arbitrary whole-unit quantities, and the player can sell all held inventory.
+- Customer requests define what the buyer wants, but the customer does not dictate Federal Electric's selling price.
+- Before accepting new work, Federal Electric proposes quantity, grade and unit price. The buyer can accept, reject, or counter; only agreed terms become a production contract.
+- Wrong-grade delivery consequences remain separate from pre-contract bargaining: a buyer may still reject an out-of-spec shipment or accept it only at a reduced price.
+- Federal Exchange Day movement is measured against a stored prior close.
+- Each fictional listed company carries a persistent quotation history. The game seeds roughly 90 pre-start sessions and appends completed playable business days.
+- Wartime copper scarcity, priority allocation, and government-contract access are planned future systems and were not implemented in this build.
