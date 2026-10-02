@@ -249,4 +249,12 @@ See:
 - Daily Report wagering includes horse racing, dog racing, midget cars, licensed boxing and underground betting with wagered amount, gross payout, net and total settled tickets
 - Star Club pricing is now $50/$150 by day and $100/$300 at night
 - Public Offering planning shows proposed ticker **FE**
-- the masthead wordmark renders only the initial **F** and **E** in cursive/script lettering
+- the masthead uses the fixed approved Federal Electric wordmark asset, eliminating PC/iPhone font-fallback differences while preserving the approved calligraphic **F** and **E**
+
+
+### Live Warehouse material consumption — v0.4.0
+
+- production consumes copper, glass and tungsten proportionally to gross bulbs attempted, including rejected output
+- Warehouse raw-material stock cells refresh on every production tick so depletion is visible while finished-goods totals climb
+- material balances are clamped at zero to avoid tiny floating-point negatives at exhaustion
+- the live refresh does not rebuild Buy/Sell controls, so typed Warehouse trade quantities are preserved
