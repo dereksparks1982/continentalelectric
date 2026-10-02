@@ -9,7 +9,7 @@ Federal Electric is a long-save historical industrial, financial, social, and po
 3. Corporate spreadsheet/paperwork presentation in deep navy, ivory, and restrained red.
 4. Company money and personal money stay separate.
 5. Federal Electric starts private; IPO is optional.
-6. One real hour is one active business day.
+6. Each active date has a 60-minute Business Day followed by a 60-minute Washington Night.
 7. No offline progression.
 8. No universal morality meter.
 9. Historical specifics are researched.
@@ -264,10 +264,11 @@ Stock purchases are not merely score-like investments. Shares represent ownershi
 - major results feed the next morning's Metropolitan Ledger
 
 ### Illicit Activities
-- replace the current **After Hours** label with **Illicit Activities** — IMPLEMENTED
+- **Illicit Activities** is the player-facing underworld category — IMPLEMENTED
 - backroom poker remains part of this category
 - add private prizefights and cockfighting as independently discoverable activities — IMPLEMENTED FOUNDATION
 - private prizefights may be scheduled during the day or at night, creating direct competition with work and legal activities — IMPLEMENTED FOUNDATION
 - underground activity is invitation/contact driven rather than presented as a complete menu from game start
 - multiple discovery routes: bookmaker, licensed boxing contacts, Madam Star, poker contacts and other future underworld NPCs — IMPLEMENTED FOUNDATION
 - the bookmaker becomes a recurring source of leads, betting information and invitations rather than a single-use unlock — IMPLEMENTED FOUNDATION
+- race-track attendance can introduce Eddie Doyle naturally, creating another route into the bookmaker network — IMPLEMENTED
