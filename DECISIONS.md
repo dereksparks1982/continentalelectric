@@ -203,3 +203,18 @@ This file records decisions that should not drift silently during development.
 - The bookmaker is not the sole progression gate. Legal boxing contacts, Madam Star, poker contacts and other underworld relationships can independently reveal private prizefights or cockfighting.
 - Underground unlocks are independent rather than one master criminal-access switch.
 - Licensed boxing and private prizefighting share a connected fight world: contacts and fighters may cross between respectable and underground circles when the simulation provides a reason.
+
+
+## 2026-10-01 — Fight-world implementation status
+
+- The two-phase clock foundation is implemented: Business Day transitions to Washington Night, which transitions to a mandatory private Daily Report before the next morning begins.
+- The morning Metropolitan Ledger is generated only when the next business day begins.
+- Legal Sports is now the player-facing navigation label for daytime horse racing and nighttime licensed boxing.
+- Illicit Activities is now the player-facing replacement for After Hours.
+- Licensed boxing has a persistent roster, scheduled four-bout nightly card, fighter styles/records/condition, automatic resolution and winner betting.
+- Capital Race Grounds is hidden during Washington Night; licensed boxing is hidden during the Business Day.
+- Madam Star now exposes separate daytime and evening visit controls with different encounter pools.
+- Eddie Doyle can be asked what is running and may reveal a private prizefight, cockfight, useful schedule information, or nothing useful.
+- Private prizefights and cockfighting are independently unlockable and settle on the shared world clock.
+- Private prizefights can be scheduled during either phase. Cockfighting currently schedules during Washington Night.
+- Licensed boxing can introduce Marty Kane, a fight-world contact who can become another route into private prizefights.
