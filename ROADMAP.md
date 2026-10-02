@@ -53,7 +53,7 @@ Implemented foundation:
 - v0.1/v0.2 save migration
 
 Implemented Working Factory foundation:
-- top-level Contracts department
+- Contracts department nested inside the Factory navigation
 - one starting Capital Hardware & Supply Co. contract
 - contract-defined quality, quantity, price and deadline
 - continuous live production tied to the business-day clock
@@ -94,6 +94,17 @@ Next v0.3 passes:
 - persistent named opponents, table history and social networks in each poker circle
 - legal exposure/arrest/court consequence chain
 - society invitations and recurring Washington locations
+
+## Primary navigation consolidation — IMPLEMENTED
+
+- primary sticky navigation reduced to **Executive Desk**, **Factory**, **Markets & News**, **Journal**, and **Pastimes**
+- **Factory** contains Production and Contracts
+- **Markets & News** contains Federal Exchange and Metropolitan Ledger
+- **Journal** contains Journal and Contacts
+- **Pastimes** contains Legal Sports and Illicit Activities
+- selected top-level and secondary section buttons display blue with white text
+- pause still returns to Executive Desk and disables/grays out gameplay navigation and controls
+- existing gameplay systems and section IDs were retained; this slice reorganizes access without rewriting mechanics
 
 ## v0.4 — Company Operations
 
