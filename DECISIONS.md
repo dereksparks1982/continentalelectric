@@ -121,3 +121,12 @@ This file records decisions that should not drift silently during development.
 
 - The business-day clock and primary navigation remain pinned together at the top of the viewport while the player scrolls.
 - The Federal Electric masthead may scroll away; the time bar and navigation must remain visible because time is a core resource.
+
+## 2026-10-01 — Revised poker access progression
+
+- The Neighborhood Game is unlocked by default at game start.
+- Eddie Doyle no longer gates the low-tier game. Meeting Eddie Doyle instead provides access/invitation to the mid-tier Commerce Club.
+- The previous requirement to win 10 Neighborhood Games before entering the Commerce Club is removed.
+- While playing Commerce Club sessions, the player has a chance to meet Harrison Vale.
+- Harrison Vale is the social gate to the third/highest tier, the Embassy Room; the player must receive his invitation rather than grind a win counter.
+- Poker progression therefore follows social access: open low tier → meet Eddie for mid tier → play mid tier and meet Vale → receive Vale invitation for elite tier.
