@@ -4,10 +4,10 @@
 
 ## Play
 
-- **Play current build:** https://dereksparks1982.github.io/federalelectric/index.html?v=20261001-backrooms
+- **Play current build:** https://dereksparks1982.github.io/federalelectric/index.html?v=20261001-customer
 - **Georgia Sun:** https://dereksparks1982.github.io/georgiasun/index.html
 
-## Current prototype — v0.3.3-dev: The Back Rooms
+## Current prototype — v0.3.4-dev: The Customer Is Always Right
 
 The simulation now runs as a living business day:
 
@@ -29,7 +29,14 @@ The simulation now runs as a living business day:
 - production consumes materials and operating cash as units are actually made
 - Star Club visits consume 30 minutes while the factory continues operating
 - unattended factory operation can suffer a semi-uncommon breakdown; Foreman Sullivan may fix it himself or leave the line stopped awaiting the owner's decision
-- completed starter contracts are delivered and paid at close; incomplete work is recorded as late/short in customer history
+- customer personalities now affect specification tolerance and whether partial deliveries are accepted
+- customer history records correct, discounted, rejected, partial, and late/short outcomes and influences future offer pricing
+- production grade can be set independently from the contract specification, allowing wrong-grade production and real inspection consequences
+- wrong-grade shipments may be rejected for replacement or accepted only at a customer-specific discount
+- finished lamp inventory is tracked separately as Economy, Standard, and Long-Life stock
+- partial shipments are supported for customers willing to accept them
+- switching production grades consumes factory setup time
+- important fulfillment outcomes are recorded as customer correspondence in the Journal
 - factory materials, machinery, payroll, and daily ledger
 - a living **Metropolitan Ledger** newspaper with an edition archive
 - personal notebook for recording tips and conversations without guaranteeing their truth
@@ -38,7 +45,6 @@ The simulation now runs as a living business day:
 - 10 Neighborhood Game wins unlock the Commerce Club; simulated wins count the same as played wins
 - Commerce Club sessions can build a connection with Harrison Vale, whose invitation unlocks the Embassy Room
 - every poker room supports Play or Simulate; simulation consumes exactly 5 business minutes while factory production continues
-- the locked Embassy Room has a seven-click admin/test override that unlocks and opens it on click seven
 - poker music UI is removed from the current scope
 - three playable backroom poker rooms with a browser-native Texas Hold'em engine, AI opponents, distinct class-based interiors, blinds, betting streets, hand evaluation and showdown
 - independently scheduled police raids
