@@ -86,3 +86,12 @@ This file records decisions that should not drift silently during development.
 - Poker simulation costs are tiered by room: Neighborhood Game 5 business minutes, Commerce Club 10 business minutes, Embassy Room 25 business minutes.
 - A simulation cannot begin unless enough business-day time remains to pay its full time cost.
 - Contract production runs are normalized to the established 10/20/30-minute bands. Legacy or malformed productionSeconds values above 30 minutes are repaired during migration and before starting queued work.
+
+
+## 2026-10-01 — Autosave, stabilization, and poker clock
+
+- Federal Electric is an autosave game. Manual Save and Load controls are removed.
+- The destructive reset control is named **New Game** and must warn that all previous progress will be lost before resetting.
+- The business-day clock is authoritative across activities. Poker must display the same remaining day time and must not charge elapsed time twice.
+- Development proceeds one verified slice at a time on `main` until the stabilization list and roadmap are cleared.
+- Horse racing remains the next major gameplay system after stabilization: the meeting begins automatically halfway through the business day, missed races resolve without the player, qualifiers advance through a visible bracket, and the player may arrive late solely for later races or the Main Event.
