@@ -151,8 +151,8 @@ function boutCard(d){
  const card=S.boxing.card,b=card.bouts[d.id],a=fighter(b.fighters[0]),c=fighter(b.fighters[1]),bet=card.bets[d.id];
  if(b.result){
    const result=b.result,winner=result.winnerId?fighter(result.winnerId):null;
-   const headline=winner?escapeHtml(winner.name)+' · '+result.method+(result.method.includes('Decision')?'':' · Round '+result.round):'DRAW';
-   return '<article class="boxing-bout complete"><header><div><h4>'+d.label+'</h4><small>'+escapeHtml(a.weightClass)+' · '+d.rounds+' rounds scheduled</small></div><b>FINAL</b></header><p><strong>'+headline+'</strong></p>'+(bet?'<p class="boxing-ticket">Your ticket: '+escapeHtml(fighter(bet.fighterId).name)+' · '+cash(bet.wager)+' · '+(bet.net>=0?'NET +':'NET ')+cash(bet.net)+'</p>':'<p class="muted">No wager.</p>')+'</article>';
+   const headline=winner?escapeHtml(winner.name)+' · '+result.method+(result.method.includes('Decision')?'':' · Round '+result.round):'DRAW',score=result.method.includes('Decision')?' · Score '+result.aPts+'-'+result.bPts:'';
+   return '<article class="boxing-bout complete"><header><div><h4>'+d.label+'</h4><small>'+escapeHtml(a.weightClass)+' · '+d.rounds+' rounds scheduled</small></div><b>FINAL</b></header><p><strong>'+headline+'</strong>'+score+'</p>'+(bet?'<p class="boxing-ticket">Your ticket: '+escapeHtml(fighter(bet.fighterId).name)+' · '+cash(bet.wager)+' · '+(bet.net>=0?'NET +':'NET ')+cash(bet.net)+'</p>':'<p class="muted">No wager.</p>')+'</article>';
  }
  const post=Math.max(0,S.dayRemaining-d.threshold);
  return '<article class="boxing-bout"><header><div><h4>'+d.label+'</h4><small>'+escapeHtml(a.weightClass)+' · '+d.rounds+' rounds scheduled</small></div><div class="boxing-countdown" data-bout="'+d.id+'"><small>BELL IN</small><b>'+fmt(post)+'</b></div></header>'+
