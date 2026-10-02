@@ -95,6 +95,21 @@ function businessOpen(){return S.phase==='day'}
 const NAV_GROUP_BY_TAB={desk:'desk',factory:'factory',warehouse:'factory',contracts:'factory',market:'markets',news:'markets',notebook:'journal',contactsTab:'journal',infoTab:'journal',helpTab:'journal',racing:'pastimes',washington:'pastimes'};
 function syncTopNavigation(id=document.querySelector('.tab.active')?.id||'desk'){const group=NAV_GROUP_BY_TAB[id]||id;document.querySelectorAll('nav button[data-nav-group]').forEach(btn=>btn.classList.toggle('active',btn.dataset.navGroup===group));document.querySelectorAll('.section-tabs button[data-tab]').forEach(btn=>btn.classList.toggle('active',btn.dataset.tab===id))}
 function showTab(id){document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));const tab=$('#'+id);if(tab)tab.classList.add('active');syncTopNavigation(id)}
+const pastimeActivityState={legal:null,illicit:null};
+function setPastimeActivity(group,target=null){
+ const panels=[...document.querySelectorAll('[data-activity-panel="'+group+'"]')],buttons=[...document.querySelectorAll('[data-activity-group="'+group+'"]')];
+ const requested=target?document.querySelector('[data-activity-panel="'+group+'"][data-activity-name="'+target+'"]'):null;
+ const wasOpen=!!(requested&&!requested.hidden&&pastimeActivityState[group]===target);
+ panels.forEach(p=>p.hidden=true);buttons.forEach(b=>{b.classList.remove('active');b.setAttribute('aria-expanded','false')});pastimeActivityState[group]=null;
+ if(target&&!wasOpen&&requested){requested.hidden=false;pastimeActivityState[group]=target;const btn=buttons.find(b=>b.dataset.activityTarget===target);if(btn){btn.classList.add('active');btn.setAttribute('aria-expanded','true')}}
+}
+window.isPastimeActivityOpen=(group,target)=>pastimeActivityState[group]===target;
+document.addEventListener('click',e=>{
+ const close=e.target instanceof Element?e.target.closest('[data-activity-close]'):null;
+ if(close){setPastimeActivity(close.dataset.activityClose,null);return}
+ const btn=e.target instanceof Element?e.target.closest('[data-activity-target][data-activity-group]'):null;
+ if(btn)setPastimeActivity(btn.dataset.activityGroup,btn.dataset.activityTarget);
+});
 function clearPauseLock(){
  document.querySelectorAll('[data-pause-lock="1"]').forEach(el=>{el.disabled=el.dataset.pauseWasDisabled==='1';delete el.dataset.pauseWasDisabled;delete el.dataset.pauseLock});
  document.body.classList.remove('game-paused');

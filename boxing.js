@@ -171,40 +171,20 @@ function renderLedger(){
  el.innerHTML=done.length?done.map(d=>{const b=card.bouts[d.id],r=b.result,w=r.winnerId?fighter(r.winnerId):null,bet=card.bets[d.id];if(bet)running+=bet.net||0;return '<div class="boxing-ledger-row"><b>'+d.label+': '+(w?escapeHtml(w.name):'Draw')+'</b><small>'+r.method+(r.method.includes('Decision')?'':' · Round '+r.round)+(bet?' · Your bet '+(bet.net>=0?'+':'')+cash(bet.net)+' · Running '+(running>=0?'+':'')+cash(running):' · No wager')+'</small></div>'}).join(''):'<p class="muted">No licensed bouts have been completed tonight.</p>';
 }
 function render(){
- const horse=$b('horseRacingModule'),box=$b('boxingModule'),notice=$b('legalSportsNotice');
- if(!box)return;
- if(S.phase==='day'){
-   if(horse)horse.hidden=false;box.hidden=true;if(notice){notice.hidden=false;notice.textContent='Capital Race Grounds is active during the Business Day. Licensed boxing opens during Washington Night.'}
-   return;
- }
- if(S.phase==='night'){
-   if(horse)horse.hidden=true;box.hidden=false;if(notice)notice.hidden=true;
-   const card=ensureState();$b('boxingMeta').textContent='Washington Arena · Tonight\'s licensed card · Opening bout at 45:00 remaining · Main event at 05:00';
-   $b('boxingBankroll').textContent=cash(S.personalCash);
-   $b('boxingCard').innerHTML=CARD.map(boutCard).join('');
-   $b('boxingCard').querySelectorAll('.boxing-bet-btn').forEach(btn=>btn.addEventListener('click',()=>placeBet(btn.dataset.bout)));
-   renderRoster();renderLedger();return;
- }
- if(horse)horse.hidden=true;box.hidden=true;if(notice)notice.hidden=true;
+ const box=$b('boxingModule');if(!box)return;ensureState();
+ $b('boxingMeta').textContent=S.phase==='night'?'Washington Arena · Tonight\'s licensed card · Opening bout at 45:00 remaining · Main event at 05:00':S.phase==='report'?'Washington Arena · Tonight\'s card is complete.':'Washington Arena · Licensed boxing opens during Washington Night.';
+ $b('boxingBankroll').textContent=cash(S.personalCash);
+ if(S.phase==='day')$b('boxingCard').innerHTML='<p class="muted">The arena opens during Washington Night. The announced card will be available for wagering after the Business Day closes.</p>';
+ else{$b('boxingCard').innerHTML=CARD.map(boutCard).join('');$b('boxingCard').querySelectorAll('.boxing-bet-btn').forEach(btn=>btn.addEventListener('click',()=>placeBet(btn.dataset.bout)))}
+ renderRoster();renderLedger();
 }
 function tick(){
  if(document.hidden)return;
- if(lastPhase!==S.phase){lastPhase=S.phase;render();return}
+ if(lastPhase!==S.phase){lastPhase=S.phase;render()}
  const changed=processSchedule();
- if(S.phase==='night'){
-   if(changed)render();
-   else{
-     $b('boxingCard')?.querySelectorAll('.boxing-countdown[data-bout]').forEach(el=>{const d=boutDef(el.dataset.bout),clock=el.querySelector('b');if(d&&clock)clock.textContent=fmt(Math.max(0,S.dayRemaining-d.threshold))});
-     const bank=$b('boxingBankroll');if(bank)bank.textContent=cash(S.personalCash);
-   }
- }
- renderPhaseVisibility();
+ if(changed)render();
+ else if(S.phase==='night'){$b('boxingCard')?.querySelectorAll('.boxing-countdown[data-bout]').forEach(el=>{const d=boutDef(el.dataset.bout),clock=el.querySelector('b');if(d&&clock)clock.textContent=fmt(Math.max(0,S.dayRemaining-d.threshold))});const bank=$b('boxingBankroll');if(bank)bank.textContent=cash(S.personalCash)}
 }
-function renderPhaseVisibility(){
- const horse=$b('horseRacingModule'),box=$b('boxingModule'),notice=$b('legalSportsNotice');
- if(S.phase==='day'){if(horse)horse.hidden=false;if(box)box.hidden=true;if(notice)notice.hidden=false}
- else if(S.phase==='night'){if(horse)horse.hidden=true;if(box)box.hidden=false;if(notice)notice.hidden=true}
-}
-document.addEventListener('click',e=>{if(e.target?.dataset?.tab==='racing')setTimeout(render,0)});
+document.addEventListener('click',e=>{if(e.target?.dataset?.tab==='racing'||e.target?.dataset?.activityTarget==='boxing')setTimeout(render,0)});
 ensureState();lastPhase=S.phase;render();setInterval(tick,1000);
 })();

@@ -106,3 +106,12 @@ header{position:relative}
 .executive-desk-blotter article{background:#f7f0df;border-color:#6f6859;border-top-color:#b59a61;box-shadow:0 2px 5px rgba(0,0,0,.25)}
 .executive-desk-blotter article b{color:#493728}.executive-desk-blotter article span{color:#172238}
 @media(max-width:700px){.app-version{top:5px;right:7px;font-size:9px}.confidential-stamp{margin-top:16px}.executive-desk-surface{padding:10px}.executive-desk-blotter{padding:10px}}
+
+/* collapsible pastime activity panels */
+.activity-tabs{display:flex;gap:6px;align-items:center;margin:0 0 12px;padding:7px;background:#dfe3e8;border:1px solid #9aa2ad;overflow-x:auto}
+.activity-tabs button{flex:0 0 auto;white-space:nowrap;background:#edf0f4;font-weight:bold;border-bottom:3px solid var(--red)}
+.activity-tabs button.active{background:var(--navy);color:#fff;border-color:var(--navy);outline:none}
+.activity-panel{margin-top:10px}.activity-panel[hidden]{display:none!important}
+.activity-panel-head{display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--navy);color:#fff;padding:7px 9px;border-bottom:3px solid var(--red);font:700 12px 'Courier New',monospace;letter-spacing:.06em;text-transform:uppercase}
+.activity-close{min-width:32px;padding:2px 8px;background:#fff;color:var(--red);font:bold 20px/1 'Courier New',monospace}
+@media(max-width:700px){.activity-tabs{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch}.activity-tabs button{white-space:nowrap}}
