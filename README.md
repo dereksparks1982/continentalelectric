@@ -62,12 +62,23 @@ The simulation now runs as a living business day:
 
 The current build still uses the single 60-minute business-day runtime while the next time-system expansion is being designed.
 
-- **Hour 1 — Business Day:** factory, contracts, suppliers, Federal Exchange, daytime meetings, the regular race meeting, and daytime contacts
-- **Hour 2 — Washington Night:** the exchange and ordinary daytime business close; night-only people, events, social venues, illicit activities, and selected legal evening sports become available
+- **Hour 1 — Business Day:** factory, contracts, suppliers, Federal Exchange, daytime meetings, Capital Race Grounds, daytime contacts, and occasional underground distractions
+- **Hour 2 — Washington Night:** the exchange and ordinary daytime business close; licensed boxing, evening social activity, and a broader underground scene become available
 - Madam Star remains available in both phases, but her daytime and nighttime encounter pools are different
 - planned night-only Star Club options include **Brief Evening Visit** and **Evening Visit**
 - the private end-of-day report comes after the night phase; the Metropolitan Ledger is delivered at the beginning of the next day
 - daytime and nighttime remain one continuous world: time spent elsewhere can cause scheduled races or other events to occur without the player being present
+
+## Legal Sports and Illicit Activities
+
+The Washington activity layer is being reorganized into two clear player-facing categories.
+
+- **Legal Sports:** Capital Race Grounds by day and licensed boxing cards by night, with betting and persistent competitors
+- **Illicit Activities:** backroom poker, private prizefights, cockfighting, bookmakers, and underground contacts
+- private prizefights may occur during either phase so an invitation can compete directly with factory work, racing, meetings, or legal evening entertainment
+- the bookmaker is a recurring information source rather than a one-time progression key; he may know about private fights, cockfights, betting action, or nothing useful on a given visit
+- underground activities can be discovered through more than one contact or venue, including the bookmaker, legal boxing, Madam Star, poker circles, and other social encounters
+- unlocks are independent: learning about private prizefights does not automatically reveal cockfighting, and vice versa
 
 ## Design principle
 
