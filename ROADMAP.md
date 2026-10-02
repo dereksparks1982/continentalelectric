@@ -15,7 +15,7 @@ Federal Electric is a long-save historical industrial, financial, social, and po
 9. Historical specifics are researched.
 10. Information can be incomplete or wrong depending on its source.
 
-## v0.3.1-dev — The Working Factory — CURRENT BUILD
+## v0.3.2-dev — The Order Book — CURRENT BUILD
 
 Implemented foundation:
 - 60-minute active business-day clock
@@ -56,8 +56,12 @@ Implemented Working Factory foundation:
 - customer record tracks correct completions and late/short work
 
 Next v0.3 passes:
-- multiple simultaneous customer contracts and production queue priority
-- contract offers earned through reputation and customer history
+- multiple simultaneous customer contracts and player-controlled production queue priority — IMPLEMENTED FOUNDATION
+- seek-new-contracts action with variable availability and a 2-minute business-time cost — IMPLEMENTED FOUNDATION
+- roughly 10/20/30-minute small, medium and large production runs — IMPLEMENTED FOUNDATION
+- overcommitment warning without preventing risky contract acceptance — IMPLEMENTED FOUNDATION
+- arbitrary stock order quantities, Buy/Sell/Sell All, visible buying cash, and realized P/L — IMPLEMENTED
+- contract offers increasingly shaped by reputation and customer history
 - wrong-quality shipment rejection, return freight, replacement obligations and customer-specific tolerance
 - partial delivery where the contract/customer permits it
 - contract reliability affects future order size, terms, access, and customer relationships
