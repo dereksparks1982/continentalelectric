@@ -14,6 +14,7 @@ const NAMES=[
 const STYLES=['Boxer','Pressure fighter','Counterpuncher','Slugger','Defensive boxer'];
 const WEIGHTS=['Welterweight','Middleweight','Light Heavyweight'];
 const $b=id=>document.getElementById(id);
+let lastPhase=null;
 const rand=(a,b)=>a+Math.random()*(b-a);
 const pick=a=>a[Math.floor(Math.random()*a.length)];
 const avg=a=>a.reduce((x,y)=>x+y,0)/Math.max(1,a.length);
@@ -182,6 +183,7 @@ function render(){
 }
 function tick(){
  if(document.hidden)return;
+ if(lastPhase!==S.phase){lastPhase=S.phase;render();return}
  const changed=processSchedule();
  if(S.phase==='night'){
    if(changed)render();
@@ -198,5 +200,5 @@ function renderPhaseVisibility(){
  else if(S.phase==='night'){if(horse)horse.hidden=true;if(box)box.hidden=false;if(notice)notice.hidden=true}
 }
 document.addEventListener('click',e=>{if(e.target?.dataset?.tab==='racing')setTimeout(render,0)});
-ensureState();render();setInterval(tick,1000);
+ensureState();lastPhase=S.phase;render();setInterval(tick,1000);
 })();
