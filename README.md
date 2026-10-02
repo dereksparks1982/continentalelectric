@@ -36,6 +36,7 @@ The simulation now runs as a living business day:
 - first Washington social/underworld location: **The Star Club**, operated by Madam Star
 - first persistent contacts and bookmaker introduction
 - three playable backroom poker rooms with a browser-native Texas Hold'em engine, AI opponents, distinct class-based interiors, blinds, betting streets, hand evaluation and showdown
+- room-specific looping soundtrack controls: Boiler Room — *Sidewalk Hustle* (Geoff Harvey), Commerce Club — *The Foot Tappers Club* (kaazoom), Embassy Room — *Dancing in Smoke* (mcanden)
 - independently scheduled police raids
 - red, ivory, and deep-navy Washington/corporate-paperwork UI
 
