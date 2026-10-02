@@ -53,10 +53,10 @@
 
 /* v0.3.6-dev build 5: hard pause, material trading, contract negotiation, security records */
 body.game-paused nav button:disabled{opacity:.34;filter:grayscale(1);cursor:not-allowed}
-body.game-paused main button:disabled,
-body.game-paused main input:disabled,
-body.game-paused main select:disabled,
-body.game-paused main textarea:disabled{opacity:.45;cursor:not-allowed}
+body.game-paused button:disabled,
+body.game-paused input:disabled,
+body.game-paused select:disabled,
+body.game-paused textarea:disabled{opacity:.45;cursor:not-allowed}
 body.game-paused #reset{opacity:1;cursor:pointer}
 .material-trade{display:flex;gap:7px;align-items:center;flex-wrap:wrap}
 .material-trade input{width:96px;margin:0}
