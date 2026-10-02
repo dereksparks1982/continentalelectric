@@ -66,7 +66,8 @@ function loadInitial(){const raw=localStorage.getItem(SAVE_KEY)||localStorage.ge
 function displayDate(){return new Date(S.gameDate+'T12:00:00').toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'})}
 function clockText(){const t=Math.max(0,Math.ceil(S.dayRemaining)),m=Math.floor(t/60),s=t%60;return String(m).padStart(2,'0')+':'+String(s).padStart(2,'0')}
 function businessOpen(){return S.phase==='day'}
-function syncTopNavigation(id=document.querySelector('.tab.active')?.id||'desk'){document.querySelectorAll('nav button[data-tab]').forEach(btn=>btn.classList.toggle('active',btn.dataset.tab===id))}
+const NAV_GROUP_BY_TAB={desk:'desk',factory:'factory',contracts:'factory',market:'markets',news:'markets',notebook:'journal',contactsTab:'journal',racing:'pastimes',washington:'pastimes'};
+function syncTopNavigation(id=document.querySelector('.tab.active')?.id||'desk'){const group=NAV_GROUP_BY_TAB[id]||id;document.querySelectorAll('nav button[data-nav-group]').forEach(btn=>btn.classList.toggle('active',btn.dataset.navGroup===group));document.querySelectorAll('.section-tabs button[data-tab]').forEach(btn=>btn.classList.toggle('active',btn.dataset.tab===id))}
 function showTab(id){document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));const tab=$('#'+id);if(tab)tab.classList.add('active');syncTopNavigation(id)}
 function clearPauseLock(){
  document.querySelectorAll('[data-pause-lock="1"]').forEach(el=>{el.disabled=el.dataset.pauseWasDisabled==='1';delete el.dataset.pauseWasDisabled;delete el.dataset.pauseLock});
@@ -424,7 +425,7 @@ const pokerTestClicks={working:0,middle:0,elite:0},pokerTestReset={working:null,
 function openPokerWindow(circle){window.open('poker.html?room='+encodeURIComponent(circle)+'&remaining='+Math.ceil(S.dayRemaining)+'&v=20261001-clockfix2','FEPoker_'+circle+'_'+Date.now(),'popup=yes,width=1180,height=860,resizable=yes,scrollbars=yes')}
 function pokerButton(circle,stake){const limit=pokerLimit(circle),used=S.pokerPlayed[circle]||0;if(pokerAccess(circle)&&used<limit)return playPokerCircle(circle,stake);pokerTestClicks[circle]++;clearTimeout(pokerTestReset[circle]);pokerTestReset[circle]=setTimeout(()=>pokerTestClicks[circle]=0,5000);if(pokerTestClicks[circle]<7)return;pokerTestClicks[circle]=0;if(circle==='working')S.bookieKnown=true;if(circle==='middle')S.middlePokerUnlocked=true;if(circle==='elite')S.elitePokerUnlocked=true;S.pokerPlayed[circle]=Math.max(0,limit);save();renderWashington();openPokerWindow(circle)}
 $('#pokerWorking').onclick=()=>pokerButton('working',25);$('#pokerMiddle').onclick=()=>pokerButton('middle',100);$('#pokerElite').onclick=()=>pokerButton('elite',500);$('#simPokerWorking').onclick=()=>simulatePoker('working',25);$('#simPokerMiddle').onclick=()=>simulatePoker('middle',100);$('#simPokerElite').onclick=()=>simulatePoker('elite',500);
-document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{if(S.paused)return;showTab(b.dataset.tab)});
+document.querySelectorAll('nav button[data-tab],.section-tabs button[data-tab]').forEach(b=>b.onclick=()=>{if(S.paused)return;showTab(b.dataset.tab)});
 const sectors=[...new Set(stockSeed.map(x=>x[2]))].sort();$('#sectorFilter').innerHTML='<option value="All">All sectors</option>'+sectors.map(s=>'<option>'+s+'</option>').join('');$('#stockSearch').oninput=renderStocks;$('#sectorFilter').onchange=renderStocks;
 loadInitial();render();
 marketTimer=setInterval(()=>{if(!document.hidden&&!S.paused&&businessOpen()&&S.dayRemaining>0){moveMarket()}},MARKET_TICK_MS);
