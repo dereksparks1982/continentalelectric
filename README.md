@@ -20,7 +20,7 @@ The primary navigation is grouped into **Executive Desk**, **Factory**, **Market
 
 ## The Clock Keeps Moving
 
-The current pacing test uses **7 playable business turns per calendar month** rather than playing every weekday one by one. The seven turns are distributed across real weekdays in the month, so the calendar can advance through history without requiring hundreds of near-identical workdays. The live status bar now says **TURN X OF 7 THIS MONTH** so the seven-turn pacing cannot be mistaken for the length of the whole game.
+Federal Electric now uses **4 playable business turns per calendar month** rather than playing every weekday one by one. The four turns are distributed across real weekdays in each month. The numbered main campaign spans **January 1938 through September 1945**, or **372 turns total**. The persistent header shows the global campaign position, for example **TURN 2/372**.
 
 Each playable turn still has two live phases:
 
@@ -178,4 +178,4 @@ Another browser-based simulation project from the same workshop.
 
 ### Compact status bar
 
-The persistent status strip uses abbreviated dates such as **THUR, JAN 6, 1938** and the compact monthly turn marker **TURN 2/7**. The full written date remains available in the newspaper, footer, journal, and other game records. On desktop the status strip stays on one row so company cash, personal cash, and PAUSE remain together.
+The persistent status strip uses abbreviated dates such as **THUR, JAN 6, 1938** and the global campaign marker **TURN 2/372**. The full written date remains available in the newspaper, footer, journal, and other game records. On desktop the status strip stays on one row so company cash, personal cash, and PAUSE remain together. After Turn 372, **Continue Empire** carries the same save into unlimited free play; **Start New Game** returns to January 1938.

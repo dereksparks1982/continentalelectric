@@ -109,7 +109,7 @@ Next v0.3 passes:
 
 ## v0.4 — Company Operations — CURRENT
 
-- **7 playable business turns per calendar month** as the current pacing test; Business Day and Washington Night remain independently configurable at 60 minutes each — IMPLEMENTED FOUNDATION
+- **4 playable business turns per calendar month**; the numbered main campaign runs January 1938 through September 1945 for **372 turns**, after which the player may continue the same save in unlimited free play — IMPLEMENTED FOUNDATION
 - **Warehouse separation:** production creates inventory, contracts create obligations, and shipping connects the two — IMPLEMENTED
 - raw materials live under **Factory → Warehouse** — IMPLEMENTED
 - grade-specific finished-goods inventory and production-lot records — IMPLEMENTED FOUNDATION
@@ -227,7 +227,8 @@ Work is performed one slice at a time on `main`, with each slice verified before
 - [x] Add closable activity panels to Legal Sports and Illicit Activities so only the selected pastime needs to be expanded; closing a panel never stops world simulation.
 - [x] Open Horse Racing by default when entering Legal Sports and keep Dog Racing/Midget Car Racing post-time displays counting down live alongside the existing horse and boxing clocks.
 - [x] Add visible game version `v0.4.0` at the far top-right of the blue masthead, separate from save-schema version 12.
-- [x] Clarify the status bar as `TURN X OF 7 THIS MONTH`.
+- [x] Replace the monthly status marker with a global campaign counter such as `TURN 2/372`; 372 turns equals four turns per month from January 1938 through September 1945.
+- [x] Add a Turn 372 campaign-complete summary with **Continue Empire** for unlimited free play or **Start New Game**.
 - [x] Style the full game surface as a 1930s executive desktop: dark wood across the outer margins and primary-navigation strip, with the green-felt main workspace inset into the wood and paper records layered on top.
 - [x] Fix Journal note-entry sizing so the note and source fields remain readable instead of clipping their text.
 
