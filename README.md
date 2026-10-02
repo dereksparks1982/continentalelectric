@@ -83,7 +83,7 @@ Contacts can be useful, mistaken, self-interested, or deceptive. Information is 
 
 ## Racing, Boxing, Poker and the Washington Underworld
 
-There is plenty to do after you leave the office, and almost all of it costs time or money. Legal Sports and Illicit Activities use **closable activity panels**, so you only keep open the pastime you actually want to look at. Horse Racing opens by default when you enter Legal Sports, while Dog Racing, Midget Car Racing, and Boxing replace it when selected. Race and fight post-time clocks continue counting on the shared world clock. Closing a panel never pauses or cancels scheduled events.
+There is plenty to do after you leave the office, and almost all of it costs time or money. Legal Sports and Illicit Activities use **closable activity panels**, so you only keep open the pastime you actually want to look at. Horse Racing opens by default when you enter Legal Sports, while Dog Racing, Midget Car Racing, and Boxing replace it when selected. The Star Club opens by default when you enter Illicit Activities, with Bookmaker & Leads, Backroom Poker, Private Prizefights, and Cockfighting replacing it when selected. Race and fight post-time clocks continue counting on the shared world clock. Closing a panel never pauses or cancels scheduled events.
 
 ### Capital Race Grounds
 

@@ -100,7 +100,7 @@ function clockText(){const t=Math.max(0,Math.ceil(S.dayRemaining)),m=Math.floor(
 function businessOpen(){return S.phase==='day'}
 const NAV_GROUP_BY_TAB={desk:'desk',factory:'factory',warehouse:'factory',contracts:'factory',market:'markets',news:'markets',notebook:'journal',contactsTab:'journal',infoTab:'journal',helpTab:'journal',racing:'pastimes',washington:'pastimes'};
 function syncTopNavigation(id=document.querySelector('.tab.active')?.id||'desk'){const group=NAV_GROUP_BY_TAB[id]||id;document.querySelectorAll('nav button[data-nav-group]').forEach(btn=>btn.classList.toggle('active',btn.dataset.navGroup===group));document.querySelectorAll('.section-tabs button[data-tab]').forEach(btn=>btn.classList.toggle('active',btn.dataset.tab===id))}
-function showTab(id){document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));const tab=$('#'+id);if(tab)tab.classList.add('active');syncTopNavigation(id);if(id==='racing'&&!pastimeActivityState.legal)setPastimeActivity('legal','horse')}
+function showTab(id){document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));const tab=$('#'+id);if(tab)tab.classList.add('active');syncTopNavigation(id);if(id==='racing'&&!pastimeActivityState.legal)setPastimeActivity('legal','horse');if(id==='washington'&&!pastimeActivityState.illicit)setPastimeActivity('illicit','star')}
 const pastimeActivityState={legal:null,illicit:null};
 function setPastimeActivity(group,target=null){
  const panels=[...document.querySelectorAll('[data-activity-panel="'+group+'"]')],buttons=[...document.querySelectorAll('[data-activity-group="'+group+'"]')];
