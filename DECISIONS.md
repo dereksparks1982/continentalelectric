@@ -29,8 +29,8 @@ This file records decisions that should not drift silently during development.
 - The Personal Notebook is now the **Journal**: it records meaningful meetings, conversations, rumors, poker sessions, and other player-known events in an Ultima-style running history. It records what the player experienced or was told, not guaranteed objective truth.
 - **Contacts** is a separate top-level section using a period-appropriate executive card-index concept. A person is added only after the player legitimately meets them or obtains their contact information.
 - Contacts can later support calls, letters, secretaries, requested meetings, invitations, and unanswered attempts.
-- The current Washington/After Hours area is transitional. The planned structure separates **Legal Sports** from **Illicit Activities** and introduces a distinct Washington Night phase.
-- Main navigation remains subject to that planned restructuring.
+- Washington activities are split into **Legal Sports** and **Illicit Activities**. The former transitional After Hours navigation is retired.
+- Legal Sports changes with the phase: Capital Race Grounds during the Business Day and licensed boxing during Washington Night.
 - **Contracts** is a first-class department. Customers, not the player, specify required product, quality standard, quantity, price, and deadline.
 - Federal Electric begins with one existing customer contract and grows its contract book through successful performance.
 - Factory production advances continuously against the shared one-hour business-day clock and displays a large live progress bar.
@@ -215,6 +215,7 @@ This file records decisions that should not drift silently during development.
 - Capital Race Grounds is hidden during Washington Night; licensed boxing is hidden during the Business Day.
 - Madam Star now exposes separate daytime and evening visit controls with different encounter pools.
 - Eddie Doyle can be asked what is running and may reveal a private prizefight, cockfight, useful schedule information, or nothing useful.
+- Capital Race Grounds can introduce Eddie Doyle while the player is actually present, so Madam Star is not the only route to meeting the bookmaker.
 - Private prizefights and cockfighting are independently unlockable and settle on the shared world clock.
 - Private prizefights can be scheduled during either phase. Cockfighting currently schedules during Washington Night.
 - Licensed boxing can introduce Marty Kane, a fight-world contact who can become another route into private prizefights.
