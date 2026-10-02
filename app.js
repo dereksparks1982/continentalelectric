@@ -51,6 +51,25 @@ function loadInitial(){const raw=localStorage.getItem(SAVE_KEY)||localStorage.ge
 function displayDate(){return new Date(S.gameDate+'T12:00:00').toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'})}
 function clockText(){const t=Math.max(0,Math.ceil(S.dayRemaining)),m=Math.floor(t/60),s=t%60;return String(m).padStart(2,'0')+':'+String(s).padStart(2,'0')}
 function businessOpen(){return S.phase==='day'}
+function applyPauseLock(){
+ const locked=!!S.paused;
+ document.querySelectorAll('main button, main input, main select, main textarea').forEach(el=>{
+  if(locked){
+   if(el.dataset.pauseWasDisabled===undefined)el.dataset.pauseWasDisabled=el.disabled?'1':'0';
+   el.disabled=true;
+  }else if(el.dataset.pauseWasDisabled!==undefined){
+   el.disabled=el.dataset.pauseWasDisabled==='1';
+   delete el.dataset.pauseWasDisabled;
+  }
+ });
+}
+document.addEventListener('click',e=>{
+ if(!S.paused)return;
+ const target=e.target instanceof Element?e.target.closest('button,[onclick],a[href]'):null;
+ if(!target||!target.closest('main'))return;
+ e.preventDefault();e.stopImmediatePropagation();
+ note('Game is paused. Press PLAY to resume before taking actions.');
+},true);
 function updateCashHeader(){const company=$('#headerCompanyCash'),personal=$('#headerPersonalCash');if(company)company.textContent=money(S.companyCash);if(personal)personal.textContent=money(S.personalCash)}
 function renderPauseToggle(){const btn=$('#pauseToggle');if(!btn)return;const paused=!!S.paused;btn.textContent=paused?'PLAY':'PAUSE';btn.setAttribute('aria-label',paused?'Play simulation':'Pause simulation');btn.setAttribute('aria-pressed',paused?'true':'false');btn.title=paused?'Play simulation':'Pause simulation';btn.classList.toggle('paused',paused)}
 window.updateCashHeader=updateCashHeader;
@@ -65,7 +84,7 @@ function accountingExposure(){
 function renderTreasury(){
  const draw=$('#ownerDrawsToday'),diverted=$('#divertedToday'),missing=$('#unaccountedFunds'),exposure=$('#accountingExposure'),distribution=$('#ownerDistribution'),divert=$('#divertCompanyFunds');
  if(draw)draw.textContent=money(S.ownerDistributionsToday||0);if(diverted)diverted.textContent=money(S.divertedToday||0);if(missing)missing.textContent=money(S.unaccountedFunds||0);if(exposure)exposure.textContent=accountingExposure();
- if(distribution)distribution.disabled=!businessOpen();if(divert)divert.disabled=S.phase==='report';
+ if(distribution)distribution.disabled=!businessOpen()||S.paused;if(divert)divert.disabled=S.phase==='report'||S.paused;
 }
 function capacity(){return Math.floor(S.workers*60*(S.machinery/100))}
 function normalizeProductionTimes(){for(const c of S.contracts.concat(S.contractOffers||[])){const target=c.quantity<=1500?600:c.quantity<=3000?1200:1800;if(!c.productionSeconds||c.productionSeconds>1800)c.productionSeconds=target}}
@@ -80,7 +99,7 @@ function render(){
  const idx=marketIndex();$('#marketIndex').textContent=idx.toFixed(2);$('#marketStory').textContent='Federal Exchange index stands at '+idx.toFixed(2)+'. '+S.marketWire;$('#marketWire').textContent=S.marketWire;const pv=portfolioValue(),ug=pv-portfolioCost();$('#portfolio').textContent=money(pv);$('#unrealized').textContent=cash(ug);$('#unrealized').className=ug>=0?'gain':'loss';
  $('#ledger').innerHTML=S.ledger.slice(-10).reverse().map(x=>'<tr><td>'+x.date+'</td><td>'+money(x.rev)+'</td><td>'+money(x.exp)+'</td><td>'+money(x.rev-x.exp)+'</td></tr>').join('')||'<tr><td colspan="4" class="empty">No closed business days yet.</td></tr>';
  const lots={copper:[1000,180],glass:[1000,95],tungsten:[500,160]};$('#materials').innerHTML=Object.entries(lots).map(([k,[qty,cost]])=>'<tr><td>'+k[0].toUpperCase()+k.slice(1)+'</td><td>'+Math.floor(S.materials[k]).toLocaleString()+'</td><td>'+money(cost)+'</td><td><button onclick="buyMaterial(\''+k+'\','+qty+','+cost+')">Buy '+qty+'</button></td></tr>').join('');
- renderFactory();renderContracts();renderStocks();renderHoldings();renderTransactions();renderNotes();renderArchive();renderWashington();renderTreasury();renderDailyReport()
+ renderFactory();renderContracts();renderStocks();renderHoldings();renderTransactions();renderNotes();renderArchive();renderWashington();renderTreasury();renderDailyReport();applyPauseLock()
 }
 function wagerSummaryForReport(iso){
  let horse=0,boxing=0,underground=0,tickets=0;
