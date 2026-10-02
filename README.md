@@ -4,18 +4,18 @@
 
 ## Play
 
-- **Play current build:** https://dereksparks1982.github.io/federalelectric/index.html?v=20261001-racebettingv2
+- **Play current build:** https://dereksparks1982.github.io/federalelectric/index.html?v=20261001-fightworld1
 - **Georgia Sun:** https://dereksparks1982.github.io/georgiasun/index.html
 
 ## Current prototype — v0.3.6-dev: Washington & Racing
 
 The simulation now runs as a living business day:
 
-- **1 real hour = 1 active in-game business day**
+- the active date now has two one-hour phases: **Business Day** followed by **Washington Night**
 - the clock and market run only while Federal Electric is visible and being played
 - closing/hiding the app freezes the simulation; there is **no offline progression**
 - exact remaining day time and quotations are autosaved and resume where they stopped
-- the day closes automatically at 00:00, with an optional End Day Early control
+- the Business Day ends at 00:00 and transitions into Washington Night; the night then ends at a mandatory private Daily Report before the next morning begins
 - the Federal Exchange's 50 fictional securities continue moving internally during the active day, but the player sees the published opening quotation until the closing bell
 - the hidden closing quotation is revealed at the close and becomes the next business day's opening basis
 - common market, sector, and company movement components
@@ -56,11 +56,18 @@ The simulation now runs as a living business day:
 - the player can place tickets in advance on any race whose field is already established; all four heats are available before they run, while semifinals and the Main Event open when qualifiers are known
 - races and wagers settle on the shared business clock even while the player is elsewhere; the Race & Wager Ledger records results and running betting profit/loss
 - visible tournament progression shows completed results, advancing qualifiers, upcoming fields, and the Main Event path
+- licensed boxing runs during Washington Night with a persistent fighter roster, four-bout card, fighter records/styles/condition, automatic scheduled resolution, and uncapped winner betting subject to available personal cash
+- Legal Sports switches from Capital Race Grounds during the Business Day to licensed boxing during Washington Night
+- the former After Hours category is now **Illicit Activities**
+- Madam Star remains available in both phases with different encounter pools and separate Brief/Afternoon versus Brief Evening/Evening visit controls
+- Eddie Doyle now has a recurring **Ask What's Running** role that can reveal underground opportunities
+- private prizefights can occur during either the Business Day or Washington Night; cockfighting is independently discoverable and currently scheduled at night
+- private prizefights and cockfighting have separate unlock states, betting, automatic world-clock resolution, and multiple discovery routes through underworld contacts
 - red, ivory, and deep-navy Washington/corporate-paperwork UI
 
 ## Planned day/night structure
 
-The current build still uses the single 60-minute business-day runtime while the next time-system expansion is being designed.
+The two-phase time foundation is now implemented.
 
 - **Hour 1 — Business Day:** factory, contracts, suppliers, Federal Exchange, daytime meetings, Capital Race Grounds, daytime contacts, and occasional underground distractions
 - **Hour 2 — Washington Night:** the exchange and ordinary daytime business close; licensed boxing, evening social activity, and a broader underground scene become available
