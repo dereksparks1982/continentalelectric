@@ -14,10 +14,10 @@ This file records decisions that should not drift silently during development.
 - **One real hour equals one active in-game business day.**
 - Time advances only while the player is actively in the app. Hidden/closed app time does not count.
 - No offline progression. The company, market, events, and timer resume from their saved state.
-- The business day automatically closes when the hour expires; End Day Early is permitted.
+- The current prototype automatically closes the business day when the hour expires; the planned two-phase day/night system will replace immediate rollover with a separate night phase and later Daily Report.
 - Newspaper reading, market activity, gambling, Washington activity, and factory management all compete for the player's limited day.
 - Newspaper reading and stock trading are optional. Federal Electric operations remain economically important.
-- Federal Exchange prices move continuously during the active day and carry the close into the next day's opening.
+- Federal Exchange prices move continuously behind the scenes during the active day, but the player sees the published opening quotation until the closing bell. The hidden close is then revealed and becomes the next day's opening basis.
 - Federal Electric begins privately held. Going public is optional and the player may remain private forever.
 - If public, personal scandal can affect Federal Electric's price, shareholders, directors, credit, government relationships, and corporate control.
 - Founder ownership, public float, major shareholders, board composition, and voting control are planned systems.
@@ -29,8 +29,8 @@ This file records decisions that should not drift silently during development.
 - The Personal Notebook is now the **Journal**: it records meaningful meetings, conversations, rumors, poker sessions, and other player-known events in an Ultima-style running history. It records what the player experienced or was told, not guaranteed objective truth.
 - **Contacts** is a separate top-level section using a period-appropriate executive card-index concept. A person is added only after the player legitimately meets them or obtains their contact information.
 - Contacts can later support calls, letters, secretaries, requested meetings, invitations, and unanswered attempts.
-- The former Washington tab is renamed **After Hours** for nightlife, gambling, bookmaking, the Star Club, and other off-the-clock social activity.
-- Main navigation is centered and ordered: Executive Desk, Factory, Contracts, Federal Exchange, Metropolitan Ledger, Journal, Contacts, After Hours.
+- The current Washington/After Hours area is transitional. The planned structure separates **Legal Sports** from **Illicit Activities** and introduces a distinct Washington Night phase.
+- Main navigation remains subject to that planned restructuring.
 - **Contracts** is a first-class department. Customers, not the player, specify required product, quality standard, quantity, price, and deadline.
 - Federal Electric begins with one existing customer contract and grows its contract book through successful performance.
 - Factory production advances continuously against the shared one-hour business-day clock and displays a large live progress bar.
@@ -71,7 +71,6 @@ This file records decisions that should not drift silently during development.
 - Poker access progression is social: the Neighborhood Game is open by default; meeting Eddie Doyle through Madam Star unlocks the Commerce Club; Commerce Club play can introduce Harrison Vale, whose invitation unlocks the Embassy Room.
 - Simulated poker is a first-class alternative to manually playing a session. Each simulation consumes exactly 5 active business minutes, advances unattended factory production, consumes one daily room session, changes personal cash, records the result in the Journal, and can trigger the same progression/events as a played session.
 - A positive poker session counts as a win whether manually played or simulated.
-- Admin/test override: seven clicks on the locked Embassy Room within five seconds unlock and open it immediately on click seven.
 - Poker music and its UI are out of current scope and removed until explicitly revisited.
 
 - Contract customers now have persistent buying personalities that affect specification tolerance and partial-shipment acceptance.
@@ -115,12 +114,11 @@ This file records decisions that should not drift silently during development.
 ## 2026-10-01 — Federal Exchange quantity control
 
 - The share quantity field sits immediately above Buy/Sell/Sell All so the player can change quantity and execute a trade without moving across the row.
-- Intraday market rerenders preserve the player's in-progress quantity entry instead of resetting it to 10.
+- The share-quantity placement is implemented. Preserving an in-progress typed quantity through every rerender remains a separate stabilization item until verified.
 
 ## 2026-10-01 — Persistent top controls
 
-- The business-day clock and primary navigation remain pinned together at the top of the viewport while the player scrolls.
-- The Federal Electric masthead may scroll away; the time bar and navigation must remain visible because time is a core resource.
+- The accepted current layout keeps the persistent header, business-day clock, and primary navigation visible while scrolling.
 
 ## 2026-10-01 — Revised poker access progression
 
@@ -155,3 +153,39 @@ This file records decisions that should not drift silently during development.
 - Federal Electric begins as a manufacturer of **light bulbs, not finished lamps**.
 - Starting grades are Economy, Standard, and Long-Life light bulbs. Existing saves displaying the older Electric Lamps wording are migrated to Electric Light Bulbs.
 - Future expansion moves into broader electrical products/components and, as the historical timeline develops, researched wartime electrical/electronic production.
+
+
+## 2026-10-01 — Hidden intraday quotations
+
+- The market itself continues moving during the business day.
+- Federal Electric does not have a modern live-computer quotation display, so the player sees the day's published opening quotation while trading continues unseen.
+- The closing quotation is revealed at the closing bell and becomes the next business day's opening basis.
+- The hidden market state may continue to react to market, sector and company forces even though the player cannot watch those movements tick by tick.
+
+## 2026-10-01 — Race Betting v2
+
+- The player may place Win / Place / Show tickets in advance on any race whose field is already established.
+- All four heats can therefore be wagered before Heat 1; semifinal and Main Event betting opens only after their qualifying fields exist.
+- There is no arbitrary per-race wager ceiling. Limits should come only from available cash and later historically justified betting mechanics.
+- Races resolve on the same authoritative world clock whether or not the player is at Capital Race Grounds.
+- Existing tickets settle automatically while the player is elsewhere.
+- The Race & Wager Ledger records race results and the player's betting profit/loss in race order.
+
+## 2026-10-01 — Day / night architecture
+
+- The intended daily structure is **one hour of Business Day followed by one hour of Washington Night**.
+- Business Day contains Federal Electric operations, contracts, the Federal Exchange, the regular race meeting, ordinary daytime business and daytime contacts.
+- At night the exchange and ordinary daytime business close. A different set of people, events and locations becomes available rather than simply giving the player another unrestricted hour.
+- Madam Star is available in both phases. Her establishment uses different encounter pools by phase, and some contacts can only be met during the day or only at night.
+- Planned night Star Club choices include **Brief Evening Visit** and **Evening Visit** in addition to the existing daytime choices.
+- Legal sporting activity and illicit activity are separate concepts. Horse racing and sanctioned boxing belong with Legal Sports; poker, cockfighting, backroom prizefights and similar underground activity belong with Illicit Activities.
+- The Daily Report is private and comes after the night phase.
+- The Metropolitan Ledger is delivered at the beginning of the next day, not at the end of the previous day.
+
+## 2026-10-01 — Strategic stock ownership
+
+- Arbitrary videogame caps should not limit legitimate stock purchases; constraints should come from cash, actual share availability, market mechanics and historically justified rules.
+- Shares represent ownership. Future public-company systems will track finite outstanding shares and percentage ownership.
+- Large positions can eventually unlock strategic influence, board access, negotiated combinations, takeover attempts and mergers without forcing the player through unnecessary securities-law busywork.
+- If Federal Electric goes public, the same ownership system can work against the player through dilution, outside share accumulation, board/proxy contests and possible loss of control.
+- Exact historical disclosure, merger, takeover and antitrust rules must be researched before implementation.
