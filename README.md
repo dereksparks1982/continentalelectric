@@ -14,6 +14,8 @@ The important part is that you cannot do everything.
 
 There is one current game build. Your progress is saved in the browser and resumes from where you left off.
 
+The primary navigation is grouped into **Executive Desk**, **Factory**, **Markets & News**, **Journal**, and **Pastimes**, with related screens nested inside each section to keep the interface manageable on desktop and mobile.
+
 ## The Clock Keeps Moving
 
 Every date has two live phases:
