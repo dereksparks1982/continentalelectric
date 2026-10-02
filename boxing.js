@@ -113,6 +113,7 @@ function simulateBout(id){
  save(true);
  if(id==='B4'){
    const text=winnerId?fighter(winnerId).name+' won the licensed boxing main event by '+method+(method.includes('Decision')?'':(' in round '+finishRound))+'.':'The licensed boxing main event ended in a draw.';
+   S.lastBoxingResult=winnerId?'At Washington Arena, '+fighter(winnerId).name+' won the licensed boxing main event by '+method+(method.includes('Decision')?'.':' in round '+finishRound+'.'):'The Washington Arena main event ended in a draw.';
    S.notes.push({date:displayDate(),text,source:'boxing results'});save(true);
  }
  return bout.result;
