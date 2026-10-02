@@ -169,7 +169,7 @@ See:
 
 - visible game version **v0.4.0** appears at the far top-right of the blue Federal Electric masthead; internal save-schema version 12 remains separate
 - the persistent date/status line explicitly reads **TURN X OF 7 THIS MONTH**
-- the top of Executive Desk now presents the summary on a 1930s-inspired walnut desk surface with an inset green-felt blotter
+- the main workspace uses a consistent green-felt background across every page; the earlier walnut Executive Desk treatment was removed
 - Legal Sports uses closable activity panels for Horse Racing, Dog Racing, Midget Car Racing and Boxing
 - Illicit Activities uses the same collapsible model for Star Club, Bookmaker & Leads, Backroom Poker, Private Prizefights and Cockfighting
 - only the selected activity needs to be expanded; closing a panel never stops the shared world clock, scheduled events, wagers or raids
@@ -181,10 +181,8 @@ See:
 
 ### Green-felt interface pass — v0.4.0
 
-- green felt is now a reusable visual language for important summary/status areas rather than an Executive Desk-only treatment
-- Factory uses felt around Workers, Machinery, Capacity / Turn and Finished Inventory
-- Federal Exchange uses felt around Market Index, Personal Cash, Portfolio Value and Total Unrealized
-- Journal uses felt around the Note / Source / Write It Down controls, with responsive full-width fields so the note text is no longer clipped
-- Horse Racing, Dog Racing, Midget Car Racing and Licensed Boxing use felt around their venue/status header areas
-- detailed tables, contracts, ledgers, newspaper content and ordinary forms remain paper-based so the interface keeps a clear visual hierarchy
-- visible version label is now **v0.4.0** with no development suffix
+- green felt is now the background of the main workspace on every page instead of appearing as separate boxes around selected controls
+- the earlier walnut Executive Desk surround and localized felt panels were removed completely
+- summary cards, forms, tables, contracts, ledgers, newspaper content and activity headers remain paper-based on top of the felt background
+- Journal keeps the responsive Note / Source / Write It Down layout so its text fields remain readable instead of clipping
+- visible version label remains **v0.4.0**

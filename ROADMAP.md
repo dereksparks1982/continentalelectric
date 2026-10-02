@@ -223,8 +223,7 @@ Work is performed one slice at a time on `main`, with each slice verified before
 - [x] Add closable activity panels to Legal Sports and Illicit Activities so only the selected pastime needs to be expanded; closing a panel never stops world simulation.
 - [x] Add visible game version `v0.4.0` at the far top-right of the blue masthead, separate from save-schema version 12.
 - [x] Clarify the status bar as `TURN X OF 7 THIS MONTH`.
-- [x] Restyle the top of Executive Desk as a 1930s walnut desk surface with a partial green-felt blotter while preserving the existing information and mobile layout.
-- [x] Extend the green-felt dashboard language to Factory summary metrics, Federal Exchange summary metrics, Journal note entry, and racing/boxing venue-status headers without replacing paper records and tables.
+- [x] Apply one consistent green-felt background to the main workspace on every page, removing the separate walnut Executive Desk treatment and localized felt boxes while keeping paper cards, forms, tables and ledgers readable on top.
 - [x] Fix Journal note-entry sizing so the note and source fields remain readable instead of clipping their text.
 
 
