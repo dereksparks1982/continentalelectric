@@ -71,3 +71,26 @@ The current fight and betting systems are gameplay foundations. Before labeling 
 - enforcement patterns for private gambling, bookmaking and underground fights
 
 Until that work is complete, named venues, fighters, bookmakers, promoters, odds and underground events remain fictional simulation content rather than claims about specific historical people or establishments.
+
+
+## Verified boxing foundation
+
+Primary-source research confirms that boxing regulation in Washington, D.C. had a formal statutory foundation before the game begins in 1938.
+
+- Congressional Record material from 1934 documents legislation creating a District of Columbia Boxing Commission and requiring commission permits for covered boxing exhibitions.
+- Later congressional material discussing the commission identifies the underlying law as the **Act of April 24, 1934**, confirming that the regulatory structure predates Federal Electric's January 1938 start.
+- Library of Congress holdings include Washington boxing material from 1937–1938, supporting boxing as a contemporary part of the city's sporting world.
+
+This supports licensed/commission-regulated boxing as a legitimate Washington activity in the 1938 simulation.
+
+### Still not verified enough to lock as historical mechanics
+
+The current game's boxing **betting** is still gameplay scaffolding. Research has not yet established a sufficiently precise 1938 District of Columbia rule for whether, where, and through what legal mechanism spectators could lawfully wager on a licensed boxing card. Do not treat the current in-game betting interface as a claim that a specific 1938 D.C. sportsbook system existed.
+
+Likewise, exact bout rules, card timing, commission fees, purse structures, medical requirements, judging procedure, venue schedules, and enforcement details remain on the research queue before they are represented as historical facts.
+
+### Primary sources consulted
+
+- U.S. Congressional Record, 1934, legislation creating the District of Columbia Boxing Commission and regulating boxing exhibitions.
+- U.S. Congressional Record, 1944, later amendments referring back to the Act of April 24, 1934 and the existing District Boxing Commission.
+- Library of Congress, Harris & Ewing Collection, Washington boxing photograph dated 1937 or 1938.
