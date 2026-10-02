@@ -4,10 +4,10 @@
 
 ## Play
 
-- **Play current build:** https://dereksparks1982.github.io/federalelectric/index.html?v=20261001-stabilize1
+- **Play current build:** https://dereksparks1982.github.io/federalelectric/index.html?v=20261001-racing2
 - **Georgia Sun:** https://dereksparks1982.github.io/georgiasun/index.html
 
-## Current prototype — v0.3.5-dev: On the Clock
+## Current prototype — v0.3.6-dev: Washington & Racing
 
 The simulation now runs as a living business day:
 
@@ -27,13 +27,13 @@ The simulation now runs as a living business day:
 - Factory works against accepted contracts instead of arbitrary instant sales
 - small, medium and large orders are designed around roughly 10, 20 and 30 minute production runs; the queue warns when commitments exceed the time remaining
 - production consumes materials and operating cash as units are actually made
-- Star Club visits consume 30 minutes while the factory continues operating
+- Madam Star offers a 15-minute Brief Visit ($5) and a 30-minute Afternoon Visit ($12); the longer visit has a higher encounter opportunity while the factory continues operating
 - unattended factory operation can suffer a semi-uncommon breakdown; Foreman Sullivan may fix it himself or leave the line stopped awaiting the owner's decision
 - customer personalities now affect specification tolerance and whether partial deliveries are accepted
 - customer history records correct, discounted, rejected, partial, and late/short outcomes and influences future offer pricing
 - production grade can be set independently from the contract specification, allowing wrong-grade production and real inspection consequences
 - wrong-grade shipments may be rejected for replacement or accepted only at a customer-specific discount
-- finished lamp inventory is tracked separately as Economy, Standard, and Long-Life stock
+- finished light-bulb inventory is tracked separately as Economy, Standard, and Long-Life stock
 - partial shipments are supported for customers willing to accept them
 - switching production grades consumes factory setup time
 - production estimates are normalized to the intended 10/20/30-minute contract bands, preventing legacy/corrupt orders from displaying impossible 31+ minute single-order estimates
@@ -42,7 +42,7 @@ The simulation now runs as a living business day:
 - a living **Metropolitan Ledger** newspaper with an edition archive
 - personal notebook for recording tips and conversations without guaranteeing their truth
 - first Washington social/underworld location: **The Star Club**, operated by Madam Star
-- first persistent contacts; meeting Eddie Doyle through Madam Star unlocks the neighborhood backroom poker circuit
+- the Neighborhood Game is open by default; meeting Eddie Doyle through Madam Star unlocks the Commerce Club, while Commerce Club play can lead to Harrison Vale and an Embassy Room invitation
 - 10 Neighborhood Game wins unlock the Commerce Club; simulated wins count the same as played wins
 - Commerce Club sessions can build a connection with Harrison Vale, whose invitation unlocks the Embassy Room
 - manual poker shows the authoritative Federal Electric business-day clock; time spent at the table passes on that same live clock and is not deducted again when you leave
@@ -51,6 +51,10 @@ The simulation now runs as a living business day:
 - poker music UI is removed from the current scope
 - three playable backroom poker rooms with a browser-native Texas Hold'em engine, AI opponents, distinct class-based interiors, blinds, betting streets, hand evaluation and showdown
 - independently scheduled police raids
+- scheduled **Capital Race Grounds** meeting: four qualifying heats, two semifinals, and a Main Event; races run automatically from 30:00 remaining through 05:00 remaining whether the player attends or not
+- persistent horses carry form, fatigue, fitness, injuries, jockeys, preferences, career records, and odds across race meetings
+- Win / Place / Show betting uses personal cash; the player may attend the entire meeting or arrive late solely for later races or the Main Event
+- visible tournament progression shows completed results, advancing qualifiers, upcoming fields, and the Main Event path
 - red, ivory, and deep-navy Washington/corporate-paperwork UI
 
 ## Design principle
