@@ -4,7 +4,7 @@
 
 ## Play
 
-- **Play current build:** https://dereksparks1982.github.io/federalelectric/index.html?v=20261001-fightworld1
+- **Play current build:** https://dereksparks1982.github.io/federalelectric/index.html?v=20261002-fightworld3
 - **Georgia Sun:** https://dereksparks1982.github.io/georgiasun/index.html
 
 ## Current prototype — v0.3.6-dev: Day/Night & Fight World
