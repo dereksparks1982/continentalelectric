@@ -27,11 +27,11 @@
       </g>
     </mask>
   </defs>
-  <g mask="url(#distress)" fill="none" stroke="#fffaf0" stroke-width="3">
+  <g mask="url(#distress)" fill="none" stroke="#b32635" stroke-width="3">
     <rect x="7" y="10" width="256" height="72" rx="1.5"/>
     <rect x="13" y="16" width="244" height="60" rx="1"/>
   </g>
   <text x="135" y="58" text-anchor="middle" mask="url(#distress)"
-        fill="#fffaf0" font-family="Courier New, monospace" font-size="31" font-weight="700"
+        fill="#b32635" font-family="Courier New, monospace" font-size="33" font-weight="700"
         letter-spacing="1.4">CONFIDENTIAL</text>
 </svg>
