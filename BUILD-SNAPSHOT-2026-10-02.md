@@ -14,6 +14,7 @@ Frontend:
 ## Accepted current structure
 
 ### Daily rhythm
+- seven playable business turns per calendar month in the current pacing test
 - 60-minute Business Day
 - Closing Bell
 - 60-minute Washington Night
@@ -29,7 +30,7 @@ Frontend:
 
 ### Primary navigation
 - top-level sticky buttons: **Executive Desk**, **Factory**, **Markets & News**, **Journal**, **Pastimes**
-- Factory sub-sections: **Production**, **Contracts**
+- Factory sub-sections: **Production**, **Warehouse**, **Contracts**
 - Markets & News sub-sections: **Federal Exchange**, **Metropolitan Ledger**
 - Journal sub-sections: **Journal**, **Contacts**, **Info**, **Help**
 - Pastimes sub-sections: **Legal Sports**, **Illicit Activities**
@@ -145,3 +146,20 @@ See:
 - `ONLINE-SYSTEMS-DESIGN.md`
 - `ROADMAP.md`
 - `DECISIONS.md`
+
+
+### Company Operations foundation — current live build
+
+- production, inventory and contract fulfillment are now separate systems: production creates Warehouse stock, contracts create obligations, and only a deliberate shipment fulfills the customer
+- finished bulbs enter Warehouse inventory as they are manufactured; nothing auto-ships at the closing bell
+- Warehouse shows raw materials, finished-goods totals by grade, and traceable production lots
+- contracts track ordered, delivered and remaining quantities separately; shipment quantity and shipment grade are player-controlled
+- ordinary contract deadlines now use the contract month / Turn 7 window rather than demanding immediate same-day shipment
+- production targets may be below or above contract quantity; surplus remains Federal Electric property in the Warehouse
+- switching away from an unfinished production run requires confirmation, preserves manufactured inventory and preserves resumable progress
+- production policy supports Quality Priority, Normal Production and Rush Production
+- workforce foundation tracks attendance, tardiness, absence, skill, morale, discipline, efficiency and quality without requiring an 80-person micromanagement roster
+- occasional individual personnel matters support Ignore, Verbal Warning, Formal Warning, Suspend and Dismiss decisions
+- turn conditions include weather effects and utility outages; Federal Electric currently buys outside utility power rather than generating its own
+- production conditions can create internal rejects and latent defects; lot-based customer defect claims can later reopen a replacement obligation and cost Federal Electric money
+- pacing constants are separated internally; the current test configuration is 7 playable turns per month, 60-minute Business Day and 60-minute Washington Night

@@ -18,16 +18,16 @@ The primary navigation is grouped into **Executive Desk**, **Factory**, **Market
 
 ## The Clock Keeps Moving
 
-Every date has two live phases:
+The current pacing test uses **7 playable business turns per calendar month** rather than playing every weekday one by one. The seven turns are distributed across real weekdays in the month, so the calendar can advance through history without requiring hundreds of near-identical workdays.
+
+Each playable turn still has two live phases:
 
 - **Business Day:** one real-time hour
 - **Washington Night:** one real-time hour
 
-The world runs while you play. Factory production continues. Markets develop. Races are run. Scheduled events can happen whether you are standing there to watch them or not.
+Those are maximum clocks, not mandatory waiting periods. Visits, negotiations, travel and other actions subtract time directly, and **End Day Early** lets you move on when you have finished what matters.
 
-A visit across town might take fifteen or thirty minutes. A poker session can eat into the same clock your factory is using. Spending time chasing a tip, a horse, a card game, or a contact means giving up time you could have spent somewhere else.
-
-Managing that limited time is one of the central pressures in Federal Electric.
+The world runs while you play. Factory production continues, markets develop, races are run, and scheduled events can happen whether you are standing there to watch them or not.
 
 ### Pause Means Pause
 
@@ -43,13 +43,16 @@ The company is the center of the game.
 
 You are responsible for keeping it alive, profitable, and growing.
 
-- Buy and sell copper, glass, and tungsten.
+- Buy and sell copper, glass, and tungsten through the Warehouse.
 - Negotiate customer orders instead of simply accepting whatever price is offered.
-- Choose production quantities and quality grades.
-- Queue factory work and judge whether there is enough time left in the day to finish it.
-- Deal with machinery trouble and unattended factory problems.
-- Ship complete or partial orders where customers permit it.
-- Live with the consequences of late, short, rejected, discounted, or wrong-grade deliveries.
+- Choose production quantities, grades, and production policy independently from what a customer ordered.
+- Put every finished bulb into Warehouse inventory first; nothing is shipped automatically.
+- Track finished goods by production lot so quality problems and defective batches have a physical history.
+- Decide how much to ship to each customer and when to ship it within the contract delivery window.
+- Pause or switch unfinished production without destroying completed goods or losing manufacturing progress.
+- Manage workforce attendance, skill, morale, discipline and occasional personnel matters without micromanaging every worker.
+- Deal with weather, utility outages, machinery trouble and other operating conditions that can slow the plant.
+- Live with the consequences of late, short, rejected, discounted, wrong-grade, or defective deliveries.
 - Build customer histories that can affect future business.
 - Track payroll, machinery, inventory, operating costs, and the daily ledger.
 - Keep company money separate from your personal cash, or create accounting trouble for yourself.
@@ -114,7 +117,7 @@ That is Federal Electric in miniature: every opportunity has an opportunity cost
 
 ## A Typical Day
 
-You might begin the morning checking the factory and buying raw materials.
+You might begin a business turn checking the factory, the weather, worker attendance, and Warehouse stock before buying raw materials.
 
 A customer wants an order, but the price is poor. You counter.
 

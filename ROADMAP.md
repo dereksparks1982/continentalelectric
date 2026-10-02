@@ -107,16 +107,31 @@ Next v0.3 passes:
 - pause still returns to Executive Desk and disables/grays out gameplay navigation and controls
 - existing gameplay systems and section IDs were retained; this slice reorganizes access without rewriting mechanics
 
-## v0.4 — Company Operations
+## v0.4 — Company Operations — CURRENT
 
-- inventory and sales over time
-- durability, defects, failures, returns, warranty expense
-- workforce, wages, morale, skill and labor trouble
+- **7 playable business turns per calendar month** as the current pacing test; Business Day and Washington Night remain independently configurable at 60 minutes each — IMPLEMENTED FOUNDATION
+- **Warehouse separation:** production creates inventory, contracts create obligations, and shipping connects the two — IMPLEMENTED
+- raw materials live under **Factory → Warehouse** — IMPLEMENTED
+- grade-specific finished-goods inventory and production-lot records — IMPLEMENTED FOUNDATION
+- player-controlled production quantity is independent of contract quantity; overproduction remains in Warehouse stock — IMPLEMENTED
+- manual contract fulfillment from Warehouse; no automatic end-of-turn shipment — IMPLEMENTED
+- contract delivery windows run through the contract month; the player may hold stock, make partial shipments where permitted, or deliberately miss the deadline — IMPLEMENTED FOUNDATION
+- unfinished production can be paused or switched only with confirmation; manufactured goods remain in Warehouse and progress is retained — IMPLEMENTED
+- production policy: Quality Priority / Normal / Rush, trading speed against defect risk — IMPLEMENTED FOUNDATION
+- workforce aggregate model: attendance, tardiness, absence, skill, morale, discipline, efficiency and quality — IMPLEMENTED FOUNDATION
+- exception-based personnel discipline so individual workers surface only when executive attention is warranted — IMPLEMENTED FOUNDATION
+- weather and operating conditions can affect attendance, output and utility reliability — IMPLEMENTED FOUNDATION
+- Federal Electric begins dependent on purchased utility power; outages can stop the line while the clock continues — IMPLEMENTED FOUNDATION
+- internal rejects and latent defects tied to production conditions; finished lots preserve QC history and customer defect claims can create refunds/replacement obligations — IMPLEMENTED FOUNDATION
+- durability, failures, returns and warranty expense beyond the current defect-claim foundation
+- historically researched wage system, hiring, retention, morale, skill and labor trouble
 - machinery breakdowns, maintenance and upgrades
-- suppliers/materials
+- suppliers/material depth, including strategic stockpiling and future wartime restrictions
+- warehouse capacity, carrying cost and expansion
+- multiple production lines and capital machinery purchases
 - debt, loans, interest, assets, liabilities and net worth
-- additional electrical product lines
-- plants and warehouses
+- additional electrical product lines and tooling
+- plants and additional warehouses
 - delegation/management so a larger company can buy back some of the owner's time
 
 ## v0.5 — Living America
@@ -306,9 +321,9 @@ Stock purchases are not merely score-like investments. Shares represent ownershi
 - later consequences may include accountant/board/shareholder scrutiny, blackmail, financing problems, investigation and public-company governance consequences
 
 
-## NEXT — Accounts, Global Chat & Global Rankings
+## LATER — Accounts, Global Chat & Global Rankings
 
-This is the next active development milestone after the 2026-10-02 closed build.
+This remains planned after the current Company Operations deepening work. It is no longer the immediate active milestone.
 
 ### Slice 1 — Accounts and durable saves
 - account identity and sign-in
