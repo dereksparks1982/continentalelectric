@@ -15,7 +15,7 @@ Federal Electric is a long-save historical industrial, financial, social, and po
 9. Historical specifics are researched.
 10. Information can be incomplete or wrong depending on its source.
 
-## v0.3.2-dev — The Order Book — CURRENT BUILD
+## v0.3.3-dev — The Back Rooms — CURRENT BUILD
 
 Implemented foundation:
 - 60-minute active business-day clock
@@ -32,7 +32,12 @@ Implemented foundation:
 - separate executive contact-card file for people actually met
 - persistent contact data foundation
 - The Star Club and Madam Star
-- bookmaker introduction
+- bookmaker introduction now gates entry to the Neighborhood Game
+- poker auto-resolution: Simulate Game consumes exactly 5 active business minutes and preserves cash, progression, factory-away, Journal and raid consequences — IMPLEMENTED
+- 10 Neighborhood Game wins unlock the Commerce Club — IMPLEMENTED
+- Embassy Room unlock uses a separate Harrison Vale social/invitation path — IMPLEMENTED FOUNDATION
+- seven-click Embassy Room admin/test override opens the room on click seven — IMPLEMENTED
+- poker music UI removed from current scope
 - three Washington poker circles: neighborhood/working-class, commercial/professional, and elite private-society games
 - poker launches in a separate dedicated game window rather than an in-page modal
 - daily game supply: up to 5 neighborhood, 3 commercial, and 1 elite game available to the player
