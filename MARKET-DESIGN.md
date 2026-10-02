@@ -103,3 +103,17 @@ Before deeper market/control systems are treated as historical mechanics, verify
 - bankruptcies, mergers, splits and suspensions
 - control battles and IPOs
 - newspaper financial pages
+
+
+## First playable day — previous close
+
+The current first-day display can show a flat +0.00% comparison because the opening quotation is also acting as the comparison baseline.
+
+Planned correction:
+- seed a fictional previous close for each security before the first playable morning
+- January 3, 1938 opening quotations compare against that prior close
+- first-day change values can therefore begin positive, negative, or nearly flat instead of all reading +0.00%
+- the opening quotation remains the visible trade reference throughout the Business Day
+- this is display/history seeding only; it must not reintroduce visible live intraday quotations
+
+This is documented but not yet implemented.
