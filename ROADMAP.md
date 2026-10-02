@@ -100,7 +100,7 @@ Next v0.3 passes:
 - primary sticky navigation reduced to **Executive Desk**, **Factory**, **Markets & News**, **Journal**, and **Pastimes**
 - **Factory** contains Production and Contracts
 - **Markets & News** contains Federal Exchange and Metropolitan Ledger
-- **Journal** contains Journal and Contacts
+- **Journal** contains **Journal**, **Contacts**, **Info**, and **Help**; Help opens the in-game **How to Play** manual
 - **Pastimes** contains Legal Sports and Illicit Activities
 - selected top-level and secondary section buttons display blue with white text
 - pause still returns to Executive Desk and disables/grays out gameplay navigation and controls
