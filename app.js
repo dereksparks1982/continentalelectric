@@ -67,13 +67,13 @@ function render(){
  renderFactory();renderContracts();renderStocks();renderHoldings();renderTransactions();renderNotes();renderArchive();renderWashington();renderDailyReport()
 }
 function wagerSummaryForReport(iso){
- let net=0,tickets=0;
- if(S.racing?.meeting?.date===iso){for(const b of Object.values(S.racing.meeting.bets||{})){if(b?.settled){net+=b.net||0;tickets++}}}
- if(S.boxing?.card?.date===iso){for(const b of Object.values(S.boxing.card.bets||{})){if(b?.settled){net+=b.net||0;tickets++}}}
+ let horse=0,boxing=0,underground=0,tickets=0;
+ if(S.racing?.meeting?.date===iso){for(const b of Object.values(S.racing.meeting.bets||{})){if(b?.settled){horse+=b.net||0;tickets++}}}
+ if(S.boxing?.card?.date===iso){for(const b of Object.values(S.boxing.card.bets||{})){if(b?.settled){boxing+=b.net||0;tickets++}}}
  if(S.underworld?.events?.date===iso){
-   for(const e of [S.underworld.events.privateFight,S.underworld.events.cockfight]){if(e?.bet?.settled){net+=e.bet.net||0;tickets++}}
+   for(const e of [S.underworld.events.privateFight,S.underworld.events.cockfight]){if(e?.bet?.settled){underground+=e.bet.net||0;tickets++}}
  }
- return {net,tickets};
+ return {horse,boxing,underground,net:horse+boxing+underground,tickets};
 }
 function renderDailyReport(){
  const panel=$('#dailyReportOverlay');if(!panel)return;
@@ -95,8 +95,11 @@ function renderDailyReport(){
  '<article><b>Realized stock P/L</b><span>'+cash(r.stockRealized||0)+'</span></article>'+
  '<article><b>Held-stock day move</b><span>'+cash(r.stockPositionMove||0)+'</span></article>'+
  '<article><b>Federal Exchange close</b><span>'+((r.marketCloseIndex||marketIndex()).toFixed(2))+'</span></article>'+
+ '<article><b>Horse-racing net</b><span>'+cash(w.horse)+'</span></article>'+
+ '<article><b>Licensed-boxing net</b><span>'+cash(w.boxing)+'</span></article>'+
+ '<article><b>Underground betting net</b><span>'+cash(w.underground)+'</span></article>'+
  '<article><b>Settled wagers</b><span>'+w.tickets+'</span></article>'+
- '<article><b>Wager net</b><span>'+cash(w.net)+'</span></article>'+
+ '<article><b>Total wager net</b><span>'+cash(w.net)+'</span></article>'+
  '<article><b>Portfolio at close</b><span>'+money(r.portfolioEnd||r.portfolioAtMarketClose||0)+'</span></article>'+
  '<article><b>Reputation</b><span>'+Math.round(S.reputation)+'/100</span></article>'+
  '</div>'+events+'<p class="fine">This is Federal Electric\'s private accounting of the completed date. The Metropolitan Ledger appears only after you retire and the next business morning begins.</p>';
