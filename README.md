@@ -4,10 +4,10 @@
 
 ## Play
 
-- **Play current build:** https://dereksparks1982.github.io/federalelectric/index.html?v=20261001-randomeddie2
+- **Play current build:** https://dereksparks1982.github.io/federalelectric/index.html?v=20261001-clock
 - **Georgia Sun:** https://dereksparks1982.github.io/georgiasun/index.html
 
-## Current prototype — v0.3.4-dev: The Customer Is Always Right
+## Current prototype — v0.3.5-dev: On the Clock
 
 The simulation now runs as a living business day:
 
@@ -36,6 +36,7 @@ The simulation now runs as a living business day:
 - finished lamp inventory is tracked separately as Economy, Standard, and Long-Life stock
 - partial shipments are supported for customers willing to accept them
 - switching production grades consumes factory setup time
+- production estimates are normalized to the intended 10/20/30-minute contract bands, preventing legacy/corrupt orders from displaying impossible 31+ minute single-order estimates
 - important fulfillment outcomes are recorded as customer correspondence in the Journal
 - factory materials, machinery, payroll, and daily ledger
 - a living **Metropolitan Ledger** newspaper with an edition archive
@@ -44,7 +45,9 @@ The simulation now runs as a living business day:
 - first persistent contacts; meeting Eddie Doyle through Madam Star unlocks the neighborhood backroom poker circuit
 - 10 Neighborhood Game wins unlock the Commerce Club; simulated wins count the same as played wins
 - Commerce Club sessions can build a connection with Harrison Vale, whose invitation unlocks the Embassy Room
-- every poker room supports Play or Simulate; simulation consumes exactly 5 business minutes while factory production continues
+- manual poker shows the live Federal Electric business-day clock; time spent at the table is deducted from the same one-hour day when you leave
+- poker simulation time scales by room: Neighborhood 5 minutes, Commerce Club 10 minutes, Embassy Room 25 minutes; insufficient remaining time blocks the simulation
+- factory production continues while poker consumes business time
 - poker music UI is removed from the current scope
 - three playable backroom poker rooms with a browser-native Texas Hold'em engine, AI opponents, distinct class-based interiors, blinds, betting streets, hand evaluation and showdown
 - independently scheduled police raids
