@@ -217,28 +217,32 @@ Possible negative outcomes include a missed customer call, a contract lead going
 The event must be recorded in the Journal/company record when the player would reasonably know about it. The pool should be weighted and contextual rather than firing the same generic event every time.
 
 
-## Planned two-phase day / night system
+## Implemented two-phase day / night system
 
-The long-term daily rhythm expands from the current one-hour business prototype into two distinct active phases rather than simply granting the player more unrestricted time.
+The active date now uses two distinct one-hour phases rather than one unrestricted business clock.
 
 ### Hour 1 — Business Day
-- Federal Electric factory, contracts, suppliers, banking, daytime meetings and regular business contacts
-- Federal Exchange open
-- Capital Race Grounds regular meeting active
-- Madam Star available with a daytime-specific encounter pool
+- Federal Electric factory, contracts and suppliers active
+- Federal Exchange open with hidden intraday movement
+- Capital Race Grounds active
+- Madam Star daytime encounter pool
 - daytime-only contacts and opportunities
+- occasional private prizefights may compete with legitimate work for the player's time
 
 ### Hour 2 — Washington Night
-- Federal Exchange closed
-- regular daytime business locations and the regular race meeting closed
-- night-only contacts, social events, legal evening boxing, poker, cockfighting, backroom prizefights, bookmakers and other illicit opportunities as they are implemented
-- Madam Star remains available, but with a separate night encounter pool
-- planned Star Club choices: **Brief Evening Visit** and **Evening Visit**
-- some people and opportunities exist only at night, and conflicting schedules mean the player cannot attend everything
+- Federal Exchange closed with final quotations posted
+- ordinary factory/contract/supplier controls closed
+- licensed boxing active under Legal Sports
+- poker, cockfighting, private prizefights, bookmaker leads and other illicit opportunities may be available
+- Madam Star evening encounter pool
+- **Brief Evening Visit** and **Evening Visit** implemented
+- conflicting events intentionally prevent the player from doing everything
 
 ### Day transition
-- the private Daily Report follows the night phase and explains company results, personal gains/losses, wagers, contacts and notable events
-- the Metropolitan Ledger is delivered at the beginning of the next in-game day, reporting public events from the previous day and overnight
+- the private Daily Report follows Washington Night
+- the report covers company results, stocks, personal cash, wagers, treasury activity, contacts and notable events
+- the Metropolitan Ledger is delivered at the beginning of the next in-game day
+- major public racing/boxing results can appear in the next morning's Sports section
 - scheduled world events continue to resolve on the authoritative clock while the player is elsewhere
 
 ## Strategic share ownership — planned
