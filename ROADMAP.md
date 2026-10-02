@@ -15,7 +15,7 @@ Federal Electric is a long-save historical industrial, financial, social, and po
 9. Historical specifics are researched.
 10. Information can be incomplete or wrong depending on its source.
 
-## v0.3.6-dev — Washington & Racing — CURRENT BUILD
+## v0.3.6-dev — Day/Night, Fight World & Treasury — CLOSED BUILD
 
 Implemented foundation:
 - 60-minute Business Day followed by 60-minute Washington Night — IMPLEMENTED FOUNDATION
@@ -288,3 +288,50 @@ Stock purchases are not merely score-like investments. Shares represent ownershi
 - track cumulative accounting exposure and diversion count — IMPLEMENTED FOUNDATION
 - include recorded distributions, diverted funds, unaccounted funds and exposure in the Daily Report — IMPLEMENTED
 - later consequences may include accountant/board/shareholder scrutiny, blackmail, financing problems, investigation and public-company governance consequences
+
+
+## NEXT — Accounts, Global Chat & Global Rankings
+
+This is the next active development milestone after the 2026-10-02 closed build.
+
+### Slice 1 — Accounts and durable saves
+- account identity and sign-in
+- one account can load the same Federal Electric save across supported devices
+- cloud save record stores the complete simulation state
+- every save has an explicit schema/save version
+- migrations upgrade older saves forward rather than discarding progress
+- preserve a local browser copy as an emergency fallback
+- detect local/cloud divergence instead of silently overwriting the newer state
+- autosave remains the normal player workflow
+- server-side account data becomes the durable long-term copy once connected
+- protect against a new front-end build resetting a valid existing save
+- GitHub Pages may remain the static front end; backend architecture is documented separately
+
+### Slice 2 — Global Chat
+- shared account-backed global chat
+- persistent display identity separate from private account credentials
+- server timestamps
+- rate limiting / flood protection
+- basic moderation controls
+- chat failure must never block saving or playing
+- no direct-message system in the first slice unless separately approved
+
+### Slice 3 — Global Rankings
+- account-backed leaderboard
+- rankings use server-stored/validated state, not arbitrary values supplied directly by the browser
+- initial candidate categories: Federal Electric company value, personal net worth/wealth, and later additional clearly defined categories
+- no single opaque composite score until its formula is explicitly designed and approved
+- rankings must tolerate save-version migrations without wiping historical players
+
+### Online architecture
+- preserve the current GitHub Pages front end if practical
+- add a backend for authentication, save/load, chat and rankings
+- Cloudflare Worker + durable data storage is the current preferred direction because the project already uses Cloudflare elsewhere
+- exact authentication method, database layout, session model and realtime-chat transport are implementation decisions for the account slice
+
+## Post-online polish / known backlog
+
+- seed a believable previous close for the first playable Federal Exchange session so January 3 does not display every security at +0.00%
+- stock quantity entry persistence through market/table rerenders remains a separate stabilization item until verified
+- deeper poker correctness, including side pots/all-in reopening and direct-close settlement
+- deeper historical research for horse betting, boxing wagering and underground activity
