@@ -15,7 +15,7 @@ Federal Electric is a long-save historical industrial, financial, social, and po
 9. Historical specifics are researched.
 10. Information can be incomplete or wrong depending on its source.
 
-## v0.3.3-dev — The Back Rooms — CURRENT BUILD
+## v0.3.4-dev — The Customer Is Always Right — CURRENT BUILD
 
 Implemented foundation:
 - 60-minute active business-day clock
@@ -36,7 +36,6 @@ Implemented foundation:
 - poker auto-resolution: Simulate Game consumes exactly 5 active business minutes and preserves cash, progression, factory-away, Journal and raid consequences — IMPLEMENTED
 - 10 Neighborhood Game wins unlock the Commerce Club — IMPLEMENTED
 - Embassy Room unlock uses a separate Harrison Vale social/invitation path — IMPLEMENTED FOUNDATION
-- seven-click Embassy Room admin/test override opens the room on click seven — IMPLEMENTED
 - poker music UI removed from current scope
 - three Washington poker circles: neighborhood/working-class, commercial/professional, and elite private-society games
 - poker launches in a separate dedicated game window rather than an in-page modal
@@ -66,10 +65,13 @@ Next v0.3 passes:
 - roughly 10/20/30-minute small, medium and large production runs — IMPLEMENTED FOUNDATION
 - overcommitment warning without preventing risky contract acceptance — IMPLEMENTED FOUNDATION
 - arbitrary stock order quantities, Buy/Sell/Sell All, visible buying cash, and realized P/L — IMPLEMENTED
-- contract offers increasingly shaped by reputation and customer history
-- wrong-quality shipment rejection, return freight, replacement obligations and customer-specific tolerance
-- partial delivery where the contract/customer permits it
-- contract reliability affects future order size, terms, access, and customer relationships
+- contract offers increasingly shaped by reputation and customer history — IMPLEMENTED FOUNDATION
+- customer-specific buyer personalities and specification tolerance — IMPLEMENTED
+- wrong-quality shipment rejection, discounted acceptance and replacement obligations — IMPLEMENTED FOUNDATION
+- partial delivery where the contract/customer permits it — IMPLEMENTED
+- grade-specific finished inventory and production-grade selection — IMPLEMENTED
+- production-grade changeover time — IMPLEMENTED FOUNDATION
+- contract reliability affects future terms and customer relationships — IMPLEMENTED FOUNDATION
 - richer daily factory demand and sales
 - historically researched 1938 market regimes and dated historical news
 - richer company fundamentals and market-moving news
