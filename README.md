@@ -104,5 +104,6 @@ A future public Federal Electric will connect the owner's personal reputation to
 
 - [ROADMAP.md](ROADMAP.md)
 - [MARKET-DESIGN.md](MARKET-DESIGN.md)
+- [FIGHT-WORLD-DESIGN.md](FIGHT-WORLD-DESIGN.md)
 - [HISTORICAL-NOTES.md](HISTORICAL-NOTES.md)
 - [DECISIONS.md](DECISIONS.md)
