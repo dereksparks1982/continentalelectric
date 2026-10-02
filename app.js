@@ -17,7 +17,7 @@ const stockSeed=[
 ['NFC','National Foods Corp.','Food',28.40,.033,.030],['APC','American Provision Co.','Food',21.60,.031,.034],['GMC','Great Mills Corp.','Food',16.90,.029,.036],
 ['ACC','American Consumer Corp.','Consumer',25.15,.028,.038],['HHA','Household & Home Appliances','Consumer',19.45,.020,.048],['USG','United Soap & Goods','Consumer',23.75,.032,.033],['RTA','Republic Tobacco & Allied','Consumer',34.50,.045,.035]
 ];
-const APP_VERSION='v0.4.0-dev', TURNS_PER_MONTH=7, BUSINESS_DAY_SECONDS=3600, NIGHT_SECONDS=3600, DAY_SECONDS=BUSINESS_DAY_SECONDS, MARKET_TICK_MS=5000, SAVE_KEY='federalElectricSave', STOCK_HISTORY_DAYS=90;
+const APP_VERSION='v0.4.0', TURNS_PER_MONTH=7, BUSINESS_DAY_SECONDS=3600, NIGHT_SECONDS=3600, DAY_SECONDS=BUSINESS_DAY_SECONDS, MARKET_TICK_MS=5000, SAVE_KEY='federalElectricSave', STOCK_HISTORY_DAYS=90;
 const MATERIAL_MARKET={copper:{name:'Copper',unitPrice:.18},glass:{name:'Glass',unitPrice:.095},tungsten:{name:'Tungsten',unitPrice:.32}};
 function unitCash(n){return '$'+Number(n).toFixed(3).replace(/0+$/,'').replace(/\.$/,'')}
 const contractCustomers=[

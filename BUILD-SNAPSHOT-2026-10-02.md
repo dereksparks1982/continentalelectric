@@ -165,9 +165,9 @@ See:
 - pacing constants are separated internally; the current test configuration is 7 playable turns per month, 60-minute Business Day and 60-minute Washington Night
 
 
-### Interface and Pastimes expansion — v0.4.0-dev
+### Interface and Pastimes expansion — v0.4.0
 
-- visible game version **v0.4.0-dev** appears at the far top-right of the blue Federal Electric masthead; internal save-schema version 12 remains separate
+- visible game version **v0.4.0** appears at the far top-right of the blue Federal Electric masthead; internal save-schema version 12 remains separate
 - the persistent date/status line explicitly reads **TURN X OF 7 THIS MONTH**
 - the top of Executive Desk now presents the summary on a 1930s-inspired walnut desk surface with an inset green-felt blotter
 - Legal Sports uses closable activity panels for Horse Racing, Dog Racing, Midget Car Racing and Boxing
@@ -177,3 +177,14 @@ See:
 - Dog Racing is implemented with scheduled daytime heats/final, persistent racing state and Win/Place/Show wagering
 - Midget Car Racing is implemented with scheduled daytime heats/feature, persistent cars and drivers, mechanical reliability/failure risk and Win/Place/Show wagering
 - the same reusable oval-track visualizer is used across horse, dog and midget-car racing
+
+
+### Green-felt interface pass — v0.4.0
+
+- green felt is now a reusable visual language for important summary/status areas rather than an Executive Desk-only treatment
+- Factory uses felt around Workers, Machinery, Capacity / Turn and Finished Inventory
+- Federal Exchange uses felt around Market Index, Personal Cash, Portfolio Value and Total Unrealized
+- Journal uses felt around the Note / Source / Write It Down controls, with responsive full-width fields so the note text is no longer clipped
+- Horse Racing, Dog Racing, Midget Car Racing and Licensed Boxing use felt around their venue/status header areas
+- detailed tables, contracts, ledgers, newspaper content and ordinary forms remain paper-based so the interface keeps a clear visual hierarchy
+- visible version label is now **v0.4.0** with no development suffix

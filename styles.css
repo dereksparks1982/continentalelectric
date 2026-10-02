@@ -115,3 +115,66 @@ header{position:relative}
 .activity-panel-head{display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--navy);color:#fff;padding:7px 9px;border-bottom:3px solid var(--red);font:700 12px 'Courier New',monospace;letter-spacing:.06em;text-transform:uppercase}
 .activity-close{min-width:32px;padding:2px 8px;background:#fff;color:var(--red);font:bold 20px/1 'Courier New',monospace}
 @media(max-width:700px){.activity-tabs{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch}.activity-tabs button{white-space:nowrap}}
+
+/* v0.4.0 visual pass: reusable green-felt summary language */
+.felt-panel{
+ margin:0 0 16px;
+ padding:14px;
+ border:2px solid #243a31;
+ border-radius:2px;
+ background:
+  radial-gradient(circle at 20% 18%,rgba(255,255,255,.035),transparent 28%),
+  repeating-linear-gradient(0deg,rgba(255,255,255,.018) 0,rgba(255,255,255,.018) 1px,transparent 1px,transparent 4px),
+  #294b3d;
+ box-shadow:inset 0 0 0 2px #172c24,inset 0 0 18px rgba(0,0,0,.34),0 2px 4px rgba(0,0,0,.16)
+}
+.felt-card-grid{margin:0}
+.felt-card-grid article{
+ background:#f7f0df;
+ border-color:#6f6859;
+ border-top-color:#b59a61;
+ box-shadow:0 2px 5px rgba(0,0,0,.24)
+}
+.felt-card-grid article b{color:#493728}
+.felt-venue-panel{
+ margin-top:10px;
+ border:2px solid #243a31;
+ background:
+  radial-gradient(circle at 20% 18%,rgba(255,255,255,.035),transparent 28%),
+  repeating-linear-gradient(0deg,rgba(255,255,255,.018) 0,rgba(255,255,255,.018) 1px,transparent 1px,transparent 4px),
+  #294b3d;
+ box-shadow:inset 0 0 0 2px #172c24,inset 0 0 18px rgba(0,0,0,.34),0 2px 4px rgba(0,0,0,.16);
+ color:#fffaf0
+}
+.felt-venue-panel h3,.felt-venue-panel .fine,.felt-venue-panel .race-bankroll,.felt-venue-panel .boxing-bankroll{color:#fffaf0}
+.felt-venue-panel h3{margin-top:0}
+.felt-venue-panel .race-bankroll,.felt-venue-panel .boxing-bankroll{
+ border:1px solid rgba(255,255,255,.45);
+ background:rgba(0,0,0,.14);
+ padding:7px 9px
+}
+.journal-note-form{
+ display:grid;
+ grid-template-columns:minmax(0,2fr) minmax(180px,1fr) auto;
+ gap:10px;
+ align-items:end
+}
+.journal-note-form label{
+ display:block;
+ margin:0;
+ color:#fffaf0;
+ font-weight:bold
+}
+.journal-note-form input{
+ display:block;
+ width:100%;
+ min-width:0;
+ margin-top:6px;
+ background:#fffaf0
+}
+.journal-note-form button{min-height:34px}
+@media(max-width:700px){
+ .felt-panel{padding:10px}
+ .journal-note-form{grid-template-columns:1fr}
+ .journal-note-form button{width:100%}
+}
