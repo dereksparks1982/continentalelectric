@@ -15,7 +15,7 @@ Federal Electric is a long-save historical industrial, financial, social, and po
 9. Historical specifics are researched.
 10. Information can be incomplete or wrong depending on its source.
 
-## v0.3.5-dev — On the Clock — CURRENT BUILD
+## v0.3.6-dev — Washington & Racing — CURRENT BUILD
 
 Implemented foundation:
 - 60-minute active business-day clock
@@ -58,7 +58,7 @@ Implemented Working Factory foundation:
 - continuous live production tied to the business-day clock
 - large visible production progress bar and unit counter
 - materials and operating cost consumed as units are produced
-- 30-minute Star Club visits advance the factory while consuming the owner's time
+- 15-minute Brief and 30-minute Afternoon Star Club visits advance the factory while consuming the owner's time — IMPLEMENTED
 - semi-uncommon unattended breakdowns; foreman may repair them or require executive authorization
 - customer record tracks correct completions and late/short work
 
@@ -165,9 +165,11 @@ Postwar reconversion, consumer boom, Cold War industry/electronics, acquisitions
 
 ## Stabilization queue — v0.3.6-dev
 
-- [x] Keep the business-day clock and primary navigation visible while scrolling so time-critical controls never disappear.
+- [ ] Revisit a persistent business-day clock/navigation header only after isolated testing; the first sticky-header attempt was rolled back after a runtime regression.
 
 Work is performed one slice at a time on `main`, with each slice verified before moving to the next.
+
+- [x] New Game control is visually separated from End Day Early so the destructive reset is not adjacent to the routine day-close action.
 
 - [x] Remove manual Save/Load controls; autosave is authoritative; rename New Company to New Game with destructive-progress confirmation.
 - [x] Poker clock initialization uses the current Federal Electric business-day time rather than resetting to 60:00.
@@ -175,17 +177,17 @@ Work is performed one slice at a time on `main`, with each slice verified before
 - [x] Pre-flop folding no longer sends an incomplete board into the seven-card evaluator.
 - [ ] Correct poker betting-round action closure and all-in/side-pot behavior.
 - [ ] Make poker window-close/quit settlement unavoidable and consistent.
-- [ ] Audit and rebalance lamp unit economics, payroll, contract prices, and 1938-scale costs.
+- [ ] Audit and rebalance light-bulb unit economics, payroll, contract prices, and 1938-scale costs.
 - [ ] Correct selected production-grade material/cost consumption.
 - [ ] Audit partial shipments, wrong-grade settlement, replacement inventory, deadlines, and repeated late penalties.
-- [ ] Add two Star Club visit lengths: Brief Visit (15 business minutes, lower price/opportunity) and Afternoon Visit (30 business minutes, higher price/opportunity); both advance the same authoritative business clock and unattended factory production.
+- [x] Add two Star Club visit lengths: Brief Visit (15 business minutes, $5, lower encounter opportunity) and Afternoon Visit (30 business minutes, $12, higher encounter opportunity); both advance the same authoritative business clock and unattended factory production.
 - [ ] Reset/schedule Star Club raids correctly across dates and weekdays.
-- [x] Reposition Federal Exchange trade quantity directly above Buy/Sell controls for rapid trading.
-- [x] Preserve typed Federal Exchange quantities across five-second market rerenders.
+- [ ] Reposition Federal Exchange trade quantity directly above Buy/Sell controls for rapid trading; previous attempt was rolled back with the broken UI build.
+- [ ] Preserve typed Federal Exchange quantities across five-second market rerenders; previous attempt was rolled back with the broken UI build.
 - [ ] Historical/name verification pass for 1938 Washington titles, wages, and fictional entities.
 - [ ] Bring MARKET-DESIGN and other documentation into sync with implemented behavior.
 - [ ] Add Codex/lore documentation structure.
-- [ ] Port Georgia Sun horse racing as Federal Electric scheduled race meetings: persistent horses, qualifying heats, semifinals, Main Event, visible progression, and automatic mid-day schedule.
+- [x] Port Georgia Sun horse-racing foundation into a Federal Electric scheduled meeting: persistent horses, four heats, two semifinals, Main Event, visible progression, Win/Place/Show betting, live attended-race animation, and automatic mid-day schedule.
 
 
 ## Blackmail / leverage system — planned
@@ -198,4 +200,15 @@ Work is performed one slice at a time on `main`, with each slice verified before
 - NPCs can use the same system against the player when they learn about scandals, illegal gambling, affairs, corruption, or other compromising events.
 - Real historical political figures require sourced historical treatment; generated compromising scandals should use fictional characters rather than inventing defamatory claims about real people.
 
-- [ ] Poker progression revision: Default Neighborhood access; Eddie Doyle unlocks Commerce Club; Commerce Club play can introduce Harrison Vale; Vale invitation unlocks Embassy Room.
+- [x] Poker progression revision: Default Neighborhood access; Eddie Doyle unlocks Commerce Club; Commerce Club play can introduce Harrison Vale; Vale invitation unlocks Embassy Room.
+
+
+## End Day Early event pool — planned
+
+Ending the business day early will eventually roll a small consequence event rather than being a consequence-free skip. Events can be beneficial or harmful and should come from the living company/world rather than a morality meter.
+
+Possible positive outcomes include a foreman using the quiet period for useful maintenance, a supplier returning a favorable call, an employee catching a problem before the next morning, or a useful social/business message arriving after the owner leaves.
+
+Possible negative outcomes include a missed customer call, a contract lead going elsewhere, an unattended production or staffing problem, unfavorable gossip, a supplier issue, or a missed Washington contact opportunity.
+
+The event must be recorded in the Journal/company record when the player would reasonably know about it. The pool should be weighted and contextual rather than firing the same generic event every time.
