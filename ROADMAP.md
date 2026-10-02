@@ -18,8 +18,8 @@ Federal Electric is a long-save historical industrial, financial, social, and po
 ## v0.3.6-dev — Washington & Racing — CURRENT BUILD
 
 Implemented foundation:
-- 60-minute active business-day clock
-- automatic day close and End Day Early
+- 60-minute Business Day followed by 60-minute Washington Night — IMPLEMENTED FOUNDATION
+- Business Day closing bell → Washington Night → mandatory Daily Report → next morning — IMPLEMENTED FOUNDATION
 - freeze on hidden/closed app and exact resume from autosave
 - 50-security Federal Exchange with hidden intraday market movement; the player sees the published opening quotation until the closing bell — IMPLEMENTED
 - hidden closing quotations are revealed at the close and become the next-day opening basis — IMPLEMENTED
@@ -180,7 +180,8 @@ Work is performed one slice at a time on `main`, with each slice verified before
 - [ ] Audit and rebalance light-bulb unit economics, payroll, contract prices, and 1938-scale costs.
 - [ ] Correct selected production-grade material/cost consumption.
 - [ ] Audit partial shipments, wrong-grade settlement, replacement inventory, deadlines, and repeated late penalties.
-- [x] Add two Star Club visit lengths: Brief Visit (15 business minutes, $5, lower encounter opportunity) and Afternoon Visit (30 business minutes, $12, higher encounter opportunity); both advance the same authoritative business clock and unattended factory production.
+- [x] Add two Star Club daytime visit lengths: Brief Visit and Afternoon Visit.
+- [x] Phase-specific Star Club controls: Brief/ Afternoon by day and Brief Evening/ Evening at night, with different encounter pools.
 - [ ] Reset/schedule Star Club raids correctly across dates and weekdays.
 - [x] Reposition Federal Exchange trade quantity directly above Buy/Sell controls for rapid trading.
 - [ ] Preserve typed Federal Exchange quantities across five-second market rerenders; previous attempt was rolled back with the broken UI build.
@@ -253,20 +254,20 @@ Stock purchases are not merely score-like investments. Shares represent ownershi
 ## Legal Sports / Illicit Activities expansion
 
 ### Legal Sports
-- rename the current Race Track navigation area to **Legal Sports**
-- Capital Race Grounds operates during the Business Day
-- licensed boxing cards operate during Washington Night
-- persistent boxers, records, styles, condition, injuries and fight history
-- scheduled undercards and main events
-- fight betting with no arbitrary game-imposed cap; any limit must come from a researched or in-world reason
-- fight results and wagers settle on the authoritative world clock whether the player attends or not
+- rename the current Race Track navigation area to **Legal Sports** — IMPLEMENTED
+- Capital Race Grounds operates during the Business Day — IMPLEMENTED
+- licensed boxing cards operate during Washington Night — IMPLEMENTED FOUNDATION
+- persistent boxers, records, styles, condition, injuries and fight history — IMPLEMENTED FOUNDATION
+- scheduled undercards and main events — IMPLEMENTED FOUNDATION
+- fight betting with no arbitrary game-imposed cap; any limit must come from a researched or in-world reason — IMPLEMENTED
+- fight results and wagers settle on the authoritative world clock whether the player attends or not — IMPLEMENTED
 - major results feed the next morning's Metropolitan Ledger
 
 ### Illicit Activities
-- replace the current **After Hours** label with **Illicit Activities**
+- replace the current **After Hours** label with **Illicit Activities** — IMPLEMENTED
 - backroom poker remains part of this category
-- add private prizefights and cockfighting as independently discoverable activities
-- private prizefights may be scheduled during the day or at night, creating direct competition with work and legal activities
+- add private prizefights and cockfighting as independently discoverable activities — IMPLEMENTED FOUNDATION
+- private prizefights may be scheduled during the day or at night, creating direct competition with work and legal activities — IMPLEMENTED FOUNDATION
 - underground activity is invitation/contact driven rather than presented as a complete menu from game start
-- multiple discovery routes: bookmaker, licensed boxing contacts, Madam Star, poker contacts and other future underworld NPCs
-- the bookmaker becomes a recurring source of leads, betting information and invitations rather than a single-use unlock
+- multiple discovery routes: bookmaker, licensed boxing contacts, Madam Star, poker contacts and other future underworld NPCs — IMPLEMENTED FOUNDATION
+- the bookmaker becomes a recurring source of leads, betting information and invitations rather than a single-use unlock — IMPLEMENTED FOUNDATION
