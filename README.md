@@ -4,11 +4,10 @@
 
 ## Play
 
-- **Play closed build:** https://dereksparks1982.github.io/federalelectric/index.html?v=20261002-closed1
-- **Current test build:** https://dereksparks1982.github.io/federalelectric/index.html?v=20261002-build6
+- **Current build:** https://dereksparks1982.github.io/federalelectric/
 - **Georgia Sun:** https://dereksparks1982.github.io/georgiasun/index.html
 
-## Closed prototype snapshot — v0.3.6-dev: Day/Night, Fight World & Treasury
+## Current build — Day/Night, Fight World & Treasury
 
 The simulation now runs as a living business day:
 
@@ -75,9 +74,9 @@ The simulation now runs as a living business day:
 - Executive Desk treasury controls keep company and personal money separate: a recorded owner distribution is available during the Business Day, while diverting company funds to personal use creates an accumulating unexplained corporate shortfall and accounting exposure
 - treasury transfers have no arbitrary amount cap beyond available company cash
 
-## Current post-snapshot build
+## Current control and economy systems
 
-The current test build adds the next control/economy pass without changing the closed v0.3.6-dev snapshot:
+The current build includes the latest control and economy work:
 
 - **Hard pause:** pressing PAUSE immediately returns the player to Executive Desk. Every tab and gameplay control is disabled and visibly grayed out while paused. Only **PLAY** and **New Game** remain usable.
 - **Raw-material trading:** copper, glass and tungsten now use arbitrary quantity inputs with **Buy**, **Sell**, and **Sell All** controls. The old fixed-lot-only purchase buttons are gone.
