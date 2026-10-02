@@ -107,12 +107,18 @@ function resolveRace(id,animate){
  if(animate&&document.getElementById('racing')?.classList.contains('active'))startAnimation(id);
 }
 function processSchedule(){
+ if(S.phase&&S.phase!=='day')return false;
  const m=ensureState(),jump=lastObservedRemaining==null?0:Math.max(0,lastObservedRemaining-S.dayRemaining),canAnimate=jump<=2;
  let changed=false;
  for(const d of SCHEDULE){const r=m.races[d.id];if(!r.result&&S.dayRemaining<=d.threshold){updateQualifiers();if(r.participants.length){resolveRace(d.id,canAnimate);changed=true}}}
  lastObservedRemaining=S.dayRemaining;
  return changed;
 }
+window.finishRaceMeeting=()=>{
+ const m=ensureState();
+ for(const d of SCHEDULE){const race=m.races[d.id];if(!race.result){updateQualifiers();if(race.participants.length)resolveRace(d.id,false)}}
+ lastObservedRemaining=0;save(true);
+};
 function nextRace(){
  const m=ensureState();for(const d of SCHEDULE){if(!m.races[d.id].result)return d}return null;
 }
@@ -179,7 +185,7 @@ function renderHistory(){
 }
 function renderRacing(){
  if(!$r('horseRacingModule'))return;ensureState();renderBracket();renderNext();renderHistory();
- const m=S.racing.meeting;$r('raceMeetingMeta').textContent='Capital Race Grounds · '+m.surface+' · Meeting begins at 30:00 remaining · Main Event at 05:00';
+ const m=S.racing.meeting;$r('raceMeetingMeta').textContent=(S.phase==='night'||S.phase==='report')?'Capital Race Grounds · CLOSED · Today\'s results are final.':'Capital Race Grounds · '+m.surface+' · Meeting begins at 30:00 remaining · Main Event at 05:00';
  $r('raceBankroll').textContent=cash(S.personalCash);
 }
 function startAnimation(id){
