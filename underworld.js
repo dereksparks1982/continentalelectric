@@ -137,6 +137,17 @@ function cockMarkup(){
  if(e.result){const w=bird(e.result.winnerId);return '<h4>Cockfighting</h4><p><b>Latest result:</b> '+escapeHtml(w.name)+' won after '+e.result.duration+' minutes.</p>'+(e.bet?'<p class="underground-ticket">Your bet '+(e.bet.net>=0?'+':'')+cash(e.bet.net)+'</p>':'')}
  return '<h4>Cockfighting</h4><p>'+eventTime(e)+'</p><div class="underground-match"><span>'+escapeHtml(a.name)+' <b>'+frac(e.odds[a.id])+'</b></span><span>vs.</span><span>'+escapeHtml(b.name)+' <b>'+frac(e.odds[b.id])+'</b></span></div>'+(e.bet?'<p class="underground-ticket">Ticket: '+escapeHtml(bird(e.bet.pickId).name)+' · '+cash(e.bet.wager)+'</p>':'<div class="underground-bet"><select id="cockfightPick"><option value="'+a.id+'">'+escapeHtml(a.name)+'</option><option value="'+b.id+'">'+escapeHtml(b.name)+'</option></select><input id="cockfightWager" type="number" min="1" step="1" value="25"><button id="cockfightBet">Place Bet</button></div>');
 }
+function renderLedger(){
+ const el=$u('underworldLedger');if(!el)return;
+ const u=ensureState(),events=[
+   {label:'Private Prizefight',e:u.events.privateFight,phase:u.events.privateFight.phase,threshold:u.events.privateFight.threshold,kind:'private'},
+   {label:'Cockfight',e:u.events.cockfight,phase:u.events.cockfight.phase,threshold:u.events.cockfight.threshold,kind:'cock'}
+ ].filter(x=>x.e.result).sort((a,b)=>a.phase===b.phase?b.threshold-a.threshold:(a.phase==='day'?-1:1));
+ el.innerHTML=events.length?events.map(x=>{
+   const winner=x.kind==='private'?pf(x.e.result.winnerId):bird(x.e.result.winnerId),bet=x.e.bet;
+   return '<div class="boxing-ledger-row"><b>'+x.label+': '+escapeHtml(winner.name)+'</b><small>'+(x.phase==='day'?'Business Day':'Washington Night')+(bet?' · Your bet '+(bet.net>=0?'+':'')+cash(bet.net):' · No wager')+'</small></div>'
+ }).join(''):'<p class="muted">No underground events have been completed today.</p>';
+}
 function hiddenUnlock(kind){
  const now=Date.now(),a=testClicks[kind];a.push(now);while(a.length&&now-a[0]>5000)a.shift();if(a.length>=7){a.length=0;unlock(kind,'',true);render()}
 }
@@ -146,7 +157,7 @@ function render(){
  if(promoter){promoter.hidden=!S.contacts.promoter?.met;promoter.disabled=S.phase==='report'}
  if(madam){madam.hidden=!(S.contacts.madamStar?.met&&S.contacts.madamStar.trust>=2);madam.disabled=S.phase==='report'}
  const p=$u('privateFightCard'),c=$u('cockfightCard');if(p)p.innerHTML=privateMarkup();if(c)c.innerHTML=cockMarkup();
- $u('privateFightBet')?.addEventListener('click',placePrivateBet);$u('cockfightBet')?.addEventListener('click',placeCockBet);
+ $u('privateFightBet')?.addEventListener('click',placePrivateBet);$u('cockfightBet')?.addEventListener('click',placeCockBet);renderLedger();
 }
 const bookieBtn=$u('askBookie');if(bookieBtn)bookieBtn.addEventListener('click',askBookie);
 const promoterBtn=$u('askPromoter');if(promoterBtn)promoterBtn.addEventListener('click',askPromoter);
