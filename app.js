@@ -66,7 +66,8 @@ function loadInitial(){const raw=localStorage.getItem(SAVE_KEY)||localStorage.ge
 function displayDate(){return new Date(S.gameDate+'T12:00:00').toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'})}
 function clockText(){const t=Math.max(0,Math.ceil(S.dayRemaining)),m=Math.floor(t/60),s=t%60;return String(m).padStart(2,'0')+':'+String(s).padStart(2,'0')}
 function businessOpen(){return S.phase==='day'}
-function showTab(id){document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));const tab=$('#'+id);if(tab)tab.classList.add('active')}
+function syncTopNavigation(id=document.querySelector('.tab.active')?.id||'desk'){document.querySelectorAll('nav button[data-tab]').forEach(btn=>btn.classList.toggle('active',btn.dataset.tab===id))}
+function showTab(id){document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));const tab=$('#'+id);if(tab)tab.classList.add('active');syncTopNavigation(id)}
 function clearPauseLock(){
  document.querySelectorAll('[data-pause-lock="1"]').forEach(el=>{el.disabled=el.dataset.pauseWasDisabled==='1';delete el.dataset.pauseWasDisabled;delete el.dataset.pauseLock});
  document.body.classList.remove('game-paused');
@@ -118,7 +119,7 @@ function render(){
  const idx=marketIndex();$('#marketIndex').textContent=idx.toFixed(2);$('#marketStory').textContent='Federal Exchange index stands at '+idx.toFixed(2)+'. '+S.marketWire;$('#marketWire').textContent=S.marketWire;const pv=portfolioValue(),ug=pv-portfolioCost();$('#portfolio').textContent=money(pv);$('#unrealized').textContent=cash(ug);$('#unrealized').className=ug>=0?'gain':'loss';
  $('#ledger').innerHTML=S.ledger.slice(-10).reverse().map(x=>'<tr><td>'+x.date+'</td><td>'+money(x.rev)+'</td><td>'+money(x.exp)+'</td><td>'+money(x.rev-x.exp)+'</td></tr>').join('')||'<tr><td colspan="4" class="empty">No closed business days yet.</td></tr>';
  $('#materials').innerHTML=Object.entries(MATERIAL_MARKET).map(([k,m])=>'<tr><td>'+m.name+'</td><td>'+Math.floor(S.materials[k]).toLocaleString()+'</td><td>'+unitCash(m.unitPrice)+'/unit</td><td><div class="material-trade"><input id="material_qty_'+k+'" type="number" min="1" step="1" value="1000" aria-label="'+m.name+' quantity"><div class="trade-buttons"><button onclick="tradeMaterial(\''+k+'\',1)">Buy</button><button onclick="tradeMaterial(\''+k+'\',-1)">Sell</button><button onclick="sellAllMaterial(\''+k+'\')">Sell All</button></div></div></td></tr>').join('');
- renderFactory();renderContracts();renderStocks();renderHoldings();renderTransactions();renderNotes();renderArchive();renderWashington();renderTreasury();renderDailyReport();applyPauseLock()
+ renderFactory();renderContracts();renderStocks();renderHoldings();renderTransactions();renderNotes();renderArchive();renderWashington();renderTreasury();renderDailyReport();applyPauseLock();syncTopNavigation()
 }
 function wagerSummaryForReport(iso){
  let horse=0,boxing=0,underground=0,tickets=0;
