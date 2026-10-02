@@ -512,6 +512,7 @@ function closeBusinessDay(manual=false){
 function closeNight(manual=false){
  if(S.phase!=='night')return;
  if(window.finishBoxingNight)window.finishBoxingNight();
+ if(window.finishMidgetCarNight)window.finishMidgetCarNight();
  if(window.finishUnderworldNight)window.finishUnderworldNight();
  if(monthKey(S.gameDate)===S.starNextRaidMonth&&!S.starRaidOccurred){S.starRaidOccurred=true;if(S.contacts.madamStar.met&&Math.random()<.15)S.lastRaidOutcome='missed';S.starNextRaidMonth=rollStarRaidMonth(S.gameDate)}
  if(isRaidToday()&&S.lastRaidOutcome!=='caught'&&Math.random()<.2)S.lastRaidOutcome='missed';
