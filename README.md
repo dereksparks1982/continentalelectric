@@ -18,6 +18,7 @@ The simulation now runs as a living business day:
 - the Business Day ends at 00:00 and transitions into Washington Night; the night then ends at a mandatory private Daily Report before the next morning begins
 - the Federal Exchange's 50 fictional securities continue moving internally during the active day, but the player sees the published opening quotation until the closing bell
 - the hidden closing quotation is revealed at the close and becomes the next business day's opening basis
+- instant time-consuming actions also advance the hidden market for the time they consume, so a 30-minute visit cannot freeze half a trading day
 - common market, sector, and company movement components
 - personal portfolio, arbitrary share quantities, Buy/Sell/Sell All, commissions, dividends, transaction history, cost basis, and realized/unrealized profit and loss
 - Federal Electric remains private at game start; a future IPO is optional
@@ -63,7 +64,8 @@ The simulation now runs as a living business day:
 - Eddie Doyle now has a recurring **Ask What's Running** role that can reveal underground opportunities
 - Capital Race Grounds can also introduce Eddie Doyle naturally while the player is present among the bettors
 - private prizefights can occur during either the Business Day or Washington Night; cockfighting is independently discoverable and currently scheduled at night
-- private prizefights and cockfighting have separate unlock states, betting, automatic world-clock resolution, and multiple discovery routes through underworld contacts
+- private prizefights and cockfighting have separate unlock states, betting, automatic world-clock resolution, multiple discovery routes through underworld contacts, and an Underground Ledger
+- major horse-racing and licensed-boxing results carry into the next morning's **Sports** section of the Metropolitan Ledger
 - red, ivory, and deep-navy Washington/corporate-paperwork UI
 
 ## Planned day/night structure
