@@ -19,6 +19,7 @@ Federal Electric is a long-save historical industrial, financial, social, and po
 
 Implemented foundation:
 - 60-minute Business Day followed by 60-minute Washington Night — IMPLEMENTED FOUNDATION
+- night-gate factory and contract actions so Washington Night is not a second unrestricted business shift — IMPLEMENTED
 - Business Day closing bell → Washington Night → mandatory Daily Report → next morning — IMPLEMENTED FOUNDATION
 - freeze on hidden/closed app and exact resume from autosave
 - 50-security Federal Exchange with hidden intraday market movement; the player sees the published opening quotation until the closing bell — IMPLEMENTED
@@ -259,6 +260,7 @@ Stock purchases are not merely score-like investments. Shares represent ownershi
 - Capital Race Grounds operates during the Business Day — IMPLEMENTED
 - licensed boxing cards operate during Washington Night — IMPLEMENTED FOUNDATION
 - persistent boxers, records, styles, condition, injuries and fight history — IMPLEMENTED FOUNDATION
+- Commission Fighter Registry exposes the persistent roster, records, condition and medical status — IMPLEMENTED
 - scheduled undercards and main events — IMPLEMENTED FOUNDATION
 - fight betting with no arbitrary game-imposed cap; any limit must come from a researched or in-world reason — IMPLEMENTED
 - fight results and wagers settle on the authoritative world clock whether the player attends or not — IMPLEMENTED
