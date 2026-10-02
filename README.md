@@ -4,7 +4,7 @@
 
 ## Play
 
-- **Play current build:** https://dereksparks1982.github.io/federalelectric/index.html?v=20261002-fightworld3
+- **Play current build:** https://dereksparks1982.github.io/federalelectric/index.html?v=20261002-treasury1
 - **Georgia Sun:** https://dereksparks1982.github.io/georgiasun/index.html
 
 ## Current prototype — v0.3.6-dev: Day/Night & Fight World
@@ -69,6 +69,9 @@ The simulation now runs as a living business day:
 - private prizefights and cockfighting have separate unlock states, betting, automatic world-clock resolution, multiple discovery routes through underworld contacts, and an Underground Ledger
 - major horse-racing and licensed-boxing results carry into the next morning's **Sports** section of the Metropolitan Ledger
 - red, ivory, and deep-navy Washington/corporate-paperwork UI
+- the persistent header now shows both company cash and personal cash so bankroll and corporate liquidity remain visible while betting or navigating
+- Executive Desk treasury controls keep company and personal money separate: a recorded owner distribution is available during the Business Day, while diverting company funds to personal use creates an accumulating unexplained corporate shortfall and accounting exposure
+- treasury transfers have no arbitrary amount cap beyond available company cash
 
 ## Planned day/night structure
 
