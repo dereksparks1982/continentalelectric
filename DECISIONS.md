@@ -116,3 +116,8 @@ This file records decisions that should not drift silently during development.
 
 - The share quantity field sits immediately above Buy/Sell/Sell All so the player can change quantity and execute a trade without moving across the row.
 - Intraday market rerenders preserve the player's in-progress quantity entry instead of resetting it to 10.
+
+## 2026-10-01 — Persistent top controls
+
+- The business-day clock and primary navigation remain pinned together at the top of the viewport while the player scrolls.
+- The Federal Electric masthead may scroll away; the time bar and navigation must remain visible because time is a core resource.
