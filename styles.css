@@ -26,3 +26,18 @@
 @media(max-width:650px){.report-grid{grid-template-columns:1fr}.daily-report-overlay{padding:10px}.daily-report-card{padding:15px}}
 
 .report-events{margin:16px 0;border-top:2px solid var(--navy);padding-top:10px}.report-events h4{margin:0 0 8px;color:var(--navy);text-transform:uppercase}.report-events>div{display:grid;grid-template-columns:150px 1fr;gap:10px;padding:7px 0;border-bottom:1px solid var(--rule)}.report-events>div b{font:700 11px 'Courier New',monospace;text-transform:uppercase}.report-events>div span{line-height:1.35}@media(max-width:650px){.report-events>div{grid-template-columns:1fr}}
+
+#headerCompanyCash,#headerPersonalCash{font-weight:bold;min-width:92px;text-align:right}
+#headerCompanyCash{border-bottom:3px solid var(--navy)}
+#headerPersonalCash{border-bottom:3px solid var(--red)}
+.treasury-sheet{border-top:5px solid var(--red)}
+.treasury-grid{display:grid;grid-template-columns:repeat(5,minmax(150px,1fr));gap:8px;align-items:end}
+.treasury-grid>div,.treasury-grid>label{border:1px solid var(--rule);background:#f8f3e7;padding:9px;margin:0;min-height:66px}
+.treasury-grid b,.treasury-grid span{display:block}
+.treasury-grid b{font:700 11px 'Courier New',monospace;text-transform:uppercase;color:var(--navy);margin-bottom:5px}
+.treasury-grid span{font:700 16px 'Courier New',monospace}
+.treasury-grid label{font:700 11px 'Courier New',monospace;text-transform:uppercase;color:var(--navy)}
+.treasury-grid input{display:block;width:100%;margin-top:5px}
+#accountingExposure{color:var(--red);letter-spacing:.05em}
+@media(max-width:1050px){.treasury-grid{grid-template-columns:repeat(2,minmax(180px,1fr))}}
+@media(max-width:700px){.treasury-grid{grid-template-columns:1fr}.daybar b:nth-of-type(3),.daybar b:nth-of-type(4){font-size:10px}#headerCompanyCash,#headerPersonalCash{min-width:80px}}
