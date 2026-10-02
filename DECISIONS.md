@@ -80,3 +80,9 @@ This file records decisions that should not drift silently during development.
 - Customer history records correct, discounted, rejected, partial, and late/short outcomes and feeds future commercial terms.
 - Switching lamp grades costs factory setup time.
 - Important customer fulfillment outcomes are recorded as correspondence in the Journal.
+
+- All meaningful activities consume the same one-hour active business day; there are no free-time pockets.
+- Manual poker displays the remaining Federal Electric business-day clock and deducts actual elapsed table time when the player leaves.
+- Poker simulation costs are tiered by room: Neighborhood Game 5 business minutes, Commerce Club 10 business minutes, Embassy Room 25 business minutes.
+- A simulation cannot begin unless enough business-day time remains to pay its full time cost.
+- Contract production runs are normalized to the established 10/20/30-minute bands. Legacy or malformed productionSeconds values above 30 minutes are repaired during migration and before starting queued work.
