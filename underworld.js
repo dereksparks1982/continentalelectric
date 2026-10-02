@@ -47,7 +47,7 @@ function eventTime(e){return (e.phase==='day'?'Business Day ':'Washington Night 
 function spendLeadTime(seconds=120){
  if(S.phase==='report')return false;
  if(S.dayRemaining<seconds){setNote('There is not enough time remaining to chase that lead.');return false}
- advanceProduction(seconds,true);S.dayRemaining=Math.max(0,S.dayRemaining-seconds);return true;
+ if(window.advanceWorldTime)window.advanceWorldTime(seconds,true);else{advanceProduction(seconds,true);S.dayRemaining=Math.max(0,S.dayRemaining-seconds)}return true;
 }
 function resolvePrivate(){
  const e=ensureState().events.privateFight;if(e.result)return e.result;
