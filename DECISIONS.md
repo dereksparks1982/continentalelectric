@@ -238,3 +238,14 @@ This file records decisions that should not drift silently during development.
 - The Federal Exchange remains closed throughout Washington Night with final closing quotations posted.
 - Licensed boxing now exposes a persistent **Commission Fighter Registry** showing fighter class, age, style, record, condition and medical status.
 - Completed decision bouts expose their final score totals in addition to the official result.
+
+
+## 2026-10-02 — Company cash, personal cash, and corporate misuse
+
+- Company cash and personal cash remain separate resources, and both are permanently visible in the fixed header.
+- A recorded owner distribution can move company cash into personal cash during the Business Day and is entered in the company record.
+- The player may instead divert company funds to personal use during an active phase, including Washington Night.
+- Diverted funds are not treated as legitimate operating expenses. They accumulate as **Unaccounted Company Funds** and increase **Accounting Exposure**.
+- There is no arbitrary videogame ceiling on either transfer; the immediate hard limit is available company cash.
+- Treasury activity is included in the private Daily Report.
+- Future public-company, audit, board, shareholder, banking, blackmail and investigation systems can react to the accumulated misuse rather than treating each diversion as an isolated event.
