@@ -4,7 +4,7 @@
 
 ## Play
 
-- **Play current build:** https://dereksparks1982.github.io/federalelectric/index.html?v=20261001-customer
+- **Play current build:** https://dereksparks1982.github.io/federalelectric/index.html?v=20261001-randomeddie2
 - **Georgia Sun:** https://dereksparks1982.github.io/georgiasun/index.html
 
 ## Current prototype — v0.3.4-dev: The Customer Is Always Right
