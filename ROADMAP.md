@@ -23,6 +23,7 @@ Implemented foundation:
 - freeze on hidden/closed app and exact resume from autosave
 - 50-security Federal Exchange with hidden intraday market movement; the player sees the published opening quotation until the closing bell — IMPLEMENTED
 - hidden closing quotations are revealed at the close and become the next-day opening basis — IMPLEMENTED
+- hidden market also advances during instant world-time jumps such as Star Club visits, contract searches, simulated poker, underworld lead-chasing and factory changeovers — IMPLEMENTED
 - shared market tone + sector + company movement components
 - red/white/blue Washington corporate UI
 - daily Federal Electric payroll/ledger
@@ -261,12 +262,13 @@ Stock purchases are not merely score-like investments. Shares represent ownershi
 - scheduled undercards and main events — IMPLEMENTED FOUNDATION
 - fight betting with no arbitrary game-imposed cap; any limit must come from a researched or in-world reason — IMPLEMENTED
 - fight results and wagers settle on the authoritative world clock whether the player attends or not — IMPLEMENTED
-- major results feed the next morning's Metropolitan Ledger
+- major horse-racing and licensed-boxing results feed the next-morning Sports section of the Metropolitan Ledger — IMPLEMENTED FOUNDATION
 
 ### Illicit Activities
 - **Illicit Activities** is the player-facing underworld category — IMPLEMENTED
 - backroom poker remains part of this category
 - add private prizefights and cockfighting as independently discoverable activities — IMPLEMENTED FOUNDATION
+- chronological Underground Ledger records completed private fights, cockfights and the player's wager results — IMPLEMENTED
 - private prizefights may be scheduled during the day or at night, creating direct competition with work and legal activities — IMPLEMENTED FOUNDATION
 - underground activity is invitation/contact driven rather than presented as a complete menu from game start
 - multiple discovery routes: bookmaker, licensed boxing contacts, Madam Star, poker contacts and other future underworld NPCs — IMPLEMENTED FOUNDATION
