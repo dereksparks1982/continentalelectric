@@ -102,14 +102,14 @@ function resolveRace(id,animate){
  r.result=scores.map(x=>x.id);
  r.result.forEach((pid,i)=>{const h=horse(pid);updateHorse(h,i+1,d.stage);if(i===0)h.earnings+=d.stage==='main'?1800:d.stage==='semi'?500:150});
  settleBet(id,r.result);updateQualifiers();
- const attending=document.getElementById('racing')?.classList.contains('active')&&S.phase==='day';
+ const attending=document.getElementById('racing')?.classList.contains('active')&&S.phase==='day'&&(!window.isPastimeActivityOpen||window.isPastimeActivityOpen('legal','horse'));
  if(attending&&!S.contacts.bookie?.met&&Math.random()<.12){
    S.contacts.bookie.met=true;S.contacts.bookie.trust=1;S.bookieKnown=true;S.middlePokerUnlocked=true;
    S.notes.push({date:displayDate(),text:'Met Eddie Doyle among the bettors at Capital Race Grounds. The bookmaker said to ask him if I ever wanted to know what else was running around Washington.',source:'race-track conversation'});
  }
  if(id==='ME'){const winner=horse(r.result[0]);S.lastRaceResult='At Capital Race Grounds, '+winner.name+' won the Main Event.';S.notes.push({date:displayDate(),text:'The Main Event at Capital Race Grounds was won by '+winner.name+'.',source:'personal recollection / racing results'})}
  save(true);
- if(animate&&document.getElementById('racing')?.classList.contains('active'))startAnimation(id);
+ if(animate&&document.getElementById('racing')?.classList.contains('active')&&(!window.isPastimeActivityOpen||window.isPastimeActivityOpen('legal','horse')))startAnimation(id);
 }
 function processSchedule(){
  if(S.phase&&S.phase!=='day')return false;
@@ -198,15 +198,20 @@ function startAnimation(id){
  renderRacing();
  animationTimer=setInterval(()=>{if(!animation)return;const t=Math.min(1,(Date.now()-start)/duration);drawAnimation(t);if(t>=1){clearInterval(animationTimer);animationTimer=null;animation=null;renderRacing()}},200);
 }
+function ovalTrackMarkup(trackId,ids,nameFn){
+ return '<div class="oval-race-stage"><div class="oval-race-course" id="'+trackId+'"><svg viewBox="0 0 760 360" aria-hidden="true"><ellipse class="oval-track-outer" cx="380" cy="180" rx="315" ry="125"/><ellipse class="oval-track-inner" cx="380" cy="180" rx="245" ry="72"/><ellipse id="'+trackId+'_progress" class="oval-track-progress" pathLength="100" cx="380" cy="180" rx="280" ry="98"/><line class="oval-finish-line" x1="660" y1="142" x2="660" y2="218"/></svg>'+ids.map((id,i)=>'<span class="oval-marker horse" data-runner="'+id+'" title="'+escapeHtml(nameFn(id))+'">'+(i+1)+'</span>').join('')+'<span class="oval-start-label">START / FINISH</span></div><div class="oval-race-key">'+ids.map((id,i)=>'<span><b>'+(i+1)+'</b> '+escapeHtml(nameFn(id))+' <i data-progress="'+id+'">0%</i></span>').join('')+'</div></div>';
+}
+function drawOvalTrack(trackId,ids,rank,t){
+ const course=$r(trackId);if(!course)return;let leader=0;
+ ids.forEach((id,lane)=>{const place=rank.get(id)??ids.length-1,finishBonus=(ids.length-place)*.72,noise=Math.sin(t*14+Number(id)*1.17)*1.15,progress=Math.min(100,Math.max(0,t*(94+finishBonus)+noise)),angle=progress/100*Math.PI*2,rx=40-lane*.72,ry=31-lane*.52,x=50+rx*Math.cos(angle),y=50+ry*Math.sin(angle),marker=course.querySelector('[data-runner="'+id+'"]');leader=Math.max(leader,progress);if(marker){marker.style.left=x+'%';marker.style.top=y+'%'}const readout=course.parentElement?.querySelector('[data-progress="'+id+'"]');if(readout)readout.textContent=t>=1?ordinal(place+1):Math.floor(progress)+'%'});
+ const progressEl=$r(trackId+'_progress');if(progressEl)progressEl.style.strokeDashoffset=String(100-leader);
+}
 function renderLive(){
  const d=raceDef(animation.raceId),r=S.racing.meeting.races[d.id],el=$r('raceNext');if(!el)return;
- el.innerHTML='<h3>'+d.label+' · THEY\'RE OFF</h3><p>'+d.distance+' · Track '+S.racing.meeting.surface+'</p><div id="raceLiveBars" class="race-live-bars">'+r.participants.map(pid=>'<div class="race-runner"><span>'+escapeHtml(horse(pid).name)+'</span><div><i id="raceBar_'+pid+'"></i></div><b id="racePct_'+pid+'">0%</b></div>').join('')+'</div>';
+ el.innerHTML='<h3>'+d.label+' · THEY\'RE OFF</h3><p>'+d.distance+' · Track '+S.racing.meeting.surface+'</p>'+ovalTrackMarkup('raceOvalTrack',r.participants,pid=>horse(pid).name);
  drawAnimation(Math.min(1,(Date.now()-animation.start)/animation.duration));
 }
-function drawAnimation(t){
- if(!animation)return;const rank=new Map(animation.ids.map((id,i)=>[id,i])),r=S.racing.meeting.races[animation.raceId];
- for(const pid of r.participants){const place=rank.get(pid)||0,finishBonus=(r.participants.length-place)*.7,noise=Math.sin(t*14+pid)*1.3,progress=Math.min(100,Math.max(0,t*(94+finishBonus)+noise));const bar=$r('raceBar_'+pid),pct=$r('racePct_'+pid);if(bar)bar.style.width=progress+'%';if(pct)pct.textContent=t>=1?ordinal(place+1):Math.floor(progress)+'%'}
-}
+function drawAnimation(t){if(!animation)return;const rank=new Map(animation.ids.map((id,i)=>[id,i])),r=S.racing.meeting.races[animation.raceId];drawOvalTrack('raceOvalTrack',r.participants,rank,t)}
 function updateRaceClock(){
  if(!animation)$r('raceNext')?.querySelectorAll('.race-countdown[data-race-id]').forEach(el=>{const d=raceDef(el.dataset.raceId),clock=el.querySelector('b');if(d&&clock)clock.textContent=fmt(Math.max(0,S.dayRemaining-d.threshold))});
  const bankroll=$r('raceBankroll');if(bankroll)bankroll.textContent=cash(S.personalCash);
