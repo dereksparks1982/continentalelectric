@@ -276,3 +276,15 @@ Stock purchases are not merely score-like investments. Shares represent ownershi
 - multiple discovery routes: bookmaker, licensed boxing contacts, Madam Star, poker contacts and other future underworld NPCs — IMPLEMENTED FOUNDATION
 - the bookmaker becomes a recurring source of leads, betting information and invitations rather than a single-use unlock — IMPLEMENTED FOUNDATION
 - race-track attendance can introduce Eddie Doyle naturally, creating another route into the bookmaker network — IMPLEMENTED
+
+
+## Owner treasury / corporate misuse
+
+- Persistent company/personal cash balances in the fixed header — IMPLEMENTED
+- Recorded owner distribution from company cash to personal cash during the Business Day — IMPLEMENTED FOUNDATION
+- Divert company funds into personal cash for personal spending/gambling — IMPLEMENTED FOUNDATION
+- no arbitrary transfer ceiling beyond Federal Electric's available company cash — IMPLEMENTED
+- track diverted funds as an unexplained corporate shortfall rather than an operating expense — IMPLEMENTED
+- track cumulative accounting exposure and diversion count — IMPLEMENTED FOUNDATION
+- include recorded distributions, diverted funds, unaccounted funds and exposure in the Daily Report — IMPLEMENTED
+- later consequences may include accountant/board/shareholder scrutiny, blackmail, financing problems, investigation and public-company governance consequences
