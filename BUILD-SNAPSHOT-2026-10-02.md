@@ -258,3 +258,14 @@ See:
 - Warehouse raw-material stock cells refresh on every production tick so depletion is visible while finished-goods totals climb
 - material balances are clamped at zero to avoid tiny floating-point negatives at exhaustion
 - the live refresh does not rebuild Buy/Sell controls, so typed Warehouse trade quantities are preserved
+
+
+### Persistent multi-lap tracks and full race results — v0.4.0
+
+- Horse Racing, Dog Racing and Midget Car Racing keep their oval track visible before the race, during the animation and after the card is complete
+- horse heats animate 2 laps, semifinals 3 and the Main Event 4
+- dog heats animate 2 laps and the final 3
+- midget-car heats animate 10 laps and the feature 20, matching their card labels
+- completed race cards list the entire finishing order instead of only the winner
+- the player's selection is highlighted with exact finish, wager, payout and net
+- midget cars use the same reusable oval-track visual as horse and dog racing

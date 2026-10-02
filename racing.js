@@ -1,12 +1,12 @@
 (()=> {
 const SCHEDULE=[
- {id:'H1',label:'Heat 1',threshold:1800,stage:'heat',distance:'6 furlongs',pref:'sprint'},
- {id:'H2',label:'Heat 2',threshold:1560,stage:'heat',distance:'6 furlongs',pref:'sprint'},
- {id:'H3',label:'Heat 3',threshold:1320,stage:'heat',distance:'6 furlongs',pref:'sprint'},
- {id:'H4',label:'Heat 4',threshold:1080,stage:'heat',distance:'6 furlongs',pref:'sprint'},
- {id:'SA',label:'Semifinal A',threshold:840,stage:'semi',distance:'1 mile',pref:'mile'},
- {id:'SB',label:'Semifinal B',threshold:600,stage:'semi',distance:'1 mile',pref:'mile'},
- {id:'ME',label:'Main Event',threshold:300,stage:'main',distance:'1¼ miles',pref:'route'}
+ {id:'H1',label:'Heat 1',threshold:1800,stage:'heat',distance:'6 furlongs',laps:2,pref:'sprint'},
+ {id:'H2',label:'Heat 2',threshold:1560,stage:'heat',distance:'6 furlongs',laps:2,pref:'sprint'},
+ {id:'H3',label:'Heat 3',threshold:1320,stage:'heat',distance:'6 furlongs',laps:2,pref:'sprint'},
+ {id:'H4',label:'Heat 4',threshold:1080,stage:'heat',distance:'6 furlongs',laps:2,pref:'sprint'},
+ {id:'SA',label:'Semifinal A',threshold:840,stage:'semi',distance:'1 mile',laps:3,pref:'mile'},
+ {id:'SB',label:'Semifinal B',threshold:600,stage:'semi',distance:'1 mile',laps:3,pref:'mile'},
+ {id:'ME',label:'Main Event',threshold:300,stage:'main',distance:'1¼ miles',laps:4,pref:'route'}
 ];
 const HORSE_NAMES=[
  'Federal Star','Potomac Prince','Blue Banner','Capitol Fire','Liberty Bell','Copper Crown',
@@ -159,8 +159,8 @@ function renderBracket(){
 function raceBetCard(d){
  const m=S.racing.meeting,r=m.races[d.id],bet=m.bets[d.id],seconds=Math.max(0,S.dayRemaining-d.threshold);
  if(r.result){
-   const winner=horse(r.result[0]),runner=horse(r.result[1]);
-   return '<article class="race-bet-card closed"><div class="race-bet-card-head"><div><h4>'+d.label+'</h4><small>'+d.distance+'</small></div><b>COMPLETE</b></div><p><b>1st:</b> '+escapeHtml(winner.name)+(runner?' · <b>2nd:</b> '+escapeHtml(runner.name):'')+'</p>'+(bet?'<p class="race-bet-locked">Ticket: '+escapeHtml(horse(bet.horseId).name)+' · '+bet.type.toUpperCase()+' · '+cash(bet.wager)+' · '+(bet.net>=0?'NET +':'NET ')+cash(bet.net)+'</p>':'<p class="muted">No wager placed.</p>')+'</article>';
+   const winner=horse(r.result[0]),place=bet?r.result.indexOf(bet.horseId)+1:0,order='<div class="race-final-order"><b>Final order</b>'+r.result.map((pid,i)=>'<div class="'+(bet&&bet.horseId===pid?'your-selection':'')+'"><span>'+ordinal(i+1)+'</span><strong>'+escapeHtml(horse(pid).name)+(bet&&bet.horseId===pid?' · YOUR PICK':'')+'</strong></div>').join('')+'</div>';
+   return '<article class="race-bet-card closed"><div class="race-bet-card-head"><div><h4>'+d.label+'</h4><small>'+d.distance+' · '+d.laps+' laps</small></div><b>COMPLETE</b></div><p><b>Winner:</b> '+escapeHtml(winner.name)+'</p>'+order+(bet?'<p class="race-bet-locked">Your selection: '+escapeHtml(horse(bet.horseId).name)+' · Finished '+ordinal(place)+' · '+bet.type.toUpperCase()+' · Wager '+cash(bet.wager)+' · Payout '+cash(bet.payout||0)+' · '+(bet.net>=0?'NET +':'NET ')+cash(bet.net)+'</p>':'<p class="muted">No wager placed.</p>')+'</article>';
  }
  if(!r.participants.length){
    return '<article class="race-bet-card pending"><div class="race-bet-card-head"><div><h4>'+d.label+'</h4><small>'+d.distance+'</small></div><b>FIELD PENDING</b></div><p class="muted">Betting opens when the qualifying field is established.</p></article>';
@@ -178,11 +178,16 @@ function renderNext(){
  const m=ensureState(),el=$r('raceNext');if(!el)return;
  if(animation){renderLive();return}
  updateQualifiers();
- const openOrPending=SCHEDULE.filter(d=>!m.races[d.id].result);
- if(!openOrPending.length){const winner=horse(m.races.ME.result[0]);el.innerHTML='<h3>Meeting Complete</h3><p><b>Main Event winner:</b> '+escapeHtml(winner.name)+'</p>';return}
- el.innerHTML='<div class="race-board-head"><div><h3>Betting Board</h3><p class="fine">Place tickets on any race whose field is known. Semifinals and the Main Event open after their qualifiers are established.</p></div></div><div class="race-betting-board">'+SCHEDULE.map(raceBetCard).join('')+'</div>';
+ const openOrPending=SCHEDULE.filter(d=>!m.races[d.id].result),next=openOrPending.find(d=>m.races[d.id].participants.length),last=[...SCHEDULE].reverse().find(d=>m.races[d.id].result);
+ let track='';
+ if(next){const rr=m.races[next.id];track='<div class="persistent-race-track"><h3>Oval Track · '+next.label+'</h3><p class="fine">'+next.distance+' · '+next.laps+' laps · field staged at the start/finish line.</p>'+ovalTrackMarkup('raceOvalTrack',rr.participants,pid=>horse(pid).name)+'</div>'}
+ else if(last){const rr=m.races[last.id];track='<div class="persistent-race-track"><h3>Oval Track · '+last.label+' Final Positions</h3><p class="fine">The track remains visible after the race.</p>'+ovalTrackMarkup('raceOvalTrack',rr.participants,pid=>horse(pid).name,rr.result)+'</div>'}
+ else track='<div class="persistent-race-track"><h3>Oval Track</h3><p class="fine">The track is open. The next field will appear here once qualifying is established.</p>'+ovalTrackMarkup('raceOvalTrack',[],pid=>'')+'</div>';
+ if(!openOrPending.length){const winner=horse(m.races.ME.result[0]);el.innerHTML=track+'<h3>Meeting Complete</h3><p><b>Main Event winner:</b> '+escapeHtml(winner.name)+'</p>';return}
+ el.innerHTML=track+'<div class="race-board-head"><div><h3>Betting Board</h3><p class="fine">Place tickets on any race whose field is known. Semifinals and the Main Event open after their qualifiers are established.</p></div></div><div class="race-betting-board">'+SCHEDULE.map(raceBetCard).join('')+'</div>';
  el.querySelectorAll('.place-race-bet').forEach(btn=>btn.addEventListener('click',()=>placeBet(btn.dataset.raceId)));
 }
+
 function renderHistory(){
  const el=$r('raceHistory');if(!el)return;const m=S.racing.meeting,done=SCHEDULE.filter(d=>m.races[d.id].result);
  let running=0;
@@ -198,20 +203,22 @@ function startAnimation(id){
  renderRacing();
  animationTimer=setInterval(()=>{if(!animation)return;const t=Math.min(1,(Date.now()-start)/duration);drawAnimation(t);if(t>=1){clearInterval(animationTimer);animationTimer=null;animation=null;renderRacing()}},200);
 }
-function ovalTrackMarkup(trackId,ids,nameFn){
- return '<div class="oval-race-stage"><div class="oval-race-course" id="'+trackId+'"><svg viewBox="0 0 760 360" aria-hidden="true"><ellipse class="oval-track-outer" cx="380" cy="180" rx="315" ry="125"/><ellipse class="oval-track-inner" cx="380" cy="180" rx="245" ry="72"/><ellipse id="'+trackId+'_progress" class="oval-track-progress" pathLength="100" cx="380" cy="180" rx="280" ry="98"/><line class="oval-finish-line" x1="660" y1="142" x2="660" y2="218"/></svg>'+ids.map((id,i)=>'<span class="oval-marker horse" data-runner="'+id+'" title="'+escapeHtml(nameFn(id))+'">'+(i+1)+'</span>').join('')+'<span class="oval-start-label">START / FINISH</span></div><div class="oval-race-key">'+ids.map((id,i)=>'<span><b>'+(i+1)+'</b> '+escapeHtml(nameFn(id))+' <i data-progress="'+id+'">0%</i></span>').join('')+'</div></div>';
+function ovalTrackMarkup(trackId,ids,nameFn,result=null){
+ const rank=result?new Map(result.map((id,i)=>[id,i])):null;
+ return '<div class="oval-race-stage"><div class="oval-race-course" id="'+trackId+'"><svg viewBox="0 0 760 360" aria-hidden="true"><ellipse class="oval-track-outer" cx="380" cy="180" rx="315" ry="125"/><ellipse class="oval-track-inner" cx="380" cy="180" rx="245" ry="72"/><ellipse id="'+trackId+'_progress" class="oval-track-progress" pathLength="100" cx="380" cy="180" rx="280" ry="98"/><line class="oval-finish-line" x1="660" y1="142" x2="660" y2="218"/></svg>'+ids.map((id,i)=>{const place=rank?.get(id),top=result?34+Math.min(6,place||0)*5:44+i*2.3;return '<span class="oval-marker horse" data-runner="'+id+'" title="'+escapeHtml(nameFn(id))+'" style="left:86.8%;top:'+top+'%">'+(i+1)+'</span>'}).join('')+'<span class="oval-start-label">START / FINISH</span></div><div class="oval-race-key">'+ids.map((id,i)=>{const place=result?(rank.get(id)??ids.length-1):null;return '<span><b>'+(i+1)+'</b> '+escapeHtml(nameFn(id))+' <i data-progress="'+id+'">'+(result?ordinal(place+1):'READY')+'</i></span>'}).join('')+'</div></div>';
 }
-function drawOvalTrack(trackId,ids,rank,t){
- const course=$r(trackId);if(!course)return;let leader=0;
- ids.forEach((id,lane)=>{const place=rank.get(id)??ids.length-1,finishBonus=(ids.length-place)*.72,noise=Math.sin(t*14+Number(id)*1.17)*1.15,progress=Math.min(100,Math.max(0,t*(94+finishBonus)+noise)),angle=progress/100*Math.PI*2,rx=40-lane*.72,ry=31-lane*.52,x=50+rx*Math.cos(angle),y=50+ry*Math.sin(angle),marker=course.querySelector('[data-runner="'+id+'"]');leader=Math.max(leader,progress);if(marker){marker.style.left=x+'%';marker.style.top=y+'%'}const readout=course.parentElement?.querySelector('[data-progress="'+id+'"]');if(readout)readout.textContent=t>=1?ordinal(place+1):Math.floor(progress)+'%'});
- const progressEl=$r(trackId+'_progress');if(progressEl)progressEl.style.strokeDashoffset=String(100-leader);
+function drawOvalTrack(trackId,ids,rank,t,laps){
+ const course=$r(trackId);if(!course)return;let leaderLapFraction=0;laps=Math.max(2,laps||2);
+ ids.forEach((id,lane)=>{const place=rank.get(id)??ids.length-1,finishBonus=(ids.length-place)*.006,noise=Math.sin(t*22+Number(id)*1.17)*.004,overall=Math.min(1,Math.max(0,t+finishBonus*t*t+noise)),lapTravel=overall*laps,lapIndex=Math.min(laps,Math.floor(lapTravel)+1),lapFraction=t>=1?1:(lapTravel%1),angle=(t>=1?1:lapFraction)*Math.PI*2,rx=40-lane*.72,ry=31-lane*.52,x=50+rx*Math.cos(angle),y=50+ry*Math.sin(angle),marker=course.querySelector('[data-runner="'+id+'"]');leaderLapFraction=Math.max(leaderLapFraction,lapFraction);if(marker){marker.style.left=x+'%';marker.style.top=y+'%'}const readout=course.parentElement?.querySelector('[data-progress="'+id+'"]');if(readout)readout.textContent=t>=1?ordinal(place+1):'LAP '+lapIndex+'/'+laps});
+ const progressEl=$r(trackId+'_progress');if(progressEl)progressEl.style.strokeDashoffset=String(100-(t>=1?100:leaderLapFraction*100));
 }
+
 function renderLive(){
  const d=raceDef(animation.raceId),r=S.racing.meeting.races[d.id],el=$r('raceNext');if(!el)return;
- el.innerHTML='<h3>'+d.label+' · THEY\'RE OFF</h3><p>'+d.distance+' · Track '+S.racing.meeting.surface+'</p>'+ovalTrackMarkup('raceOvalTrack',r.participants,pid=>horse(pid).name);
+ el.innerHTML='<h3>'+d.label+' · THEY\'RE OFF</h3><p>'+d.distance+' · '+d.laps+' laps · Track '+S.racing.meeting.surface+'</p>'+ovalTrackMarkup('raceOvalTrack',r.participants,pid=>horse(pid).name);
  drawAnimation(Math.min(1,(Date.now()-animation.start)/animation.duration));
 }
-function drawAnimation(t){if(!animation)return;const rank=new Map(animation.ids.map((id,i)=>[id,i])),r=S.racing.meeting.races[animation.raceId];drawOvalTrack('raceOvalTrack',r.participants,rank,t)}
+function drawAnimation(t){if(!animation)return;const rank=new Map(animation.ids.map((id,i)=>[id,i])),r=S.racing.meeting.races[animation.raceId],d=raceDef(animation.raceId);drawOvalTrack('raceOvalTrack',r.participants,rank,t,d.laps)}
 function updateRaceClock(){
  if(!animation)$r('raceNext')?.querySelectorAll('.race-countdown[data-race-id]').forEach(el=>{const d=raceDef(el.dataset.raceId),clock=el.querySelector('b');if(d&&clock)clock.textContent=fmt(Math.max(0,S.dayRemaining-d.threshold))});
  const bankroll=$r('raceBankroll');if(bankroll)bankroll.textContent=cash(S.personalCash);

@@ -13,3 +13,13 @@
 .oval-marker.dog{border-color:#6a4324;background:#fffaf0}
 .oval-marker.car{border-radius:5px;border-color:var(--red);background:#fff1d7}
 .oval-entry-meta{color:#59606b;font-size:11px}
+
+/* persistent multi-lap race tracks and complete results */
+.persistent-race-track{margin:0 0 14px}
+.race-final-order{margin:10px 0;border-top:1px solid #b7b0a1;border-bottom:1px solid #b7b0a1;padding:6px 0}
+.race-final-order>b{display:block;margin-bottom:4px;color:var(--navy);text-transform:uppercase;font:700 10px 'Courier New',monospace;letter-spacing:.08em}
+.race-final-order>div{display:grid;grid-template-columns:52px 1fr;gap:8px;padding:4px 6px;border-top:1px dotted #cbc4b5}
+.race-final-order>div:first-of-type{border-top:0}
+.race-final-order .your-selection{background:#f2e6c6;border-left:4px solid var(--red)}
+.race-final-order span{font:bold 11px 'Courier New',monospace;color:var(--red)}
+.race-final-order strong{font-weight:600}

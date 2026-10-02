@@ -204,3 +204,10 @@ The Public Offering planning scaffold now displays **FE** as the proposed Federa
 ### Live raw-material consumption
 
 Copper, glass and tungsten are consumed continuously as bulbs are actually produced. The Warehouse stock figures now refresh while the line is running, so raw-material totals visibly fall at the same time finished-goods quantities rise. The live refresh updates only the stock cells and does not reset a quantity typed into a Buy/Sell field.
+
+
+### Persistent multi-lap race tracks
+
+Horse Racing, Dog Racing and Midget Car Racing now keep the oval track visible before races, during the live race animation, and after racing is complete. Race animations make multiple circuits rather than a single lap: horse heats use 2 laps, semifinals 3 and the Main Event 4; dog heats use 2 laps and the final 3; midget-car heats run 10 animated laps and the feature runs 20.
+
+Completed race cards now preserve the complete finishing order. If the player wagered, the selected horse, dog or car is highlighted and the card shows its exact finishing position, wager, payout and net.
