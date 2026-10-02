@@ -103,6 +103,12 @@ function simulateBout(id){
    if(Math.random()<.025){l.injury='Medical suspension';l.condition=Math.min(l.condition,70)}
  }else{a.draws++;b.draws++;a.form.push('D');b.form.push('D')}
  settleBet(id,bout.result);
+ const attending=document.getElementById('racing')?.classList.contains('active');
+ if(attending&&!S.contacts.promoter?.met&&Math.random()<.18){
+   S.contacts.promoter.met=true;S.contacts.promoter.trust=1;
+   S.notes.push({date:displayDate(),text:'Met Marty Kane in the licensed boxing crowd. He hinted that he also knows where private bouts are held.',source:'ringside conversation'});
+   if(Math.random()<.55&&window.unlockPrivateFightsFromBoxing)window.unlockPrivateFightsFromBoxing('Marty Kane at licensed boxing');
+ }
  save(true);
  if(id==='B4'){
    const text=winnerId?fighter(winnerId).name+' won the licensed boxing main event by '+method+(method.includes('Decision')?'':(' in round '+finishRound))+'.':'The licensed boxing main event ended in a draw.';
