@@ -44,3 +44,8 @@
 
 .confidential-stamp{display:block;width:158px;height:auto;flex:0 0 auto;margin-left:24px;opacity:1}
 @media(max-width:700px){.confidential-stamp{width:118px;margin-left:10px}}
+
+#pauseToggle{display:inline-flex;align-items:center;justify-content:center;min-width:38px;height:28px;padding:2px 9px;border:1px solid #fff;background:var(--navy);color:#fff;font:bold 17px/1 'Courier New',monospace;cursor:pointer}
+#pauseToggle:hover{outline:2px solid rgba(255,255,255,.7)}
+#pauseToggle.paused{background:#fff;color:var(--red);border-color:#fff}
+@media(max-width:700px){#pauseToggle{min-width:34px;height:26px;padding:2px 7px;font-size:15px}}
