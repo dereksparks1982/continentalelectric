@@ -36,8 +36,9 @@ Implemented foundation:
 - poker auto-resolution uses tiered time costs: Neighborhood 5 min, Commerce Club 10 min, Embassy Room 25 min; cash, progression, factory-away, Journal and raid consequences are preserved — IMPLEMENTED
 - manual poker displays remaining business-day time and charges actual elapsed table time on exit — IMPLEMENTED
 - production-time migration/normalization prevents impossible legacy estimates beyond the intended 10/20/30-minute order bands — IMPLEMENTED
-- 10 Neighborhood Game wins unlock the Commerce Club — IMPLEMENTED
-- Embassy Room unlock uses a separate Harrison Vale social/invitation path — IMPLEMENTED FOUNDATION
+- Neighborhood Game is available by default; no Eddie gate and no win grind required.
+- Meeting Eddie Doyle unlocks/invites the player into the Commerce Club mid-tier game.
+- Commerce Club play can lead to meeting Harrison Vale, who may later invite the player to the Embassy Room elite game.
 - poker music UI removed from current scope
 - three Washington poker circles: neighborhood/working-class, commercial/professional, and elite private-society games
 - poker launches in a separate dedicated game window rather than an in-page modal
@@ -196,3 +197,5 @@ Work is performed one slice at a time on `main`, with each slice verified before
 - Targets can comply, refuse, retaliate, counter-blackmail, go to police/reporters, damage Federal Electric, or become a permanent enemy.
 - NPCs can use the same system against the player when they learn about scandals, illegal gambling, affairs, corruption, or other compromising events.
 - Real historical political figures require sourced historical treatment; generated compromising scandals should use fictional characters rather than inventing defamatory claims about real people.
+
+- [ ] Poker progression revision: Default Neighborhood access; Eddie Doyle unlocks Commerce Club; Commerce Club play can introduce Harrison Vale; Vale invitation unlocks Embassy Room.
