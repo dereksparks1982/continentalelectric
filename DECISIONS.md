@@ -27,7 +27,7 @@ This file records decisions that should not drift silently during development.
 - Newspaper editions form a permanent save-specific archive.
 - Information has sources. Sources may be truthful, mistaken, incomplete, or deliberately deceptive.
 - The Personal Notebook is now the **Journal**: it records meaningful meetings, conversations, rumors, poker sessions, and other player-known events in an Ultima-style running history. It records what the player experienced or was told, not guaranteed objective truth.
-- **Contacts** is a separate top-level section using a period-appropriate executive card-index concept. A person is added only after the player legitimately meets them or obtains their contact information.
+- **Contacts** uses a period-appropriate executive card-index concept inside the Journal section. A person is added only after the player legitimately meets them or obtains their contact information.
 - Contacts can later support calls, letters, secretaries, requested meetings, invitations, and unanswered attempts.
 - Washington activities are split into **Legal Sports** and **Illicit Activities**.
 - Legal Sports changes with the phase: Capital Race Grounds during the Business Day and licensed boxing during Washington Night.
@@ -278,3 +278,15 @@ This file records decisions that should not drift silently during development.
 - Federal Exchange Day movement is measured against a stored prior close.
 - Each fictional listed company carries a persistent quotation history. The game seeds roughly 90 pre-start sessions and appends completed playable business days.
 - Wartime copper scarcity, priority allocation, and government-contract access are planned future systems and were not implemented in this build.
+
+
+## 2026-10-02 — Primary navigation consolidation
+
+- The sticky primary navigation is reduced to five top-level buttons: **Executive Desk**, **Factory**, **Markets & News**, **Journal**, and **Pastimes**.
+- **Factory** contains the existing **Production** and **Contracts** sections. Contract hunting, negotiation, accepted contracts, customer records, production, materials, and shipping keep their existing gameplay behavior.
+- **Markets & News** contains **Federal Exchange** and **Metropolitan Ledger**.
+- **Journal** contains **Journal** and **Contacts**.
+- **Pastimes** contains **Legal Sports** and **Illicit Activities**.
+- The selected top-level button is visibly **blue with white text**. Related secondary section buttons use the same selected-state treatment.
+- The underlying section IDs and gameplay systems remain intact; this is a navigation consolidation rather than a rewrite of the affected systems.
+- Pause behavior is unchanged: pressing **PAUSE** returns the player to **Executive Desk**, disables and grays out gameplay navigation and controls, and leaves only **PLAY** and **New Game** usable.
