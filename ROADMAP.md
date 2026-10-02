@@ -175,6 +175,7 @@ Work is performed one slice at a time on `main`, with each slice verified before
 - [ ] Audit and rebalance lamp unit economics, payroll, contract prices, and 1938-scale costs.
 - [ ] Correct selected production-grade material/cost consumption.
 - [ ] Audit partial shipments, wrong-grade settlement, replacement inventory, deadlines, and repeated late penalties.
+- [ ] Add two Star Club visit lengths: Brief Visit (15 business minutes, lower price/opportunity) and Afternoon Visit (30 business minutes, higher price/opportunity); both advance the same authoritative business clock and unattended factory production.
 - [ ] Reset/schedule Star Club raids correctly across dates and weekdays.
 - [ ] Preserve typed Federal Exchange quantities across five-second market rerenders.
 - [ ] Historical/name verification pass for 1938 Washington titles, wages, and fictional entities.
