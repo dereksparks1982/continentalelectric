@@ -122,8 +122,6 @@ function placeBet(){
  if(m.bets[d.id])return setRaceNote('You already have a wager on this race.');
  const horseId=Number($r('raceHorseSelect')?.value),type=$r('raceBetType')?.value||'win',wager=Math.max(1,Math.floor(Number($r('raceWager')?.value)||0));
  if(!r.participants.includes(horseId))return setRaceNote('Choose a horse in the current race.');
- const max=d.stage==='main'?5000:d.stage==='semi'?1500:500;
- if(wager>max)return setRaceNote('Maximum wager for this race is '+cash(max)+'.');
  if(S.personalCash<wager)return setRaceNote('Not enough personal cash for that wager.');
  S.personalCash-=wager;m.bets[d.id]={horseId,type,wager,settled:false};save(true);renderRacing();setRaceNote('Wager accepted on '+horse(horseId).name+'.');
 }
