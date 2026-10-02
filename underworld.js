@@ -6,6 +6,7 @@ const fmt=n=>{n=Math.max(0,Math.ceil(n));return String(Math.floor(n/60)).padStar
 const PRIVATE_NAMES=['Jack Malloy','Rudy Fenwick','Cal Mercer','Tommy Graves','Earl Benton','Mick Driscoll','Frank Voss','Johnny Rusk','Ben Crowley','Sam Delaney'];
 const BIRD_NAMES=['Red Banner','Copper Spur','Black Jack','Whitecap','Old Dominion','Iron Wing','Blue Crest','Capitol Red'];
 const testClicks={private:[],cock:[]};
+let lastPhase=null,lastDate=null;
 
 function makePrivateFighter(name,id){return {id,name,power:rand(45,92),speed:rand(42,90),stamina:rand(45,92),toughness:rand(45,94),wins:0,losses:0,form:[]}}
 function makeBird(name,id){return {id,name,speed:rand(45,92),strength:rand(45,92),stamina:rand(45,92),wins:0,losses:0}}
@@ -153,5 +154,5 @@ const madamBtn=$u('askMadamUnderground');if(madamBtn)madamBtn.addEventListener('
 $u('privateFightCard')?.addEventListener('click',()=>{if(!S.underworld?.privateFightsUnlocked)hiddenUnlock('private')});
 $u('cockfightCard')?.addEventListener('click',()=>{if(!S.underworld?.cockfightsUnlocked)hiddenUnlock('cock')});
 document.addEventListener('click',e=>{if(e.target?.dataset?.tab==='washington')setTimeout(render,0)});
-ensureState();render();setInterval(()=>{if(document.hidden)return;const changed=process();if(changed||document.getElementById('washington')?.classList.contains('active'))render()},1000);
+ensureState();lastPhase=S.phase;lastDate=S.gameDate;render();setInterval(()=>{if(document.hidden)return;const changed=process(),phaseChanged=lastPhase!==S.phase,dateChanged=lastDate!==S.gameDate;if(changed||phaseChanged||dateChanged){lastPhase=S.phase;lastDate=S.gameDate;render()}},1000);
 })();
