@@ -186,3 +186,14 @@ See:
 - summary cards, forms, tables, contracts, ledgers, newspaper content and activity headers remain paper-based on top of the felt background
 - Journal keeps the responsive Note / Source / Write It Down layout so its text fields remain readable instead of clipping
 - visible version label remains **v0.4.0**
+
+
+### Federal Exchange history and sports-timer follow-up — v0.4.0
+
+- Horse Racing now opens automatically when Legal Sports is entered
+- Dog Racing and Midget Car Racing post-time displays update every second instead of remaining frozen at the time the panel was rendered; Horse Racing and Boxing countdowns were audited and already use the shared clock
+- both stock ticker symbols and company names open a Security Record
+- every Federal Exchange security carries 90 seeded business-day quotations from before January 3, 1938, so a graph and meaningful history exist immediately on Turn 1
+- existing saves merge seeded pre-game quotations with their saved game history
+- Security Record shows published quote, prior close, day move, total record move, record high, record low, visible date range and quoted-session count
+- the quotation ledger shows the full stored record in a scrollable table instead of only the most recent 15 entries

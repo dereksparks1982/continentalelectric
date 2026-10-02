@@ -187,3 +187,11 @@ main{
  body{background-attachment:scroll}
  main{border-left-width:2px;border-right-width:2px;box-shadow:0 0 0 3px rgba(59,35,22,.78),0 3px 10px rgba(20,9,4,.28),inset 0 0 12px rgba(0,0,0,.1)}
 }
+
+/* v0.4.0 Federal Exchange history expansion */
+.stock-ticker-link{border:0;background:transparent;color:var(--navy);padding:0;font:bold 12px 'Courier New',monospace;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
+.stock-ticker-link:hover,.stock-ticker-link:focus{color:var(--red);outline:none}
+.stock-history-hint{border-left:4px solid var(--navy);padding-left:9px}
+.stock-detail-stats-six{grid-template-columns:repeat(3,minmax(130px,1fr))}
+.stock-history-period{padding:7px 9px;border:1px solid #b5ad9b;background:#f7f0df;font:12px 'Courier New',monospace}
+@media(max-width:700px){.stock-detail-stats-six{grid-template-columns:1fr 1fr}}

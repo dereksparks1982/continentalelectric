@@ -216,11 +216,15 @@ Work is performed one slice at a time on `main`, with each slice verified before
 - [ ] Preserve typed Federal Exchange quantities across five-second market rerenders; previous attempt was rolled back with the broken UI build.
 - [ ] Historical/name verification pass for 1938 Washington titles, wages, and fictional entities.
 - [x] Bring MARKET-DESIGN and core project documentation into sync with hidden intraday quotations, race betting v2, and the current roadmap.
+- [x] Make stock tickers and company names open a Security Record with a quotation graph and historical ledger.
+- [x] Seed every Federal Exchange security with 90 pre-game trading sessions before January 3, 1938 and merge that history into older saves so Turn 1 has a meaningful chart.
+- [x] Expand Security Records with date range, prior close, day move, total record move, record high/low and the full stored quotation ledger.
 - [x] Port Georgia Sun horse-racing foundation into a Federal Electric scheduled meeting: persistent horses, four heats, two semifinals, Main Event, visible progression, Win/Place/Show betting, live attended-race animation, and automatic mid-day schedule.
 - [x] Replace the attended horse-race straight progress bars with a reusable oval-track display shaped like the race course.
 - [x] Add scheduled Dog Racing with Win/Place/Show wagering and the reusable oval-track display.
 - [x] Add scheduled Midget Car Racing with persistent cars/drivers, mechanical reliability/failures, Win/Place/Show wagering and the reusable oval-track display.
 - [x] Add closable activity panels to Legal Sports and Illicit Activities so only the selected pastime needs to be expanded; closing a panel never stops world simulation.
+- [x] Open Horse Racing by default when entering Legal Sports and keep Dog Racing/Midget Car Racing post-time displays counting down live alongside the existing horse and boxing clocks.
 - [x] Add visible game version `v0.4.0` at the far top-right of the blue masthead, separate from save-schema version 12.
 - [x] Clarify the status bar as `TURN X OF 7 THIS MONTH`.
 - [x] Style the full game surface as a 1930s executive desktop: dark wood across the outer margins and primary-navigation strip, with the green-felt main workspace inset into the wood and paper records layered on top.

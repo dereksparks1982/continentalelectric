@@ -67,7 +67,7 @@ Washington has its own fictional securities market with **50 companies** moving 
 
 You can build a personal portfolio, buy or sell arbitrary quantities of shares, collect dividends, track cost basis, and follow gains and losses.
 
-Each company also has its own security record with historical quotations, recent trading sessions, prior close information, and a price graph. The market has a past before you arrive, and each completed game day becomes part of that history.
+Each company also has its own clickable security record with historical quotations, prior close information, record high/low, and a price graph. Every stock is seeded with **90 trading sessions before January 3, 1938**, so its history is already available on Turn 1; each completed game session is then appended to that record. Existing saves merge in the pre-game record automatically rather than losing it.
 
 The exchange is not separate from the rest of the game. Time spent elsewhere is still market time.
 
@@ -83,7 +83,7 @@ Contacts can be useful, mistaken, self-interested, or deceptive. Information is 
 
 ## Racing, Boxing, Poker and the Washington Underworld
 
-There is plenty to do after you leave the office, and almost all of it costs time or money. Legal Sports and Illicit Activities now use **closable activity panels**, so you only keep open the pastime you actually want to look at. Closing a panel never pauses or cancels scheduled events.
+There is plenty to do after you leave the office, and almost all of it costs time or money. Legal Sports and Illicit Activities use **closable activity panels**, so you only keep open the pastime you actually want to look at. Horse Racing opens by default when you enter Legal Sports, while Dog Racing, Midget Car Racing, and Boxing replace it when selected. Race and fight post-time clocks continue counting on the shared world clock. Closing a panel never pauses or cancels scheduled events.
 
 ### Capital Race Grounds
 
