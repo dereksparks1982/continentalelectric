@@ -4,10 +4,10 @@
 
 ## Play
 
-- **Play current build:** https://dereksparks1982.github.io/federalelectric/index.html?v=20261001-ordbook
+- **Play current build:** https://dereksparks1982.github.io/federalelectric/index.html?v=20261001-backrooms
 - **Georgia Sun:** https://dereksparks1982.github.io/georgiasun/index.html
 
-## Current prototype — v0.3.2-dev: The Order Book
+## Current prototype — v0.3.3-dev: The Back Rooms
 
 The simulation now runs as a living business day:
 
@@ -34,7 +34,12 @@ The simulation now runs as a living business day:
 - a living **Metropolitan Ledger** newspaper with an edition archive
 - personal notebook for recording tips and conversations without guaranteeing their truth
 - first Washington social/underworld location: **The Star Club**, operated by Madam Star
-- first persistent contacts and bookmaker introduction
+- first persistent contacts; meeting Eddie Doyle through Madam Star unlocks the neighborhood backroom poker circuit
+- 10 Neighborhood Game wins unlock the Commerce Club; simulated wins count the same as played wins
+- Commerce Club sessions can build a connection with Harrison Vale, whose invitation unlocks the Embassy Room
+- every poker room supports Play or Simulate; simulation consumes exactly 5 business minutes while factory production continues
+- the locked Embassy Room has a seven-click admin/test override that unlocks and opens it on click seven
+- poker music UI is removed from the current scope
 - three playable backroom poker rooms with a browser-native Texas Hold'em engine, AI opponents, distinct class-based interiors, blinds, betting streets, hand evaluation and showdown
 - independently scheduled police raids
 - red, ivory, and deep-navy Washington/corporate-paperwork UI
