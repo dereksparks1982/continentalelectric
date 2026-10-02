@@ -237,3 +237,16 @@ See:
 - production duration scales with order quantity instead of capping every large job at a 30-minute run
 - the closing bell stops any unfinished production run and marks it awaiting executive restart
 - the next Business Day never auto-resumes that line; the player must press Resume Production, and forgotten time is lost
+
+
+### Pastimes timing, wagering and presentation — v0.4.0
+
+- private prizefights show a live **FIGHT IN** countdown, including cross-phase waiting time when a nighttime bout is still ahead during the Business Day
+- pending private-fight tickets show fighter, wager and potential payout; settled tickets show wager, payout and net
+- cockfighting uses matching live countdown and ticket treatment
+- Midget Car Racing meetings are generated as either Business Day or Washington Night events; betting, countdowns, resolution and automatic phase-end settlement respect the assigned phase
+- Dog Racing remains a daytime meeting
+- Daily Report wagering includes horse racing, dog racing, midget cars, licensed boxing and underground betting with wagered amount, gross payout, net and total settled tickets
+- Star Club pricing is now $50/$150 by day and $100/$300 at night
+- Public Offering planning shows proposed ticker **FE**
+- the masthead wordmark renders only the initial **F** and **E** in cursive/script lettering

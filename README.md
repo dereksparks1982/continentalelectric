@@ -186,3 +186,16 @@ The persistent status strip uses abbreviated dates such as **THUR, JAN 6, 1938**
 Contracts now carry their own turn-based delivery windows instead of all being forced to the end of the current month. Standard work generally allows **4 turns**, urgent work can be **same-day** or **2-turn rush**, and larger supplier orders can receive **6-, 8-, or 12-turn** windows that span multiple months. Larger generated purchase requests can exceed 10,000 bulbs, and production duration scales with quantity.
 
 The closing bell automatically stops any unfinished factory run. **Production does not restart itself the next morning.** The run remains stopped until the player returns to Factory and authorizes it, so forgetting to restart the line costs real production time.
+
+
+### Pastimes timing, wagering and executive presentation
+
+Private prizefights and cockfights now show live countdowns to the event. A pending private-fight ticket records the fighter, wager and potential payout; after settlement it shows wager, payout and net.
+
+Midget Car Racing meetings can be scheduled during either the **Business Day** or **Washington Night**. The selected phase controls betting, countdowns, race resolution and phase-end settlement. Dog Racing remains a Business Day meeting. Historical midget racing frequently ran as evening entertainment in the 1930s, so the simulation no longer treats the sport as daytime-only.
+
+The Daily Report now separates **horse racing, dog racing, midget car racing, licensed boxing, and underground betting**, and reports amount wagered, gross payout and net for each category plus overall totals.
+
+The Star Club is now materially more expensive. Daytime visits cost **$50 for 15 minutes** or **$150 for 30 minutes**; Washington Night visits cost **$100** or **$300** respectively. Nighttime is intentionally more expensive.
+
+The Public Offering planning scaffold now displays **FE** as the proposed Federal Electric ticker. In the masthead wordmark, the initial **F** in Federal and **E** in Electric use script lettering while the rest of the company name retains the existing serif treatment.
