@@ -4,7 +4,7 @@
 
 ## Play
 
-- **Play current build:** https://dereksparks1982.github.io/federalelectric/index.html?v=20261001-clockfix2
+- **Play current build:** https://dereksparks1982.github.io/federalelectric/index.html?v=20261001-stabilize1
 - **Georgia Sun:** https://dereksparks1982.github.io/georgiasun/index.html
 
 ## Current prototype — v0.3.5-dev: On the Clock
@@ -45,7 +45,7 @@ The simulation now runs as a living business day:
 - first persistent contacts; meeting Eddie Doyle through Madam Star unlocks the neighborhood backroom poker circuit
 - 10 Neighborhood Game wins unlock the Commerce Club; simulated wins count the same as played wins
 - Commerce Club sessions can build a connection with Harrison Vale, whose invitation unlocks the Embassy Room
-- manual poker shows the live Federal Electric business-day clock; time spent at the table is deducted from the same one-hour day when you leave
+- manual poker shows the authoritative Federal Electric business-day clock; time spent at the table passes on that same live clock and is not deducted again when you leave
 - poker simulation time scales by room: Neighborhood 5 minutes, Commerce Club 10 minutes, Embassy Room 25 minutes; insufficient remaining time blocks the simulation
 - factory production continues while poker consumes business time
 - poker music UI is removed from the current scope
