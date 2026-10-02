@@ -219,3 +219,13 @@ This file records decisions that should not drift silently during development.
 - Private prizefights and cockfighting are independently unlockable and settle on the shared world clock.
 - Private prizefights can be scheduled during either phase. Cockfighting currently schedules during Washington Night.
 - Licensed boxing can introduce Marty Kane, a fight-world contact who can become another route into private prizefights.
+
+
+## 2026-10-01 — World-time catch-up and morning sports reporting
+
+- Time-consuming actions that jump the authoritative clock must advance all appropriate Business Day systems for the elapsed time rather than only subtracting minutes from the display.
+- The hidden Federal Exchange therefore advances during Star Club visits, contract searches, simulated poker, underworld lead-chasing and factory changeovers while the Business Day is open.
+- Hidden market movement remains hidden from the player until the closing bell even when a time jump advances it.
+- Major Capital Race Grounds and licensed-boxing results are carried forward into the **Sports** section of the next morning's Metropolitan Ledger.
+- Underground results stay in the player's private records unless a separate public event makes them newspaper-worthy.
+- The Underground Ledger records completed private prizefights, cockfights and associated wager results in chronological order.
