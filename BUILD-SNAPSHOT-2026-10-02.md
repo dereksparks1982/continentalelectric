@@ -27,6 +27,15 @@ Frontend:
 - primary navigation stays fixed
 - Company Cash and Personal Cash stay visible in the fixed status bar
 
+### Primary navigation
+- top-level sticky buttons: **Executive Desk**, **Factory**, **Markets & News**, **Journal**, **Pastimes**
+- Factory sub-sections: **Production**, **Contracts**
+- Markets & News sub-sections: **Federal Exchange**, **Metropolitan Ledger**
+- Journal sub-sections: **Journal**, **Contacts**
+- Pastimes sub-sections: **Legal Sports**, **Illicit Activities**
+- active top-level and secondary section buttons are blue with white text
+- pause still forces **Executive Desk** and disables/grays out all gameplay navigation and controls
+
 ### Federal Exchange
 - 50 fictional securities
 - hidden intraday movement
@@ -44,7 +53,7 @@ Known market polish:
 
 ### Live dev additions after the closed snapshot
 
-- **Hard pause:** pressing PAUSE immediately returns the player to **Executive Desk**. Factory, Contracts, Federal Exchange, Metropolitan Ledger, Journal, Contacts, Legal Sports, Illicit Activities, and all other gameplay controls are disabled and visibly grayed out. Only **PLAY** and **New Game** remain usable.
+- **Hard pause:** pressing PAUSE immediately returns the player to **Executive Desk**. Factory, Markets & News, Journal, Pastimes, their secondary sections, and all other gameplay controls are disabled and visibly grayed out. Only **PLAY** and **New Game** remain usable.
 - **Raw-material trading:** copper, glass, and tungsten now support arbitrary quantity **Buy**, **Sell**, and **Sell All** actions rather than fixed purchase lots.
 - **Contract negotiation:** customer leads specify what they want, while Federal Electric proposes the quantity, grade, and unit price. Customers may accept, reject, or issue a counteroffer before the agreement becomes an accepted production contract.
 - **Federal Exchange prior close:** securities now have a generated prior close before the first playable day and a new opening movement on later business mornings, so the Day column is not universally +0.00%.
