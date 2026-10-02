@@ -2,7 +2,7 @@
 
 ## Status
 
-This document closes the current development build before work begins on Accounts, Global Chat, and Global Rankings.
+This document records the accepted 2026-10-02 baseline. Current development continues in **v0.4 Company Operations**; Accounts, Global Chat, and Global Rankings remain later work.
 
 Frontend:
 - GitHub Pages
@@ -136,16 +136,16 @@ Washington Night:
 - corruption investigations and long-memory consequences
 - broader company operations/economy/history systems
 
-## Next active milestone
+## Current active milestone
 
-**Accounts → Global Chat → Global Rankings**
+**v0.4 — Company Operations**
 
-Accounts come first because preserving the long-running save is more important than social features.
+Current work continues to deepen the company and surrounding simulation before the later online milestone. Accounts, Global Chat, and Global Rankings remain planned but are not the immediate active build.
 
 See:
-- `ONLINE-SYSTEMS-DESIGN.md`
 - `ROADMAP.md`
 - `DECISIONS.md`
+- `ONLINE-SYSTEMS-DESIGN.md`
 
 
 ### Company Operations foundation — current live build
@@ -163,3 +163,17 @@ See:
 - turn conditions include weather effects and utility outages; Federal Electric currently buys outside utility power rather than generating its own
 - production conditions can create internal rejects and latent defects; lot-based customer defect claims can later reopen a replacement obligation and cost Federal Electric money
 - pacing constants are separated internally; the current test configuration is 7 playable turns per month, 60-minute Business Day and 60-minute Washington Night
+
+
+### Interface and Pastimes expansion — v0.4.0-dev
+
+- visible game version **v0.4.0-dev** appears at the far top-right of the blue Federal Electric masthead; internal save-schema version 12 remains separate
+- the persistent date/status line explicitly reads **TURN X OF 7 THIS MONTH**
+- the top of Executive Desk now presents the summary on a 1930s-inspired walnut desk surface with an inset green-felt blotter
+- Legal Sports uses closable activity panels for Horse Racing, Dog Racing, Midget Car Racing and Boxing
+- Illicit Activities uses the same collapsible model for Star Club, Bookmaker & Leads, Backroom Poker, Private Prizefights and Cockfighting
+- only the selected activity needs to be expanded; closing a panel never stops the shared world clock, scheduled events, wagers or raids
+- Horse Racing now uses a literal oval-track progress display for attended races rather than a straight progress bar
+- Dog Racing is implemented with scheduled daytime heats/final, persistent racing state and Win/Place/Show wagering
+- Midget Car Racing is implemented with scheduled daytime heats/feature, persistent cars and drivers, mechanical reliability/failure risk and Win/Place/Show wagering
+- the same reusable oval-track visualizer is used across horse, dog and midget-car racing

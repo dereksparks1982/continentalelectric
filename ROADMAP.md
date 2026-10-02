@@ -216,8 +216,14 @@ Work is performed one slice at a time on `main`, with each slice verified before
 - [ ] Preserve typed Federal Exchange quantities across five-second market rerenders; previous attempt was rolled back with the broken UI build.
 - [ ] Historical/name verification pass for 1938 Washington titles, wages, and fictional entities.
 - [x] Bring MARKET-DESIGN and core project documentation into sync with hidden intraday quotations, race betting v2, and the current roadmap.
-- [ ] Add Codex/lore documentation structure.
 - [x] Port Georgia Sun horse-racing foundation into a Federal Electric scheduled meeting: persistent horses, four heats, two semifinals, Main Event, visible progression, Win/Place/Show betting, live attended-race animation, and automatic mid-day schedule.
+- [x] Replace the attended horse-race straight progress bars with a reusable oval-track display shaped like the race course.
+- [x] Add scheduled Dog Racing with Win/Place/Show wagering and the reusable oval-track display.
+- [x] Add scheduled Midget Car Racing with persistent cars/drivers, mechanical reliability/failures, Win/Place/Show wagering and the reusable oval-track display.
+- [x] Add closable activity panels to Legal Sports and Illicit Activities so only the selected pastime needs to be expanded; closing a panel never stops world simulation.
+- [x] Add visible game version `v0.4.0-dev` at the far top-right of the blue masthead, separate from save-schema version 12.
+- [x] Clarify the status bar as `TURN X OF 7 THIS MONTH`.
+- [x] Restyle the top of Executive Desk as a 1930s walnut desk surface with a partial green-felt blotter while preserving the existing information and mobile layout.
 
 
 ## Blackmail / leverage system — planned
@@ -362,7 +368,6 @@ This remains planned after the current Company Operations deepening work. It is 
 
 ## Post-online polish / known backlog
 
-- seed a believable previous close for the first playable Federal Exchange session so January 3 does not display every security at +0.00%
 - stock quantity entry persistence through market/table rerenders remains a separate stabilization item until verified
 - deeper poker correctness, including side pots/all-in reopening and direct-close settlement
 - deeper historical research for horse betting, boxing wagering and underground activity

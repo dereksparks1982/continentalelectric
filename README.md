@@ -1,5 +1,7 @@
 # Federal Electric
 
+**Current development version: v0.4.0-dev**
+
 **Build an electrical empire in Washington, D.C., beginning in 1938.**
 
 Federal Electric is a browser-based historical business and life simulation about running a growing electrical company while the rest of Washington keeps moving around you.
@@ -18,7 +20,7 @@ The primary navigation is grouped into **Executive Desk**, **Factory**, **Market
 
 ## The Clock Keeps Moving
 
-The current pacing test uses **7 playable business turns per calendar month** rather than playing every weekday one by one. The seven turns are distributed across real weekdays in the month, so the calendar can advance through history without requiring hundreds of near-identical workdays.
+The current pacing test uses **7 playable business turns per calendar month** rather than playing every weekday one by one. The seven turns are distributed across real weekdays in the month, so the calendar can advance through history without requiring hundreds of near-identical workdays. The live status bar now says **TURN X OF 7 THIS MONTH** so the seven-turn pacing cannot be mistaken for the length of the whole game.
 
 Each playable turn still has two live phases:
 
@@ -81,13 +83,21 @@ Contacts can be useful, mistaken, self-interested, or deceptive. Information is 
 
 ## Racing, Boxing, Poker and the Washington Underworld
 
-There is plenty to do after you leave the office, and almost all of it costs time or money.
+There is plenty to do after you leave the office, and almost all of it costs time or money. Legal Sports and Illicit Activities now use **closable activity panels**, so you only keep open the pastime you actually want to look at. Closing a panel never pauses or cancels scheduled events.
 
 ### Capital Race Grounds
 
-The daytime race meeting includes qualifying heats, semifinals, and a Main Event.
+The daytime horse-racing meeting includes qualifying heats, semifinals, and a Main Event.
 
-Horses persist from meeting to meeting with their own records, form, fatigue, fitness, injuries, jockeys, preferences, and odds. Races happen on schedule whether you attend them or not, and wagers settle on the same shared business clock.
+Horses persist from meeting to meeting with their own records, form, fatigue, fitness, injuries, jockeys, preferences, and odds. Attended races now use a literal **oval-track progress display** instead of a straight percentage bar.
+
+### Dog Racing
+
+Potomac Kennel Track runs daytime heats and a final using the same shared world clock and Win/Place/Show wagering structure. Dog races use the reusable oval-track display.
+
+### Midget Car Racing
+
+Capital Speedway runs daytime midget-car heats and a feature race. Cars and drivers persist, and mechanical reliability can produce failures and DNFs. Midget Car Racing uses the same oval-track display and Win/Place/Show wagering model.
 
 ### Licensed Boxing
 
@@ -105,7 +115,7 @@ Poker uses a playable Texas Hold'em system with AI opponents, betting streets, b
 
 Washington also has bookmakers, private prizefights, cockfighting, underground contacts, police raids, and opportunities that have to be discovered.
 
-Different contacts know different things. One lead does not automatically unlock the whole underworld.
+Star Club, Bookmaker & Leads, Backroom Poker, Private Prizefights, and Cockfighting can each be opened or collapsed independently. Different contacts know different things, and one lead does not automatically unlock the whole underworld.
 
 ## The Star Club
 
