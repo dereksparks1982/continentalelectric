@@ -9,3 +9,7 @@
 .oval-marker{position:absolute;left:90%;top:50%;transform:translate(-50%,-50%);display:flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:#fff;color:var(--navy);border:2px solid var(--navy);font:bold 11px 'Courier New',monospace;box-shadow:0 2px 3px #0006;transition:left .18s linear,top .18s linear;z-index:3}
 .oval-race-key{display:flex;flex-direction:column;gap:5px;font:11px 'Courier New',monospace}.oval-race-key span{display:grid;grid-template-columns:20px 1fr 42px;gap:5px;border-bottom:1px solid #c4c0b6;padding:4px 0}.oval-race-key i{font-style:normal;text-align:right;color:var(--red)}
 @media(max-width:780px){.oval-race-stage{grid-template-columns:1fr}.oval-race-key{display:grid;grid-template-columns:1fr 1fr}.oval-race-course{max-width:100%}}@media(max-width:520px){.oval-race-key{grid-template-columns:1fr}.oval-marker{width:20px;height:20px;font-size:9px}}
+
+.oval-marker.dog{border-color:#6a4324;background:#fffaf0}
+.oval-marker.car{border-radius:5px;border-color:var(--red);background:#fff1d7}
+.oval-entry-meta{color:#59606b;font-size:11px}
