@@ -160,3 +160,24 @@ Unify industrial operations, the living business day, markets, history, Washingt
 ## Post-1.0
 
 Postwar reconversion, consumer boom, Cold War industry/electronics, acquisitions, unions, R&D, patents, advertising, family succession, deeper politics, and a save-specific biography/newspaper archive.
+
+
+## Stabilization queue — v0.3.6-dev
+
+Work is performed one slice at a time on `main`, with each slice verified before moving to the next.
+
+- [x] Remove manual Save/Load controls; autosave is authoritative; rename New Company to New Game with destructive-progress confirmation.
+- [x] Poker clock initialization uses the current Federal Electric business-day time rather than resetting to 60:00.
+- [x] Poker elapsed time is no longer deducted a second time when the main business clock has already been running.
+- [x] Pre-flop folding no longer sends an incomplete board into the seven-card evaluator.
+- [ ] Correct poker betting-round action closure and all-in/side-pot behavior.
+- [ ] Make poker window-close/quit settlement unavoidable and consistent.
+- [ ] Audit and rebalance lamp unit economics, payroll, contract prices, and 1938-scale costs.
+- [ ] Correct selected production-grade material/cost consumption.
+- [ ] Audit partial shipments, wrong-grade settlement, replacement inventory, deadlines, and repeated late penalties.
+- [ ] Reset/schedule Star Club raids correctly across dates and weekdays.
+- [ ] Preserve typed Federal Exchange quantities across five-second market rerenders.
+- [ ] Historical/name verification pass for 1938 Washington titles, wages, and fictional entities.
+- [ ] Bring MARKET-DESIGN and other documentation into sync with implemented behavior.
+- [ ] Add Codex/lore documentation structure.
+- [ ] Port Georgia Sun horse racing as Federal Electric scheduled race meetings: persistent horses, qualifying heats, semifinals, Main Event, visible progression, and automatic mid-day schedule.
