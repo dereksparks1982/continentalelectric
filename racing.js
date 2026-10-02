@@ -116,14 +116,17 @@ function processSchedule(){
 function nextRace(){
  const m=ensureState();for(const d of SCHEDULE){if(!m.races[d.id].result)return d}return null;
 }
-function placeBet(){
- const d=nextRace();if(!d)return;
- const m=S.racing.meeting,r=m.races[d.id];if(S.dayRemaining<=d.threshold)return setRaceNote('Betting is closed for this race.');
- if(m.bets[d.id])return setRaceNote('You already have a wager on this race.');
- const horseId=Number($r('raceHorseSelect')?.value),type=$r('raceBetType')?.value||'win',wager=Math.max(1,Math.floor(Number($r('raceWager')?.value)||0));
- if(!r.participants.includes(horseId))return setRaceNote('Choose a horse in the current race.');
+function placeBet(raceId){
+ const d=raceDef(raceId);if(!d)return;
+ const m=ensureState(),r=m.races[d.id];updateQualifiers();
+ if(!r.participants.length)return setRaceNote('The field for '+d.label+' has not been established yet.');
+ if(r.result||S.dayRemaining<=d.threshold)return setRaceNote('Betting is closed for '+d.label+'.');
+ if(m.bets[d.id])return setRaceNote('You already have a wager on '+d.label+'.');
+ const horseId=Number($r('raceHorseSelect_'+d.id)?.value),type=$r('raceBetType_'+d.id)?.value||'win',wager=Math.max(1,Math.floor(Number($r('raceWager_'+d.id)?.value)||0));
+ if(!r.participants.includes(horseId))return setRaceNote('Choose a horse in '+d.label+'.');
  if(S.personalCash<wager)return setRaceNote('Not enough personal cash for that wager.');
- S.personalCash-=wager;m.bets[d.id]={horseId,type,wager,settled:false};save(true);renderRacing();setRaceNote('Wager accepted on '+horse(horseId).name+'.');
+ S.personalCash-=wager;m.bets[d.id]={horseId,type,wager,settled:false};
+ save(true);renderRacing();setRaceNote('Wager accepted for '+d.label+': '+horse(horseId).name+' · '+type.toUpperCase()+' · '+cash(wager)+'.');
 }
 function setRaceNote(t){const el=$r('raceNote');if(el)el.textContent=t}
 function raceStatus(d){
@@ -142,22 +145,37 @@ function renderBracket(){
    return '<article class="race-bracket-card '+status.toLowerCase()+'"><header><b>'+d.label+'</b><span>'+fmt(d.threshold)+' remaining</span></header><small>'+d.distance+' · '+status+'</small>'+body+'</article>'
  }).join('');
 }
+function raceBetCard(d){
+ const m=S.racing.meeting,r=m.races[d.id],bet=m.bets[d.id],seconds=Math.max(0,S.dayRemaining-d.threshold);
+ if(r.result){
+   const winner=horse(r.result[0]),runner=horse(r.result[1]);
+   return '<article class="race-bet-card closed"><div class="race-bet-card-head"><div><h4>'+d.label+'</h4><small>'+d.distance+'</small></div><b>COMPLETE</b></div><p><b>1st:</b> '+escapeHtml(winner.name)+(runner?' · <b>2nd:</b> '+escapeHtml(runner.name):'')+'</p>'+(bet?'<p class="race-bet-locked">Ticket: '+escapeHtml(horse(bet.horseId).name)+' · '+bet.type.toUpperCase()+' · '+cash(bet.wager)+' · '+(bet.net>=0?'NET +':'NET ')+cash(bet.net)+'</p>':'<p class="muted">No wager placed.</p>')+'</article>';
+ }
+ if(!r.participants.length){
+   return '<article class="race-bet-card pending"><div class="race-bet-card-head"><div><h4>'+d.label+'</h4><small>'+d.distance+'</small></div><b>FIELD PENDING</b></div><p class="muted">Betting opens when the qualifying field is established.</p></article>';
+ }
+ const odds=ensureOdds(d.id);
+ if(S.dayRemaining<=d.threshold){
+   return '<article class="race-bet-card closed"><div class="race-bet-card-head"><div><h4>'+d.label+'</h4><small>'+d.distance+'</small></div><b>BETTING CLOSED</b></div></article>';
+ }
+ return '<article class="race-bet-card open"><div class="race-bet-card-head"><div><h4>'+d.label+'</h4><small>'+d.distance+' · Track '+m.surface+'</small></div><div class="race-countdown" data-race-id="'+d.id+'"><small>POST TIME IN</small><b>'+fmt(seconds)+'</b></div></div>'+
+ '<div class="race-field compact">'+r.participants.map(pid=>{const h=horse(pid);return '<div class="race-field-row"><span>'+escapeHtml(h.name)+'</span><small>'+escapeHtml(h.jockey)+' · Form '+(h.form.slice(-5).join('-')||'—')+'</small><b>'+fractional(odds[pid])+'</b></div>'}).join('')+'</div>'+
+ (bet?'<p class="race-bet-locked">Ticket: '+escapeHtml(horse(bet.horseId).name)+' · '+bet.type.toUpperCase()+' · '+cash(bet.wager)+'</p>':
+ '<div class="race-bet-panel"><label>Horse<select id="raceHorseSelect_'+d.id+'">'+r.participants.map(pid=>'<option value="'+pid+'">'+escapeHtml(horse(pid).name)+' ('+fractional(odds[pid])+')</option>').join('')+'</select></label><label>Bet<select id="raceBetType_'+d.id+'"><option value="win">Win</option><option value="place">Place</option><option value="show">Show</option></select></label><label>Wager<input id="raceWager_'+d.id+'" type="number" min="1" step="1" value="'+(d.stage==='main'?100:25)+'"></label><button class="place-race-bet" data-race-id="'+d.id+'">Place Bet</button></div>')+'</article>';
+}
 function renderNext(){
- const d=nextRace(),m=S.racing.meeting,el=$r('raceNext');if(!el)return;
+ const m=ensureState(),el=$r('raceNext');if(!el)return;
  if(animation){renderLive();return}
- if(!d){const winner=horse(m.races.ME.result[0]);el.innerHTML='<h3>Meeting Complete</h3><p><b>Main Event winner:</b> '+escapeHtml(winner.name)+'</p>';return}
- const r=m.races[d.id];updateQualifiers();
- if(!r.participants.length){el.innerHTML='<h3>'+d.label+'</h3><p class="muted">Waiting for the preceding qualifiers.</p>';return}
- const odds=ensureOdds(d.id),seconds=Math.max(0,S.dayRemaining-d.threshold),bet=m.bets[d.id];
- el.innerHTML='<div class="race-next-head"><div><h3>'+d.label+'</h3><p>'+d.distance+' · Track '+m.surface+'</p></div><div class="race-countdown"><small>POST TIME IN</small><b>'+fmt(seconds)+'</b></div></div>'+
- '<div class="race-field">'+r.participants.map(pid=>{const h=horse(pid);return '<div class="race-field-row"><span>'+escapeHtml(h.name)+'</span><small>'+escapeHtml(h.jockey)+' · Form '+(h.form.slice(-5).join('-')||'—')+' · Fatigue '+Math.round(h.fatigue)+'%</small><b>'+fractional(odds[pid])+'</b></div>'}).join('')+'</div>'+
- (bet?'<p class="race-bet-locked">Wager placed: '+escapeHtml(horse(bet.horseId).name)+' · '+bet.type.toUpperCase()+' · '+cash(bet.wager)+'</p>':
- '<div class="race-bet-panel"><label>Horse<select id="raceHorseSelect">'+r.participants.map(pid=>'<option value="'+pid+'">'+escapeHtml(horse(pid).name)+' ('+fractional(odds[pid])+')</option>').join('')+'</select></label><label>Bet<select id="raceBetType"><option value="win">Win</option><option value="place">Place</option><option value="show">Show</option></select></label><label>Wager<input id="raceWager" type="number" min="1" step="1" value="'+(d.stage==='main'?100:25)+'"></label><button id="placeRaceBet">Place Bet</button></div>');
- $r('placeRaceBet')?.addEventListener('click',placeBet);
+ updateQualifiers();
+ const openOrPending=SCHEDULE.filter(d=>!m.races[d.id].result);
+ if(!openOrPending.length){const winner=horse(m.races.ME.result[0]);el.innerHTML='<h3>Meeting Complete</h3><p><b>Main Event winner:</b> '+escapeHtml(winner.name)+'</p>';return}
+ el.innerHTML='<div class="race-board-head"><div><h3>Betting Board</h3><p class="fine">Place tickets on any race whose field is known. Semifinals and the Main Event open after their qualifiers are established.</p></div></div><div class="race-betting-board">'+SCHEDULE.map(raceBetCard).join('')+'</div>';
+ el.querySelectorAll('.place-race-bet').forEach(btn=>btn.addEventListener('click',()=>placeBet(btn.dataset.raceId)));
 }
 function renderHistory(){
  const el=$r('raceHistory');if(!el)return;const m=S.racing.meeting,done=SCHEDULE.filter(d=>m.races[d.id].result);
- el.innerHTML=done.length?done.slice().reverse().map(d=>{const r=m.races[d.id],w=horse(r.result[0]),bet=m.bets[d.id];return '<div class="race-history-item"><b>'+d.label+': '+escapeHtml(w.name)+'</b><small>'+d.distance+(bet?' · Your bet '+(bet.net>=0?'+':'')+cash(bet.net):' · No wager')+'</small></div>'}).join(''):'<p class="muted">No races have been run yet.</p>';
+ let running=0;
+ el.innerHTML=done.length?done.map(d=>{const r=m.races[d.id],w=horse(r.result[0]),bet=m.bets[d.id];let wagerText='No wager';if(bet){running+=bet.net||0;wagerText='Your bet '+(bet.net>=0?'+':'')+cash(bet.net)+' · Running total '+(running>=0?'+':'')+cash(running)}return '<div class="race-history-item"><b>'+d.label+': '+escapeHtml(w.name)+'</b><small>'+d.distance+' · '+wagerText+'</small></div>'}).join(''):'<p class="muted">No races have been run yet. Results and wager settlements will appear here in race order, even while you are elsewhere.</p>';
 }
 function renderRacing(){
  if(!$r('horseRacingModule'))return;ensureState();renderBracket();renderNext();renderHistory();
@@ -179,8 +197,7 @@ function drawAnimation(t){
  for(const pid of r.participants){const place=rank.get(pid)||0,finishBonus=(r.participants.length-place)*.7,noise=Math.sin(t*14+pid)*1.3,progress=Math.min(100,Math.max(0,t*(94+finishBonus)+noise));const bar=$r('raceBar_'+pid),pct=$r('racePct_'+pid);if(bar)bar.style.width=progress+'%';if(pct)pct.textContent=t>=1?ordinal(place+1):Math.floor(progress)+'%'}
 }
 function updateRaceClock(){
- const d=nextRace(),clock=$r('raceNext')?.querySelector('.race-countdown b');
- if(d&&clock&&!animation)clock.textContent=fmt(Math.max(0,S.dayRemaining-d.threshold));
+ if(!animation)$r('raceNext')?.querySelectorAll('.race-countdown[data-race-id]').forEach(el=>{const d=raceDef(el.dataset.raceId),clock=el.querySelector('b');if(d&&clock)clock.textContent=fmt(Math.max(0,S.dayRemaining-d.threshold))});
  const bankroll=$r('raceBankroll');if(bankroll)bankroll.textContent=cash(S.personalCash);
 }
 function tick(){
