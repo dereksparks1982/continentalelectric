@@ -59,3 +59,11 @@ This file records decisions that should not drift silently during development.
 - No universal morality meter. Consequences emerge through money, relationships, press, law, shareholders, boards, government, and history.
 - Historical specifics are researched rather than guessed.
 - Core gameplay additions remain updates to the same game rather than paid gameplay DLC.
+
+- Contract hunting is an explicit player action. Seeking new business consumes 2 active business minutes and may return multiple offers or no suitable work.
+- Contract acceptance is not artificially capped. The player may overcommit the factory and suffer deadline/customer consequences.
+- Small, medium, and large lamp orders target roughly 10, 20, and 30 minutes of production time at the starting factory, leaving room for multiple orders during a one-hour business day.
+- Accepted contracts enter a player-controlled production queue. The player may reprioritize waiting work; completed orders automatically hand the line to the next queued order.
+- The Factory warns when estimated queued production exceeds remaining business-day time but does not block the decision.
+- Federal Exchange orders use arbitrary positive whole-share quantities rather than fixed 1/10/100 lots, with Buy, Sell, and Sell All actions.
+- The Federal Exchange keeps personal cash available visible and reports realized profit/loss on each stock sale and cumulatively by security.
