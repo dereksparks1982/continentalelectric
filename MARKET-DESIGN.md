@@ -105,15 +105,15 @@ Before deeper market/control systems are treated as historical mechanics, verify
 - newspaper financial pages
 
 
-## First playable day — previous close
+## First playable day — previous close and security records
 
-The current first-day display can show a flat +0.00% comparison because the opening quotation is also acting as the comparison baseline.
+Implemented in the current test build:
+- every fictional security is seeded with a prior close before the first playable morning
+- the opening quotation is compared against that prior close, so the Day column can begin positive or negative instead of universally +0.00%
+- later business mornings receive a small opening gap from the prior close, preserving a meaningful Day comparison at the opening bell
+- the opening quotation remains the visible trade reference throughout the Business Day; hidden intraday movement is still not exposed
+- each security begins with approximately 90 synthetic pre-game trading sessions generated consistently for that ticker
+- clicking a company name opens its Security Record with a graph-paper quotation chart and recent quotation ledger
+- completed playable business days are appended to that security's saved quotation history
 
-Planned correction:
-- seed a fictional previous close for each security before the first playable morning
-- January 3, 1938 opening quotations compare against that prior close
-- first-day change values can therefore begin positive, negative, or nearly flat instead of all reading +0.00%
-- the opening quotation remains the visible trade reference throughout the Business Day
-- this is display/history seeding only; it must not reintroduce visible live intraday quotations
-
-This is documented but not yet implemented.
+The seeded history is fictional market context for fictional companies. It is not presented as real historical exchange data.
