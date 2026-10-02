@@ -95,3 +95,11 @@ This file records decisions that should not drift silently during development.
 - The business-day clock is authoritative across activities. Poker must display the same remaining day time and must not charge elapsed time twice.
 - Development proceeds one verified slice at a time on `main` until the stabilization list and roadmap are cleared.
 - Horse racing remains the next major gameplay system after stabilization: the meeting begins automatically halfway through the business day, missed races resolve without the player, qualifiers advance through a visible bracket, and the player may arrive late solely for later races or the Main Event.
+
+## 2026-10-01 — Star Club visit lengths
+
+- Madam Star will offer two adult, non-explicit visit lengths rather than a single fixed 30-minute visit.
+- **Brief Visit:** 15 business minutes, lower price, lower opportunity for useful conversations/introductions.
+- **Afternoon Visit:** 30 business minutes, higher price, stronger opportunity for conversations, introductions, rumors, and encounters.
+- Both consume the same authoritative Federal Electric business-day clock and advance unattended factory production while the owner is away.
+- The shorter option exists so late-day visits remain possible without creating a free-time pocket.
