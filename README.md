@@ -4,7 +4,7 @@
 
 ## Play
 
-- **Play current build:** https://dereksparks1982.github.io/federalelectric/index.html?v=20261001-racing2
+- **Play current build:** https://dereksparks1982.github.io/federalelectric/index.html?v=20261001-racebettingv2
 - **Georgia Sun:** https://dereksparks1982.github.io/georgiasun/index.html
 
 ## Current prototype — v0.3.6-dev: Washington & Racing
@@ -16,8 +16,8 @@ The simulation now runs as a living business day:
 - closing/hiding the app freezes the simulation; there is **no offline progression**
 - exact remaining day time and quotations are autosaved and resume where they stopped
 - the day closes automatically at 00:00, with an optional End Day Early control
-- the Federal Exchange's 50 fictional securities move continuously during the active day
-- daily opening prices carry forward from the previous close
+- the Federal Exchange's 50 fictional securities continue moving internally during the active day, but the player sees the published opening quotation until the closing bell
+- the hidden closing quotation is revealed at the close and becomes the next business day's opening basis
 - common market, sector, and company movement components
 - personal portfolio, arbitrary share quantities, Buy/Sell/Sell All, commissions, dividends, transaction history, cost basis, and realized/unrealized profit and loss
 - Federal Electric remains private at game start; a future IPO is optional
@@ -43,7 +43,6 @@ The simulation now runs as a living business day:
 - personal notebook for recording tips and conversations without guaranteeing their truth
 - first Washington social/underworld location: **The Star Club**, operated by Madam Star
 - the Neighborhood Game is open by default; meeting Eddie Doyle through Madam Star unlocks the Commerce Club, while Commerce Club play can lead to Harrison Vale and an Embassy Room invitation
-- 10 Neighborhood Game wins unlock the Commerce Club; simulated wins count the same as played wins
 - Commerce Club sessions can build a connection with Harrison Vale, whose invitation unlocks the Embassy Room
 - manual poker shows the authoritative Federal Electric business-day clock; time spent at the table passes on that same live clock and is not deducted again when you leave
 - poker simulation time scales by room: Neighborhood 5 minutes, Commerce Club 10 minutes, Embassy Room 25 minutes; insufficient remaining time blocks the simulation
@@ -53,9 +52,22 @@ The simulation now runs as a living business day:
 - independently scheduled police raids
 - scheduled **Capital Race Grounds** meeting: four qualifying heats, two semifinals, and a Main Event; races run automatically from 30:00 remaining through 05:00 remaining whether the player attends or not
 - persistent horses carry form, fatigue, fitness, injuries, jockeys, preferences, career records, and odds across race meetings
-- Win / Place / Show betting uses personal cash; the player may attend the entire meeting or arrive late solely for later races or the Main Event
+- Win / Place / Show betting uses personal cash with no arbitrary game-imposed wager cap; available cash and future historically justified market constraints are the intended limits
+- the player can place tickets in advance on any race whose field is already established; all four heats are available before they run, while semifinals and the Main Event open when qualifiers are known
+- races and wagers settle on the shared business clock even while the player is elsewhere; the Race & Wager Ledger records results and running betting profit/loss
 - visible tournament progression shows completed results, advancing qualifiers, upcoming fields, and the Main Event path
 - red, ivory, and deep-navy Washington/corporate-paperwork UI
+
+## Planned day/night structure
+
+The current build still uses the single 60-minute business-day runtime while the next time-system expansion is being designed.
+
+- **Hour 1 — Business Day:** factory, contracts, suppliers, Federal Exchange, daytime meetings, the regular race meeting, and daytime contacts
+- **Hour 2 — Washington Night:** the exchange and ordinary daytime business close; night-only people, events, social venues, illicit activities, and selected legal evening sports become available
+- Madam Star remains available in both phases, but her daytime and nighttime encounter pools are different
+- planned night-only Star Club options include **Brief Evening Visit** and **Evening Visit**
+- the private end-of-day report comes after the night phase; the Metropolitan Ledger is delivered at the beginning of the next day
+- daytime and nighttime remain one continuous world: time spent elsewhere can cause scheduled races or other events to occur without the player being present
 
 ## Design principle
 
