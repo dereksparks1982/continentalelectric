@@ -31,7 +31,7 @@ Frontend:
 - top-level sticky buttons: **Executive Desk**, **Factory**, **Markets & News**, **Journal**, **Pastimes**
 - Factory sub-sections: **Production**, **Contracts**
 - Markets & News sub-sections: **Federal Exchange**, **Metropolitan Ledger**
-- Journal sub-sections: **Journal**, **Contacts**
+- Journal sub-sections: **Journal**, **Contacts**, **Info**, **Help**
 - Pastimes sub-sections: **Legal Sports**, **Illicit Activities**
 - active top-level and secondary section buttons are blue with white text
 - pause still forces **Executive Desk** and disables/grays out all gameplay navigation and controls
@@ -59,6 +59,7 @@ Known market polish:
 - **Federal Exchange prior close:** securities now have a generated prior close before the first playable day and a new opening movement on later business mornings, so the Day column is not universally +0.00%.
 - **Security records:** company names on the exchange are clickable. Each record shows approximately 90 pre-game trading sessions in a period-styled quotation graph and ledger, then appends completed in-game trading days.
 - **Not yet implemented:** wartime copper restrictions, priority allocation, and government-contract access to scarce materials remain future war-economy systems.
+- **In-game Help:** the Journal group now includes **Help**, opening a detailed **How to Play** manual with Quick Start, time/phase rules, factory/contracts, materials, markets/news, Journal/Contacts/Info, legal and illicit pastimes, Daily Report, saving, and a sample day.
 
 ### Factory and contracts
 - contract-driven light-bulb production
