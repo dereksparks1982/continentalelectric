@@ -59,7 +59,7 @@ You are responsible for keeping it alive, profitable, and growing.
 - Track payroll, machinery, inventory, operating costs, and the daily ledger.
 - Keep company money separate from your personal cash, or create accounting trouble for yourself.
 
-Federal Electric begins as a private company. What it eventually becomes is up to the player and the direction of the project.
+Federal Electric begins as a private company. The Executive Desk now includes an **Explore Public Offering** entry point that opens the planning scaffold for a future IPO. It shows current company indicators and the systems that will eventually govern offering structure, underwriting, governance, founder control, and a Federal Exchange listing, but it does not issue shares yet. What Federal Electric eventually becomes remains up to the player.
 
 ## Trade the Federal Exchange
 

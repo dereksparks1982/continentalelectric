@@ -164,6 +164,7 @@ Next v0.3 passes:
 
 ## v0.8 — Public Federal Electric
 
+- [x] Executive Desk scaffolding: `Explore Public Offering` opens a planning panel with live company indicators and placeholders for offering structure, underwriting, governance, founder control, and eventual Federal Exchange listing. No shares are issued yet.
 - optional IPO
 - valuation and percentage offered
 - founder ownership and public float

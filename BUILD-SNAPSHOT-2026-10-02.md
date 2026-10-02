@@ -197,3 +197,12 @@ See:
 - existing saves merge seeded pre-game quotations with their saved game history
 - Security Record shows published quote, prior close, day move, total record move, record high, record low, visible date range and quoted-session count
 - the quotation ledger shows the full stored record in a scrollable table instead of only the most recent 15 entries
+
+
+### Public offering scaffolding — v0.4.0
+
+- Ownership on the Executive Desk now has a far-right **Explore Public Offering** action
+- the action opens an in-place Federal Electric Securities Office planning panel
+- the panel shows live company value, reputation, accounting exposure, 100% founder ownership, private exchange status, and offering status
+- future IPO systems are visibly scaffolded for offering structure, valuation/pricing/underwriting, governance/control, and an eventual Federal Exchange listing
+- **Begin Public Offering** is intentionally disabled; this slice adds the doorway and information architecture only and does not issue shares, alter ownership, or change save schema

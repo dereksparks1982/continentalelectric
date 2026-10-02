@@ -195,3 +195,32 @@ main{
 .stock-detail-stats-six{grid-template-columns:repeat(3,minmax(130px,1fr))}
 .stock-history-period{padding:7px 9px;border:1px solid #b5ad9b;background:#f7f0df;font:12px 'Courier New',monospace}
 @media(max-width:700px){.stock-detail-stats-six{grid-template-columns:1fr 1fr}}
+
+/* v0.4.0 IPO planning scaffold */
+.ownership-sheet{border-top:5px solid var(--navy)}
+.ownership-head{display:flex;justify-content:space-between;align-items:center;gap:18px}
+.ownership-head h3{margin-top:0}
+.ownership-head p{margin-bottom:5px}
+.ownership-action{flex:0 0 auto;min-width:190px}
+.ipo-scaffold{margin-top:14px;padding-top:14px;border-top:2px solid var(--navy)}
+.ipo-scaffold[hidden]{display:none}
+.ipo-scaffold-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.ipo-scaffold-head h4{margin:7px 0 0;color:var(--navy);font:700 16px Georgia,serif}
+.ipo-indicators{display:grid;grid-template-columns:repeat(3,minmax(150px,1fr));gap:8px;margin:12px 0}
+.ipo-indicators>div{border:1px solid var(--rule);background:#f8f3e7;padding:9px}
+.ipo-indicators b,.ipo-indicators span{display:block}
+.ipo-indicators b{font:700 10px 'Courier New',monospace;text-transform:uppercase;color:var(--navy);margin-bottom:4px}
+.ipo-indicators span{font:700 14px 'Courier New',monospace}
+.ipo-future-grid{display:grid;grid-template-columns:repeat(2,minmax(220px,1fr));gap:8px}
+.ipo-future-grid article{border:1px solid var(--rule);border-top:4px solid var(--navy);background:#fffaf0;padding:10px}
+.ipo-future-grid article b{color:var(--navy);text-transform:uppercase;font:700 11px 'Courier New',monospace}
+.ipo-future-grid article p{margin:6px 0 0;font-size:12px;line-height:1.45}
+.ipo-scaffold-actions{margin-top:10px;text-align:right}
+@media(max-width:700px){
+ .ownership-head{display:block}
+ .ownership-action{width:100%;margin-top:8px}
+ .ipo-scaffold-head{display:block}
+ .ipo-scaffold-head button{margin-top:8px}
+ .ipo-indicators,.ipo-future-grid{grid-template-columns:1fr}
+ .ipo-scaffold-actions button{width:100%}
+}
