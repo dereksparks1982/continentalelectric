@@ -189,3 +189,17 @@ This file records decisions that should not drift silently during development.
 - Large positions can eventually unlock strategic influence, board access, negotiated combinations, takeover attempts and mergers without forcing the player through unnecessary securities-law busywork.
 - If Federal Electric goes public, the same ownership system can work against the player through dilution, outside share accumulation, board/proxy contests and possible loss of control.
 - Exact historical disclosure, merger, takeover and antitrust rules must be researched before implementation.
+
+
+## 2026-10-01 — Legal Sports, illicit activities, and fight-world discovery
+
+- The player-facing **After Hours** label is replaced by **Illicit Activities**.
+- The current Race Track area evolves into **Legal Sports**.
+- Capital Race Grounds is the daytime legal-sports anchor.
+- Licensed boxing is the nighttime legal-sports anchor, with persistent fighters, scheduled cards, automatic world-clock resolution and betting.
+- Private prizefights belong to Illicit Activities and may occur during either the Business Day or Washington Night. Daytime private fights intentionally compete with factory work, racing and legitimate meetings for the player's time.
+- Cockfighting belongs to Illicit Activities and is discovered separately from private prizefights.
+- Eddie Doyle's bookmaker role expands into a recurring source of leads. Speaking with him can reveal a private fight, cockfight, unusual betting action or no useful information.
+- The bookmaker is not the sole progression gate. Legal boxing contacts, Madam Star, poker contacts and other underworld relationships can independently reveal private prizefights or cockfighting.
+- Underground unlocks are independent rather than one master criminal-access switch.
+- Licensed boxing and private prizefighting share a connected fight world: contacts and fighters may cross between respectable and underground circles when the simulation provides a reason.
