@@ -179,3 +179,10 @@ Another browser-based simulation project from the same workshop.
 ### Compact status bar
 
 The persistent status strip uses abbreviated dates such as **THUR, JAN 6, 1938** and the global campaign marker **TURN 2/372**. The full written date remains available in the newspaper, footer, journal, and other game records. On desktop the status strip stays on one row so company cash, personal cash, and PAUSE remain together. After Turn 372, **Continue Empire** carries the same save into unlimited free play; **Start New Game** returns to January 1938.
+
+
+### Contract windows and factory shifts
+
+Contracts now carry their own turn-based delivery windows instead of all being forced to the end of the current month. Standard work generally allows **4 turns**, urgent work can be **same-day** or **2-turn rush**, and larger supplier orders can receive **6-, 8-, or 12-turn** windows that span multiple months. Larger generated purchase requests can exceed 10,000 bulbs, and production duration scales with quantity.
+
+The closing bell automatically stops any unfinished factory run. **Production does not restart itself the next morning.** The run remains stopped until the player returns to Factory and authorizes it, so forgetting to restart the line costs real production time.

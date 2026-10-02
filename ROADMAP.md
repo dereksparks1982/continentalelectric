@@ -115,7 +115,7 @@ Next v0.3 passes:
 - grade-specific finished-goods inventory and production-lot records — IMPLEMENTED FOUNDATION
 - player-controlled production quantity is independent of contract quantity; overproduction remains in Warehouse stock — IMPLEMENTED
 - manual contract fulfillment from Warehouse; no automatic end-of-turn shipment — IMPLEMENTED
-- contract delivery windows run through the contract month; the player may hold stock, make partial shipments where permitted, or deliberately miss the deadline — IMPLEMENTED FOUNDATION
+- contract delivery windows are turn-based per contract: ordinary work generally allows 4 turns, urgent work may be same-day or 2-turn rush, and large/major orders can span 6, 8, or 12 turns across multiple months — IMPLEMENTED FOUNDATION
 - unfinished production can be paused or switched only with confirmation; manufactured goods remain in Warehouse and progress is retained — IMPLEMENTED
 - production policy: Quality Priority / Normal / Rush, trading speed against defect risk — IMPLEMENTED FOUNDATION
 - workforce aggregate model: attendance, tardiness, absence, skill, morale, discipline, efficiency and quality — IMPLEMENTED FOUNDATION
@@ -125,6 +125,7 @@ Next v0.3 passes:
 - internal rejects and latent defects tied to production conditions; finished lots preserve QC history and customer defect claims can create refunds/replacement obligations — IMPLEMENTED FOUNDATION
 - durability, failures, returns and warranty expense beyond the current defect-claim foundation
 - historically researched wage system, hiring, retention, morale, skill and labor trouble
+- [x] Closing bell stops unfinished production and requires an explicit player restart on the next Business Day; forgotten restart time is lost.
 - machinery breakdowns, maintenance and upgrades
 - suppliers/material depth, including strategic stockpiling and future wartime restrictions
 - warehouse capacity, carrying cost and expansion

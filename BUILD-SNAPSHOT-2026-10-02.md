@@ -225,3 +225,15 @@ See:
 - after the Turn 372 Daily Report, a campaign-complete summary appears
 - **Continue Empire** preserves the current save and enters unlimited free play, where the header continues counting turns and labels the state **FREE PLAY**
 - **Start New Game** returns to January 1938
+
+
+### Contract windows and manual factory restart — v0.4.0
+
+- contract deadlines are stored as absolute campaign turns rather than being universally tied to the current month
+- standard contracts generally allow four turns from the turn they are found; some urgent offers are same-day or two-turn rush work
+- larger generated supplier orders can exceed 10,000 bulbs and receive six-, eight-, or twelve-turn windows that naturally cross month boundaries
+- accepted contracts preserve the delivery window shown on the purchase request
+- contract cards show deadline class, number of turns allowed, and exact deadline
+- production duration scales with order quantity instead of capping every large job at a 30-minute run
+- the closing bell stops any unfinished production run and marks it awaiting executive restart
+- the next Business Day never auto-resumes that line; the player must press Resume Production, and forgotten time is lost
