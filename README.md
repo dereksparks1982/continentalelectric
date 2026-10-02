@@ -7,7 +7,7 @@
 - **Play current build:** https://dereksparks1982.github.io/federalelectric/index.html?v=20261001-1835
 - **Georgia Sun:** https://dereksparks1982.github.io/georgiasun/index.html
 
-## Current prototype — v0.3.1-dev: The Working Factory
+## Current prototype — v0.3.2-dev: The Order Book
 
 The simulation now runs as a living business day:
 
@@ -19,13 +19,13 @@ The simulation now runs as a living business day:
 - the Federal Exchange's 50 fictional securities move continuously during the active day
 - daily opening prices carry forward from the previous close
 - common market, sector, and company movement components
-- personal portfolio, commissions, dividends, transaction history, and cost basis
+- personal portfolio, arbitrary share quantities, Buy/Sell/Sell All, commissions, dividends, transaction history, cost basis, and realized/unrealized profit and loss
 - Federal Electric remains private at game start; a future IPO is optional
 - dedicated **Contracts** department between Factory and Federal Exchange
-- Federal Electric starts with one real customer contract: Capital Hardware & Supply Co.
-- contracts specify customer, product, required quality, quantity, price and deadline
+- Federal Electric starts with one real customer contract and can spend 2 business minutes seeking additional work; a search may return several offers or none
+- contracts specify customer, product, required quality, quantity, price and deadline; accepted orders enter a player-controlled production queue
 - Factory works against accepted contracts instead of arbitrary instant sales
-- large live production bar advances continuously through the one-hour business day
+- small, medium and large orders are designed around roughly 10, 20 and 30 minute production runs; the queue warns when commitments exceed the time remaining
 - production consumes materials and operating cash as units are actually made
 - Star Club visits consume 30 minutes while the factory continues operating
 - unattended factory operation can suffer a semi-uncommon breakdown; Foreman Sullivan may fix it himself or leave the line stopped awaiting the owner's decision
@@ -36,7 +36,6 @@ The simulation now runs as a living business day:
 - first Washington social/underworld location: **The Star Club**, operated by Madam Star
 - first persistent contacts and bookmaker introduction
 - three playable backroom poker rooms with a browser-native Texas Hold'em engine, AI opponents, distinct class-based interiors, blinds, betting streets, hand evaluation and showdown
-- room-specific looping soundtrack controls: Boiler Room — *Sidewalk Hustle* (Geoff Harvey), Commerce Club — *The Foot Tappers Club* (kaazoom), Embassy Room — *Dancing in Smoke* (mcanden)
 - independently scheduled police raids
 - red, ivory, and deep-navy Washington/corporate-paperwork UI
 
