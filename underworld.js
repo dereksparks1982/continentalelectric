@@ -75,10 +75,10 @@ function process(){
 window.finishUnderworldDay=()=>{const u=ensureState(),e=u.events.privateFight;if(e.phase==='day'&&!e.result)resolvePrivate();save(true)};
 window.finishUnderworldNight=()=>{const u=ensureState(),p=u.events.privateFight,c=u.events.cockfight;if(p.phase==='night'&&!p.result)resolvePrivate();if(c.phase==='night'&&!c.result)resolveCock();save(true)};
 
-function unlock(kind,source){
+function unlock(kind,source,silent=false){
  const u=ensureState(),key=kind==='private'?'privateFightsUnlocked':'cockfightsUnlocked';if(u[key])return false;u[key]=true;
- const label=kind==='private'?'private prizefights':'cockfighting';
- S.notes.push({date:displayDate(),text:'Gained access to '+label+' through '+source+'.',source:'personal recollection'});save(true);return true;
+ if(!silent){const label=kind==='private'?'private prizefights':'cockfighting';S.notes.push({date:displayDate(),text:'Gained access to '+label+' through '+source+'.',source:'personal recollection'})}
+ save(true);return true;
 }
 window.unlockPrivateFightsFromBoxing=(source='a boxing contact')=>{const changed=unlock('private',source);if(changed){render();setNote('A contact from the fight crowd has given you access to private prizefights.')}return changed};
 
@@ -137,7 +137,7 @@ function cockMarkup(){
  return '<h4>Cockfighting</h4><p>'+eventTime(e)+'</p><div class="underground-match"><span>'+escapeHtml(a.name)+' <b>'+frac(e.odds[a.id])+'</b></span><span>vs.</span><span>'+escapeHtml(b.name)+' <b>'+frac(e.odds[b.id])+'</b></span></div>'+(e.bet?'<p class="underground-ticket">Ticket: '+escapeHtml(bird(e.bet.pickId).name)+' · '+cash(e.bet.wager)+'</p>':'<div class="underground-bet"><select id="cockfightPick"><option value="'+a.id+'">'+escapeHtml(a.name)+'</option><option value="'+b.id+'">'+escapeHtml(b.name)+'</option></select><input id="cockfightWager" type="number" min="1" step="1" value="25"><button id="cockfightBet">Place Bet</button></div>');
 }
 function hiddenUnlock(kind){
- const now=Date.now(),a=testClicks[kind];a.push(now);while(a.length&&now-a[0]>5000)a.shift();if(a.length>=7){a.length=0;unlock(kind,'test override');render()}
+ const now=Date.now(),a=testClicks[kind];a.push(now);while(a.length&&now-a[0]>5000)a.shift();if(a.length>=7){a.length=0;unlock(kind,'',true);render()}
 }
 function render(){
  const u=ensureState(),bookie=$u('askBookie'),promoter=$u('askPromoter'),madam=$u('askMadamUnderground');
