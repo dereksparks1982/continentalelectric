@@ -160,6 +160,11 @@ function boutCard(d){
  (bet?'<p class="boxing-ticket">Ticket: '+escapeHtml(fighter(bet.fighterId).name)+' · '+cash(bet.wager)+'</p>':
  '<div class="boxing-bet"><label>Fighter<select id="boxingPick_'+d.id+'"><option value="'+a.id+'">'+escapeHtml(a.name)+' ('+frac(b.odds[a.id])+')</option><option value="'+c.id+'">'+escapeHtml(c.name)+' ('+frac(b.odds[c.id])+')</option></select></label><label>Wager<input id="boxingWager_'+d.id+'" type="number" min="1" step="1" value="25"></label><button class="boxing-bet-btn" data-bout="'+d.id+'">Place Bet</button></div>')+'</article>';
 }
+function renderRoster(){
+ const el=$b('boxingRoster');if(!el)return;
+ const rows=[...S.boxing.roster].sort((a,b)=>a.weightClass.localeCompare(b.weightClass)||(b.wins-a.wins)||(a.losses-b.losses));
+ el.innerHTML='<div class="table-wrap"><table><thead><tr><th>Fighter</th><th>Class</th><th>Age</th><th>Style</th><th>Record</th><th>Condition</th><th>Status</th></tr></thead><tbody>'+rows.map(f=>'<tr><td><b>'+escapeHtml(f.name)+'</b></td><td>'+escapeHtml(f.weightClass)+'</td><td>'+f.age+'</td><td>'+escapeHtml(f.style)+'</td><td>'+recordLine(f)+'</td><td>'+Math.round(f.condition)+'%</td><td>'+(f.injury?escapeHtml(f.injury):'Cleared')+'</td></tr>').join('')+'</tbody></table></div>';
+}
 function renderLedger(){
  const el=$b('boxingLedger');if(!el)return;const card=S.boxing.card;let running=0;
  const done=CARD.filter(d=>card.bouts[d.id].result);
@@ -178,7 +183,7 @@ function render(){
    $b('boxingBankroll').textContent=cash(S.personalCash);
    $b('boxingCard').innerHTML=CARD.map(boutCard).join('');
    $b('boxingCard').querySelectorAll('.boxing-bet-btn').forEach(btn=>btn.addEventListener('click',()=>placeBet(btn.dataset.bout)));
-   renderLedger();return;
+   renderRoster();renderLedger();return;
  }
  if(horse)horse.hidden=true;box.hidden=true;if(notice)notice.hidden=true;
 }
