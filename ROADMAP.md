@@ -248,3 +248,25 @@ Stock purchases are not merely score-like investments. Shares represent ownershi
 - corporate-control systems should surface as event chains and major decisions rather than dense securities-law micromanagement
 - Federal Electric can eventually be vulnerable in the same way after an IPO: dilution, outside accumulation, proxy/control fights and possible loss of the company
 - takeover, merger, disclosure and antitrust mechanics require historically researched rules before implementation
+
+
+## Legal Sports / Illicit Activities expansion
+
+### Legal Sports
+- rename the current Race Track navigation area to **Legal Sports**
+- Capital Race Grounds operates during the Business Day
+- licensed boxing cards operate during Washington Night
+- persistent boxers, records, styles, condition, injuries and fight history
+- scheduled undercards and main events
+- fight betting with no arbitrary game-imposed cap; any limit must come from a researched or in-world reason
+- fight results and wagers settle on the authoritative world clock whether the player attends or not
+- major results feed the next morning's Metropolitan Ledger
+
+### Illicit Activities
+- replace the current **After Hours** label with **Illicit Activities**
+- backroom poker remains part of this category
+- add private prizefights and cockfighting as independently discoverable activities
+- private prizefights may be scheduled during the day or at night, creating direct competition with work and legal activities
+- underground activity is invitation/contact driven rather than presented as a complete menu from game start
+- multiple discovery routes: bookmaker, licensed boxing contacts, Madam Star, poker contacts and other future underworld NPCs
+- the bookmaker becomes a recurring source of leads, betting information and invitations rather than a single-use unlock
