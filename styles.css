@@ -224,3 +224,11 @@ main{
  .ipo-indicators,.ipo-future-grid{grid-template-columns:1fr}
  .ipo-scaffold-actions button{width:100%}
 }
+
+/* v0.4.0 compact persistent status bar */
+.daybar{gap:8px}
+#businessDate{white-space:nowrap}
+@media(min-width:701px){
+ .daybar{flex-wrap:nowrap;padding-left:10px;padding-right:10px}
+ .daybar>span,.daybar>b,#pauseToggle{flex:0 0 auto}
+}

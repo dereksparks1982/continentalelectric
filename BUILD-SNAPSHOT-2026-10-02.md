@@ -206,3 +206,11 @@ See:
 - the panel shows live company value, reputation, accounting exposure, 100% founder ownership, private exchange status, and offering status
 - future IPO systems are visibly scaffolded for offering structure, valuation/pricing/underwriting, governance/control, and an eventual Federal Exchange listing
 - **Begin Public Offering** is intentionally disabled; this slice adds the doorway and information architecture only and does not issue shares, alter ownership, or change save schema
+
+
+### Compact persistent header — v0.4.0
+
+- the status-bar date is shortened to forms such as **THUR, JAN 6, 1938**
+- the monthly pacing marker is shortened from **TURN 2 OF 7 THIS MONTH** to **TURN 2/7** in the persistent header only
+- full written dates and the explanatory monthly turn format remain available elsewhere
+- desktop status items no longer wrap into a second row, keeping company cash, personal cash, and PAUSE together

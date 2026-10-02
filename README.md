@@ -174,3 +174,8 @@ Federal Electric is actively being developed. The README is intentionally kept p
 **[Georgia Sun](https://dereksparks1982.github.io/georgiasun/index.html)**
 
 Another browser-based simulation project from the same workshop.
+
+
+### Compact status bar
+
+The persistent status strip uses abbreviated dates such as **THUR, JAN 6, 1938** and the compact monthly turn marker **TURN 2/7**. The full written date remains available in the newspaper, footer, journal, and other game records. On desktop the status strip stays on one row so company cash, personal cash, and PAUSE remain together.
