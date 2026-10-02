@@ -74,6 +74,7 @@ Next v0.3 passes:
 - wrong-quality shipment rejection, discounted acceptance and replacement obligations — IMPLEMENTED FOUNDATION
 - partial delivery where the contract/customer permits it — IMPLEMENTED
 - grade-specific finished inventory and production-grade selection — IMPLEMENTED
+- player-controlled production quantity is independent of contract quantity; production runs may be shorter than the order or exceed it, with runtime scaling to the chosen quantity and surplus remaining in finished inventory — IMPLEMENTED
 - production-grade changeover time — IMPLEMENTED FOUNDATION
 - contract reliability affects future terms and customer relationships — IMPLEMENTED FOUNDATION
 - richer daily factory demand and sales
