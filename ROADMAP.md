@@ -223,7 +223,7 @@ Work is performed one slice at a time on `main`, with each slice verified before
 - [x] Add closable activity panels to Legal Sports and Illicit Activities so only the selected pastime needs to be expanded; closing a panel never stops world simulation.
 - [x] Add visible game version `v0.4.0` at the far top-right of the blue masthead, separate from save-schema version 12.
 - [x] Clarify the status bar as `TURN X OF 7 THIS MONTH`.
-- [x] Apply one consistent green-felt background to the main workspace on every page, removing the separate walnut Executive Desk treatment and localized felt boxes while keeping paper cards, forms, tables and ledgers readable on top.
+- [x] Style the full game surface as a 1930s executive desktop: dark wood across the outer margins and primary-navigation strip, with the green-felt main workspace inset into the wood and paper records layered on top.
 - [x] Fix Journal note-entry sizing so the note and source fields remain readable instead of clipping their text.
 
 

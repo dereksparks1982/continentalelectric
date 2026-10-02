@@ -181,8 +181,8 @@ See:
 
 ### Green-felt interface pass — v0.4.0
 
-- green felt is now the background of the main workspace on every page instead of appearing as separate boxes around selected controls
-- the earlier walnut Executive Desk surround and localized felt panels were removed completely
+- green felt remains the inset background of the main workspace on every page instead of appearing as separate boxes around selected controls
+- the outer left/right margins and the primary navigation strip now use a dark 1930s wood treatment so the full interface reads as a wooden executive desk with a central felt writing surface
 - summary cards, forms, tables, contracts, ledgers, newspaper content and activity headers remain paper-based on top of the felt background
 - Journal keeps the responsive Note / Source / Write It Down layout so its text fields remain readable instead of clipping
 - visible version label remains **v0.4.0**

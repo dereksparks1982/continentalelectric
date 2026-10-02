@@ -16,7 +16,7 @@ The important part is that you cannot do everything.
 
 There is one current game build. Your progress is saved in the browser and resumes from where you left off.
 
-The primary navigation is grouped into **Executive Desk**, **Factory**, **Markets & News**, **Journal**, and **Pastimes**, with related screens nested inside each section to keep the interface manageable on desktop and mobile. The main game workspace now uses a consistent green-felt background across every page, with paper cards, forms, tables, contracts, ledgers and newspaper content sitting on top of it.
+The primary navigation is grouped into **Executive Desk**, **Factory**, **Markets & News**, **Journal**, and **Pastimes**, with related screens nested inside each section to keep the interface manageable on desktop and mobile. The interface is styled as a 1930s executive desktop: dark wood fills the outer page margins and the primary navigation strip, while the main game workspace is an inset green-felt writing surface with paper cards, forms, tables, contracts, ledgers and newspaper content sitting on top.
 
 ## The Clock Keeps Moving
 
