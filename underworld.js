@@ -43,7 +43,14 @@ function ensureState(){
 }
 function pf(id){return S.underworld.fighters.find(x=>x.id===id)}
 function bird(id){return S.underworld.birds.find(x=>x.id===id)}
-function eventTime(e){return (e.phase==='day'?'Business Day ':'Washington Night ')+fmt(e.threshold)+' remaining'}
+function secondsUntilEvent(e){
+ if(e.result)return 0;
+ if(S.phase===e.phase)return Math.max(0,S.dayRemaining-e.threshold);
+ if(S.phase==='day'&&e.phase==='night')return Math.max(0,S.dayRemaining)+Math.max(0,NIGHT_SECONDS-e.threshold);
+ return 0;
+}
+function eventTime(e){return (e.phase==='day'?'Business Day':'Washington Night')+' · '+(e.result?'COMPLETE':'event in '+fmt(secondsUntilEvent(e)))}
+function eventCountdownMarkup(e,label){return '<div class="underground-countdown" data-event-phase="'+e.phase+'" data-event-threshold="'+e.threshold+'"><small>'+label+'</small><b>'+fmt(secondsUntilEvent(e))+'</b><span>'+escapeHtml(e.phase==='day'?'BUSINESS DAY':'WASHINGTON NIGHT')+'</span></div>'}
 function spendLeadTime(seconds=120){
  if(S.phase==='report')return false;
  if(S.dayRemaining<seconds){setNote('There is not enough time remaining to chase that lead.');return false}
@@ -127,16 +134,20 @@ function privateMarkup(){
  const u=S.underworld,e=u.events.privateFight;
  if(!u.privateFightsUnlocked)return '<h4>Private Prizefights</h4><p class="muted">Invitation required.</p>';
  const a=pf(e.fighters[0]),b=pf(e.fighters[1]);
- if(e.result){const w=pf(e.result.winnerId);return '<h4>Private Prizefights</h4><p><b>Latest result:</b> '+escapeHtml(w.name)+' by '+e.result.method+'.</p>'+(e.bet?'<p class="underground-ticket">Your bet '+(e.bet.net>=0?'+':'')+cash(e.bet.net)+'</p>':'')}
- return '<h4>Private Prizefights</h4><p>'+eventTime(e)+'</p><div class="underground-match"><span>'+escapeHtml(a.name)+' <b>'+frac(e.odds[a.id])+'</b></span><span>vs.</span><span>'+escapeHtml(b.name)+' <b>'+frac(e.odds[b.id])+'</b></span></div>'+(e.bet?'<p class="underground-ticket">Ticket: '+escapeHtml(pf(e.bet.pickId).name)+' · '+cash(e.bet.wager)+'</p>':'<div class="underground-bet"><select id="privateFightPick"><option value="'+a.id+'">'+escapeHtml(a.name)+'</option><option value="'+b.id+'">'+escapeHtml(b.name)+'</option></select><input id="privateFightWager" type="number" min="1" step="1" value="25"><button id="privateFightBet">Place Bet</button></div>');
+ if(e.result){const w=pf(e.result.winnerId);return '<h4>Private Prizefights</h4><p><b>Latest result:</b> '+escapeHtml(w.name)+' by '+e.result.method+'.</p>'+(e.bet?'<p class="underground-ticket">Wager '+cash(e.bet.wager)+' · Payout '+cash(e.bet.payout||0)+' · Net '+(e.bet.net>=0?'+':'')+cash(e.bet.net)+'</p>':'')}
+ const ticket=e.bet?'<p class="underground-ticket">Ticket: '+escapeHtml(pf(e.bet.pickId).name)+' · Wager '+cash(e.bet.wager)+' · Potential payout '+cash(Math.round(e.bet.wager*(e.odds[e.bet.pickId]||2)))+'</p>':'<div class="underground-bet"><select id="privateFightPick"><option value="'+a.id+'">'+escapeHtml(a.name)+'</option><option value="'+b.id+'">'+escapeHtml(b.name)+'</option></select><input id="privateFightWager" type="number" min="1" step="1" value="25"><button id="privateFightBet">Place Bet</button></div>';
+ return '<h4>Private Prizefights</h4>'+eventCountdownMarkup(e,'FIGHT IN')+'<p class="fine">'+eventTime(e)+'. The bout settles automatically whether this panel is open or closed.</p><div class="underground-match"><span>'+escapeHtml(a.name)+' <b>'+frac(e.odds[a.id])+'</b></span><span>vs.</span><span>'+escapeHtml(b.name)+' <b>'+frac(e.odds[b.id])+'</b></span></div>'+ticket;
 }
+
 function cockMarkup(){
  const u=S.underworld,e=u.events.cockfight;
  if(!u.cockfightsUnlocked)return '<h4>Cockfighting</h4><p class="muted">Invitation required.</p>';
  const a=bird(e.birds[0]),b=bird(e.birds[1]);
- if(e.result){const w=bird(e.result.winnerId);return '<h4>Cockfighting</h4><p><b>Latest result:</b> '+escapeHtml(w.name)+' won after '+e.result.duration+' minutes.</p>'+(e.bet?'<p class="underground-ticket">Your bet '+(e.bet.net>=0?'+':'')+cash(e.bet.net)+'</p>':'')}
- return '<h4>Cockfighting</h4><p>'+eventTime(e)+'</p><div class="underground-match"><span>'+escapeHtml(a.name)+' <b>'+frac(e.odds[a.id])+'</b></span><span>vs.</span><span>'+escapeHtml(b.name)+' <b>'+frac(e.odds[b.id])+'</b></span></div>'+(e.bet?'<p class="underground-ticket">Ticket: '+escapeHtml(bird(e.bet.pickId).name)+' · '+cash(e.bet.wager)+'</p>':'<div class="underground-bet"><select id="cockfightPick"><option value="'+a.id+'">'+escapeHtml(a.name)+'</option><option value="'+b.id+'">'+escapeHtml(b.name)+'</option></select><input id="cockfightWager" type="number" min="1" step="1" value="25"><button id="cockfightBet">Place Bet</button></div>');
+ if(e.result){const w=bird(e.result.winnerId);return '<h4>Cockfighting</h4><p><b>Latest result:</b> '+escapeHtml(w.name)+' won after '+e.result.duration+' minutes.</p>'+(e.bet?'<p class="underground-ticket">Wager '+cash(e.bet.wager)+' · Payout '+cash(e.bet.payout||0)+' · Net '+(e.bet.net>=0?'+':'')+cash(e.bet.net)+'</p>':'')}
+ const ticket=e.bet?'<p class="underground-ticket">Ticket: '+escapeHtml(bird(e.bet.pickId).name)+' · Wager '+cash(e.bet.wager)+' · Potential payout '+cash(Math.round(e.bet.wager*(e.odds[e.bet.pickId]||2)))+'</p>':'<div class="underground-bet"><select id="cockfightPick"><option value="'+a.id+'">'+escapeHtml(a.name)+'</option><option value="'+b.id+'">'+escapeHtml(b.name)+'</option></select><input id="cockfightWager" type="number" min="1" step="1" value="25"><button id="cockfightBet">Place Bet</button></div>';
+ return '<h4>Cockfighting</h4>'+eventCountdownMarkup(e,'MATCH IN')+'<p class="fine">'+eventTime(e)+'.</p><div class="underground-match"><span>'+escapeHtml(a.name)+' <b>'+frac(e.odds[a.id])+'</b></span><span>vs.</span><span>'+escapeHtml(b.name)+' <b>'+frac(e.odds[b.id])+'</b></span></div>'+ticket;
 }
+
 function renderLedger(){
  const el=$u('underworldLedger');if(!el)return;
  const u=ensureState(),events=[
@@ -150,6 +161,12 @@ function renderLedger(){
 }
 function hiddenUnlock(kind){
  const now=Date.now(),a=testClicks[kind];a.push(now);while(a.length&&now-a[0]>5000)a.shift();if(a.length>=7){a.length=0;unlock(kind,'',true);render()}
+}
+function updateUnderworldCountdowns(){
+ document.querySelectorAll('.underground-countdown').forEach(el=>{
+  const phase=el.dataset.eventPhase,threshold=Number(el.dataset.eventThreshold)||0,b=el.querySelector('b');if(!b)return;
+  b.textContent=fmt(secondsUntilEvent({phase,threshold,result:null}));
+ });
 }
 function render(){
  const u=ensureState(),bookie=$u('askBookie'),promoter=$u('askPromoter'),madam=$u('askMadamUnderground');
@@ -165,5 +182,5 @@ const madamBtn=$u('askMadamUnderground');if(madamBtn)madamBtn.addEventListener('
 $u('privateFightCard')?.addEventListener('click',()=>{if(!S.underworld?.privateFightsUnlocked)hiddenUnlock('private')});
 $u('cockfightCard')?.addEventListener('click',()=>{if(!S.underworld?.cockfightsUnlocked)hiddenUnlock('cock')});
 document.addEventListener('click',e=>{if(e.target?.dataset?.tab==='washington')setTimeout(render,0)});
-ensureState();lastPhase=S.phase;lastDate=S.gameDate;render();setInterval(()=>{if(document.hidden)return;const changed=process(),phaseChanged=lastPhase!==S.phase,dateChanged=lastDate!==S.gameDate;if(changed||phaseChanged||dateChanged){lastPhase=S.phase;lastDate=S.gameDate;render()}},1000);
+ensureState();lastPhase=S.phase;lastDate=S.gameDate;render();setInterval(()=>{if(document.hidden)return;const changed=process(),phaseChanged=lastPhase!==S.phase,dateChanged=lastDate!==S.gameDate;if(changed||phaseChanged||dateChanged){lastPhase=S.phase;lastDate=S.gameDate;render()}else updateUnderworldCountdowns()},1000);
 })();
