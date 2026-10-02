@@ -4,7 +4,7 @@
 
 ## Play
 
-- **Play current build:** https://dereksparks1982.github.io/federalelectric/index.html?v=20261001-clock
+- **Play current build:** https://dereksparks1982.github.io/federalelectric/index.html?v=20261001-clockfix2
 - **Georgia Sun:** https://dereksparks1982.github.io/georgiasun/index.html
 
 ## Current prototype — v0.3.5-dev: On the Clock
