@@ -67,3 +67,9 @@ This file records decisions that should not drift silently during development.
 - The Factory warns when estimated queued production exceeds remaining business-day time but does not block the decision.
 - Federal Exchange orders use arbitrary positive whole-share quantities rather than fixed 1/10/100 lots, with Buy, Sell, and Sell All actions.
 - The Federal Exchange keeps personal cash available visible and reports realized profit/loss on each stock sale and cumulatively by security.
+
+- Poker access progression is explicit: meet Eddie Doyle through Madam Star to unlock the Neighborhood Game; win 10 Neighborhood sessions to unlock the Commerce Club; the Embassy Room requires a separate elite social introduction/invitation path rather than another win counter.
+- Simulated poker is a first-class alternative to manually playing a session. Each simulation consumes exactly 5 active business minutes, advances unattended factory production, consumes one daily room session, changes personal cash, records the result in the Journal, and can trigger the same progression/events as a played session.
+- A positive poker session counts as a win whether manually played or simulated.
+- Admin/test override: seven clicks on the locked Embassy Room within five seconds unlock and open it immediately on click seven.
+- Poker music and its UI are out of current scope and removed until explicitly revisited.
