@@ -131,6 +131,7 @@ function generatePaper(){const d=new Date(S.gameDate+'T12:00:00'),day=d.getDate(
 function closeBusinessDay(manual=false){
  if(S.phase!=='day')return;
  if(window.finishRaceMeeting)window.finishRaceMeeting();
+ if(window.finishUnderworldDay)window.finishUnderworldDay();
  finishDayContracts();
  for(const x of Object.values(S.stocks)){x.price=Number.isFinite(+x.hiddenPrice)?+x.hiddenPrice:+x.price;x.prev=x.open}
  const payroll=S.workers*18;S.companyCash-=payroll;S.lastExpenses+=payroll;
@@ -144,6 +145,7 @@ function closeBusinessDay(manual=false){
 function closeNight(manual=false){
  if(S.phase!=='night')return;
  if(window.finishBoxingNight)window.finishBoxingNight();
+ if(window.finishUnderworldNight)window.finishUnderworldNight();
  if(monthKey(S.gameDate)===S.starNextRaidMonth&&!S.starRaidOccurred){S.starRaidOccurred=true;if(S.contacts.madamStar.met&&Math.random()<.15)S.lastRaidOutcome='missed';S.starNextRaidMonth=rollStarRaidMonth(S.gameDate)}
  if(isRaidToday()&&S.lastRaidOutcome!=='caught'&&Math.random()<.2)S.lastRaidOutcome='missed';
  if(!S.dailyReport)S.dailyReport={iso:S.gameDate,date:displayDate(),openingCompanyCash:S.dayStartCompanyCash,openingPersonalCash:S.dayStartPersonalCash,revenue:0,expenses:0,companyClose:S.companyCash,personalAtClose:S.personalCash};
