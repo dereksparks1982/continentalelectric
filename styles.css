@@ -24,3 +24,5 @@
 .report-grid article b{color:var(--navy)}
 .report-grid article span{font-family:'Courier New',monospace}
 @media(max-width:650px){.report-grid{grid-template-columns:1fr}.daily-report-overlay{padding:10px}.daily-report-card{padding:15px}}
+
+.report-events{margin:16px 0;border-top:2px solid var(--navy);padding-top:10px}.report-events h4{margin:0 0 8px;color:var(--navy);text-transform:uppercase}.report-events>div{display:grid;grid-template-columns:150px 1fr;gap:10px;padding:7px 0;border-bottom:1px solid var(--rule)}.report-events>div b{font:700 11px 'Courier New',monospace;text-transform:uppercase}.report-events>div span{line-height:1.35}@media(max-width:650px){.report-events>div{grid-template-columns:1fr}}
