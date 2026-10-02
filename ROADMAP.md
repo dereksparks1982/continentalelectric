@@ -15,7 +15,7 @@ Federal Electric is a long-save historical industrial, financial, social, and po
 9. Historical specifics are researched.
 10. Information can be incomplete or wrong depending on its source.
 
-## v0.3.4-dev — The Customer Is Always Right — CURRENT BUILD
+## v0.3.5-dev — On the Clock — CURRENT BUILD
 
 Implemented foundation:
 - 60-minute active business-day clock
@@ -33,7 +33,9 @@ Implemented foundation:
 - persistent contact data foundation
 - The Star Club and Madam Star
 - bookmaker introduction now gates entry to the Neighborhood Game
-- poker auto-resolution: Simulate Game consumes exactly 5 active business minutes and preserves cash, progression, factory-away, Journal and raid consequences — IMPLEMENTED
+- poker auto-resolution uses tiered time costs: Neighborhood 5 min, Commerce Club 10 min, Embassy Room 25 min; cash, progression, factory-away, Journal and raid consequences are preserved — IMPLEMENTED
+- manual poker displays remaining business-day time and charges actual elapsed table time on exit — IMPLEMENTED
+- production-time migration/normalization prevents impossible legacy estimates beyond the intended 10/20/30-minute order bands — IMPLEMENTED
 - 10 Neighborhood Game wins unlock the Commerce Club — IMPLEMENTED
 - Embassy Room unlock uses a separate Harrison Vale social/invitation path — IMPLEMENTED FOUNDATION
 - poker music UI removed from current scope
