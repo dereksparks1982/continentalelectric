@@ -108,8 +108,10 @@ function resolveRace(id,animate){
 }
 function processSchedule(){
  const m=ensureState(),jump=lastObservedRemaining==null?0:Math.max(0,lastObservedRemaining-S.dayRemaining),canAnimate=jump<=2;
- for(const d of SCHEDULE){const r=m.races[d.id];if(!r.result&&S.dayRemaining<=d.threshold){updateQualifiers();if(r.participants.length)resolveRace(d.id,canAnimate)}}
+ let changed=false;
+ for(const d of SCHEDULE){const r=m.races[d.id];if(!r.result&&S.dayRemaining<=d.threshold){updateQualifiers();if(r.participants.length){resolveRace(d.id,canAnimate);changed=true}}}
  lastObservedRemaining=S.dayRemaining;
+ return changed;
 }
 function nextRace(){
  const m=ensureState();for(const d of SCHEDULE){if(!m.races[d.id].result)return d}return null;
@@ -178,9 +180,17 @@ function drawAnimation(t){
  if(!animation)return;const rank=new Map(animation.ids.map((id,i)=>[id,i])),r=S.racing.meeting.races[animation.raceId];
  for(const pid of r.participants){const place=rank.get(pid)||0,finishBonus=(r.participants.length-place)*.7,noise=Math.sin(t*14+pid)*1.3,progress=Math.min(100,Math.max(0,t*(94+finishBonus)+noise));const bar=$r('raceBar_'+pid),pct=$r('racePct_'+pid);if(bar)bar.style.width=progress+'%';if(pct)pct.textContent=t>=1?ordinal(place+1):Math.floor(progress)+'%'}
 }
+function updateRaceClock(){
+ const d=nextRace(),clock=$r('raceNext')?.querySelector('.race-countdown b');
+ if(d&&clock&&!animation)clock.textContent=fmt(Math.max(0,S.dayRemaining-d.threshold));
+ const bankroll=$r('raceBankroll');if(bankroll)bankroll.textContent=cash(S.personalCash);
+}
 function tick(){
- if(document.hidden)return;ensureState();processSchedule();
- if(document.getElementById('racing')?.classList.contains('active'))renderRacing();
+ if(document.hidden)return;ensureState();const changed=processSchedule();
+ if(document.getElementById('racing')?.classList.contains('active')){
+   if(changed&&!animation)renderRacing();
+   else updateRaceClock();
+ }
 }
 document.addEventListener('click',e=>{if(e.target?.dataset?.tab==='racing')setTimeout(renderRacing,0)});
 ensureState();processSchedule();renderRacing();setInterval(tick,1000);
