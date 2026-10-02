@@ -4,7 +4,7 @@
 
 ## Play
 
-- **Play current build:** https://dereksparks1982.github.io/federalelectric/index.html?v=20261001-1835
+- **Play current build:** https://dereksparks1982.github.io/federalelectric/index.html?v=20261001-ordbook
 - **Georgia Sun:** https://dereksparks1982.github.io/georgiasun/index.html
 
 ## Current prototype — v0.3.2-dev: The Order Book
