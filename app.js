@@ -52,7 +52,7 @@ function displayDate(){return new Date(S.gameDate+'T12:00:00').toLocaleDateStrin
 function clockText(){const t=Math.max(0,Math.ceil(S.dayRemaining)),m=Math.floor(t/60),s=t%60;return String(m).padStart(2,'0')+':'+String(s).padStart(2,'0')}
 function businessOpen(){return S.phase==='day'}
 function updateCashHeader(){const company=$('#headerCompanyCash'),personal=$('#headerPersonalCash');if(company)company.textContent=money(S.companyCash);if(personal)personal.textContent=money(S.personalCash)}
-function renderPauseToggle(){const btn=$('#pauseToggle');if(!btn)return;const paused=!!S.paused;btn.textContent=paused?'▶':'Ⅱ';btn.setAttribute('aria-label',paused?'Resume simulation':'Pause simulation');btn.setAttribute('aria-pressed',paused?'true':'false');btn.title=paused?'Resume simulation':'Pause simulation';btn.classList.toggle('paused',paused)}
+function renderPauseToggle(){const btn=$('#pauseToggle');if(!btn)return;const paused=!!S.paused;btn.textContent=paused?'PLAY':'PAUSE';btn.setAttribute('aria-label',paused?'Play simulation':'Pause simulation');btn.setAttribute('aria-pressed',paused?'true':'false');btn.title=paused?'Play simulation':'Pause simulation';btn.classList.toggle('paused',paused)}
 window.updateCashHeader=updateCashHeader;
 function accountingExposure(){
  const missing=Math.max(0,+S.unaccountedFunds||0);if(!missing)return 'NONE';
