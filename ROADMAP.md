@@ -164,6 +164,8 @@ Postwar reconversion, consumer boom, Cold War industry/electronics, acquisitions
 
 ## Stabilization queue — v0.3.6-dev
 
+- [x] Keep the business-day clock and primary navigation visible while scrolling so time-critical controls never disappear.
+
 Work is performed one slice at a time on `main`, with each slice verified before moving to the next.
 
 - [x] Remove manual Save/Load controls; autosave is authoritative; rename New Company to New Game with destructive-progress confirmation.
