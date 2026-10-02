@@ -89,3 +89,20 @@ body.game-paused #reset{opacity:1;cursor:pointer}
  .stock-detail-stats{grid-template-columns:1fr 1fr}
  .material-trade{display:grid;grid-template-columns:90px 1fr}
 }
+
+/* v0.4.0-dev masthead version + 1930s executive desk surface */
+header{position:relative}
+.app-version{position:absolute;top:7px;right:10px;z-index:3;padding:2px 5px;border:1px solid rgba(255,255,255,.55);background:rgba(0,0,0,.12);color:#fff;font:700 11px 'Courier New',monospace;letter-spacing:.08em}
+.confidential-stamp{margin-top:14px}
+.executive-desk-surface{margin:0 0 16px;padding:18px;border:1px solid #40291d;border-radius:3px;background:
+ linear-gradient(90deg,rgba(255,255,255,.04),transparent 18%,rgba(0,0,0,.05) 48%,rgba(255,255,255,.03) 75%,transparent),
+ repeating-linear-gradient(8deg,#6a412a 0,#6a412a 12px,#5e3825 13px,#6f472f 26px);
+ box-shadow:inset 0 0 0 3px #8a5a37,inset 0 0 22px rgba(28,15,8,.55),0 2px 4px rgba(0,0,0,.2)}
+.executive-desk-blotter{padding:16px;border:2px solid #243a31;border-radius:2px;background:
+ radial-gradient(circle at 20% 20%,rgba(255,255,255,.035),transparent 26%),
+ repeating-linear-gradient(0deg,rgba(255,255,255,.018) 0,rgba(255,255,255,.018) 1px,transparent 1px,transparent 4px),
+ #294b3d;
+ box-shadow:inset 0 0 0 2px #172c24,inset 0 0 18px rgba(0,0,0,.35),0 1px 0 rgba(255,255,255,.15)}
+.executive-desk-blotter article{background:#f7f0df;border-color:#6f6859;border-top-color:#b59a61;box-shadow:0 2px 5px rgba(0,0,0,.25)}
+.executive-desk-blotter article b{color:#493728}.executive-desk-blotter article span{color:#172238}
+@media(max-width:700px){.app-version{top:5px;right:7px;font-size:9px}.confidential-stamp{margin-top:16px}.executive-desk-surface{padding:10px}.executive-desk-blotter{padding:10px}}
