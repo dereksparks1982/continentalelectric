@@ -191,15 +191,23 @@ function render(){
  $('#materials').innerHTML=Object.entries(MATERIAL_MARKET).map(([k,m])=>'<tr><td>'+m.name+'</td><td>'+Math.floor(S.materials[k]).toLocaleString()+'</td><td>'+unitCash(m.unitPrice)+'/unit</td><td><div class="material-trade"><input id="material_qty_'+k+'" type="number" min="1" step="1" value="1000" aria-label="'+m.name+' quantity"><div class="trade-buttons"><button onclick="tradeMaterial(\''+k+'\',1)">Buy</button><button onclick="tradeMaterial(\''+k+'\',-1)">Sell</button><button onclick="sellAllMaterial(\''+k+'\')">Sell All</button></div></div></td></tr>').join('');
  renderFactory();renderWarehouse();renderWorkforce();renderContracts();renderStocks();renderHoldings();renderTransactions();renderNotes();renderArchive();renderWashington();renderTreasury();renderDailyReport();renderCampaignEnd();applyPauseLock();syncTopNavigation()
 }
-function wagerSummaryForReport(iso){
- let horse=0,boxing=0,underground=0,tickets=0;
- if(S.racing?.meeting?.date===iso){for(const b of Object.values(S.racing.meeting.bets||{})){if(b?.settled){horse+=b.net||0;tickets++}}}
- if(S.boxing?.card?.date===iso){for(const b of Object.values(S.boxing.card.bets||{})){if(b?.settled){boxing+=b.net||0;tickets++}}}
- if(S.underworld?.events?.date===iso){
-   for(const e of [S.underworld.events.privateFight,S.underworld.events.cockfight]){if(e?.bet?.settled){underground+=e.bet.net||0;tickets++}}
- }
- return {horse,boxing,underground,net:horse+boxing+underground,tickets};
+function wagerBucket(bets){
+ const out={wagered:0,payout:0,net:0,tickets:0};
+ for(const b of Object.values(bets||{})){if(b?.settled){out.wagered+=+b.wager||0;out.payout+=+b.payout||0;out.net+=+b.net||0;out.tickets++}}
+ return out;
 }
+function wagerSummaryForReport(iso){
+ const horse=S.racing?.meeting?.date===iso?wagerBucket(S.racing.meeting.bets):wagerBucket();
+ const dog=S.dogRacing?.meeting?.date===iso?wagerBucket(S.dogRacing.meeting.bets):wagerBucket();
+ const car=S.midgetCarRacing?.meeting?.date===iso?wagerBucket(S.midgetCarRacing.meeting.bets):wagerBucket();
+ const boxing=S.boxing?.card?.date===iso?wagerBucket(S.boxing.card.bets):wagerBucket();
+ const underground=wagerBucket();
+ if(S.underworld?.events?.date===iso){for(const e of [S.underworld.events.privateFight,S.underworld.events.cockfight]){if(e?.bet?.settled){underground.wagered+=+e.bet.wager||0;underground.payout+=+e.bet.payout||0;underground.net+=+e.bet.net||0;underground.tickets++}}}
+ const groups=[horse,dog,car,boxing,underground],total=groups.reduce((o,g)=>({wagered:o.wagered+g.wagered,payout:o.payout+g.payout,net:o.net+g.net,tickets:o.tickets+g.tickets}),{wagered:0,payout:0,net:0,tickets:0});
+ return {horse,dog,car,boxing,underground,total};
+}
+function wagerReportLine(g){return 'Wagered '+money(g.wagered)+' · Payout '+money(g.payout)+' · Net '+(g.net>0?'+':'')+cash(g.net)}
+
 function renderDailyReport(){
  const panel=$('#dailyReportOverlay');if(!panel)return;
  if(S.phase!=='report'||!S.dailyReport){panel.hidden=true;return}
@@ -224,11 +232,15 @@ function renderDailyReport(){
  '<article><b>Realized stock P/L</b><span>'+cash(r.stockRealized||0)+'</span></article>'+
  '<article><b>Held-stock day move</b><span>'+cash(r.stockPositionMove||0)+'</span></article>'+
  '<article><b>Federal Exchange close</b><span>'+((r.marketCloseIndex||marketIndex()).toFixed(2))+'</span></article>'+
- '<article><b>Horse-racing net</b><span>'+cash(w.horse)+'</span></article>'+
- '<article><b>Licensed-boxing net</b><span>'+cash(w.boxing)+'</span></article>'+
- '<article><b>Underground betting net</b><span>'+cash(w.underground)+'</span></article>'+
- '<article><b>Settled wagers</b><span>'+w.tickets+'</span></article>'+
- '<article><b>Total wager net</b><span>'+cash(w.net)+'</span></article>'+
+ '<article><b>Horse racing</b><span>'+wagerReportLine(w.horse)+'</span></article>'+
+ '<article><b>Dog racing</b><span>'+wagerReportLine(w.dog)+'</span></article>'+
+ '<article><b>Midget car racing</b><span>'+wagerReportLine(w.car)+'</span></article>'+
+ '<article><b>Licensed boxing</b><span>'+wagerReportLine(w.boxing)+'</span></article>'+
+ '<article><b>Underground betting</b><span>'+wagerReportLine(w.underground)+'</span></article>'+
+ '<article><b>Total wagered</b><span>'+money(w.total.wagered)+'</span></article>'+
+ '<article><b>Total payout</b><span>'+money(w.total.payout)+'</span></article>'+
+ '<article><b>Settled wagers</b><span>'+w.total.tickets+'</span></article>'+
+ '<article><b>Total wager net</b><span>'+(w.total.net>0?'+':'')+cash(w.total.net)+'</span></article>'+
  '<article><b>Portfolio at close</b><span>'+money(r.portfolioEnd||r.portfolioAtMarketClose||0)+'</span></article>'+
  '<article><b>Reputation</b><span>'+Math.round(S.reputation)+'/100</span></article>'+
  '</div>'+events+'<p class="fine">This is Federal Electric\'s private accounting of the completed date. The Metropolitan Ledger appears only after you retire and the next business morning begins.</p>';
@@ -567,10 +579,10 @@ function visitStar(seconds,price,encounterChance,trustGain,period){
  }else $('#starNote').textContent=period==='night'?(seconds===900?'You make a brief evening visit. The room is lively, but nothing especially useful develops.':'You spend part of the evening at the Star Club. Nothing especially useful develops.'):(seconds===900?'You make a brief daytime visit to the Star Club. Nothing especially useful develops.':'You spend the afternoon at the Star Club. Nothing especially useful develops.');
  save();render();
 }
-$('#visitStarBrief').onclick=()=>visitStar(900,5,.12,1,'day');
-$('#visitStarAfternoon').onclick=()=>visitStar(1800,12,.28,2,'day');
-const visitStarEveningBrief=$('#visitStarEveningBrief');if(visitStarEveningBrief)visitStarEveningBrief.onclick=()=>visitStar(900,5,.18,1,'night');
-const visitStarEvening=$('#visitStarEvening');if(visitStarEvening)visitStarEvening.onclick=()=>visitStar(1800,12,.38,2,'night');
+$('#visitStarBrief').onclick=()=>visitStar(900,50,.12,1,'day');
+$('#visitStarAfternoon').onclick=()=>visitStar(1800,150,.28,2,'day');
+const visitStarEveningBrief=$('#visitStarEveningBrief');if(visitStarEveningBrief)visitStarEveningBrief.onclick=()=>visitStar(900,100,.18,1,'night');
+const visitStarEvening=$('#visitStarEvening');if(visitStarEvening)visitStarEvening.onclick=()=>visitStar(1800,300,.38,2,'night');
 function pokerAccess(circle){if(circle==='working')return true;if(circle==='middle')return !!S.middlePokerUnlocked;if(circle==='elite')return !!S.elitePokerUnlocked;return false}
 function pokerLimit(circle){return {working:5,middle:3,elite:1}[circle]||0}
 function pokerCircleName(circle){return circle==='working'?'Neighborhood Game':circle==='middle'?'Commerce Club':'Embassy Room'}

@@ -245,3 +245,7 @@ main{
 .campaign-end-grid article span{font-family:'Courier New',monospace;text-align:right}
 .campaign-end-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:16px}
 @media(max-width:650px){.campaign-end-overlay{padding:10px}.campaign-end-card{padding:15px}.campaign-end-grid{grid-template-columns:1fr}.campaign-end-actions{display:grid;grid-template-columns:1fr}.campaign-end-actions button{width:100%}}
+
+/* v0.4.0 Federal Electric wordmark initials */
+.brand-copy h1{display:flex;align-items:baseline;gap:0;white-space:nowrap}
+.brand-script-initial{display:inline-block;font-family:"Brush Script MT","Segoe Script","URW Chancery L",cursive;font-size:1.48em;font-weight:400;line-height:.7;letter-spacing:0;margin-right:.02em;transform:translateY(.06em)}
