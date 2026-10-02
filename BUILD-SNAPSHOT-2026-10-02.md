@@ -39,8 +39,17 @@ Frontend:
 - strategic ownership/takeovers remain future systems
 
 Known market polish:
-- first playable day still needs fictional previous-close seeding so every security does not begin at +0.00%
+- implemented fictional previous-close seeding and daily opening gaps, so the first playable morning and later mornings show non-zero positive/negative Day moves against a prior close
 - typed stock quantity persistence through every rerender remains a stabilization item until verified
+
+### Live dev additions after the closed snapshot
+
+- **Hard pause:** pressing PAUSE immediately returns the player to **Executive Desk**. Factory, Contracts, Federal Exchange, Metropolitan Ledger, Journal, Contacts, Legal Sports, Illicit Activities, and all other gameplay controls are disabled and visibly grayed out. Only **PLAY** and **New Game** remain usable.
+- **Raw-material trading:** copper, glass, and tungsten now support arbitrary quantity **Buy**, **Sell**, and **Sell All** actions rather than fixed purchase lots.
+- **Contract negotiation:** customer leads specify what they want, while Federal Electric proposes the quantity, grade, and unit price. Customers may accept, reject, or issue a counteroffer before the agreement becomes an accepted production contract.
+- **Federal Exchange prior close:** securities now have a generated prior close before the first playable day and a new opening movement on later business mornings, so the Day column is not universally +0.00%.
+- **Security records:** company names on the exchange are clickable. Each record shows approximately 90 pre-game trading sessions in a period-styled quotation graph and ledger, then appends completed in-game trading days.
+- **Not yet implemented:** wartime copper restrictions, priority allocation, and government-contract access to scarce materials remain future war-economy systems.
 
 ### Factory and contracts
 - contract-driven light-bulb production
