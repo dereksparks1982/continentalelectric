@@ -7,7 +7,7 @@
 - **Play current build:** https://dereksparks1982.github.io/federalelectric/index.html?v=20261001-fightworld1
 - **Georgia Sun:** https://dereksparks1982.github.io/georgiasun/index.html
 
-## Current prototype — v0.3.6-dev: Washington & Racing
+## Current prototype — v0.3.6-dev: Day/Night & Fight World
 
 The simulation now runs as a living business day:
 
@@ -16,6 +16,7 @@ The simulation now runs as a living business day:
 - closing/hiding the app freezes the simulation; there is **no offline progression**
 - exact remaining day time and quotations are autosaved and resume where they stopped
 - the Business Day ends at 00:00 and transitions into Washington Night; the night then ends at a mandatory private Daily Report before the next morning begins
+- factory and contract controls close with the Business Day rather than remaining available as free nighttime actions
 - the Federal Exchange's 50 fictional securities continue moving internally during the active day, but the player sees the published opening quotation until the closing bell
 - the hidden closing quotation is revealed at the close and becomes the next business day's opening basis
 - instant time-consuming actions also advance the hidden market for the time they consume, so a 30-minute visit cannot freeze half a trading day
@@ -58,6 +59,7 @@ The simulation now runs as a living business day:
 - races and wagers settle on the shared business clock even while the player is elsewhere; the Race & Wager Ledger records results and running betting profit/loss
 - visible tournament progression shows completed results, advancing qualifiers, upcoming fields, and the Main Event path
 - licensed boxing runs during Washington Night with a persistent fighter roster, four-bout card, fighter records/styles/condition, automatic scheduled resolution, and uncapped winner betting subject to available personal cash
+- the **Commission Fighter Registry** exposes persistent records, styles, ages, condition and medical status across cards
 - Legal Sports switches from Capital Race Grounds during the Business Day to licensed boxing during Washington Night
 - **Illicit Activities** contains the underworld side of Washington: backroom poker, bookmakers, private prizefights, cockfighting, and related contacts
 - Madam Star remains available in both phases with different encounter pools and separate Brief/Afternoon versus Brief Evening/Evening visit controls
