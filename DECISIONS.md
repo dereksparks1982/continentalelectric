@@ -249,3 +249,19 @@ This file records decisions that should not drift silently during development.
 - There is no arbitrary videogame ceiling on either transfer; the immediate hard limit is available company cash.
 - Treasury activity is included in the private Daily Report.
 - Future public-company, audit, board, shareholder, banking, blackmail and investigation systems can react to the accumulated misuse rather than treating each diversion as an isolated event.
+
+
+## 2026-10-02 — Closed build and next online milestone
+
+- The 2026-10-02 Day/Night, Fight World & Treasury build is closed as the current accepted development snapshot.
+- The large blue **Federal Electric / Confidential** masthead scrolls with page content.
+- Only the red phase/date/time/exchange/cash status bar and the primary navigation remain sticky.
+- Company Cash and Personal Cash remain visible in the sticky status bar on desktop and mobile.
+- The next active development milestone is **Accounts → Global Chat → Global Rankings**.
+- Accounts exist primarily to preserve long-running progress across new builds and devices.
+- New builds must migrate valid older saves forward rather than treating schema changes as permission to reset progress.
+- Cloud save and local save should coexist, with local storage retained as an emergency fallback rather than discarded.
+- Global Chat is account-backed but must remain operationally separate from game saving; chat failure cannot prevent the game from saving or loading.
+- Global Rankings must be derived from server-stored/validated game state rather than accepting arbitrary leaderboard numbers from the client.
+- Final leaderboard categories and formulas will be explicitly designed before implementation.
+- The first playable Federal Exchange should eventually seed a fictional previous close so first-day day-change values are not universally +0.00%; this is documented as market polish, not yet implemented.
