@@ -103,3 +103,16 @@ This file records decisions that should not drift silently during development.
 - **Afternoon Visit:** 30 business minutes, higher price, stronger opportunity for conversations, introductions, rumors, and encounters.
 - Both consume the same authoritative Federal Electric business-day clock and advance unattended factory production while the owner is away.
 - The shorter option exists so late-day visits remain possible without creating a free-time pocket.
+
+## 2026-10-01 — Blackmail and leverage
+
+- Federal Electric will support blackmail/leverage in both directions: NPCs may blackmail the player, and the player may acquire compromising information about NPCs.
+- A Star Club encounter may expose compromising conduct involving a fictional public figure or fictional presidential candidate, creating leverage rather than an automatic scripted outcome.
+- Information has provenance and strength; rumor is not equivalent to documented proof.
+- Leverage outcomes are systemic: compliance, refusal, favors, money, retaliation, counter-leverage, police/reporting risk, relationship damage, and consequences for Federal Electric.
+- Generated compromising conduct should attach to fictional political characters. Historical figures are handled only with sourced historical facts and clearly separated simulation consequences.
+
+## 2026-10-01 — Federal Exchange quantity control
+
+- The share quantity field sits immediately above Buy/Sell/Sell All so the player can change quantity and execute a trade without moving across the row.
+- Intraday market rerenders preserve the player's in-progress quantity entry instead of resetting it to 10.
