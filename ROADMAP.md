@@ -177,8 +177,20 @@ Work is performed one slice at a time on `main`, with each slice verified before
 - [ ] Audit partial shipments, wrong-grade settlement, replacement inventory, deadlines, and repeated late penalties.
 - [ ] Add two Star Club visit lengths: Brief Visit (15 business minutes, lower price/opportunity) and Afternoon Visit (30 business minutes, higher price/opportunity); both advance the same authoritative business clock and unattended factory production.
 - [ ] Reset/schedule Star Club raids correctly across dates and weekdays.
-- [ ] Preserve typed Federal Exchange quantities across five-second market rerenders.
+- [x] Reposition Federal Exchange trade quantity directly above Buy/Sell controls for rapid trading.
+- [x] Preserve typed Federal Exchange quantities across five-second market rerenders.
 - [ ] Historical/name verification pass for 1938 Washington titles, wages, and fictional entities.
 - [ ] Bring MARKET-DESIGN and other documentation into sync with implemented behavior.
 - [ ] Add Codex/lore documentation structure.
 - [ ] Port Georgia Sun horse racing as Federal Electric scheduled race meetings: persistent horses, qualifying heats, semifinals, Main Event, visible progression, and automatic mid-day schedule.
+
+
+## Blackmail / leverage system — planned
+
+- Add a two-way leverage system: the player can be blackmailed, and the player can hold compromising information about NPCs.
+- Potential targets include fictional industrialists, bankers, police contacts, society figures, lobbyists, and fictional political candidates encountered through Washington locations such as the Star Club.
+- Leverage should come from simulated evidence or witnessed events, not omniscient knowledge. Track source and strength such as rumor, credible evidence, or documented proof.
+- Player choices stay abstract: keep the information private, confront the target, seek a favor/payment, trade the information to another contact, or disclose it.
+- Targets can comply, refuse, retaliate, counter-blackmail, go to police/reporters, damage Federal Electric, or become a permanent enemy.
+- NPCs can use the same system against the player when they learn about scandals, illegal gambling, affairs, corruption, or other compromising events.
+- Real historical political figures require sourced historical treatment; generated compromising scandals should use fictional characters rather than inventing defamatory claims about real people.
