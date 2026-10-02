@@ -229,3 +229,12 @@ This file records decisions that should not drift silently during development.
 - Major Capital Race Grounds and licensed-boxing results are carried forward into the **Sports** section of the next morning's Metropolitan Ledger.
 - Underground results stay in the player's private records unless a separate public event makes them newspaper-worthy.
 - The Underground Ledger records completed private prizefights, cockfights and associated wager results in chronological order.
+
+
+## 2026-10-02 — Night business gating and boxing registry
+
+- Washington Night is not a second unrestricted business shift.
+- Factory production controls, suppliers, contract acceptance/decline, production-grade changes, queue changes and shipping are unavailable after the Business Day closes.
+- The Federal Exchange remains closed throughout Washington Night with final closing quotations posted.
+- Licensed boxing now exposes a persistent **Commission Fighter Registry** showing fighter class, age, style, record, condition and medical status.
+- Completed decision bouts expose their final score totals in addition to the official result.
