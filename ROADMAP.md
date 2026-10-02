@@ -21,8 +21,8 @@ Implemented foundation:
 - 60-minute active business-day clock
 - automatic day close and End Day Early
 - freeze on hidden/closed app and exact resume from autosave
-- 50-security live Federal Exchange with frequent intraday quotation movement
-- closing quotations become next-day opening basis
+- 50-security Federal Exchange with hidden intraday market movement; the player sees the published opening quotation until the closing bell — IMPLEMENTED
+- hidden closing quotations are revealed at the close and become the next-day opening basis — IMPLEMENTED
 - shared market tone + sector + company movement components
 - red/white/blue Washington corporate UI
 - daily Federal Electric payroll/ledger
@@ -32,7 +32,6 @@ Implemented foundation:
 - separate executive contact-card file for people actually met
 - persistent contact data foundation
 - The Star Club and Madam Star
-- bookmaker introduction now gates entry to the Neighborhood Game
 - poker auto-resolution uses tiered time costs: Neighborhood 5 min, Commerce Club 10 min, Embassy Room 25 min; cash, progression, factory-away, Journal and raid consequences are preserved — IMPLEMENTED
 - manual poker displays remaining business-day time and charges actual elapsed table time on exit — IMPLEMENTED
 - production-time migration/normalization prevents impossible legacy estimates beyond the intended 10/20/30-minute order bands — IMPLEMENTED
@@ -83,7 +82,8 @@ Next v0.3 passes:
 - automatic notebook entries for selected conversations
 - NPC truth/mistake/betrayal logic
 - Commissioner Hayes and police-information system
-- bookmaker wagers and horse-racing integration
+- bookmaker wagers and horse-racing integration — IMPLEMENTED FOUNDATION
+- advance race betting on any established field, automatic settlement while away, and chronological Race & Wager Ledger — IMPLEMENTED
 - playable browser-native Texas Hold'em table with AI opponents — IMPLEMENTED FOUNDATION
 - distinct visual rooms: shady Boiler Room, respectable Commerce Club, and elite Embassy Room — IMPLEMENTED
 - full hand dealing, blinds, flop/turn/river, fold/check/call/raise, hand evaluation and showdown — IMPLEMENTED
@@ -165,7 +165,7 @@ Postwar reconversion, consumer boom, Cold War industry/electronics, acquisitions
 
 ## Stabilization queue — v0.3.6-dev
 
-- [ ] Revisit a persistent business-day clock/navigation header only after isolated testing; the first sticky-header attempt was rolled back after a runtime regression.
+- [x] Persistent top header/navigation restored in an isolated HTML/CSS slice and accepted.
 
 Work is performed one slice at a time on `main`, with each slice verified before moving to the next.
 
@@ -182,10 +182,10 @@ Work is performed one slice at a time on `main`, with each slice verified before
 - [ ] Audit partial shipments, wrong-grade settlement, replacement inventory, deadlines, and repeated late penalties.
 - [x] Add two Star Club visit lengths: Brief Visit (15 business minutes, $5, lower encounter opportunity) and Afternoon Visit (30 business minutes, $12, higher encounter opportunity); both advance the same authoritative business clock and unattended factory production.
 - [ ] Reset/schedule Star Club raids correctly across dates and weekdays.
-- [ ] Reposition Federal Exchange trade quantity directly above Buy/Sell controls for rapid trading; previous attempt was rolled back with the broken UI build.
+- [x] Reposition Federal Exchange trade quantity directly above Buy/Sell controls for rapid trading.
 - [ ] Preserve typed Federal Exchange quantities across five-second market rerenders; previous attempt was rolled back with the broken UI build.
 - [ ] Historical/name verification pass for 1938 Washington titles, wages, and fictional entities.
-- [ ] Bring MARKET-DESIGN and other documentation into sync with implemented behavior.
+- [x] Bring MARKET-DESIGN and core project documentation into sync with hidden intraday quotations, race betting v2, and the current roadmap.
 - [ ] Add Codex/lore documentation structure.
 - [x] Port Georgia Sun horse-racing foundation into a Federal Electric scheduled meeting: persistent horses, four heats, two semifinals, Main Event, visible progression, Win/Place/Show betting, live attended-race animation, and automatic mid-day schedule.
 
@@ -212,3 +212,39 @@ Possible positive outcomes include a foreman using the quiet period for useful m
 Possible negative outcomes include a missed customer call, a contract lead going elsewhere, an unattended production or staffing problem, unfavorable gossip, a supplier issue, or a missed Washington contact opportunity.
 
 The event must be recorded in the Journal/company record when the player would reasonably know about it. The pool should be weighted and contextual rather than firing the same generic event every time.
+
+
+## Planned two-phase day / night system
+
+The long-term daily rhythm expands from the current one-hour business prototype into two distinct active phases rather than simply granting the player more unrestricted time.
+
+### Hour 1 — Business Day
+- Federal Electric factory, contracts, suppliers, banking, daytime meetings and regular business contacts
+- Federal Exchange open
+- Capital Race Grounds regular meeting active
+- Madam Star available with a daytime-specific encounter pool
+- daytime-only contacts and opportunities
+
+### Hour 2 — Washington Night
+- Federal Exchange closed
+- regular daytime business locations and the regular race meeting closed
+- night-only contacts, social events, legal evening boxing, poker, cockfighting, backroom prizefights, bookmakers and other illicit opportunities as they are implemented
+- Madam Star remains available, but with a separate night encounter pool
+- planned Star Club choices: **Brief Evening Visit** and **Evening Visit**
+- some people and opportunities exist only at night, and conflicting schedules mean the player cannot attend everything
+
+### Day transition
+- the private Daily Report follows the night phase and explains company results, personal gains/losses, wagers, contacts and notable events
+- the Metropolitan Ledger is delivered at the beginning of the next in-game day, reporting public events from the previous day and overnight
+- scheduled world events continue to resolve on the authoritative clock while the player is elsewhere
+
+## Strategic share ownership — planned
+
+Stock purchases are not merely score-like investments. Shares represent ownership.
+
+- no arbitrary cap on how much stock the player may buy when cash and actual market availability permit
+- later public companies have finite outstanding shares and the player's percentage ownership becomes visible
+- significant holdings can create strategic influence, board opportunities, negotiated partnerships, takeover attempts and merger paths
+- corporate-control systems should surface as event chains and major decisions rather than dense securities-law micromanagement
+- Federal Electric can eventually be vulnerable in the same way after an IPO: dilution, outside accumulation, proxy/control fights and possible loss of the company
+- takeover, merger, disclosure and antitrust mechanics require historically researched rules before implementation
