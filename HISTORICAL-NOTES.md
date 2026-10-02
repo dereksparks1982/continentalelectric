@@ -55,3 +55,19 @@ The first Federal Exchange build intentionally uses a gameplay-oriented market m
 ## Research rule
 
 Historical accuracy is a game system. When implementing specific dates, prices, securities, wartime events, technologies, laws, government programs, military contracts, tax rules, or product availability, verify them against reliable historical sources rather than relying on memory.
+
+
+## Fight-world research queue
+
+The current fight and betting systems are gameplay foundations. Before labeling deeper rules historically authentic, verify the following against 1938 Washington-area sources:
+
+- District of Columbia boxing commission rules, licensing, bout lengths, gloves, medical suspensions, judging, purses, promoters and venues
+- whether and how wagering on licensed boxing was legal, tolerated, restricted or handled through bookmakers in the District and nearby jurisdictions
+- actual evening card timing and the social mix around Washington boxing venues
+- pari-mutuel and bookmaker practices around horse racing serving Washington-area bettors
+- minimums, practical limits, pool effects, takeout and payout calculation for 1938 race wagering
+- cockfighting legality and enforcement in the District of Columbia, Maryland and Virginia in 1938
+- period terminology and social context for private/unsanctioned prizefighting
+- enforcement patterns for private gambling, bookmaking and underground fights
+
+Until that work is complete, named venues, fighters, bookmakers, promoters, odds and underground events remain fictional simulation content rather than claims about specific historical people or establishments.
