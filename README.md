@@ -5,6 +5,7 @@
 ## Play
 
 - **Play closed build:** https://dereksparks1982.github.io/federalelectric/index.html?v=20261002-closed1
+- **Current test build:** https://dereksparks1982.github.io/federalelectric/index.html?v=20261002-build6
 - **Georgia Sun:** https://dereksparks1982.github.io/georgiasun/index.html
 
 ## Closed prototype snapshot — v0.3.6-dev: Day/Night, Fight World & Treasury
@@ -74,7 +75,18 @@ The simulation now runs as a living business day:
 - Executive Desk treasury controls keep company and personal money separate: a recorded owner distribution is available during the Business Day, while diverting company funds to personal use creates an accumulating unexplained corporate shortfall and accounting exposure
 - treasury transfers have no arbitrary amount cap beyond available company cash
 
-## Current day/night structure
+## Current post-snapshot build
+
+The current test build adds the next control/economy pass without changing the closed v0.3.6-dev snapshot:
+
+- **Hard pause:** pressing PAUSE immediately returns the player to Executive Desk. Every tab and gameplay control is disabled and visibly grayed out while paused. Only **PLAY** and **New Game** remain usable.
+- **Raw-material trading:** copper, glass and tungsten now use arbitrary quantity inputs with **Buy**, **Sell**, and **Sell All** controls. The old fixed-lot-only purchase buttons are gone.
+- **Contract negotiation:** new business now arrives as a customer purchase request for quantity and grade. Federal Electric sets its own proposed quantity, grade and unit price. The customer may accept, reject, or return a counteroffer before the contract enters production.
+- **Federal Exchange previous close:** each fictional security now has a prior close before the first playable morning, so the Day column begins with a positive or negative move rather than universal +0.00%.
+- **Security records:** clicking a company name opens a period-paper security record with approximately 90 prior trading sessions, a quotation graph, recent quotation ledger, prior close, current quote, and cumulative record move. Completed game days are appended to the record.
+- Future wartime material controls, including copper scarcity/priority allocation and government-contract access, remain planned rather than implemented in this pass.
+
+
 
 The two-phase time foundation is implemented.
 
