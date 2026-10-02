@@ -1,138 +1,161 @@
 # Federal Electric
 
-**Federal Electric** is a browser-based historical industrial, financial, political, and life-management simulation about a fictional American electrical empire beginning in Washington, D.C. in 1938.
+**Build an electrical empire in Washington, D.C., beginning in 1938.**
 
-## Play
+Federal Electric is a browser-based historical business and life simulation about running a growing electrical company while the rest of Washington keeps moving around you.
 
-- **Current build:** https://dereksparks1982.github.io/federalelectric/
-- **Georgia Sun:** https://dereksparks1982.github.io/georgiasun/index.html
+You buy materials, negotiate contracts, run the factory, trade stocks, manage company money, follow the newspaper, make contacts, attend races and fights, sit in poker rooms, and decide how much of your limited day you are willing to spend away from the business.
 
-## Current build — Day/Night, Fight World & Treasury
+The important part is that you cannot do everything.
 
-The simulation now runs as a living business day:
+## Play Federal Electric
 
-- the active date now has two one-hour phases: **Business Day** followed by **Washington Night**
-- the clock and market run only while Federal Electric is visible and being played
-- closing/hiding the app freezes the simulation; there is **no offline progression**
-- exact remaining day time and quotations are autosaved and resume where they stopped
-- the Business Day ends at 00:00 and transitions into Washington Night; the night then ends at a mandatory private Daily Report before the next morning begins
-- factory and contract controls close with the Business Day rather than remaining available as free nighttime actions
-- the Federal Exchange's 50 fictional securities continue moving internally during the active day, but the player sees the published opening quotation until the closing bell
-- the hidden closing quotation is revealed at the close and becomes the next business day's opening basis
-- instant time-consuming actions also advance the hidden market for the time they consume, so a 30-minute visit cannot freeze half a trading day
-- common market, sector, and company movement components
-- personal portfolio, arbitrary share quantities, Buy/Sell/Sell All, commissions, dividends, transaction history, cost basis, and realized/unrealized profit and loss
-- Federal Electric remains private at game start; a future IPO is optional
-- dedicated **Contracts** department between Factory and Federal Exchange
-- Federal Electric starts with one real customer contract and can spend 2 business minutes seeking additional work; a search may return several offers or none
-- contracts specify customer, product, required quality, quantity, price and deadline; accepted orders enter a player-controlled production queue
-- Factory works against accepted contracts instead of arbitrary instant sales
-- small, medium and large orders are designed around roughly 10, 20 and 30 minute production runs; the queue warns when commitments exceed the time remaining
-- production consumes materials and operating cash as units are actually made
-- Madam Star offers a 15-minute Brief Visit ($5) and a 30-minute Afternoon Visit ($12); the longer visit has a higher encounter opportunity while the factory continues operating
-- unattended factory operation can suffer a semi-uncommon breakdown; Foreman Sullivan may fix it himself or leave the line stopped awaiting the owner's decision
-- customer personalities now affect specification tolerance and whether partial deliveries are accepted
-- customer history records correct, discounted, rejected, partial, and late/short outcomes and influences future offer pricing
-- production grade can be set independently from the contract specification, allowing wrong-grade production and real inspection consequences
-- wrong-grade shipments may be rejected for replacement or accepted only at a customer-specific discount
-- finished light-bulb inventory is tracked separately as Economy, Standard, and Long-Life stock
-- partial shipments are supported for customers willing to accept them
-- switching production grades consumes factory setup time
-- production estimates are normalized to the intended 10/20/30-minute contract bands, preventing legacy/corrupt orders from displaying impossible 31+ minute single-order estimates
-- important fulfillment outcomes are recorded as customer correspondence in the Journal
-- factory materials, machinery, payroll, and daily ledger
-- a living **Metropolitan Ledger** newspaper with an edition archive
-- personal notebook for recording tips and conversations without guaranteeing their truth
-- first Washington social/underworld location: **The Star Club**, operated by Madam Star
-- the Neighborhood Game is open by default; meeting Eddie Doyle through Madam Star unlocks the Commerce Club, while Commerce Club play can lead to Harrison Vale and an Embassy Room invitation
-- Commerce Club sessions can build a connection with Harrison Vale, whose invitation unlocks the Embassy Room
-- manual poker shows the authoritative Federal Electric business-day clock; time spent at the table passes on that same live clock and is not deducted again when you leave
-- poker simulation time scales by room: Neighborhood 5 minutes, Commerce Club 10 minutes, Embassy Room 25 minutes; insufficient remaining time blocks the simulation
-- factory production continues while poker consumes business time
-- poker music UI is removed from the current scope
-- three playable backroom poker rooms with a browser-native Texas Hold'em engine, AI opponents, distinct class-based interiors, blinds, betting streets, hand evaluation and showdown
-- independently scheduled police raids
-- scheduled **Capital Race Grounds** meeting: four qualifying heats, two semifinals, and a Main Event; races run automatically from 30:00 remaining through 05:00 remaining whether the player attends or not
-- persistent horses carry form, fatigue, fitness, injuries, jockeys, preferences, career records, and odds across race meetings
-- Win / Place / Show betting uses personal cash with no arbitrary game-imposed wager cap; available cash and future historically justified market constraints are the intended limits
-- the player can place tickets in advance on any race whose field is already established; all four heats are available before they run, while semifinals and the Main Event open when qualifiers are known
-- races and wagers settle on the shared business clock even while the player is elsewhere; the Race & Wager Ledger records results and running betting profit/loss
-- visible tournament progression shows completed results, advancing qualifiers, upcoming fields, and the Main Event path
-- licensed boxing runs during Washington Night with a persistent fighter roster, four-bout card, fighter records/styles/condition, automatic scheduled resolution, and uncapped winner betting subject to available personal cash
-- the **Commission Fighter Registry** exposes persistent records, styles, ages, condition and medical status across cards
-- Legal Sports switches from Capital Race Grounds during the Business Day to licensed boxing during Washington Night
-- **Illicit Activities** contains the underworld side of Washington: backroom poker, bookmakers, private prizefights, cockfighting, and related contacts
-- Madam Star remains available in both phases with different encounter pools and separate Brief/Afternoon versus Brief Evening/Evening visit controls
-- Eddie Doyle now has a recurring **Ask What's Running** role that can reveal underground opportunities
-- Capital Race Grounds can also introduce Eddie Doyle naturally while the player is present among the bettors
-- private prizefights can occur during either the Business Day or Washington Night; cockfighting is independently discoverable and currently scheduled at night
-- private prizefights and cockfighting have separate unlock states, betting, automatic world-clock resolution, multiple discovery routes through underworld contacts, and an Underground Ledger
-- major horse-racing and licensed-boxing results carry into the next morning's **Sports** section of the Metropolitan Ledger
-- red, ivory, and deep-navy Washington/corporate-paperwork UI
-- the blue Federal Electric masthead scrolls away normally; the red phase/status/cash bar and navigation remain fixed while scrolling
-- the fixed status bar shows both company cash and personal cash so bankroll and corporate liquidity remain visible while betting or navigating
-- Executive Desk treasury controls keep company and personal money separate: a recorded owner distribution is available during the Business Day, while diverting company funds to personal use creates an accumulating unexplained corporate shortfall and accounting exposure
-- treasury transfers have no arbitrary amount cap beyond available company cash
+**[Play the current build](https://dereksparks1982.github.io/federalelectric/)**
 
-## Current control and economy systems
+There is one current game build. Your progress is saved in the browser and resumes from where you left off.
 
-The current build includes the latest control and economy work:
+## Time Is the Real Currency
 
-- **Hard pause:** pressing PAUSE immediately returns the player to Executive Desk. Every tab and gameplay control is disabled and visibly grayed out while paused. Only **PLAY** and **New Game** remain usable.
-- **Raw-material trading:** copper, glass and tungsten now use arbitrary quantity inputs with **Buy**, **Sell**, and **Sell All** controls. The old fixed-lot-only purchase buttons are gone.
-- **Contract negotiation:** new business now arrives as a customer purchase request for quantity and grade. Federal Electric sets its own proposed quantity, grade and unit price. The customer may accept, reject, or return a counteroffer before the contract enters production.
-- **Federal Exchange previous close:** each fictional security now has a prior close before the first playable morning, so the Day column begins with a positive or negative move rather than universal +0.00%.
-- **Security records:** clicking a company name opens a period-paper security record with approximately 90 prior trading sessions, a quotation graph, recent quotation ledger, prior close, current quote, and cumulative record move. Completed game days are appended to the record.
-- Future wartime material controls, including copper scarcity/priority allocation and government-contract access, remain planned rather than implemented in this pass.
+Every date has two live phases:
 
+- **Business Day:** one real-time hour
+- **Washington Night:** one real-time hour
 
+The world runs while you play. Factory production continues. Markets develop. Races are run. Scheduled events can happen whether you are standing there to watch them or not.
 
-The two-phase time foundation is implemented.
+A visit across town might cost you fifteen or thirty minutes. A poker session can eat into the same clock your factory is using. Spending time chasing a tip, a horse, a card game, or a contact means giving up time you could have spent somewhere else.
 
-- **Hour 1 — Business Day:** factory, contracts, suppliers, Federal Exchange, daytime meetings, Capital Race Grounds, daytime contacts, and occasional underground distractions
-- **Hour 2 — Washington Night:** the exchange and ordinary daytime business close; licensed boxing, evening social activity, and a broader underground scene become available
-- Madam Star remains available in both phases, but her daytime and nighttime encounter pools are different
-- nighttime Star Club options include **Brief Evening Visit** and **Evening Visit**
-- the private end-of-day report comes after the night phase; the Metropolitan Ledger is delivered at the beginning of the next day
-- daytime and nighttime remain one continuous world: time spent elsewhere can cause scheduled races or other events to occur without the player being present
+That tradeoff is the heart of Federal Electric.
 
-## Legal Sports and Illicit Activities
+### Pause Means Pause
 
-The Washington activity layer uses two clear player-facing categories.
+Pressing **PAUSE** freezes the game and returns you to the Executive Desk.
 
-- **Legal Sports:** Capital Race Grounds by day and licensed boxing cards by night, with betting and persistent competitors
-- **Illicit Activities:** backroom poker, private prizefights, cockfighting, bookmakers, and underground contacts
-- private prizefights may occur during either phase so an invitation can compete directly with factory work, racing, meetings, or legal evening entertainment
-- the bookmaker is a recurring information source rather than a one-time progression key; he may know about private fights, cockfights, betting action, or nothing useful on a given visit
-- underground activities can be discovered through more than one contact or venue, including the bookmaker, legal boxing, Madam Star, poker circles, and other social encounters
-- unlocks are independent: learning about private prizefights does not automatically reveal cockfighting, and vice versa
+While paused, gameplay tabs and controls are locked and grayed out. Only **PLAY** and **New Game** remain available.
 
-## Design principle
+You cannot freeze time and then browse the stock market, inspect races, study bets, shop contracts, or scout other information for free. If you want to see what is happening in the world, the clock has to be running.
 
-Federal Electric remains the center of the game. Markets, Washington society, gambling, corruption, war, personal relationships, newspapers, and eventual politics orbit the electrical company rather than replacing it.
+## Run Federal Electric
 
-Information is not omniscient. NPCs may be truthful, mistaken, or deceptive. The notebook preserves what the player was told, not objective truth. Events can occur whether the player attends them or not.
+The company is the center of the game.
 
-A future public Federal Electric will connect the owner's personal reputation to shareholders, the board, stock price, government relationships, and corporate control. Selling ownership can raise capital but may eventually make it possible for the founder to be removed from the company.
+You are responsible for keeping it alive, profitable, and growing.
 
-## Development documentation
+- Buy and sell copper, glass, and tungsten.
+- Negotiate customer orders instead of simply accepting whatever price is offered.
+- Choose production quantities and quality grades.
+- Queue factory work and judge whether there is enough time left in the day to finish it.
+- Deal with machinery trouble and unattended factory problems.
+- Ship complete or partial orders where customers permit it.
+- Live with the consequences of late, short, rejected, discounted, or wrong-grade deliveries.
+- Build customer histories that can affect future business.
+- Track payroll, machinery, inventory, operating costs, and the daily ledger.
+- Keep company money separate from your personal cash, or create accounting trouble for yourself.
 
-- [ROADMAP.md](ROADMAP.md)
-- [MARKET-DESIGN.md](MARKET-DESIGN.md)
-- [FIGHT-WORLD-DESIGN.md](FIGHT-WORLD-DESIGN.md)
-- [ONLINE-SYSTEMS-DESIGN.md](ONLINE-SYSTEMS-DESIGN.md)
-- [BUILD-SNAPSHOT-2026-10-02.md](BUILD-SNAPSHOT-2026-10-02.md)
-- [HISTORICAL-NOTES.md](HISTORICAL-NOTES.md)
-- [DECISIONS.md](DECISIONS.md)
+Federal Electric begins as a private company. What it eventually becomes is up to the player and the direction of the project.
 
+## Trade the Federal Exchange
 
-## Next milestone — Accounts, Global Chat & Global Rankings
+Washington has its own fictional securities market with **50 companies** moving through the business day.
 
-The next development phase moves Federal Electric from browser-only saves toward an account-backed persistent world.
+You can build a personal portfolio, buy or sell arbitrary quantities of shares, collect dividends, track cost basis, and follow gains and losses.
 
-Planned order:
-1. **Accounts and cloud saves** — sign in, preserve progress across builds/devices, versioned save migrations, local fallback copy, conflict-safe synchronization.
-2. **Global Chat** — account identity, one shared game chat, timestamps, basic moderation/rate limiting, and no requirement to expose personal information.
-3. **Global Rankings** — server-validated leaderboard data derived from saved game state. Initial categories are expected to include company value and personal wealth, with final ranking categories/formulas to be locked before implementation.
+Each company also has its own security record with historical quotations, recent trading sessions, prior close information, and a price graph. The market has a past before you arrive, and each completed game day becomes part of that history.
 
-The current GitHub Pages client can remain the game front end while a backend service is added for identity, cloud save storage, chat, and rankings.
+The exchange is not separate from the rest of the game. Time spent elsewhere is still market time.
+
+## Washington Does Not Wait for You
+
+Federal Electric takes place in a living city rather than a collection of disconnected menus.
+
+The **Metropolitan Ledger** reports on the world around you. Sports results can appear in the next morning's paper. Customer correspondence and important business outcomes reach your Journal. Your personal notebook lets you record things people tell you.
+
+Not everything you hear is guaranteed to be true.
+
+Contacts can be useful, mistaken, self-interested, or deceptive. Information is something you gather and judge, not something the game simply hands you as objective truth.
+
+## Racing, Boxing, Poker and the Washington Underworld
+
+There is plenty to do after you leave the office, and almost all of it costs time or money.
+
+### Capital Race Grounds
+
+The daytime race meeting includes qualifying heats, semifinals, and a Main Event.
+
+Horses persist from meeting to meeting with their own records, form, fatigue, fitness, injuries, jockeys, preferences, and odds. Races happen on schedule whether you attend them or not, and wagers settle on the same shared business clock.
+
+### Licensed Boxing
+
+Washington Night brings licensed boxing cards with persistent fighters, records, styles, condition, medical status, and scheduled bouts.
+
+You can follow the fighter registry, study the card, place bets, and see major results carried into the newspaper.
+
+### Backroom Poker
+
+Three poker rooms sit at different levels of Washington society, from the neighborhood game upward.
+
+Poker uses a playable Texas Hold'em system with AI opponents, betting streets, blinds, hand evaluation, and showdown. Time at the table is real game time. The factory does not politely stop because you decided to play cards.
+
+### Illicit Activities
+
+Washington also has bookmakers, private prizefights, cockfighting, underground contacts, police raids, and opportunities that have to be discovered.
+
+Different contacts know different things. One lead does not automatically unlock the whole underworld.
+
+## The Star Club
+
+Madam Star's club is one of the first places where business, society, gambling, personal contacts, and the underworld begin to overlap.
+
+A short visit might cost less time. A longer visit might create more opportunity. Either way, the clock keeps moving.
+
+That is Federal Electric in miniature: every opportunity has an opportunity cost.
+
+## A Typical Day
+
+You might begin the morning checking the factory and buying raw materials.
+
+A customer wants an order, but the price is poor. You counter.
+
+The Federal Exchange is open. A company you have been watching moved overnight.
+
+The race card is already forming.
+
+Someone says a useful contact can be found across town.
+
+Your factory is still running.
+
+The clock is moving.
+
+By nightfall the exchange and ordinary daytime business are closed, but Washington is not. Boxing begins. Social calls change. Underground activity becomes more important.
+
+At the end of the night you receive a private Daily Report. The next morning brings a new edition of the Metropolitan Ledger, and another day begins.
+
+## What Federal Electric Is Trying to Be
+
+Federal Electric is not just a factory game, stock-market game, gambling game, or life simulator.
+
+It is about **building an empire while living inside the world around it**.
+
+Business, money, reputation, society, gambling, corruption, news, personal relationships, war, and eventually larger political and corporate pressures all orbit the company.
+
+You choose what deserves your time.
+
+The things you ignore may continue without you.
+
+## Development
+
+Federal Electric is actively being developed. The README is intentionally kept player-facing. Detailed implementation history, design decisions, build notes, and future plans live in the project documents:
+
+- [Roadmap](ROADMAP.md)
+- [Build snapshot](BUILD-SNAPSHOT-2026-10-02.md)
+- [Market design](MARKET-DESIGN.md)
+- [Fight world design](FIGHT-WORLD-DESIGN.md)
+- [Online systems design](ONLINE-SYSTEMS-DESIGN.md)
+- [Historical notes](HISTORICAL-NOTES.md)
+- [Design decisions](DECISIONS.md)
+
+## Related Project
+
+**[Georgia Sun](https://dereksparks1982.github.io/georgiasun/index.html)**
+
+Another browser-based simulation project from the same workshop.
