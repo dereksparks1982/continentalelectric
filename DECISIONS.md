@@ -73,3 +73,10 @@ This file records decisions that should not drift silently during development.
 - A positive poker session counts as a win whether manually played or simulated.
 - Admin/test override: seven clicks on the locked Embassy Room within five seconds unlock and open it immediately on click seven.
 - Poker music and its UI are out of current scope and removed until explicitly revisited.
+
+- Contract customers now have persistent buying personalities that affect specification tolerance and partial-shipment acceptance.
+- Finished lamp inventory is separated by Economy, Standard, and Long-Life grade.
+- Production grade is a deliberate factory setting and may differ from the customer's specification; customers can reject a wrong-grade shipment for replacement or accept it only at a discount according to their buying personality.
+- Customer history records correct, discounted, rejected, partial, and late/short outcomes and feeds future commercial terms.
+- Switching lamp grades costs factory setup time.
+- Important customer fulfillment outcomes are recorded as correspondence in the Journal.
