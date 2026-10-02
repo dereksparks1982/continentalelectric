@@ -102,6 +102,11 @@ function resolveRace(id,animate){
  r.result=scores.map(x=>x.id);
  r.result.forEach((pid,i)=>{const h=horse(pid);updateHorse(h,i+1,d.stage);if(i===0)h.earnings+=d.stage==='main'?1800:d.stage==='semi'?500:150});
  settleBet(id,r.result);updateQualifiers();
+ const attending=document.getElementById('racing')?.classList.contains('active')&&S.phase==='day';
+ if(attending&&!S.contacts.bookie?.met&&Math.random()<.12){
+   S.contacts.bookie.met=true;S.contacts.bookie.trust=1;S.bookieKnown=true;S.middlePokerUnlocked=true;
+   S.notes.push({date:displayDate(),text:'Met Eddie Doyle among the bettors at Capital Race Grounds. The bookmaker said to ask him if I ever wanted to know what else was running around Washington.',source:'race-track conversation'});
+ }
  if(id==='ME'){const winner=horse(r.result[0]);S.notes.push({date:displayDate(),text:'The Main Event at Capital Race Grounds was won by '+winner.name+'.',source:'personal recollection / racing results'})}
  save(true);
  if(animate&&document.getElementById('racing')?.classList.contains('active'))startAnimation(id);
