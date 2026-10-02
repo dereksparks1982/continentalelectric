@@ -29,7 +29,7 @@ This file records decisions that should not drift silently during development.
 - The Personal Notebook is now the **Journal**: it records meaningful meetings, conversations, rumors, poker sessions, and other player-known events in an Ultima-style running history. It records what the player experienced or was told, not guaranteed objective truth.
 - **Contacts** is a separate top-level section using a period-appropriate executive card-index concept. A person is added only after the player legitimately meets them or obtains their contact information.
 - Contacts can later support calls, letters, secretaries, requested meetings, invitations, and unanswered attempts.
-- Washington activities are split into **Legal Sports** and **Illicit Activities**. The former transitional After Hours navigation is retired.
+- Washington activities are split into **Legal Sports** and **Illicit Activities**.
 - Legal Sports changes with the phase: Capital Race Grounds during the Business Day and licensed boxing during Washington Night.
 - **Contracts** is a first-class department. Customers, not the player, specify required product, quality standard, quantity, price, and deadline.
 - Federal Electric begins with one existing customer contract and grows its contract book through successful performance.
@@ -193,7 +193,7 @@ This file records decisions that should not drift silently during development.
 
 ## 2026-10-01 — Legal Sports, illicit activities, and fight-world discovery
 
-- The player-facing **After Hours** label is replaced by **Illicit Activities**.
+- The player-facing underworld category is **Illicit Activities**.
 - The current Race Track area evolves into **Legal Sports**.
 - Capital Race Grounds is the daytime legal-sports anchor.
 - Licensed boxing is the nighttime legal-sports anchor, with persistent fighters, scheduled cards, automatic world-clock resolution and betting.
@@ -210,7 +210,7 @@ This file records decisions that should not drift silently during development.
 - The two-phase clock foundation is implemented: Business Day transitions to Washington Night, which transitions to a mandatory private Daily Report before the next morning begins.
 - The morning Metropolitan Ledger is generated only when the next business day begins.
 - Legal Sports is now the player-facing navigation label for daytime horse racing and nighttime licensed boxing.
-- Illicit Activities is now the player-facing replacement for After Hours.
+- **Illicit Activities** is the player-facing underworld category.
 - Licensed boxing has a persistent roster, scheduled four-bout nightly card, fighter styles/records/condition, automatic resolution and winner betting.
 - Capital Race Grounds is hidden during Washington Night; licensed boxing is hidden during the Business Day.
 - Madam Star now exposes separate daytime and evening visit controls with different encounter pools.
