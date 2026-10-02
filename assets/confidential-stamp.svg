@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="270" height="92" viewBox="0 0 270 92">
+  <defs>
+    <mask id="distress">
+      <rect width="270" height="92" fill="white"/>
+      <g fill="black" opacity=".95">
+        <rect x="8" y="16" width="19" height="3" rx="1"/>
+        <rect x="42" y="12" width="8" height="4" rx="1"/>
+        <rect x="76" y="15" width="15" height="3" rx="1"/>
+        <rect x="120" y="11" width="11" height="4" rx="1"/>
+        <rect x="167" y="14" width="19" height="3" rx="1"/>
+        <rect x="212" y="11" width="12" height="4" rx="1"/>
+        <rect x="239" y="15" width="21" height="3" rx="1"/>
+        <rect x="15" y="73" width="24" height="3" rx="1"/>
+        <rect x="58" y="76" width="13" height="4" rx="1"/>
+        <rect x="103" y="73" width="21" height="3" rx="1"/>
+        <rect x="151" y="76" width="10" height="4" rx="1"/>
+        <rect x="192" y="72" width="24" height="3" rx="1"/>
+        <rect x="236" y="76" width="16" height="4" rx="1"/>
+        <circle cx="29" cy="43" r="2.6"/><circle cx="52" cy="55" r="1.8"/>
+        <circle cx="83" cy="38" r="2.1"/><circle cx="105" cy="52" r="2.8"/>
+        <circle cx="136" cy="40" r="1.9"/><circle cx="163" cy="55" r="2.4"/>
+        <circle cx="187" cy="37" r="2.2"/><circle cx="219" cy="51" r="2.7"/>
+        <circle cx="244" cy="39" r="1.8"/>
+        <rect x="66" y="33" width="4" height="15" rx="1" transform="rotate(13 68 40)"/>
+        <rect x="145" y="43" width="3" height="13" rx="1" transform="rotate(-14 146 49)"/>
+        <rect x="225" y="31" width="4" height="12" rx="1" transform="rotate(9 227 37)"/>
+      </g>
+    </mask>
+  </defs>
+  <g mask="url(#distress)" fill="none" stroke="#fffaf0" stroke-width="3">
+    <rect x="7" y="10" width="256" height="72" rx="1.5"/>
+    <rect x="13" y="16" width="244" height="60" rx="1"/>
+  </g>
+  <text x="135" y="58" text-anchor="middle" mask="url(#distress)"
+        fill="#fffaf0" font-family="Courier New, monospace" font-size="31" font-weight="700"
+        letter-spacing="1.4">CONFIDENTIAL</text>
+</svg>
