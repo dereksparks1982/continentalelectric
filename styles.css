@@ -324,28 +324,41 @@ body.elephant-easter-egg-open{overflow:hidden}
  user-select:none;-webkit-user-drag:none;
 }
 .title-hotspot{
- position:absolute;left:4.35%;width:19.2%;height:13.1%;
- margin:0;padding:0;border:0;background:transparent;outline:none;
- cursor:pointer;
+ position:absolute;left:42.4%;width:15%;height:7.5%;
+ margin:0;padding:0;border:0!important;background:transparent!important;
+ outline:none!important;box-shadow:none!important;cursor:pointer;
+ -webkit-tap-highlight-color:transparent;appearance:none;-webkit-appearance:none;
+}
+.title-hotspot:hover,.title-hotspot:focus,.title-hotspot:focus-visible,.title-hotspot:active{
+ border:0!important;background:transparent!important;outline:none!important;box-shadow:none!important;
 }
 .title-hotspot::before{
- content:"";position:absolute;left:28%;bottom:0;width:58%;height:48%;
- border-radius:8px;pointer-events:none;opacity:0;
+ content:"";position:absolute;left:8%;right:8%;top:17%;bottom:17%;
+ border-radius:5px;pointer-events:none;opacity:0;
  box-shadow:
-  0 0 5px 2px rgba(255,220,137,.72),
-  0 0 13px 5px rgba(211,154,57,.42),
-  0 0 24px 8px rgba(174,105,24,.20);
- transition:opacity .14s ease,filter .14s ease;
+  0 0 5px 2px rgba(255,226,151,.82),
+  0 0 13px 5px rgba(220,164,67,.52),
+  0 0 25px 9px rgba(177,105,24,.26);
+ transition:opacity .12s ease,filter .12s ease;
 }
-.title-hotspot:hover{outline:none}
-.title-hotspot:hover::before,.title-hotspot:focus-visible::before{
+.title-hotspot:hover::before,
+.title-hotspot:focus-visible::before,
+.title-hotspot:active::before{
  opacity:1;
- filter:brightness(1.08);
+ filter:brightness(1.1);
 }
-.title-continue{top:37.4%}
-.title-load{top:51.5%}
-.title-new{top:65.6%}
-.title-settings{top:79.8%}
+.title-continue{top:46.55%}
+.title-load{top:56.86%}
+.title-new{top:67.82%}
+.title-settings{top:78.44%}
+@media (orientation:portrait) and (max-width:900px){
+ .title-screen{overflow:hidden}
+ .title-screen-frame{
+  width:calc(100vh * 1.7768331562);height:100vh;
+  width:calc(100dvh * 1.7768331562);height:100dvh;
+  max-width:none;max-height:none;
+ }
+}
 .title-dialog{
  position:absolute;inset:0;z-index:10;display:flex;align-items:center;justify-content:center;
  padding:20px;background:rgba(10,8,5,.74);

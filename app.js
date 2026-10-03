@@ -629,7 +629,7 @@ function pokerButton(circle,stake){const limit=pokerLimit(circle),used=S.pokerPl
 $('#pokerWorking').onclick=()=>pokerButton('working',25);$('#pokerMiddle').onclick=()=>pokerButton('middle',100);$('#pokerElite').onclick=()=>pokerButton('elite',500);$('#simPokerWorking').onclick=()=>simulatePoker('working',25);$('#simPokerMiddle').onclick=()=>simulatePoker('middle',100);$('#simPokerElite').onclick=()=>simulatePoker('elite',500);
 document.querySelectorAll('nav button[data-tab],.section-tabs button[data-tab]').forEach(b=>b.onclick=()=>{if(S.paused)return;showTab(b.dataset.tab)});
 const sectors=[...new Set(stockSeed.map(x=>x[2]))].sort();$('#sectorFilter').innerHTML='<option value="All">All sectors</option>'+sectors.map(s=>'<option>'+s+'</option>').join('');$('#stockSearch').oninput=renderStocks;$('#sectorFilter').onchange=renderStocks;
-const TITLE_MUSIC_URL='https://upload.wikimedia.org/wikipedia/commons/3/3d/Scott_Joplin%27s_%22Sunflower_Slow_Drag%22_performed_by_the_United_States_Marine_Band.oga';
+const TITLE_MUSIC_URL='assets/audio/sunflower-slow-drag.ogg?v=20261003-title2';
 const TITLE_MUSIC_VOLUME=.38;
 let titleMusic=null,titleMusicFadeTimer=null;
 function titleScreenVisible(){const el=document.getElementById('titleScreen');return !!(el&&!el.hidden)}
