@@ -728,21 +728,33 @@ function continueFromTitle(){
  showNewProfileForm();
 }
 
+const TITLE_CLOCK_TIME_ZONE='America/New_York';
+const titleClockFormatter=new Intl.DateTimeFormat('en-US',{
+ timeZone:TITLE_CLOCK_TIME_ZONE,
+ hourCycle:'h23',
+ hour:'2-digit',
+ minute:'2-digit',
+ second:'2-digit'
+});
 function updateTitleClock(){
  const hour=document.getElementById('titleClockHour');
  const minute=document.getElementById('titleClockMinute');
  const second=document.getElementById('titleClockSecond');
  if(!hour||!minute||!second)return;
- const now=new Date();
- const s=now.getSeconds();
- const m=now.getMinutes()+s/60;
- const h=(now.getHours()%12)+m/60;
+ const parts=titleClockFormatter.formatToParts(new Date());
+ const values={};
+ parts.forEach(p=>{if(p.type==='hour'||p.type==='minute'||p.type==='second')values[p.type]=Number(p.value)});
+ const s=values.second||0;
+ const m=(values.minute||0)+s/60;
+ const h=((values.hour||0)%12)+m/60;
  hour.setAttribute('transform','rotate('+(h*30)+' 50 50)');
  minute.setAttribute('transform','rotate('+(m*6)+' 50 50)');
  second.setAttribute('transform','rotate('+(s*6)+' 50 50)');
 }
 let titleClockTimer=null;
 function startTitleClock(){
+ const numerals=['XII','III','VI','IX'];
+ document.querySelectorAll('.title-clock-num').forEach((el,i)=>{if(numerals[i])el.textContent=numerals[i]});
  updateTitleClock();
  if(titleClockTimer)clearInterval(titleClockTimer);
  titleClockTimer=setInterval(updateTitleClock,250);
