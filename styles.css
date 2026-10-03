@@ -415,9 +415,9 @@ body.elephant-easter-egg-open{overflow:hidden}
 /* Live title-screen clock face. Covers only the printed face; approved clock casing stays untouched. */
 .title-clock-live{
  position:absolute;
- left:78.72%;
- top:70.05%;
- width:5.86%;
+ left:78.86%;
+ top:70.19%;
+ width:5.58%;
  aspect-ratio:1;
  z-index:2;
  pointer-events:none;
