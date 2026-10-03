@@ -674,7 +674,7 @@ function openTitleDialog(title,html){
  if(!dialog||!heading||!body)return;heading.textContent=title;body.innerHTML=html;dialog.hidden=false;
 }
 function closeTitleDialog(){const dialog=$('#titleDialog');if(dialog)dialog.hidden=true}
-function closeTitleScreen(){closeTitleDialog();stopTitleMusic(true);const screen=$('#titleScreen');if(screen)screen.hidden=true}
+function closeTitleScreen(){closeTitleDialog();stopTitleMusic(true);if(titleClockTimer){clearInterval(titleClockTimer);titleClockTimer=null}const screen=$('#titleScreen');if(screen)screen.hidden=true}
 function profileSummary(p){
  let save=null;try{save=JSON.parse(localStorage.getItem(profileSaveKey(p.id))||'null')}catch(e){}
  const date=save?.gameDate?new Date(save.gameDate+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}):'New game';
@@ -751,6 +751,7 @@ function startTitleClock(){
 function initTitleScreen(){
  const screen=$('#titleScreen');if(!screen)return;
  screen.hidden=false;
+ startTitleClock();
  startTitleMusic();
  screen.addEventListener('pointerdown',startTitleMusic,{once:true});
  document.addEventListener('keydown',startTitleMusic,{once:true});
