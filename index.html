@@ -1,9 +1,25 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Federal Electric</title><link rel="stylesheet" href="styles.css?v=20261003-fan2"><link rel="stylesheet" href="racing.css?v=20261002-multilap1"><link rel="stylesheet" href="boxing.css?v=20261002-fightworld3"><link rel="stylesheet" href="underworld.css?v=20261002-liveunderground1"></head>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Federal Electric</title><link rel="stylesheet" href="styles.css?v=20261003-clock1"><link rel="stylesheet" href="racing.css?v=20261002-multilap1"><link rel="stylesheet" href="boxing.css?v=20261002-fightworld3"><link rel="stylesheet" href="underworld.css?v=20261002-liveunderground1"></head>
 <body><div id="titleScreen" class="title-screen" aria-label="Federal Electric title screen">
   <div class="title-screen-frame">
     <img class="title-screen-art" src="assets/federal-electric-title-screen.png?v=20261003-title2" alt="Federal Electric — A Game of Industry, Markets, and Power">
     <div class="title-fan-motion" aria-hidden="true"></div>
+
+    <div class="title-clock-live" aria-hidden="true">
+      <svg viewBox="0 0 100 100">
+        <circle class="title-clock-face" cx="50" cy="50" r="48"/>
+        <circle class="title-clock-ring" cx="50" cy="50" r="45"/>
+        <line class="title-clock-mark" x1="50.00" y1="10.00" x2="50.00" y2="5.00"/><line class="title-clock-mark" x1="70.00" y1="15.36" x2="72.50" y2="11.03"/><line class="title-clock-mark" x1="84.64" y1="30.00" x2="88.97" y2="27.50"/><line class="title-clock-mark" x1="90.00" y1="50.00" x2="95.00" y2="50.00"/><line class="title-clock-mark" x1="84.64" y1="70.00" x2="88.97" y2="72.50"/><line class="title-clock-mark" x1="70.00" y1="84.64" x2="72.50" y2="88.97"/><line class="title-clock-mark" x1="50.00" y1="90.00" x2="50.00" y2="95.00"/><line class="title-clock-mark" x1="30.00" y1="84.64" x2="27.50" y2="88.97"/><line class="title-clock-mark" x1="15.36" y1="70.00" x2="11.03" y2="72.50"/><line class="title-clock-mark" x1="10.00" y1="50.00" x2="5.00" y2="50.00"/><line class="title-clock-mark" x1="15.36" y1="30.00" x2="11.03" y2="27.50"/><line class="title-clock-mark" x1="30.00" y1="15.36" x2="27.50" y2="11.03"/>
+        <text class="title-clock-num" x="50" y="15">12</text>
+        <text class="title-clock-num" x="85" y="50">3</text>
+        <text class="title-clock-num" x="50" y="85">6</text>
+        <text class="title-clock-num" x="15" y="50">9</text>
+        <line id="titleClockHour" class="title-clock-hour" x1="50" y1="52" x2="50" y2="31"/>
+        <line id="titleClockMinute" class="title-clock-minute" x1="50" y1="53" x2="50" y2="23"/>
+        <line id="titleClockSecond" class="title-clock-second" x1="50" y1="56" x2="50" y2="19"/>
+        <circle class="title-clock-pin" cx="50" cy="50" r="3"/>
+      </svg>
+    </div>
     <button id="titleContinue" class="title-hotspot title-continue" type="button" aria-label="Continue"></button>
     <button id="titleLoadProfile" class="title-hotspot title-load" type="button" aria-label="Load Profile"></button>
     <button id="titleNewProfile" class="title-hotspot title-new" type="button" aria-label="New Profile"></button>
@@ -55,4 +71,4 @@
 <div class="activity-panel" data-activity-panel="illicit" data-activity-name="cock" hidden><div class="activity-panel-head"><b>Cockfighting</b><button class="activity-close" data-activity-close="illicit" aria-label="Close Cockfighting">×</button></div><div class="sheet"><article id="cockfightCard" class="underground-card"><h4>Cockfighting</h4><p class="muted">Invitation required.</p></article></div></div>
 <p id="underworldNote"></p></section>
 </main><div id="dailyReportOverlay" class="daily-report-overlay" hidden><section class="daily-report-card"><div class="daily-report-stamp">FEDERAL ELECTRIC · PRIVATE</div><h2>Daily Report</h2><h3 id="dailyReportDate"></h3><div id="dailyReportBody"></div><button id="beginNextDay">Retire for the Night</button></section></div><div id="campaignEndOverlay" class="campaign-end-overlay" hidden><section class="campaign-end-card"><div class="daily-report-stamp">FEDERAL ELECTRIC · CAMPAIGN RECORD</div><h2>Main Campaign Complete</h2><h3>372 Turns · January 1938 – September 1945</h3><div id="campaignEndBody"></div><div class="campaign-end-actions"><button id="continueEmpire" type="button">Continue Empire</button><button id="campaignNewGame" type="button" class="danger">Start New Game</button></div></section></div>
-<footer>Federal Electric · Internal Executive Papers · <span id="dateFoot"></span></footer><script src="app.js?v=20261003-titlelocal2"></script><script src="racing.js?v=20261002-multilap1"></script><script src="oval-racing.js?v=20261002-multilap1"></script><script src="boxing.js?v=20261002-pastimes-tabs1"></script><script src="underworld.js?v=20261002-liveunderground1"></script></body></html>
+<footer>Federal Electric · Internal Executive Papers · <span id="dateFoot"></span></footer><script src="app.js?v=20261003-clock1"></script><script src="racing.js?v=20261002-multilap1"></script><script src="oval-racing.js?v=20261002-multilap1"></script><script src="boxing.js?v=20261002-pastimes-tabs1"></script><script src="underworld.js?v=20261002-liveunderground1"></script></body></html>
