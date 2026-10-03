@@ -17,7 +17,9 @@ const stockSeed=[
 ['NFC','National Foods Corp.','Food',28.40,.033,.030],['APC','American Provision Co.','Food',21.60,.031,.034],['GMC','Great Mills Corp.','Food',16.90,.029,.036],
 ['ACC','American Consumer Corp.','Consumer',25.15,.028,.038],['HHA','Household & Home Appliances','Consumer',19.45,.020,.048],['USG','United Soap & Goods','Consumer',23.75,.032,.033],['RTA','Republic Tobacco & Allied','Consumer',34.50,.045,.035]
 ];
-const APP_VERSION='v0.4.0', TURNS_PER_MONTH=4, CAMPAIGN_MONTHS=93, CAMPAIGN_TURNS=TURNS_PER_MONTH*CAMPAIGN_MONTHS, BUSINESS_DAY_SECONDS=3600, NIGHT_SECONDS=3600, DAY_SECONDS=BUSINESS_DAY_SECONDS, MARKET_TICK_MS=5000, SAVE_KEY='federalElectricSave', STOCK_HISTORY_DAYS=90;
+let SAVE_KEY='federalElectricSave';
+const APP_VERSION='v0.4.0', TURNS_PER_MONTH=4, CAMPAIGN_MONTHS=93, CAMPAIGN_TURNS=TURNS_PER_MONTH*CAMPAIGN_MONTHS, BUSINESS_DAY_SECONDS=3600, NIGHT_SECONDS=3600, DAY_SECONDS=BUSINESS_DAY_SECONDS, MARKET_TICK_MS=5000, STOCK_HISTORY_DAYS=90;
+const PROFILE_INDEX_KEY='federalElectricProfilesV1', ACTIVE_PROFILE_KEY='federalElectricActiveProfile', PROFILE_MIGRATED_KEY='federalElectricProfilesMigratedV1', PROFILE_LIMIT=3;
 const MATERIAL_MARKET={copper:{name:'Copper',unitPrice:.18},glass:{name:'Glass',unitPrice:.095},tungsten:{name:'Tungsten',unitPrice:.32}};
 function unitCash(n){return '$'+Number(n).toFixed(3).replace(/0+$/,'').replace(/\.$/,'')}
 const contractCustomers=[
@@ -102,7 +104,34 @@ function migrate(x){const fresh=initial();if(!x)return fresh;Object.assign(fresh
  fresh.productionQueue=(x.productionQueue||fresh.contracts.filter(c=>c.productionState==='queued'||c.productionState==='running'||c.productionState==='paused').map(c=>c.id)).filter(id=>{const c=fresh.contracts.find(v=>v.id===id);return c&&c.status!=='delivered'&&c.status!=='delivered-discount'&&(+c.completed||0)<(+c.productionQuantity||+c.quantity||1)});
  fresh.activeContractId=fresh.productionQueue.includes(x.activeContractId)?x.activeContractId:null;fresh.lineStatus=x.lineStatus||'idle';fresh.lineMessage=x.lineMessage||'No production run is running.';fresh.lastProductionQuality=x.lastProductionQuality||null;
  for(const p of Object.values(fresh.portfolio)){if(p.realized==null)p.realized=0}for(const c of fresh.contracts.concat(fresh.contractOffers||[])){if(!c.productionSeconds)c.productionSeconds=contractRunSeconds(c.productionQuantity||c.quantity)}fresh.marketWire='Trading continues on the Federal Exchange. Federal Electric has no live intraday quotation service; the opening sheet remains posted until the closing quotations are published.';return fresh}
-function save(silent=true){localStorage.setItem(SAVE_KEY,JSON.stringify(S));updateCashHeader();if(!silent)note('Company books saved.')}
+function save(silent=true){localStorage.setItem(SAVE_KEY,JSON.stringify(S));touchActiveProfile();updateCashHeader();if(!silent)note('Company books saved.')}
+function readProfiles(){try{const p=JSON.parse(localStorage.getItem(PROFILE_INDEX_KEY)||'[]');return Array.isArray(p)?p.slice(0,PROFILE_LIMIT):[]}catch(e){return[]}}
+function writeProfiles(p){localStorage.setItem(PROFILE_INDEX_KEY,JSON.stringify((p||[]).slice(0,PROFILE_LIMIT)))}
+function profileSaveKey(id){return 'federalElectricProfile_'+id}
+function activeProfileId(){return localStorage.getItem(ACTIVE_PROFILE_KEY)||''}
+function setActiveProfileId(id){if(id)localStorage.setItem(ACTIVE_PROFILE_KEY,id);else localStorage.removeItem(ACTIVE_PROFILE_KEY);SAVE_KEY=id?profileSaveKey(id):'federalElectricSave'}
+function bootstrapProfiles(){
+ let profiles=readProfiles();
+ if(!profiles.length&&!localStorage.getItem(PROFILE_MIGRATED_KEY)){
+  const legacy=localStorage.getItem('federalElectricSave')||localStorage.getItem('continentalElectricSave');
+  if(legacy){
+   const id='profile1';
+   localStorage.setItem(profileSaveKey(id),legacy);
+   profiles=[{id,name:'Profile 1',created:Date.now(),lastPlayed:Date.now()}];
+   writeProfiles(profiles);setActiveProfileId(id);
+  }
+  localStorage.setItem(PROFILE_MIGRATED_KEY,'1');
+ }
+ const active=activeProfileId(),valid=profiles.some(p=>p.id===active);
+ if(valid)setActiveProfileId(active);
+ else if(profiles.length)setActiveProfileId(profiles[0].id);
+ else setActiveProfileId('');
+}
+function touchActiveProfile(){
+ const id=activeProfileId();if(!id)return;
+ const profiles=readProfiles(),p=profiles.find(v=>v.id===id);if(!p)return;
+ p.lastPlayed=Date.now();writeProfiles(profiles);
+}
 function loadInitial(){const raw=localStorage.getItem(SAVE_KEY)||localStorage.getItem('continentalElectricSave');if(raw){try{S=migrate(JSON.parse(raw));save(true)}catch(e){S=initial()}}}
 function displayDate(){return new Date(S.gameDate+'T12:00:00').toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'})}
 function displayHeaderDate(){const d=new Date(S.gameDate+'T12:00:00'),days=['SUN','MON','TUES','WED','THUR','FRI','SAT'],months=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];return days[d.getDay()]+', '+months[d.getMonth()]+' '+d.getDate()+', '+d.getFullYear()}
@@ -600,9 +629,80 @@ function pokerButton(circle,stake){const limit=pokerLimit(circle),used=S.pokerPl
 $('#pokerWorking').onclick=()=>pokerButton('working',25);$('#pokerMiddle').onclick=()=>pokerButton('middle',100);$('#pokerElite').onclick=()=>pokerButton('elite',500);$('#simPokerWorking').onclick=()=>simulatePoker('working',25);$('#simPokerMiddle').onclick=()=>simulatePoker('middle',100);$('#simPokerElite').onclick=()=>simulatePoker('elite',500);
 document.querySelectorAll('nav button[data-tab],.section-tabs button[data-tab]').forEach(b=>b.onclick=()=>{if(S.paused)return;showTab(b.dataset.tab)});
 const sectors=[...new Set(stockSeed.map(x=>x[2]))].sort();$('#sectorFilter').innerHTML='<option value="All">All sectors</option>'+sectors.map(s=>'<option>'+s+'</option>').join('');$('#stockSearch').oninput=renderStocks;$('#sectorFilter').onchange=renderStocks;
-loadInitial();render();
-marketTimer=setInterval(()=>{if(!document.hidden&&!S.paused&&businessOpen()&&S.dayRemaining>0){moveMarket()}},MARKET_TICK_MS);
-clockTimer=setInterval(()=>{if(document.hidden||S.phase==='report'||S.paused)return;if(businessOpen())advanceProduction(1,false);S.dayRemaining=Math.max(0,S.dayRemaining-1);$('#dayClock').textContent=clockText();if(S.dayRemaining<=0){if(S.phase==='day')closeBusinessDay(false);else if(S.phase==='night')closeNight(false)}},1000);
+function titleScreenVisible(){const el=document.getElementById('titleScreen');return !!(el&&!el.hidden)}
+function openTitleDialog(title,html){
+ const dialog=$('#titleDialog'),heading=$('#titleDialogHeading'),body=$('#titleDialogBody');
+ if(!dialog||!heading||!body)return;heading.textContent=title;body.innerHTML=html;dialog.hidden=false;
+}
+function closeTitleDialog(){const dialog=$('#titleDialog');if(dialog)dialog.hidden=true}
+function closeTitleScreen(){closeTitleDialog();const screen=$('#titleScreen');if(screen)screen.hidden=true}
+function profileSummary(p){
+ let save=null;try{save=JSON.parse(localStorage.getItem(profileSaveKey(p.id))||'null')}catch(e){}
+ const date=save?.gameDate?new Date(save.gameDate+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}):'New game';
+ const turn=Number.isFinite(+save?.turnSerial)?'Turn '+Math.max(1,Math.floor(+save.turnSerial)):'No turns played';
+ return date+' · '+turn;
+}
+function renderProfileManager(message=''){
+ const profiles=readProfiles(),active=activeProfileId();
+ const rows=profiles.map(p=>'<div class="profile-row"><div><strong>'+escapeHtml(p.name)+'</strong><small>'+escapeHtml(profileSummary(p))+(p.id===active?' · ACTIVE':'')+'</small></div><button type="button" data-profile-load="'+escapeHtml(p.id)+'">Load</button><button class="profile-delete danger" type="button" data-profile-delete="'+escapeHtml(p.id)+'">Delete</button></div>').join('');
+ openTitleDialog('Load Profile',(message?'<p class="title-dialog-note">'+escapeHtml(message)+'</p>':'')+(rows||'<p>No profiles have been created yet.</p>')+'<div class="title-dialog-actions"><button id="profileManagerNew" type="button">New Profile</button></div>');
+ $('#titleDialogBody').querySelectorAll('[data-profile-load]').forEach(b=>b.onclick=()=>loadProfileById(b.dataset.profileLoad));
+ $('#titleDialogBody').querySelectorAll('[data-profile-delete]').forEach(b=>b.onclick=()=>deleteProfileById(b.dataset.profileDelete));
+ const add=$('#profileManagerNew');if(add)add.onclick=()=>showNewProfileForm();
+}
+function showNewProfileForm(){
+ const profiles=readProfiles();
+ if(profiles.length>=PROFILE_LIMIT){renderProfileManager('Three profiles already exist. Delete one before creating another.');return}
+ openTitleDialog('New Profile','<div class="title-profile-form"><label>Profile name<input id="newProfileName" maxlength="28" autocomplete="off" placeholder="Executive name or profile name"></label><div class="title-dialog-actions"><button id="createProfileCancel" type="button">Cancel</button><button id="createProfileConfirm" type="button">Create Profile</button></div></div>');
+ const input=$('#newProfileName');if(input)input.focus();
+ $('#createProfileCancel').onclick=closeTitleDialog;
+ $('#createProfileConfirm').onclick=()=>{const name=(input?.value||'').trim();if(!name){input?.focus();return}createProfile(name)};
+ if(input)input.addEventListener('keydown',e=>{if(e.key==='Enter')$('#createProfileConfirm').click()});
+}
+function createProfile(name){
+ const profiles=readProfiles();if(profiles.length>=PROFILE_LIMIT){renderProfileManager('Three profiles already exist. Delete one before creating another.');return}
+ const id='p'+Date.now().toString(36),p={id,name:name.slice(0,28),created:Date.now(),lastPlayed:Date.now()};
+ profiles.push(p);writeProfiles(profiles);setActiveProfileId(id);S=initial();save(true);selectedStockTicker=null;render();closeTitleScreen();
+}
+function loadProfileById(id){
+ const p=readProfiles().find(v=>v.id===id);if(!p)return;
+ setActiveProfileId(id);
+ const raw=localStorage.getItem(SAVE_KEY);
+ try{S=raw?migrate(JSON.parse(raw)):initial()}catch(e){S=initial()}
+ selectedStockTicker=null;save(true);render();closeTitleScreen();
+}
+function deleteProfileById(id){
+ const profiles=readProfiles(),p=profiles.find(v=>v.id===id);if(!p)return;
+ if(!confirm('Delete profile "'+p.name+'" and all of its saved Federal Electric progress?'))return;
+ localStorage.removeItem(profileSaveKey(id));
+ const next=profiles.filter(v=>v.id!==id);writeProfiles(next);
+ if(activeProfileId()===id){
+  if(next.length){setActiveProfileId(next[0].id);const raw=localStorage.getItem(SAVE_KEY);try{S=raw?migrate(JSON.parse(raw)):initial()}catch(e){S=initial()}render()}
+  else setActiveProfileId('');
+ }
+ renderProfileManager();
+}
+function continueFromTitle(){
+ const profiles=readProfiles(),active=activeProfileId();
+ if(active&&profiles.some(p=>p.id===active)){loadProfileById(active);return}
+ if(profiles.length){loadProfileById(profiles[0].id);return}
+ showNewProfileForm();
+}
+function initTitleScreen(){
+ const screen=$('#titleScreen');if(!screen)return;
+ screen.hidden=false;
+ $('#titleContinue').onclick=continueFromTitle;
+ $('#titleLoadProfile').onclick=()=>renderProfileManager();
+ $('#titleNewProfile').onclick=showNewProfileForm;
+ $('#titleSettings').onclick=()=>openTitleDialog('Settings','<p>Settings have not been defined yet. This drawer is reserved for them.</p><div class="title-dialog-actions"><button id="settingsClose" type="button">Close</button></div>');
+ $('#titleDialogClose').onclick=closeTitleDialog;
+ screen.addEventListener('click',e=>{if(e.target.id==='titleDialog')closeTitleDialog()});
+ document.addEventListener('click',e=>{if(e.target?.id==='settingsClose')closeTitleDialog()});
+}
+bootstrapProfiles();
+loadInitial();render();initTitleScreen();
+marketTimer=setInterval(()=>{if(!document.hidden&&!S.paused&&!titleScreenVisible()&&businessOpen()&&S.dayRemaining>0){moveMarket()}},MARKET_TICK_MS);
+clockTimer=setInterval(()=>{if(document.hidden||S.phase==='report'||S.paused||titleScreenVisible())return;if(businessOpen())advanceProduction(1,false);S.dayRemaining=Math.max(0,S.dayRemaining-1);$('#dayClock').textContent=clockText();if(S.dayRemaining<=0){if(S.phase==='day')closeBusinessDay(false);else if(S.phase==='night')closeNight(false)}},1000);
 autosaveTimer=setInterval(()=>save(true),5000);
 document.addEventListener('visibilitychange',()=>{if(document.hidden)save(true)});
 window.addEventListener('pagehide',()=>save(true));

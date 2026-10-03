@@ -212,3 +212,10 @@ Copper, glass and tungsten are consumed continuously as bulbs are actually produ
 Horse Racing, Dog Racing and Midget Car Racing now keep the oval track visible before races, during the live race animation, and after racing is complete. Race animations make multiple circuits rather than a single lap: horse heats use 2 laps, semifinals 3 and the Main Event 4; dog heats use 2 laps and the final 3; midget-car heats run 10 animated laps and the feature runs 20.
 
 Completed race cards now preserve the complete finishing order. If the player wagered, the selected horse, dog or car is highlighted and the card shows its exact finishing position, wager, payout and net.
+
+
+### Title screen and local executive profiles
+
+Federal Electric now opens on the approved 1930s executive-office title screen. The title artwork is used directly as the screen rather than recreated in HTML. Transparent interaction regions sit over the filing-cabinet drawers for **Continue**, **Load Profile**, **New Profile**, and **Settings**.
+
+The game supports up to **three local profiles**. Each profile has its own autosave. Existing browser progress is preserved by migrating the legacy save into **Profile 1** the first time the profile system runs. When all three slots are occupied, creating another profile requires deleting one of the existing profiles first.
