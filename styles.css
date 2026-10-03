@@ -359,6 +359,58 @@ body.elephant-easter-egg-open{overflow:hidden}
   max-width:none;max-height:none;
  }
 }
+
+/* Animated title-screen desk fan layer. The approved background image remains untouched. */
+.title-fan-motion{
+ position:absolute;
+ left:69.84%;
+ top:44.95%;
+ width:10.55%;
+ aspect-ratio:1;
+ border-radius:50%;
+ pointer-events:none;
+ overflow:hidden;
+ z-index:1;
+}
+.title-fan-motion::before{
+ content:"";
+ position:absolute;
+ inset:4%;
+ border-radius:50%;
+ background:rgba(24,18,12,.12);
+ backdrop-filter:blur(.45px);
+ -webkit-backdrop-filter:blur(.45px);
+}
+.title-fan-motion::after{
+ content:"";
+ position:absolute;
+ inset:8%;
+ border-radius:50%;
+ background:
+  conic-gradient(
+   from 8deg,
+   transparent 0deg 9deg,
+   rgba(105,70,38,.68) 10deg 41deg,
+   transparent 42deg 99deg,
+   rgba(105,70,38,.68) 100deg 131deg,
+   transparent 132deg 189deg,
+   rgba(105,70,38,.68) 190deg 221deg,
+   transparent 222deg 279deg,
+   rgba(105,70,38,.68) 280deg 311deg,
+   transparent 312deg 360deg
+  );
+ -webkit-mask:radial-gradient(circle,transparent 0 17%,#000 20% 76%,transparent 79%);
+ mask:radial-gradient(circle,transparent 0 17%,#000 20% 76%,transparent 79%);
+ filter:blur(.55px);
+ opacity:.58;
+ transform-origin:50% 50%;
+ animation:titleFanSpin .52s linear infinite;
+}
+@keyframes titleFanSpin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){
+ .title-fan-motion::after{animation:none;opacity:.32}
+}
+
 .title-dialog{
  position:absolute;inset:0;z-index:10;display:flex;align-items:center;justify-content:center;
  padding:20px;background:rgba(10,8,5,.74);
