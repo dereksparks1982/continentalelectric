@@ -727,6 +727,27 @@ function continueFromTitle(){
  if(profiles.length){loadProfileById(profiles[0].id);return}
  showNewProfileForm();
 }
+
+function updateTitleClock(){
+ const hour=document.getElementById('titleClockHour');
+ const minute=document.getElementById('titleClockMinute');
+ const second=document.getElementById('titleClockSecond');
+ if(!hour||!minute||!second)return;
+ const now=new Date();
+ const s=now.getSeconds();
+ const m=now.getMinutes()+s/60;
+ const h=(now.getHours()%12)+m/60;
+ hour.setAttribute('transform','rotate('+(h*30)+' 50 50)');
+ minute.setAttribute('transform','rotate('+(m*6)+' 50 50)');
+ second.setAttribute('transform','rotate('+(s*6)+' 50 50)');
+}
+let titleClockTimer=null;
+function startTitleClock(){
+ updateTitleClock();
+ if(titleClockTimer)clearInterval(titleClockTimer);
+ titleClockTimer=setInterval(updateTitleClock,250);
+}
+
 function initTitleScreen(){
  const screen=$('#titleScreen');if(!screen)return;
  screen.hidden=false;
