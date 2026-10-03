@@ -247,23 +247,54 @@ main{
 @media(max-width:650px){.campaign-end-overlay{padding:10px}.campaign-end-card{padding:15px}.campaign-end-grid{grid-template-columns:1fr}.campaign-end-actions{display:grid;grid-template-columns:1fr}.campaign-end-actions button{width:100%}}
 
 
-/* hidden seven-click Federal Electric emblem easter egg */
-.company-logo{cursor:pointer;user-select:none;-webkit-user-drag:none}
+/* confidential-stamp shock easter egg */
+header{position:relative}
+.header-mascots{
+  position:absolute;left:62%;top:50%;transform:translate(-50%,-50%);
+  width:300px;height:88px;display:flex;align-items:flex-end;justify-content:center;gap:10px;
+  color:#f7f3e8;opacity:.72;pointer-events:none;z-index:2;
+}
+.banner-animal{display:block;color:inherit}
+.banner-animal svg{display:block;width:100%;height:auto;fill:currentColor;overflow:visible}
+.banner-elephant{width:190px;height:auto;margin:0;padding:0;border:0;background:transparent;outline:0;pointer-events:none}
+.banner-elephant:hover{outline:0}
+.banner-elephant .banner-tusk{fill:#d9cfb7}
+.banner-donkey{width:100px}
+.confidential-stamp{cursor:default;user-select:none;-webkit-user-drag:none}
+
+body.shock-mode,body.shock-mode *{cursor:none!important}
+body.shock-mode #bannerElephant{pointer-events:auto}
+body.shock-mode #bannerElephant svg{filter:drop-shadow(0 0 3px rgba(255,221,75,.2))}
+.shock-rod-cursor{
+  position:fixed;left:0;top:0;width:116px;height:44px;z-index:999999;
+  pointer-events:none;display:none;transform:translate(-108px,-50%) rotate(-16deg);
+  transform-origin:100% 50%;
+}
+body.shock-mode .shock-rod-cursor{display:block}
+.shock-rod-shaft{position:absolute;left:7px;top:18px;width:91px;height:8px;background:#191919;border:2px solid #050505;border-radius:5px}
+.shock-rod-handle{position:absolute;left:0;top:12px;width:26px;height:20px;background:#252525;border:2px solid #050505;border-radius:4px}
+.shock-rod-tip{position:absolute;right:0;top:12px;width:19px;height:20px;border-radius:50%;background:#9aa0a2;border:3px solid #3d4244}
+.shock-rod-bolt{position:absolute;left:10px;top:12px;color:#ffd92f;font:bold 17px/18px Arial,sans-serif;transform:rotate(8deg)}
+#bannerElephant.is-shocked{animation:bannerElephantShock .08s linear 7;filter:drop-shadow(0 0 8px #ffd92f)}
+#bannerElephant.is-shocked::after{
+  content:"⚡";position:absolute;left:73%;top:26%;font:700 30px/1 Arial,sans-serif;color:#ffd92f;
+  text-shadow:-12px 8px 0 #ffd92f,12px -9px 0 #fff36b;animation:bannerSpark .12s steps(2) 5;
+}
+@keyframes bannerElephantShock{0%{transform:translate(0,0) rotate(0)}50%{transform:translate(3px,-2px) rotate(2deg)}100%{transform:translate(-3px,2px) rotate(-2deg)}}
+@keyframes bannerSpark{0%{opacity:.2;transform:scale(.8) rotate(-10deg)}100%{opacity:1;transform:scale(1.25) rotate(10deg)}}
+
 body.elephant-easter-egg-open{overflow:hidden}
 .elephant-easter-egg{
-  position:fixed;inset:0;z-index:1000000;
-  display:flex;align-items:center;justify-content:center;
-  background:#000;
+  position:fixed;inset:0;z-index:1000000;display:flex;align-items:center;justify-content:center;background:#000;
 }
 .elephant-easter-egg[hidden]{display:none}
-.elephant-easter-egg img{
-  display:block;width:100vw;height:100vh;object-fit:contain;
-  image-rendering:auto;
-}
+.elephant-easter-egg img{display:block;width:100vw;height:100vh;object-fit:contain;image-rendering:auto}
 .elephant-easter-egg-close{
-  position:absolute;top:14px;right:16px;z-index:2;
-  width:52px;height:52px;padding:0;border:2px solid #fff;border-radius:50%;
-  background:#111;color:#fff;font:700 34px/46px Arial,sans-serif;
-  text-align:center;cursor:pointer;box-shadow:0 2px 10px #000;
+  position:absolute;top:14px;right:16px;z-index:2;width:52px;height:52px;padding:0;border:2px solid #fff;border-radius:50%;
+  background:#111;color:#fff;font:700 34px/46px Arial,sans-serif;text-align:center;cursor:pointer;box-shadow:0 2px 10px #000;
 }
 .elephant-easter-egg-close:hover{outline:3px solid #fff;background:#8b1e2d}
+
+@media(max-width:1050px){.header-mascots{left:61%;width:230px}.banner-elephant{width:145px}.banner-donkey{width:75px}}
+@media(max-width:820px){.header-mascots{left:59%;width:150px}.banner-elephant{width:105px}.banner-donkey{display:none}}
+@media(max-width:700px){.header-mascots{left:57%;width:82px;height:62px}.banner-elephant{width:82px}}
