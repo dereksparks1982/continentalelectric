@@ -251,16 +251,23 @@ main{
 header{position:relative}
 .header-mascots{
   position:absolute;left:62%;top:50%;transform:translate(-50%,-50%);
-  width:300px;height:88px;display:flex;align-items:flex-end;justify-content:center;gap:10px;
-  color:#f7f3e8;opacity:.72;pointer-events:none;z-index:2;
+  width:min(44vw,520px);height:108px;display:flex;align-items:flex-end;justify-content:center;
+  pointer-events:none;z-index:2;
 }
-.banner-animal{display:block;color:inherit}
-.banner-animal svg{display:block;width:100%;height:auto;fill:currentColor;overflow:visible}
-.banner-elephant{width:190px;height:auto;margin:0;padding:0;border:0;background:transparent;outline:0;pointer-events:none}
-.banner-elephant:hover{outline:0}
-.banner-elephant .banner-tusk{fill:#d9cfb7}
-.banner-donkey{width:100px}
+.banner-animals-art{
+  display:block;width:auto;height:104px;max-width:100%;object-fit:contain;object-position:center bottom;
+  opacity:1;pointer-events:none;user-select:none;-webkit-user-drag:none;
+}
+.banner-elephant-hitbox{
+  position:absolute;left:0;bottom:0;width:57%;height:100%;margin:0;padding:0;border:0;
+  background:transparent;outline:0;pointer-events:none;z-index:3;
+}
+.banner-elephant-hitbox:hover{outline:0}
 .confidential-stamp{cursor:default;user-select:none;-webkit-user-drag:none}
+@media(max-width:900px){
+  .header-mascots{width:min(41vw,420px);height:94px}
+  .banner-animals-art{height:90px}
+}
 
 body.shock-mode,body.shock-mode *{cursor:none!important}
 body.shock-mode #bannerElephant{pointer-events:auto}
@@ -275,7 +282,7 @@ body.shock-mode .shock-rod-cursor{display:block}
 .shock-rod-handle{position:absolute;left:0;top:12px;width:26px;height:20px;background:#252525;border:2px solid #050505;border-radius:4px}
 .shock-rod-tip{position:absolute;right:0;top:12px;width:19px;height:20px;border-radius:50%;background:#9aa0a2;border:3px solid #3d4244}
 .shock-rod-bolt{position:absolute;left:10px;top:12px;color:#ffd92f;font:bold 17px/18px Arial,sans-serif;transform:rotate(8deg)}
-#bannerElephant.is-shocked{animation:bannerElephantShock .08s linear 7;filter:drop-shadow(0 0 8px #ffd92f)}
+#bannerElephant.is-shocked ~ .banner-animals-art{animation:bannerElephantShock .08s linear 7;filter:drop-shadow(0 0 8px #ffd92f)}
 #bannerElephant.is-shocked::after{
   content:"⚡";position:absolute;left:73%;top:26%;font:700 30px/1 Arial,sans-serif;color:#ffd92f;
   text-shadow:-12px 8px 0 #ffd92f,12px -9px 0 #fff36b;animation:bannerSpark .12s steps(2) 5;
