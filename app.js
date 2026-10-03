@@ -606,3 +606,48 @@ clockTimer=setInterval(()=>{if(document.hidden||S.phase==='report'||S.paused)ret
 autosaveTimer=setInterval(()=>save(true),5000);
 document.addEventListener('visibilitychange',()=>{if(document.hidden)save(true)});
 window.addEventListener('pagehide',()=>save(true));
+(()=>{
+ const logo=document.querySelector('.company-logo');
+ if(!logo)return;
+ const knocks=[];
+ let overlay=null;
+ const asset='assets/elephant-shock-easter-egg.gif?v=20261002-elephantegg1';
+
+ function closeEgg(){
+  if(!overlay)return;
+  overlay.hidden=true;
+  document.body.classList.remove('elephant-easter-egg-open');
+  const img=overlay.querySelector('img');
+  if(img)img.removeAttribute('src');
+ }
+
+ function openEgg(){
+  if(!overlay){
+   overlay=document.createElement('div');
+   overlay.className='elephant-easter-egg';
+   overlay.hidden=true;
+   overlay.setAttribute('role','dialog');
+   overlay.setAttribute('aria-modal','true');
+   overlay.setAttribute('aria-label','Federal Electric secret animation');
+   overlay.innerHTML='<img alt=""><button class="elephant-easter-egg-close" type="button" aria-label="Close">×</button>';
+   document.body.appendChild(overlay);
+   overlay.querySelector('.elephant-easter-egg-close').addEventListener('click',closeEgg);
+  }
+  const img=overlay.querySelector('img');
+  img.removeAttribute('src');
+  img.src=asset+'&play='+Date.now();
+  overlay.hidden=false;
+  document.body.classList.add('elephant-easter-egg-open');
+  overlay.querySelector('.elephant-easter-egg-close').focus();
+ }
+
+ logo.addEventListener('click',()=>{
+  const now=Date.now();
+  knocks.push(now);
+  while(knocks.length&&now-knocks[0]>5000)knocks.shift();
+  if(knocks.length>=7){
+   knocks.length=0;
+   openEgg();
+  }
+ });
+})();

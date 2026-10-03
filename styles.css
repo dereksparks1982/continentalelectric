@@ -246,3 +246,24 @@ main{
 .campaign-end-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:16px}
 @media(max-width:650px){.campaign-end-overlay{padding:10px}.campaign-end-card{padding:15px}.campaign-end-grid{grid-template-columns:1fr}.campaign-end-actions{display:grid;grid-template-columns:1fr}.campaign-end-actions button{width:100%}}
 
+
+/* hidden seven-click Federal Electric emblem easter egg */
+.company-logo{cursor:pointer;user-select:none;-webkit-user-drag:none}
+body.elephant-easter-egg-open{overflow:hidden}
+.elephant-easter-egg{
+  position:fixed;inset:0;z-index:1000000;
+  display:flex;align-items:center;justify-content:center;
+  background:#000;
+}
+.elephant-easter-egg[hidden]{display:none}
+.elephant-easter-egg img{
+  display:block;width:100vw;height:100vh;object-fit:contain;
+  image-rendering:auto;
+}
+.elephant-easter-egg-close{
+  position:absolute;top:14px;right:16px;z-index:2;
+  width:52px;height:52px;padding:0;border:2px solid #fff;border-radius:50%;
+  background:#111;color:#fff;font:700 34px/46px Arial,sans-serif;
+  text-align:center;cursor:pointer;box-shadow:0 2px 10px #000;
+}
+.elephant-easter-egg-close:hover{outline:3px solid #fff;background:#8b1e2d}
