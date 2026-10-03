@@ -629,13 +629,52 @@ function pokerButton(circle,stake){const limit=pokerLimit(circle),used=S.pokerPl
 $('#pokerWorking').onclick=()=>pokerButton('working',25);$('#pokerMiddle').onclick=()=>pokerButton('middle',100);$('#pokerElite').onclick=()=>pokerButton('elite',500);$('#simPokerWorking').onclick=()=>simulatePoker('working',25);$('#simPokerMiddle').onclick=()=>simulatePoker('middle',100);$('#simPokerElite').onclick=()=>simulatePoker('elite',500);
 document.querySelectorAll('nav button[data-tab],.section-tabs button[data-tab]').forEach(b=>b.onclick=()=>{if(S.paused)return;showTab(b.dataset.tab)});
 const sectors=[...new Set(stockSeed.map(x=>x[2]))].sort();$('#sectorFilter').innerHTML='<option value="All">All sectors</option>'+sectors.map(s=>'<option>'+s+'</option>').join('');$('#stockSearch').oninput=renderStocks;$('#sectorFilter').onchange=renderStocks;
+const TITLE_MUSIC_URL='https://upload.wikimedia.org/wikipedia/commons/3/3d/Scott_Joplin%27s_%22Sunflower_Slow_Drag%22_performed_by_the_United_States_Marine_Band.oga';
+const TITLE_MUSIC_VOLUME=.38;
+let titleMusic=null,titleMusicFadeTimer=null;
 function titleScreenVisible(){const el=document.getElementById('titleScreen');return !!(el&&!el.hidden)}
+function ensureTitleMusic(){
+ if(titleMusic)return titleMusic;
+ titleMusic=new Audio(TITLE_MUSIC_URL);
+ titleMusic.loop=true;
+ titleMusic.preload='auto';
+ titleMusic.volume=TITLE_MUSIC_VOLUME;
+ return titleMusic;
+}
+function startTitleMusic(){
+ if(!titleScreenVisible())return;
+ const audio=ensureTitleMusic();
+ if(titleMusicFadeTimer){clearInterval(titleMusicFadeTimer);titleMusicFadeTimer=null}
+ audio.volume=TITLE_MUSIC_VOLUME;
+ const p=audio.play();
+ if(p&&typeof p.catch==='function')p.catch(()=>{});
+}
+function stopTitleMusic(fade=true){
+ if(!titleMusic)return;
+ if(titleMusicFadeTimer){clearInterval(titleMusicFadeTimer);titleMusicFadeTimer=null}
+ const audio=titleMusic;
+ const finish=()=>{
+  audio.pause();
+  try{audio.currentTime=0}catch(e){}
+  audio.volume=TITLE_MUSIC_VOLUME;
+ };
+ if(!fade||audio.paused){finish();return}
+ const start=Math.max(0,audio.volume),steps=12;
+ let step=0;
+ titleMusicFadeTimer=setInterval(()=>{
+  step++;
+  audio.volume=Math.max(0,start*(1-step/steps));
+  if(step>=steps){
+   clearInterval(titleMusicFadeTimer);titleMusicFadeTimer=null;finish();
+  }
+ },50);
+}
 function openTitleDialog(title,html){
  const dialog=$('#titleDialog'),heading=$('#titleDialogHeading'),body=$('#titleDialogBody');
  if(!dialog||!heading||!body)return;heading.textContent=title;body.innerHTML=html;dialog.hidden=false;
 }
 function closeTitleDialog(){const dialog=$('#titleDialog');if(dialog)dialog.hidden=true}
-function closeTitleScreen(){closeTitleDialog();const screen=$('#titleScreen');if(screen)screen.hidden=true}
+function closeTitleScreen(){closeTitleDialog();stopTitleMusic(true);const screen=$('#titleScreen');if(screen)screen.hidden=true}
 function profileSummary(p){
  let save=null;try{save=JSON.parse(localStorage.getItem(profileSaveKey(p.id))||'null')}catch(e){}
  const date=save?.gameDate?new Date(save.gameDate+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}):'New game';
@@ -691,6 +730,9 @@ function continueFromTitle(){
 function initTitleScreen(){
  const screen=$('#titleScreen');if(!screen)return;
  screen.hidden=false;
+ startTitleMusic();
+ screen.addEventListener('pointerdown',startTitleMusic,{once:true});
+ document.addEventListener('keydown',startTitleMusic,{once:true});
  $('#titleContinue').onclick=continueFromTitle;
  $('#titleLoadProfile').onclick=()=>renderProfileManager();
  $('#titleNewProfile').onclick=showNewProfileForm;
