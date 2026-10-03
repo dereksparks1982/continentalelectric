@@ -364,7 +364,7 @@ body.elephant-easter-egg-open{overflow:hidden}
 .title-fan-motion{
  position:absolute;
  left:69.70%;
- top:45.93%;
+ top:46.10%;
  width:11.25%;
  aspect-ratio:1;
  border-radius:50%;
@@ -415,7 +415,7 @@ body.elephant-easter-egg-open{overflow:hidden}
 /* Live title-screen clock face. Covers only the printed face; approved clock casing stays untouched. */
 .title-clock-live{
  position:absolute;
- left:78.43%;
+ left:78.62%;
  top:70.05%;
  width:5.86%;
  aspect-ratio:1;
