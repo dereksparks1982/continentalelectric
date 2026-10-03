@@ -365,3 +365,28 @@ body.elephant-easter-egg-open{overflow:hidden}
  .profile-row{grid-template-columns:1fr auto}
  .profile-row .profile-delete{grid-column:2}
 }
+
+
+/* iPhone/mobile masthead fit — 2026-10-03 */
+@media (max-width:900px) and (hover:none) and (pointer:coarse){
+  header{
+    min-height:178px;
+    padding:28px 16px 22px;
+  }
+  .header-mascots{
+    left:auto;
+    right:10px;
+    top:22px;
+    bottom:auto;
+    width:44vw;
+    max-width:190px;
+    transform:none;
+  }
+  .confidential-stamp{
+    position:absolute;
+    right:12px;
+    bottom:16px;
+    width:clamp(88px,25vw,104px);
+    margin:0;
+  }
+}
