@@ -250,23 +250,22 @@ main{
 /* confidential-stamp shock easter egg */
 header{position:relative}
 .header-mascots{
-  position:absolute;left:62%;top:50%;transform:translate(-50%,-50%);
-  width:min(44vw,520px);height:108px;display:flex;align-items:flex-end;justify-content:center;
+  position:absolute;left:54%;top:50%;transform:translate(-50%,-50%);
+  width:56vw;height:auto;display:flex;align-items:flex-end;justify-content:center;
   pointer-events:none;z-index:2;
 }
 .banner-animals-art{
-  display:block;width:auto;height:104px;max-width:100%;object-fit:contain;object-position:center bottom;
+  display:block;width:100%;height:auto;max-width:none;object-fit:contain;object-position:center bottom;
   opacity:1;pointer-events:none;user-select:none;-webkit-user-drag:none;
 }
 .banner-elephant-hitbox{
-  position:absolute;left:0;bottom:0;width:57%;height:100%;margin:0;padding:0;border:0;
+  position:absolute;left:26%;bottom:0;width:34%;height:100%;margin:0;padding:0;border:0;
   background:transparent;outline:0;pointer-events:none;z-index:3;
 }
 .banner-elephant-hitbox:hover{outline:0}
 .confidential-stamp{cursor:default;user-select:none;-webkit-user-drag:none}
 @media(max-width:900px){
-  .header-mascots{width:min(41vw,420px);height:94px}
-  .banner-animals-art{height:90px}
+  .header-mascots{left:56%;width:52vw}
 }
 
 body.shock-mode,body.shock-mode *{cursor:none!important}
@@ -302,6 +301,6 @@ body.elephant-easter-egg-open{overflow:hidden}
 }
 .elephant-easter-egg-close:hover{outline:3px solid #fff;background:#8b1e2d}
 
-@media(max-width:1050px){.header-mascots{left:61%;width:230px}.banner-elephant{width:145px}.banner-donkey{width:75px}}
-@media(max-width:820px){.header-mascots{left:59%;width:150px}.banner-elephant{width:105px}.banner-donkey{display:none}}
-@media(max-width:700px){.header-mascots{left:57%;width:82px;height:62px}.banner-elephant{width:82px}}
+@media(max-width:1050px){.header-mascots{left:56%;width:52vw}}
+@media(max-width:820px){.header-mascots{left:59%;width:46vw}}
+@media(max-width:700px){.header-mascots{left:61%;width:39vw}}
