@@ -322,6 +322,22 @@ body.elephant-easter-egg-open{overflow:hidden}
 .title-screen-art{
  display:block;width:100%;height:100%;object-fit:fill;
  user-select:none;-webkit-user-drag:none;
+ opacity:0;transition:opacity .18s ease;
+}
+.title-screen-art.is-ready{opacity:1}
+.title-game-logo{
+ position:absolute;
+ left:50%;top:6.2%;
+ width:27%;
+ height:auto;
+ transform:translateX(-50%);
+ z-index:3;
+ pointer-events:none;
+ user-select:none;-webkit-user-drag:none;
+ filter:drop-shadow(0 4px 5px rgba(0,0,0,.4));
+}
+@media (orientation:portrait) and (max-width:900px){
+ .title-game-logo{width:31.5%;top:6.0%}
 }
 .title-hotspot{
  position:absolute;left:42.4%;width:15%;height:7.5%;

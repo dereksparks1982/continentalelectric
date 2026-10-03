@@ -729,6 +729,12 @@ function continueFromTitle(){
 }
 
 const TITLE_CLOCK_TIME_ZONE='America/New_York';
+const TITLE_DC_LAT=38.9072;
+const TITLE_DC_LON=-77.0369;
+const TITLE_OFFICE_IMAGES={
+ day:'assets/federal-electric-office-day.webp?v=20261003-dc1',
+ night:'assets/federal-electric-office-night.webp?v=20261003-dc1'
+};
 const titleClockFormatter=new Intl.DateTimeFormat('en-US',{
  timeZone:TITLE_CLOCK_TIME_ZONE,
  hourCycle:'h23',
@@ -736,6 +742,72 @@ const titleClockFormatter=new Intl.DateTimeFormat('en-US',{
  minute:'2-digit',
  second:'2-digit'
 });
+const titleEnvironmentFormatter=new Intl.DateTimeFormat('en-US',{
+ timeZone:TITLE_CLOCK_TIME_ZONE,
+ hourCycle:'h23',
+ year:'numeric',
+ month:'2-digit',
+ day:'2-digit',
+ hour:'2-digit',
+ minute:'2-digit',
+ second:'2-digit'
+});
+function titleZoneParts(date){
+ const out={};
+ titleEnvironmentFormatter.formatToParts(date).forEach(p=>{
+  if(['year','month','day','hour','minute','second'].includes(p.type))out[p.type]=Number(p.value);
+ });
+ return out;
+}
+function titleZoneOffsetHours(date){
+ const p=titleZoneParts(date);
+ const represented=Date.UTC(p.year,p.month-1,p.day,p.hour,p.minute,p.second);
+ return (represented-date.getTime())/3600000;
+}
+function titleDayOfYear(year,month,day){
+ return Math.floor((Date.UTC(year,month-1,day)-Date.UTC(year,0,0))/86400000);
+}
+function titleDCSunTimes(date){
+ const p=titleZoneParts(date);
+ const n=titleDayOfYear(p.year,p.month,p.day);
+ const gamma=2*Math.PI/365*(n-1);
+ const eq=229.18*(0.000075+0.001868*Math.cos(gamma)-0.032077*Math.sin(gamma)-0.014615*Math.cos(2*gamma)-0.040849*Math.sin(2*gamma));
+ const decl=0.006918-0.399912*Math.cos(gamma)+0.070257*Math.sin(gamma)-0.006758*Math.cos(2*gamma)+0.000907*Math.sin(2*gamma)-0.002697*Math.cos(3*gamma)+0.00148*Math.sin(3*gamma);
+ const lat=TITLE_DC_LAT*Math.PI/180;
+ const zenith=90.833*Math.PI/180;
+ const cosHour=(Math.cos(zenith)/(Math.cos(lat)*Math.cos(decl)))-Math.tan(lat)*Math.tan(decl);
+ const hourAngle=Math.acos(Math.max(-1,Math.min(1,cosHour)))*180/Math.PI;
+ const offset=titleZoneOffsetHours(date);
+ const solarNoon=720-4*TITLE_DC_LON-eq+offset*60;
+ return {sunrise:solarNoon-hourAngle*4,sunset:solarNoon+hourAngle*4};
+}
+function updateTitleEnvironment(){
+ const bg=document.getElementById('titleOfficeBackground');
+ if(!bg)return;
+ const now=new Date();
+ const p=titleZoneParts(now);
+ const sun=titleDCSunTimes(now);
+ const localMinutes=p.hour*60+p.minute+p.second/60;
+ const mode=localMinutes>=sun.sunrise&&localMinutes<sun.sunset?'day':'night';
+ const src=TITLE_OFFICE_IMAGES[mode];
+ if(bg.dataset.mode!==mode){
+  bg.classList.remove('is-ready');
+  bg.dataset.mode=mode;
+  bg.onload=()=>bg.classList.add('is-ready');
+  bg.src=src;
+  bg.alt=mode==='day'?'Washington, D.C. executive office by day':'Washington, D.C. executive office at night';
+  if(bg.complete)bg.classList.add('is-ready');
+ }else if(bg.complete){
+  bg.classList.add('is-ready');
+ }
+}
+let titleEnvironmentTimer=null;
+function startTitleEnvironment(){
+ Object.values(TITLE_OFFICE_IMAGES).forEach(src=>{const img=new Image();img.src=src});
+ updateTitleEnvironment();
+ if(titleEnvironmentTimer)clearInterval(titleEnvironmentTimer);
+ titleEnvironmentTimer=setInterval(updateTitleEnvironment,30000);
+}
 function updateTitleClock(){
  const hour=document.getElementById('titleClockHour');
  const minute=document.getElementById('titleClockMinute');
@@ -763,6 +835,7 @@ function startTitleClock(){
 function initTitleScreen(){
  const screen=$('#titleScreen');if(!screen)return;
  screen.hidden=false;
+ startTitleEnvironment();
  startTitleClock();
  startTitleMusic();
  screen.addEventListener('pointerdown',startTitleMusic,{once:true});
