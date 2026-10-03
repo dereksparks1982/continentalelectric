@@ -363,9 +363,9 @@ body.elephant-easter-egg-open{overflow:hidden}
 /* Animated title-screen desk fan layer. The approved background image remains untouched. */
 .title-fan-motion{
  position:absolute;
- left:69.84%;
- top:44.95%;
- width:10.55%;
+ left:69.08%;
+ top:45.93%;
+ width:11.25%;
  aspect-ratio:1;
  border-radius:50%;
  pointer-events:none;
