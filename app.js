@@ -733,7 +733,7 @@ const TITLE_DC_LAT=38.9072;
 const TITLE_DC_LON=-77.0369;
 const TITLE_OFFICE_IMAGES={
  day:'assets/federal-electric-office-day.webp?v=20261003-dc1',
- night:'assets/federal-electric-office-night.webp?v=20261004-approved2'
+ night:'assets/federal-electric-office-night.png?v=20261004-approved3'
 };
 const titleClockFormatter=new Intl.DateTimeFormat('en-US',{
  timeZone:TITLE_CLOCK_TIME_ZONE,
